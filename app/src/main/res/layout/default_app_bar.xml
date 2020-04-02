@@ -21,7 +21,9 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:hint="Title"
-            android:layout_centerInParent="true"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:paddingHorizontal="@dimen/horizontal_default_padding"
             android:textSize="@dimen/head_textsize"
             android:textColor="@color/fpg_gray">
         </TextView>
