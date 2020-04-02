@@ -3,6 +3,7 @@ package com.example.fpgins.Login;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -16,7 +17,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.fpgins.BottomNavigation.BottomNavigationActivity;
+import com.example.fpgins.BottomNavigation.ClientDashboard.ClaimsOptionFragment;
 import com.example.fpgins.BottomNavigation.FPGAssist.HelpActivity;
+import com.example.fpgins.BottomSheetDialog.BottomSheetMaterialDialog;
 import com.example.fpgins.Login.Session.UserSessionManager;
 import com.example.fpgins.R;
 
@@ -91,8 +94,33 @@ public class SplashScreen extends Activity{
         mSignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(SplashScreen.this, Registration.class);
-                startActivity(intent);
+//                Intent intent = new Intent(SplashScreen.this, Registration.class);
+//                startActivity(intent);
+
+                BottomSheetMaterialDialog bottomSheetMaterialDialog = new BottomSheetMaterialDialog.Builder(SplashScreen.this)
+                        .setTitle(getString(R.string.choose_account_type))
+                        .setMessage(getString(R.string.detail_choose))
+                        .setCancelable(false)
+                        .setPositiveButton(getString(R.string.agent) ,new BottomSheetMaterialDialog.OnClickListener(){
+
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int which) {
+                                Intent intent = new Intent(SplashScreen.this, Registration.class);
+                                startActivity(intent);
+                                dialogInterface.dismiss();
+                            }
+                        })
+                        .setNegativeButton(getString(R.string.client), new BottomSheetMaterialDialog.OnClickListener(){
+
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int which) {
+                                Intent intent = new Intent(SplashScreen.this, Registration.class);
+                                startActivity(intent);
+                                dialogInterface.dismiss();
+                            }
+                        })
+                        .build();
+                bottomSheetMaterialDialog.show();
             }
         });
 

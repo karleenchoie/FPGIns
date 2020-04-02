@@ -32,6 +32,10 @@
     <string name="password_error">This password is too short</string>
     <string name="email_empty">This field is required</string>
     <string name="email_error">This email is not valid</string>
+    <string name="client">Client</string>
+    <string name="agent">Agent</string>
+    <string name="choose_account_type">Choose Account Type</string>
+    <string name="detail_choose">You need to choose from the two options</string>
 
 
     //Main Menu
