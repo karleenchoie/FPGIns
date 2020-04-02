@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingVertical="@dimen/page_default_margin_horizontal"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:paddingHorizontal="@dimen/horizontal_default_padding"
+    android:stretchColumns="1">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:stretchColumns="1">
+
+                <TableRow
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/name"
+                        android:background="@drawable/cell_border"
+                        android:maxLines="1"
+                        android:padding="@dimen/page_default_margin_horizontal"
+                        android:textAllCaps="true"
+                        android:textColor="@color/fpg_gray"
+                        android:gravity="left|center_vertical"
+                        android:layout_weight=".5" />
+
+                    <TextView
+                        android:id="@+id/claimName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="JUAN DELA CRUZ"
+                        android:background="@drawable/cell_border"
+                        android:padding="@dimen/page_default_margin_horizontal"
+                        android:textColor="@color/fpg_gray"
+                        android:textStyle="bold"
+                        android:layout_weight="1.5"
+                        android:gravity="left"/>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:gravity="center_horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/form_status"
+                        android:maxLines="1"
+                        android:padding="@dimen/page_default_margin_horizontal"
+                        android:textAllCaps="true"
+                        android:textColor="@color/fpg_gray"
+                        android:gravity="left|center_vertical"
+                        android:layout_weight=".5" />
+
+                    <TextView
+                        android:id="@+id/claimStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ON PROCESS"
+                        android:padding="@dimen/page_default_margin_horizontal"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:layout_weight="1.5"
+                        android:maxLines="1"
+                        android:gravity="right"/>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/date"
+                        android:background="@drawable/cell_border"
+                        android:maxLines="1"
+                        android:padding="@dimen/page_default_margin_horizontal"
+                        android:textAllCaps="true"
+                        android:textColor="@color/fpg_gray"
+                        android:gravity="left|center_vertical"
+                        android:layout_weight=".5" />
+
+                    <TextView
+                        android:id="@+id/claimDateFiled"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2/24/2020"
+                        android:background="@drawable/cell_border"
+                        android:padding="@dimen/page_default_margin_horizontal"
+                        android:textColor="@color/fpg_gray"
+                        android:textStyle="bold"
+                        android:layout_weight="1.5"
+                        android:maxLines="1"
+                        android:gravity="left"/>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/policy_no_text"
+                        android:background="@drawable/cell_border"
+                        android:maxLines="1"
+                        android:padding="@dimen/page_default_margin_horizontal"
+                        android:textAllCaps="true"
+                        android:textColor="@color/fpg_gray"
+                        android:gravity="left|center_vertical"
+                        android:layout_weight=".5" />
+
+                    <TextView
+                        android:id="@+id/claimPolicyNumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/cell_border"
+                        android:text="1234567890"
+                        android:padding="@dimen/page_default_margin_horizontal"
+                        android:textColor="@color/fpg_gray"
+                        android:textStyle="bold"
+                        android:layout_weight="1.5"
+                        android:maxLines="1"
+                        android:gravity="left"/>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/claim_no_text"
+                        android:background="@drawable/cell_border"
+                        android:maxLines="1"
+                        android:padding="@dimen/page_default_margin_horizontal"
+                        android:textAllCaps="true"
+                        android:textColor="@color/fpg_gray"
+                        android:gravity="left|center_vertical"
+                        android:layout_weight=".5" />
+
+                    <TextView
+                        android:id="@+id/claimNumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1234567890"
+                        android:background="@drawable/cell_border"
+                        android:padding="@dimen/page_default_margin_horizontal"
+                        android:textColor="@color/fpg_gray"
+                        android:textStyle="bold"
+                        android:layout_weight="1.5"
+                        android:maxLines="1"
+                        android:gravity="left"/>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/plate_no"
+                        android:background="@drawable/cell_border"
+                        android:maxLines="1"
+                        android:padding="@dimen/page_default_margin_horizontal"
+                        android:textAllCaps="true"
+                        android:textColor="@color/fpg_gray"
+                        android:gravity="left|center_vertical"
+                        android:layout_weight=".5" />
+
+                    <TextView
+                        android:id="@+id/claimPlateNumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="XYZ 1234"
+                        android:background="@drawable/cell_border"
+                        android:padding="@dimen/page_default_margin_horizontal"
+                        android:textColor="@color/fpg_gray"
+                        android:textStyle="bold"
+                        android:layout_weight="1.5"
+                        android:maxLines="1"
+                        android:gravity="left"/>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/conduction_no"
+                        android:maxLines="1"
+                        android:background="@drawable/cell_border"
+                        android:padding="@dimen/page_default_margin_horizontal"
+                        android:textAllCaps="true"
+                        android:textColor="@color/fpg_gray"
+                        android:gravity="left|center_vertical"
+                        android:layout_weight=".5" />
+
+                    <TextView
+                        android:id="@+id/claimConductionNumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="XYZ 1234"
+                        android:background="@drawable/cell_border"
+                        android:padding="@dimen/page_default_margin_horizontal"
+                        android:textColor="@color/fpg_gray"
+                        android:textStyle="bold"
+                        android:layout_weight="1.5"
+                        android:maxLines="1"
+                        android:gravity="left"/>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/location"
+                        android:padding="@dimen/page_default_margin_horizontal"
+                        android:background="@drawable/cell_border"
+                        android:textAllCaps="true"
+                        android:textColor="@color/fpg_gray"
+                        android:gravity="left|center_vertical"
+                        android:layout_weight=".5" />
+
+                    <TextView
+                        android:id="@+id/claimLocation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="XYZ 1234"
+                        android:background="@drawable/cell_border"
+                        android:padding="@dimen/page_default_margin_horizontal"
+                        android:textColor="@color/fpg_gray"
+                        android:textStyle="bold"
+                        android:layout_weight="1.5"
+                        android:gravity="left"/>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/remarks"
+                        android:maxLines="1"
+                        android:padding="@dimen/page_default_margin_horizontal"
+                        android:background="@drawable/cell_border"
+                        android:textAllCaps="true"
+                        android:textColor="@color/fpg_gray"
+                        android:gravity="left|center_vertical"
+                        android:layout_weight=".5" />
+
+                    <TextView
+                        android:id="@+id/claimRemarks"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="XYZ 1234"
+                        android:padding="@dimen/page_default_margin_horizontal"
+                        android:background="@drawable/cell_border"
+                        android:textColor="@color/fpg_gray"
+                        android:textStyle="bold"
+                        android:layout_weight="1.5"
+                        android:maxLines="1"
+                        android:gravity="left"/>
+                </TableRow>
+
+            </TableLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="15dp"
+                android:layout_marginTop="@dimen/edittext_spacing"
+                android:layout_marginBottom="3dp"
+                android:orientation="vertical">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/imageListView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:listitem="@layout/image_file"
+                    app:fastScrollEnabled="true"
+                    android:scrollbars="none"
+                    android:orientation="horizontal"
+                    app:fastScrollHorizontalThumbDrawable="@drawable/thumb_scrolling"
+                    app:fastScrollHorizontalTrackDrawable="@drawable/line_scrolling"
+                    app:fastScrollVerticalThumbDrawable="@drawable/thumb_scrolling"
+                    app:fastScrollVerticalTrackDrawable="@drawable/line_scrolling"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+
+
+
+</LinearLayout>

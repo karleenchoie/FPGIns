@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="200dp"
+    android:padding="10dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:layout_marginBottom="10dp">
+
+    <com.example.fpgins.RoundedCornerImageView
+        android:id="@+id/imageUploaded"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/default_image" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="middle"
+        android:scrollHorizontally="true"
+        android:singleLine="true"
+        android:text="Title"
+        android:textSize="@dimen/edittext_textsize"
+        android:textColor="@color/fpg_gray"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/tvDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="3"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:text="Description"
+        android:textColor="@color/fpg_gray"
+        android:textStyle="normal"
+        android:textSize="@dimen/textview_error_textsize"/>
+
+</LinearLayout>

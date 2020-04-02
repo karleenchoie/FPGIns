@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parentRelative"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:fitsSystemWindows="true"
+    android:layout_height="match_parent">
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh_layout"
+        android:layout_width="match_parent"
+        android:fitsSystemWindows="true"
+        android:layout_alignParentTop="true"
+        android:layout_above="@id/linear_comment"
+        android:layout_height="wrap_content">
+
+        <ScrollView
+            android:id="@+id/sv_Message"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_Messaging"
+                tools:listitem="@layout/item_message_receive"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </androidx.recyclerview.widget.RecyclerView>
+
+        </ScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_comment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="5dp"
+        android:paddingHorizontal="@dimen/horizontal_default_padding"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:paddingVertical="@dimen/page_default_margin_horizontal"
+        android:weightSum="2">
+
+        <EditText
+            android:id="@+id/edt_message"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.8"
+            android:maxLines="7"
+            android:background="@drawable/edittext_background"
+            android:hint="Enter message"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="10dp"
+            android:paddingLeft="16sp"
+            android:paddingRight="16sp"
+            android:textSize="@dimen/edittext_textsize"></EditText>
+
+        <ImageView
+            android:id="@+id/img_send"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".2"
+            android:layout_gravity="center_vertical"
+            android:paddingVertical="@dimen/page_default_margin_horizontal"
+            android:src="@drawable/ic_menu_send" />
+
+    </LinearLayout>
+
+</RelativeLayout>

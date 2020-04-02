@@ -1,0 +1,117 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!--Login Form Size-->
+    <dimen name="login_form_size">380dp</dimen>
+    <dimen name="page_default_margin_horizontal">10dp</dimen>
+
+    <!--Text Sizes-->
+    <dimen name="edittext_textsize">14sp</dimen>
+    <dimen name="button_textsize">14sp</dimen>
+    <dimen name="textview_error_textsize">12sp</dimen>
+    <dimen name="textview_dashboard_label">11sp</dimen>
+    <dimen name="checkbox_textsize">14dp</dimen>
+    <dimen name="head_dashboard">25dp</dimen>
+    <dimen name="setting_head_text_size">30dp</dimen>
+    <dimen name="head_title_textsize">15sp</dimen>
+    <dimen name="setting_title">14sp</dimen>
+    <dimen name="setting_clickable">17sp</dimen>
+
+    <dimen name="textsize_eleven">11dp</dimen>
+    <dimen name="textsize_twelve">12dp</dimen>
+    <dimen name="textsize_thirteen">13dp</dimen>
+    <dimen name="textsize_fourteen">14dp</dimen>
+    <dimen name="textsize_fifteen">15dp</dimen>
+    <dimen name="textsize_sixteen">16dp</dimen>
+    <dimen name="textsize_seventeen">17dp</dimen>
+    <dimen name="textsize_eightteen">18dp</dimen>
+    <dimen name="textsize_nineteen">19dp</dimen>
+    <dimen name="horizontal_default_padding">20dp</dimen>
+    <dimen name="vertical_default_padding">10dp</dimen>
+    <dimen name="paragraph_default_padding">4dp</dimen>
+    <dimen name="head_textsize">18dp</dimen>
+    <dimen name="listing_division">2dp</dimen>
+
+
+    <!--height and width-->
+    <dimen name="edittext_height">50dp</dimen>
+    <dimen name="button_width">155dp</dimen>
+    <dimen name="button_height">50dp</dimen>
+
+    <!--spacing-->
+    <dimen name="edittext_spacing">10dp</dimen>
+    <dimen name="password_requirements_spacing">20dp</dimen>
+    <dimen name="button_below_spacing">40dp</dimen>
+
+    <!--floating-->
+    <dimen name="design_fab_image_size" tools:override="true">56dp</dimen>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">20dp</dimen>
+    <dimen name="activity_vertical_margin">20dp</dimen>
+    <dimen name="nav_header_vertical_spacing">8dp</dimen>
+    <dimen name="nav_header_height">185dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+
+    <dimen name="top_title_text_size">25dp</dimen>
+    <dimen name="sub_top_title_text_size">20dp</dimen>
+    <dimen name="sub_title_text_size">20dp</dimen>
+    <dimen name="sub_list_text_size">16dp</dimen>
+
+    <dimen name="spacing_of_editext">5dp</dimen>
+
+
+    <dimen name="topTitleTextSize">25dp</dimen>
+    <dimen name="subTitleTextSize">20dp</dimen>
+    <dimen name="subListTextSize">16dp</dimen>
+
+    <dimen name="iconSize">45dp</dimen>
+
+    <dimen name="design_bottom_navigation_text_size" tools:override="true">12sp</dimen>
+    <dimen name="design_bottom_navigation_active_text_size" tools:override="true">12sp</dimen>
+
+    <!--    &lt;!&ndash; FINEST WEBVIEW &ndash;&gt;-->
+    <!--    <dimen name="defaultDividerHeight">4sp</dimen>-->
+    <!--    <dimen name="defaultProgressBarHeight">1sp</dimen>-->
+    <!--    <dimen name="defaultTitleSize">14sp</dimen>-->
+    <!--    <dimen name="defaultMaterialDialogPaddingSize">14sp</dimen>-->
+    <!--    <dimen name="defaultUrlSize">10sp</dimen>-->
+    <!--    <dimen name="defaultMenuDropShadowCornerRadius">2sp</dimen>-->
+    <!--    <dimen name="defaultMenuDropShadowSize">4sp</dimen>-->
+    <!--    <dimen name="defaultMenuTextSize">16sp</dimen>-->
+    <!--    <dimen name="defaultMenuTextPaddingLeft">16sp</dimen>-->
+    <!--    <dimen name="defaultMenuTextPaddingRight">32sp</dimen>-->
+    <!--    <dimen name="defaultMenuLayoutMargin">4sp</dimen>-->
+    <!--    <dimen name="defaultMenuCornerRadius">2sp</dimen>-->
+
+    <!-- PAGINATION -->
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_margin">20dp</dimen>
+
+    <dimen name="activity_margin_quarter">6dp</dimen>
+    <dimen name="activity_margin_content">30dp</dimen>
+    <dimen name="activity_margin_half">10dp</dimen>
+
+    <dimen name="imageViewGradientMarginTop">38sp</dimen>
+
+    <dimen name="paddingItemDecorationDefault">10dp</dimen>
+    <dimen name="paddingItemDecorationEdge">30dp</dimen>
+
+    <dimen name="poster_thumb_width">90dp</dimen>
+    <dimen name="poster_thumb_height">120dp</dimen>
+
+
+    <dimen name="poster_hero_height">192dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+    <dimen name="app_bar_height">180dp</dimen>
+
+    //BottomSheetDialog
+    <dimen name="radiusTop">16dp</dimen>
+    <dimen name="paddingTop">16dp</dimen>
+
+    <dimen name="text_title_size">16dp</dimen>
+    <dimen name="text_message_size">14dp</dimen>
+    <dimen name="appbar_padding">16dp</dimen>
+    <dimen name="appbar_padding_top">8dp</dimen>
+
+
+</resources>

@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingVertical="@dimen/page_default_margin_horizontal">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/linear_header"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingVertical="@dimen/vertical_default_padding"
+                    android:paddingHorizontal="@dimen/horizontal_default_padding"
+                    android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:maxLines="1"
+                        android:layout_marginTop="@dimen/listing_division"
+                        android:text="TOTAL POLICY ISSUED"
+                        android:textColor="@color/fpg_gray"
+                        android:textSize="@dimen/setting_title" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:maxLines="1"
+                        android:layout_marginTop="@dimen/listing_division"
+                        android:text="1045"
+                        android:textColor="@color/fpg_gray"
+                        android:textSize="@dimen/setting_title" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linear_policyMotor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:clickable="true"
+                    android:paddingVertical="@dimen/vertical_default_padding"
+                    android:paddingHorizontal="@dimen/horizontal_default_padding"
+                    android:foreground="?android:attr/selectableItemBackground">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:maxLines="1"
+                        android:paddingLeft="@dimen/horizontal_default_padding"
+                        android:layout_marginTop="@dimen/listing_division"
+                        android:text="@string/motor"
+                        android:textColor="@color/fpg_gray"
+                        android:textSize="@dimen/setting_title" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:maxLines="1"
+                        android:layout_marginTop="@dimen/listing_division"
+                        android:text="234"
+                        android:textColor="@color/fpg_gray"
+                        android:textSize="@dimen/setting_title" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linear_policyPa"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:clickable="true"
+                    android:paddingVertical="@dimen/vertical_default_padding"
+                    android:paddingHorizontal="@dimen/horizontal_default_padding"
+                    android:foreground="?android:attr/selectableItemBackground">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:maxLines="1"
+                        android:paddingLeft="@dimen/horizontal_default_padding"
+                        android:layout_marginTop="@dimen/listing_division"
+                        android:text="@string/personal_accident"
+                        android:textColor="@color/fpg_gray"
+                        android:textSize="@dimen/setting_title" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:maxLines="1"
+                        android:layout_marginTop="@dimen/listing_division"
+                        android:text="79"
+                        android:textColor="@color/fpg_gray"
+                        android:textSize="@dimen/setting_title" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linear_policyTravel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:clickable="true"
+                    android:paddingVertical="@dimen/vertical_default_padding"
+                    android:paddingHorizontal="@dimen/horizontal_default_padding"
+                    android:foreground="?android:attr/selectableItemBackground">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:maxLines="1"
+                        android:paddingLeft="@dimen/horizontal_default_padding"
+                        android:layout_marginTop="@dimen/listing_division"
+                        android:text="@string/travel"
+                        android:textColor="@color/fpg_gray"
+                        android:textSize="@dimen/setting_title" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:maxLines="1"
+                        android:layout_marginTop="@dimen/listing_division"
+                        android:text="162"
+                        android:textColor="@color/fpg_gray"
+                        android:textSize="@dimen/setting_title" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linear_policyCorporate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:clickable="true"
+                    android:paddingVertical="@dimen/vertical_default_padding"
+                    android:paddingHorizontal="@dimen/horizontal_default_padding"
+                    android:foreground="?android:attr/selectableItemBackground">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:maxLines="1"
+                        android:paddingLeft="@dimen/horizontal_default_padding"
+                        android:layout_marginTop="@dimen/listing_division"
+                        android:text="@string/corporate"
+                        android:textColor="@color/fpg_gray"
+                        android:textSize="@dimen/setting_title" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:maxLines="1"
+                        android:layout_marginTop="@dimen/listing_division"
+                        android:text="379"
+                        android:textColor="@color/fpg_gray"
+                        android:textSize="@dimen/setting_title" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linear_policyHome"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:clickable="true"
+                    android:paddingVertical="@dimen/vertical_default_padding"
+                    android:paddingHorizontal="@dimen/horizontal_default_padding"
+                    android:foreground="?android:attr/selectableItemBackground">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:maxLines="1"
+                        android:paddingLeft="@dimen/horizontal_default_padding"
+                        android:layout_marginTop="@dimen/listing_division"
+                        android:text="@string/home"
+                        android:textColor="@color/fpg_gray"
+                        android:textSize="@dimen/setting_title" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:maxLines="1"
+                        android:layout_marginTop="@dimen/listing_division"
+                        android:text="190"
+                        android:textColor="@color/fpg_gray"
+                        android:textSize="@dimen/setting_title" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingVertical="@dimen/vertical_default_padding"
+                    android:paddingHorizontal="@dimen/horizontal_default_padding"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:clickable="true">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:maxLines="1"
+                        android:layout_marginTop="@dimen/listing_division"
+                        android:text="TOTAL POLICY PAID"
+                        android:textColor="@color/fpg_gray"
+                        android:textSize="@dimen/setting_title" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:maxLines="1"
+                        android:layout_marginTop="@dimen/listing_division"
+                        android:text="545"
+                        android:textColor="@color/fpg_gray"
+                        android:textSize="@dimen/setting_title" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingVertical="@dimen/vertical_default_padding"
+                    android:paddingHorizontal="@dimen/horizontal_default_padding"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:clickable="true">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:maxLines="1"
+                        android:layout_marginTop="@dimen/listing_division"
+                        android:text="TOTAL POLICY UNPAID"
+                        android:textColor="@color/fpg_gray"
+                        android:textSize="@dimen/setting_title" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:maxLines="1"
+                        android:layout_marginTop="@dimen/listing_division"
+                        android:text="500"
+                        android:textColor="@color/fpg_gray"
+                        android:textSize="@dimen/setting_title" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+</LinearLayout>

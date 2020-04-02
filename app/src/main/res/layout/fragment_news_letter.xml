@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:fitsSystemWindows="true"
+    android:background="@android:color/transparent"
+    tools:context=".NewsLetterFragment">
+
+    <LinearLayout
+        android:background="@drawable/rounded_shape"
+        android:layout_width="350dp"
+        android:layout_height="500dp"
+        android:weightSum="2"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.7"
+            android:orientation="vertical">
+
+            <com.example.fpgins.RoundedCornerImageView
+                android:id="@+id/imageButtonCoverBanner"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/pic_five"
+                android:layout_margin="@dimen/vertical_default_padding"
+                android:visibility="visible" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:visibility="visible"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/information"
+                android:ellipsize="end"
+                android:paddingHorizontal="@dimen/horizontal_default_padding"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/main_message"
+                android:textSize="@dimen/edittext_textsize"
+                android:background="@color/white"
+                android:layout_gravity="center_horizontal|center"
+                android:gravity="center"
+                android:maxLines="3"
+                android:textColor="@color/fpg_gray"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".3"
+            android:weightSum="2"
+            android:layout_marginTop="@dimen/vertical_default_padding"
+            android:background="@drawable/rounded_shape"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/imageButtonClose"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_marginHorizontal="@dimen/vertical_default_padding"
+                android:layout_height="@dimen/button_height"
+                android:textSize="@dimen/button_textsize"
+                android:text="Dismiss"
+                android:textColor="@color/white"
+                android:textAlignment="center"
+                android:background="@drawable/login_button" />
+
+            <Button
+                android:id="@+id/btn_viewMore"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="@dimen/button_height"
+                android:textSize="@dimen/button_textsize"
+                android:text="View More"
+                android:layout_marginHorizontal="@dimen/vertical_default_padding"
+                android:textColor="@color/white"
+                android:textAlignment="center"
+                android:background="@drawable/login_button" />
+
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

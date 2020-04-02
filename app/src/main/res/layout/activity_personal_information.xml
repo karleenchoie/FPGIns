@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true"
+    android:fitsSystemWindows="true"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingHorizontal="@dimen/horizontal_default_padding"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/img_backbutton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="@dimen/page_default_margin_horizontal"
+                android:paddingVertical="@dimen/page_default_margin_horizontal"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_action_back" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/personal_info"
+                android:textStyle="bold"
+                android:layout_gravity="center_vertical"
+                android:textSize="@dimen/head_textsize"
+                android:textColor="@color/fpg_gray">
+
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="right">
+
+            <TextView
+                android:id="@+id/txt_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Done"
+                android:textColor="@color/fpg_gray"
+                android:textStyle="bold"
+                android:padding="@dimen/page_default_margin_horizontal"
+                android:textAllCaps="true"
+                android:textSize="@dimen/setting_title">
+
+            </TextView>
+
+<!--            <ImageView-->
+<!--                android:id="@+id/img_edit"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:textSize="@dimen/edittext_textsize"-->
+<!--                android:src="@drawable/done_icon"/>-->
+
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_below="@id/linear_nav"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fadeScrollbars="true"
+            android:fillViewport="true"
+            android:scrollbars="vertical"
+            android:id="@+id/createPasswordScrollView"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TextAppearance.AppCompat.Caption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/vertical_default_padding"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:text="@string/email"
+                    android:textColor="@color/fpg_orange"
+                    android:textSize="@dimen/setting_title" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/fineGray"
+                    android:layout_marginVertical="@dimen/vertical_default_padding">
+                </View>
+
+                <TextView
+                    style="@style/TextAppearance.AppCompat.Caption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:text="@string/primary_email"
+                    android:textColor="?android:textColorHint"
+                    android:textSize="@dimen/textview_error_textsize" />
+
+                <EditText
+                    android:id="@+id/edt_email"
+                    android:enabled="true"
+                    style="@style/TextAppearance.AppCompat.Caption"
+                    android:layout_width="match_parent"
+                    android:background="@android:color/transparent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:maxLines="1"
+                    android:focusedByDefault="true"
+                    android:layout_marginTop="@dimen/vertical_default_padding"
+                    android:text="@string/primary_email"
+                    android:textColor="@color/fpg_gray"
+                    android:textSize="@dimen/setting_title" />
+
+                <TextView
+                    style="@style/TextAppearance.AppCompat.Caption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/setting_head_text_size"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:text="@string/full_name"
+                    android:textColor="@color/fpg_orange"
+                    android:textSize="@dimen/setting_title" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/fineGray"
+                    android:layout_marginVertical="10dp">
+                </View>
+
+                <TextView
+                    style="@style/TextAppearance.AppCompat.Caption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:text="@string/first_name"
+                    android:textColor="?android:textColorHint"
+                    android:textSize="@dimen/textview_error_textsize" />
+
+                <EditText
+                    android:id="@+id/edt_firstName"
+                    style="@style/TextAppearance.AppCompat.Caption"
+                    android:enabled="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:background="@android:color/transparent"
+                    android:maxLines="1"
+                    android:layout_marginTop="@dimen/vertical_default_padding"
+                    android:text="Juan Miguel"
+                    android:textColor="@color/fpg_gray"
+                    android:textSize="@dimen/setting_title" />
+
+                <TextView
+                    style="@style/TextAppearance.AppCompat.Caption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:text="@string/last_name"
+                    android:textColor="?android:textColorHint"
+                    android:layout_marginTop="@dimen/vertical_default_padding"
+                    android:textSize="@dimen/textview_error_textsize" />
+
+                <EditText
+                    android:id="@+id/edt_lastName"
+                    style="@style/TextAppearance.AppCompat.Caption"
+                    android:enabled="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/vertical_default_padding"
+                    android:gravity="left"
+                    android:maxLines="1"
+                    android:background="@android:color/transparent"
+                    android:text="Dela Cruz"
+                    android:textColor="@color/fpg_gray"
+                    android:textSize="@dimen/setting_title" />
+
+                <TextView
+                    style="@style/TextAppearance.AppCompat.Caption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/setting_head_text_size"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:text="@string/contact"
+                    android:textColor="@color/fpg_orange"
+                    android:textSize="@dimen/setting_title" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/fineGray"
+                    android:layout_marginVertical="10dp">
+                </View>
+
+                <TextView
+                    style="@style/TextAppearance.AppCompat.Caption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:text="@string/mobile"
+                    android:textColor="?android:textColorHint"
+                    android:textSize="@dimen/textview_error_textsize" />
+
+                <EditText
+                    android:id="@+id/edt_mobile"
+                    style="@style/TextAppearance.AppCompat.Caption"
+                    android:enabled="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:maxLines="1"
+                    android:layout_marginTop="@dimen/vertical_default_padding"
+                    android:background="@android:color/transparent"
+                    android:text="09234699235"
+                    android:textColor="@color/fpg_gray"
+                    android:textSize="@dimen/setting_title" />
+
+
+            </LinearLayout>
+
+        </ScrollView>
+
+
+    </LinearLayout>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

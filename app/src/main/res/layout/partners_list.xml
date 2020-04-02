@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:clickable="true"
+    android:focusable="true"
+    android:orientation="vertical"
+    android:paddingHorizontal="@dimen/horizontal_default_padding"
+    android:id="@+id/linearMain"
+    android:paddingBottom="@dimen/vertical_default_padding"
+    android:layout_marginBottom="@dimen/listing_division">
+
+    <TextView
+        android:id="@+id/txtComapany"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/edittext_spacing"
+        android:text="Second"
+        android:textAlignment="center"
+        android:textColor="@color/fpg_gray"
+        android:textStyle="bold"
+        android:textSize="@dimen/setting_title" />
+
+    <TextView
+        android:id="@+id/txtDesc"
+        android:text="Third"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/fpg_gray"
+        android:paddingHorizontal="@dimen/horizontal_default_padding"
+        android:paddingBottom="@dimen/page_default_margin_horizontal"
+        android:textAlignment="center"
+        android:textSize="@dimen/textview_error_textsize"
+        android:textAllCaps="true" />
+
+    <ImageView
+        android:id="@+id/imgPhoto"
+        android:scaleType="centerInside"
+        android:layout_width="match_parent"
+        android:layout_height="190dp"
+        android:src="@drawable/ic_no_image"/>
+</LinearLayout>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relativeNoConnection"
+    android:visibility="visible"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+    <ImageView
+        android:id="@+id/imageNoConnection"
+        android:layout_width="64sp"
+        android:layout_height="64sp"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:background="@drawable/ic_no_image"
+        android:contentDescription="No Internet" />
+
+    <TextView
+        android:id="@+id/tvResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="No drafts created yet"
+        android:textAlignment="center"
+        android:textColor="@color/fpg_gray"
+        android:textSize="@dimen/setting_title"
+        android:textStyle="normal" />
+
+<!--    <Button-->
+<!--        android:id="@+id/buttonRetry"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:layout_marginBottom="14sp"-->
+<!--        android:background="?selectableItemBackgroundBorderless"-->
+<!--        android:text="Retry"-->
+<!--        android:textAlignment="center"-->
+<!--        android:textAllCaps="false"-->
+<!--        android:textColor="@color/fpg_orange"-->
+<!--        android:textSize="@dimen/subListTextSize" />-->
+
+
+
+</LinearLayout>

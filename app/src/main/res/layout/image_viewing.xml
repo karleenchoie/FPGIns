@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/vertical_default_padding">
+
+    <ImageView
+        android:id="@+id/img_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icon_close"
+        android:layout_gravity="right"
+        android:padding="@dimen/vertical_default_padding"/>
+
+    <ImageView
+        android:id="@+id/picture"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:paddingBottom="@dimen/vertical_default_padding"
+        android:layout_height="350dp"/>
+
+    <TextView
+        android:id="@+id/txtFirst"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:text="TEXT"
+        android:paddingTop="@dimen/vertical_default_padding"
+        android:textAlignment="center"
+        android:layout_gravity="center_horizontal"
+        android:paddingHorizontal="@dimen/vertical_default_padding"
+        android:textStyle="bold"
+        android:textColor="@color/fpg_gray"
+        android:textSize="@dimen/text_title_size" />
+
+</LinearLayout>

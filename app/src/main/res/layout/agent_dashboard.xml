@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:paddingVertical="@dimen/vertical_default_padding"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@color/white"
+        android:layout_marginTop="@dimen/vertical_default_padding">
+
+        <com.hookedonplay.decoviewlib.DecoView
+            android:id="@+id/dynamicArcView"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/vertical_default_padding"
+            custom:dv_lineWidth="26dp" />
+
+        <TextView
+            android:id="@+id/txt_percentage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0%"
+            android:textColor="@color/fpg_gray"
+            android:textSize="@dimen/setting_clickable"
+            android:layout_centerInParent="true"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginRight="@dimen/horizontal_default_padding"
+            android:layout_alignParentLeft="true">
+
+            <TextView
+                android:id="@+id/txt_total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TOTAL EARNINGS"
+                android:layout_marginLeft="@dimen/horizontal_default_padding"
+                android:textColor="@color/fpg_gray"
+                android:textSize="@dimen/setting_title" />
+
+            <TextView
+                android:id="@+id/txt_totalEarning"
+                android:layout_below="@+id/txt_total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="₱ 971,000"
+                android:layout_marginLeft="@dimen/horizontal_default_padding"
+                android:paddingLeft="@dimen/horizontal_default_padding"
+                android:textColor="@color/fpg_gray"
+                android:textSize="@dimen/setting_title"/>
+
+            <View
+                android:layout_below="@id/txt_totalEarning"
+                android:layout_width="100dp"
+                android:layout_height="1dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginHorizontal="@dimen/horizontal_default_padding"
+                android:layout_marginTop="@dimen/vertical_default_padding"
+                android:background="#FFE2E2E2"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:paddingLeft="@dimen/vertical_default_padding"
+            android:paddingRight="@dimen/horizontal_default_padding"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/linear_legend1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="@dimen/horizontal_default_padding"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/legend1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/hexagon" />
+
+                <TextView
+                    android:id="@+id/txt_legend1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TOTAL\nCLIENT"
+                    android:paddingLeft="5dp"
+                    android:textColor="@color/fpg_gray"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_legend2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/vertical_default_padding"
+                android:layout_below="@id/linear_legend1"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/legend2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/hexagon_orange" />
+
+                <TextView
+                    android:id="@+id/txt_legend2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CLIENT\nREGISTERED"
+                    android:paddingLeft="5dp"
+                    android:textColor="@color/fpg_gray"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/listing_division"
+        app:tabBackground="@drawable/tab_color_selector"
+        app:tabIndicatorColor="@color/fpg_orange"
+        app:tabRippleColor="@null"
+        app:tabSelectedTextColor="@color/fpg_orange"
+        app:tabTextColor="@color/fpg_gray"/>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_below="@+id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+</LinearLayout>

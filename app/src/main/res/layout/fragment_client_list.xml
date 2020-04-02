@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/edittext"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="@dimen/horizontal_default_padding"
+        android:drawableLeft="@drawable/ic_action_search"
+        android:drawablePadding="10dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext_background"
+        android:hint="SEARCH CLIENT"
+        android:textSize="@dimen/setting_title"
+        android:paddingHorizontal="@dimen/horizontal_default_padding"
+        android:paddingVertical="@dimen/vertical_default_padding"
+        android:layout_marginTop="@dimen/vertical_default_padding"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TOTAL CLIENTS : 9"
+        android:paddingVertical="5dp"
+        android:textSize="@dimen/setting_title"
+        android:textColor="@color/fpg_gray"
+        android:paddingHorizontal="@dimen/horizontal_default_padding"
+        android:gravity="left"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:paddingVertical="@dimen/vertical_default_padding"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical" />
+
+
+</LinearLayout>

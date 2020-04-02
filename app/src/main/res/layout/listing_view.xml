@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/card"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/listing_division"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/mainCardView"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="2dp"
+        app:cardPreventCornerOverlap="false">
+
+        <LinearLayout
+
+            android:id="@+id/topLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cardview_bg"
+            android:orientation="horizontal"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/clickLayout"
+                android:orientation="horizontal">
+
+                <FrameLayout
+                    android:id="@+id/frameLayoutButtonSJ"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:focusable="true"
+                    android:minEms="4">
+
+
+                        <ImageView
+                            android:id="@+id/logo"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:scrollHorizontally="true"
+                            android:layout_gravity="center"
+                            android:src="@drawable/fpg_logo2"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.16000003" />
+
+                </FrameLayout>
+
+                    <LinearLayout
+                        android:id="@+id/lh"
+                        android:layout_marginStart="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:padding="10dp">
+
+                        <LinearLayout
+                            android:id="@+id/textViewLabelLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:padding="5sp"
+                            android:paddingStart="-10sp">
+
+                            <TextView
+                                android:id="@+id/tvTitle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:layout_weight="1"
+                                android:ellipsize="end"
+                                android:maxLines="1"
+                                android:paddingRight="40dp"
+                                android:gravity="center_vertical"
+                                android:scrollHorizontally="true"
+                                android:singleLine="true"
+                                android:text="Title"
+                                android:textColor="@color/fpg_orange"
+                                android:textSize="@dimen/edittext_textsize"/>
+
+                            <TextView
+                                android:id="@+id/tvDesc"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:layout_weight="1"
+                                android:ellipsize="end"
+                                android:maxLines="1"
+                                android:paddingRight="40dp"
+                                android:textColor="@color/fpg_gray"
+                                android:gravity="center_vertical"
+                                android:scrollHorizontally="true"
+                                android:singleLine="true"
+                                android:text="Description"
+                                android:textSize="@dimen/edittext_textsize"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/tvDate"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:layout_weight="1"
+                                android:ellipsize="middle"
+                                android:textColor="@color/fpg_gray"
+                                android:gravity="center_vertical"
+                                android:scrollHorizontally="true"
+                                android:singleLine="true"
+                                android:text="Date"
+                                android:textSize="@dimen/edittext_textsize"
+                                android:textStyle="normal" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:id="@+id/linearClicked"
+            android:orientation="vertical">
+
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scrollHorizontally="true"
+            android:paddingVertical="@dimen/vertical_default_padding"
+            android:paddingHorizontal="@dimen/horizontal_default_padding"
+            android:fontFamily="@font/exo_demibold"
+            android:textColor="@color/black_opacity80"
+            android:src="@drawable/ic_action_right"
+            android:gravity="center"
+            android:layout_gravity="end|center" />
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

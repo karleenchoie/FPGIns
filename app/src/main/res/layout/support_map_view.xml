@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="2">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingHorizontal="10dp"
+        android:layout_weight=".4">
+
+<!--        <br.com.simplepass.loadingbutton.customViews.CircularProgressButton-->
+<!--            android:id="@+id/imgSOS"-->
+<!--            android:layout_width="60dp"-->
+<!--            android:layout_height="60dp"-->
+<!--            android:background="@drawable/circle_done"-->
+<!--            app:padding="0dp"/>-->
+
+        <LinearLayout
+            android:id="@+id/linear_sos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imgSOS"
+                android:layout_marginLeft="5dp"
+                android:layout_gravity="right"
+                android:paddingBottom="25dp"
+                android:background="@drawable/sos_button"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_alignParentRight="true"/>
+
+            <TextView
+                android:id="@+id/txt_timer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Please press button within 3 seconds"
+                android:textColor="@color/fpg_gray"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:layout_margin="@dimen/page_default_margin_horizontal"
+                android:textSize="@dimen/edittext_textsize">
+
+            </TextView>
+        </LinearLayout>
+
+
+        <com.google.android.gms.maps.MapView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/map"
+            android:layout_marginTop="@dimen/page_default_margin_horizontal"
+            android:layout_below="@id/linear_sos"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_help"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.6"
+            android:background="@drawable/setting_background"
+            android:layout_marginVertical="@dimen/page_default_margin_horizontal"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/horizontal_default_padding"
+            android:layout_below="@id/map"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingBottom="@dimen/vertical_default_padding"
+                android:src="@drawable/help_icon"/>
+
+            <TextView
+                android:text="@string/help_and_support"
+                android:textColor="@color/fpg_gray"
+                android:textSize="@dimen/setting_title"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:textAlignment="center"
+                android:layout_height="wrap_content" />
+
+
+            <TextView
+                android:text="Hi! How can we help you?"
+                android:textColor="@color/fpg_gray"
+                android:textSize="@dimen/setting_title"
+                android:layout_width="match_parent"
+                android:textAlignment="center"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

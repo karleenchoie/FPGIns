@@ -1,0 +1,325 @@
+<resources>
+    <string name="app_name">FPGIns</string>
+    <string name="version">RD.V.1.0</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Macky Sevidal</string>
+    <string name="nav_header_subtitle">msevidal@fpgins.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_messages">Messages</string>
+
+    //Fragments and Activities
+    <string name="fpg_assist">FPG Assist</string>
+    <string name="claims_records">Claims Records</string>
+    <string name="main_claims">Claims</string>
+    <string name="settings">Settings</string>
+    <string name="shop">Shop</string>
+    <string name="partners">Partners</string>
+    <string name="products">Products</string>
+    <string name="coming_soon">Coming Soon</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="claim_drafts">Claims Drafts</string>
+    <string name="help_and_support">Help &amp; Support</string>
+    <string name="Faq">Faq</string>
+
+    //Login
+    <string name="sign_in">SIGN IN</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">LOG IN</string>
+    <string name="sign_up">SIGN UP</string>
+    <string name="need_help">NEED HELP?</string>
+    <string name="password_error">This password is too short</string>
+    <string name="email_empty">This field is required</string>
+    <string name="email_error">This email is not valid</string>
+
+
+    //Main Menu
+    <string name="mainmenu_overview">Overview</string>
+    <string name="mainmenu_products">Products</string>
+    <string name="mainmenu_transaction">Transactions</string>
+    <string name="mainmenu_customercare">Customer Care</string>
+    <string name="logout">Logout</string>
+
+    //Home
+    <string name="title_1">Management Overview</string>
+    <string name="title_2">Production</string>
+    <string name="title_3">Losses</string>
+    <string name="report_period">Report Period: \t</string>
+    <string name="losses">Losses</string>
+    <string name="production">Production</string>
+    <string name="loss_ratio">Loss Ratio</string>
+    <string name="income">Income</string>
+
+    //Settings
+    <string name="my_profile">My Profile</string>
+    <string name="personal_info">Personal Information</string>
+    <string name="motor">Motor</string>
+    <string name="personal_accident">Personal Accident</string>
+    <string name="corporate">Corporate</string>
+    <string name="home">Home</string>
+    <string name="transaction_history">Transaction History</string>
+    <string name="travel">Travel</string>
+    <string name="app_setting">App Settings</string>
+    <string name="touch_id">Touch ID</string>
+    <string name="notification">Notification</string>
+    <string name="share">Share</string>
+    <string name="primary_email">Primary Email</string>
+    <string name="mobile">Mobile</string>
+    <string name="home_number">Home Number</string>
+    <string name="office">Office Number</string>
+    <string name="permanent_address">Permanent Address</string>
+    <string name="change_password">Change Password</string>
+    <string name="logout_sure">Are you sure you want to logout?</string>
+    <string name="profile_picture_updated">Profile picture updated</string>
+
+    //Customer Care
+    <string name="title_contact_us">Contact Us</string>
+    <string name="cc_definition">Simply fill up the form or give us a call.</string>
+    <string name="cc_headoffice">Head Office</string>
+    <string name="cc_contact_info">6/F Zuellig Buiding,\nMakati Avenue corner Paseo de Roxas,\nMakati City, 1225 Philippines\nTel. : (+632) 8859 1200 / \n(+632) 7944 1300 \nFax. : (+632) 8811 5108\nEmail : phcustomercare@fpgins.com </string>
+
+
+    <string name="menu_home">Overview</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_customer_care">Customer Care</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
+    <string name="title_activity_login">Login</string>
+    <string name="title_activity_welcome_note">WelcomeNote</string>
+    <string name="submit">Submit</string>
+    <string name="save_as_draft">Save As Draft</string>
+
+    //Create Password
+    <string name="create_password">Change Password</string>
+    <string name="new_password">New Password</string>
+    <string name="current_password">Current Password</string>
+    <string name="update_password">Update</string>
+
+    //Register
+    <string name="account_registration">Account Registration</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="full_name">Full Name</string>
+    <string name="email">Email</string>
+    <string name="contact">Contact Number</string>
+    <string name="password_hint">Password</string>
+    <string name="retype_password">Re-type Password</string>
+    <string name="mailing_address">Mailing Address</string>
+    <string name="mobile_no">Mobile Number</string>
+    <string name="verification">Two-way verification</string>
+    <string name="help">To help keep your account secure, complete the task below</string>
+    <string name="enter_verification">Enter verification code</string>
+    <string name="email_sent">An email with a verification code has sent to </string>
+    <string name="verify_button">Verify Account</string>
+    <string name="type_error">Type is needed</string>
+    <string name="resend">Resend verification code</string>
+
+
+    //Help
+    <string name="frequently_asked_question">Frequently asked question</string>
+    <string name="app_changed">I notice that the app has been updated.\nWhy the change?</string>
+    <string name="whats_new">What\'s New?</string>
+    <string name="get_in_touch">Get in touch</string>
+    <string name="for_general_inquiries">For general inquiries, \nyou may call our Head offices daily at: </string>
+    <string name="indonesia">Indonesia</string>
+    <string name="philippines">Philippines</string>
+    <string name="thailand">Thailand</string>
+    <string name="after_successful_activating">After successful activating my account,\nCan I use it immediately?</string>
+    //Verification
+    <string name="fields_error">4 numbers are needed to verifiy the account</string>
+
+    //Claims
+    <string name="policy_number">Policy Number</string>
+    <string name="claim_number">Claim Number</string>
+    <string name="plate_number">Plate No</string>
+    <string name="conduction_sticker">Conduction Sticker</string>
+    <string name="address">Address</string>
+    <string name="Remarks">Remarks</string>
+    <string name="submitted_forms">Submitted Forms</string>
+    <string name="submitted_forms_information">Submitted Forms Information</string>
+    <string name="claim_no">Claim Number</string>
+    <string name="date_submitted">Date Submitted</string>
+    <string name="form_information">Form Information</string>
+    <string name="information">Information</string>
+    <string name="status">Status</string>
+    <string name="messaging">Messaging</string>
+    <string name="before_submit_msg">Please verify your details before you submit.</string>
+    <string name="before_submit_detail">After submitting, all information are not going to be modified and then processed by an FPG representative.</string>
+
+    //Forms Info
+    <string name="name">Name</string>
+    <string name="form_status">Form Status</string>
+    <string name="date">Date Filed</string>
+    <string name="policy_no_text">Policy Number</string>
+    <string name="claim_no_text">Claim Number</string>
+    <string name="plate_no">Plate Number</string>
+    <string name="mobile_no_text">Mobile Number</string>
+    <string name="conduction_no">Conduction Number</string>
+    <string name="location">Location</string>
+    <string name="remarks">Remarks</string>
+
+    //Forgot Password
+    <string name="detail">Account validated.</string>
+    <string name="detail2">You can now change your password</string>
+
+
+    <string name="Password_requirements">Password Requirements:</string>
+    <string name="CreatePasswordHint">Your password must have:</string>
+    <string name="show_password">Show Password</string>
+    <string name="required">This field is required</string>
+    <string name="password_length">Your password should have at least 8 characters</string>
+    <string name="password_capital_letter">Your password should have at least 1 capital letter</string>
+    <string name="password_small_letter">Your password should have at least 1 small case letter</string>
+    <string name="password_number">Your password should have at least 1 number</string>
+    <string name="password_unmatched">Passwords do not match.</string>
+    <string name="password_unsuccessful">Invalid old password</string>
+    <string name="fields_necessary">Please fill-up necessary fields</string>
+    <string name="one_upper">One upper character</string>
+    <string name="one_lower">One lower character</string>
+    <string name="one_num">At least one number</string>
+    <string name="eight_char">8 or more characters</string>
+    <string name="no_space">No spaces</string>
+
+    //Messages
+    <string name="no_internet_conn">No Internet Connection</string>
+    <string name="upload_complete">Upload Completed</string>
+
+    //Dialogs
+    <string name="successfully_sent">Successfully Sent</string>
+    <string name="successfully_sent_msg">You have successfully sent your details for claim</string>
+    <string name="successfully_sent_detail">FPG representative will get in touch with you shortly.</string>
+    <string name="ok">Ok</string>
+    <string name="edit">Edit</string>
+    <string name="confirm">Confirm</string>
+    <string name="cancel">Cancel</string>
+    <string name="done">Done</string>
+    <string name="close">Close</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="something_went_wrong">Something went wrong</string>
+
+
+    //Messages
+    <string name="main_message">FPG Insurance Co., Inc. respects your privacy. This statement explains the ways in which we collect and use personal data – that is data that identifies you or other individuals, such as your dependents.
+
+                                \n\nHow we collect data
+
+                                \n\nWe may collect data as follows:
+
+                                \n\nWe will message and store personal data that you enter on our website or apps, provide over the telephone to our representatives, submit through application or claims forms, or provide to us in any other way;
+                                \n\nWe also automatically collect aggregated site-visit statistics, such as your browser type, device type and
+        operating system; area(s) of our online services visited; date and time of access; host or internet service provider
+        (ISP) information; and identity of the referring site (any site from which you access our website or apps).
+        This is collected using tracking technologies and the information collected is used for service operation quality as well as to
+        provide general information and statistics regarding usage of our website. No personal data is collected or used. </string>
+    <string name="message_button">View Details</string>
+
+    <string name="lorem_ipsum">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+        Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,
+        when an unknown printer took a galley of type and scrambled it to make a type
+        specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+        remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
+        Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions
+        of Lorem Ipsum.</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_registration">Registration</string>
+    <string name="large_text">
+        "Material is the metaphor.\n\n"
+
+        "A material metaphor is the unifying theory of a rationalized space and a system of motion."
+        "The material is grounded in tactile reality, inspired by the study of paper and ink, yet "
+        "technologically advanced and open to imagination and magic.\n"
+        "Surfaces and edges of the material provide visual cues that are grounded in reality. The "
+        "use of familiar tactile attributes helps users quickly understand affordances. Yet the "
+        "flexibility of the material creates new affordances that supercede those in the physical "
+        "world, without breaking the rules of physics.\n"
+        "The fundamentals of light, surface, and movement are key to conveying how objects move, "
+        "interact, and exist in space and in relation to each other. Realistic lighting shows "
+        "seams, divides space, and indicates moving parts.\n\n"
+
+        "Bold, graphic, intentional.\n\n"
+
+        "The foundational elements of print based design typography, grids, space, scale, color, "
+        "and use of imagery guide visual treatments. These elements do far more than please the "
+        "eye. They create hierarchy, meaning, and focus. Deliberate color choices, edge to edge "
+        "imagery, large scale typography, and intentional white space create a bold and graphic "
+        "interface that immerse the user in the experience.\n"
+        "An emphasis on user actions makes core functionality immediately apparent and provides "
+        "waypoints for the user.\n\n"
+
+        "Motion provides meaning.\n\n"
+
+        "Motion respects and reinforces the user as the prime mover. Primary user actions are "
+        "inflection points that initiate motion, transforming the whole design.\n"
+        "All action takes place in a single environment. Objects are presented to the user without "
+        "breaking the continuity of experience even as they transform and reorganize.\n"
+        "Motion is meaningful and appropriate, serving to focus attention and maintain continuity. "
+        "Feedback is subtle yet clear. Transitions are efﬁcient yet coherent.\n\n"
+
+        "3D world.\n\n"
+
+        "The material environment is a 3D space, which means all objects have x, y, and z "
+        "dimensions. The z-axis is perpendicularly aligned to the plane of the display, with the "
+        "positive z-axis extending towards the viewer. Every sheet of material occupies a single "
+        "position along the z-axis and has a standard 1dp thickness.\n"
+        "On the web, the z-axis is used for layering and not for perspective. The 3D world is "
+        "emulated by manipulating the y-axis.\n\n"
+
+        "Light and shadow.\n\n"
+
+        "Within the material environment, virtual lights illuminate the scene. Key lights create "
+        "directional shadows, while ambient light creates soft shadows from all angles.\n"
+        "Shadows in the material environment are cast by these two light sources. In Android "
+        "development, shadows occur when light sources are blocked by sheets of material at "
+        "various positions along the z-axis. On the web, shadows are depicted by manipulating the "
+        "y-axis only. The following example shows the card with a height of 6dp.\n\n"
+
+        "Resting elevation.\n\n"
+
+        "All material objects, regardless of size, have a resting elevation, or default elevation "
+        "that does not change. If an object changes elevation, it should return to its resting "
+        "elevation as soon as possible.\n\n"
+
+        "Component elevations.\n\n"
+
+        "The resting elevation for a component type is consistent across apps (e.g., FAB elevation "
+        "does not vary from 6dp in one app to 16dp in another app).\n"
+        "Components may have different resting elevations across platforms, depending on the depth "
+        "of the environment (e.g., TV has a greater depth than mobile or desktop).\n\n"
+
+        "Responsive elevation and dynamic elevation offsets.\n\n"
+
+        "Some component types have responsive elevation, meaning they change elevation in response "
+        "to user input (e.g., normal, focused, and pressed) or system events. These elevation "
+        "changes are consistently implemented using dynamic elevation offsets.\n"
+        "Dynamic elevation offsets are the goal elevation that a component moves towards, relative "
+        "to the component’s resting state. They ensure that elevation changes are consistent "
+        "across actions and component types. For example, all components that lift on press have "
+        "the same elevation change relative to their resting elevation.\n"
+        "Once the input event is completed or cancelled, the component will return to its resting "
+        "elevation.\n\n"
+
+        "Avoiding elevation interference.\n\n"
+
+        "Components with responsive elevations may encounter other components as they move between "
+        "their resting elevations and dynamic elevation offsets. Because material cannot pass "
+        "through other material, components avoid interfering with one another any number of ways, "
+        "whether on a per component basis or using the entire app layout.\n"
+        "On a component level, components can move or be removed before they cause interference. "
+        "For example, a floating action button (FAB) can disappear or move off screen before a "
+        "user picks up a card, or it can move if a snackbar appears.\n"
+        "On the layout level, design your app layout to minimize opportunities for interference. "
+        "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
+        "when a user tries to pick up one of cards.\n\n"
+    </string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_tabular">TabularActivity</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="title_activity_client_tabular">ClientTabular</string>
+</resources>

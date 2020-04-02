@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:fitsSystemWindows="true"
+    android:background="@android:color/transparent"
+    tools:context=".NewsLetterFragment">
+    <LinearLayout
+        android:background="@drawable/rounded_shape"
+        android:layout_width="350dp"
+        android:layout_height="350dp"
+        android:weightSum="2"
+        android:padding="@dimen/vertical_default_padding"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/linear_fileAClaim"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/shadow_background"
+            android:layout_weight="1">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:elevation="10dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/pic_one" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="FILE A CLAIM"
+                    android:background="@color/white_opacity35"
+                    android:padding="@dimen/vertical_default_padding"
+                    android:textColor="@color/fpg_gray"
+                    android:textStyle="bold"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"/>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_reviewClaim"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/pic_three"
+                    android:scaleType="centerCrop"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white_opacity35"
+                    android:padding="@dimen/vertical_default_padding"
+                    android:textColor="@color/fpg_gray"
+                    android:textStyle="bold"
+                    android:text="REVIEW CLAIM"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"/>
+            </RelativeLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+</FrameLayout>

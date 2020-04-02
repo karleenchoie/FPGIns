@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="5dp"
+    tools:context=".ui.motors.Steps.StepOneMotorFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.motors.Steps.StepOneMotorFragment">
+
+        <TextView
+            android:id="@+id/textViewCreatePw"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:text="Payment"
+            android:fontFamily="@font/exo_demibold"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/top_title_text_size"
+            android:textStyle="normal|bold" />
+
+        <EditText
+            android:id="@+id/editTextNewName"
+            android:layout_width="match_parent"
+            android:fontFamily="@font/flexo_demi"
+            android:padding="15dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_of_editext"
+            android:focusableInTouchMode="true"
+            android:background="@drawable/button_rectangle"
+            android:imeOptions="actionNext"
+            android:inputType="text"
+            android:scrollHorizontally="true"
+            android:textSize="@dimen/sub_list_text_size" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="2"
+            android:orientation="horizontal">
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:padding="15dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/spacing_of_editext"
+                android:focusableInTouchMode="true"
+                android:layout_weight="1"
+                android:fontFamily="@font/flexo_demi"
+                android:background="@drawable/button_rectangle"
+                android:imeOptions="actionNext"
+                android:layout_marginRight="2dp"
+                android:inputType="text"
+                android:scrollHorizontally="true"
+                android:textSize="@dimen/sub_list_text_size" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:padding="15dp"
+                android:layout_marginLeft="2dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/spacing_of_editext"
+                android:focusableInTouchMode="true"
+                android:fontFamily="@font/flexo_demi"
+                android:background="@drawable/button_rectangle"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:scrollHorizontally="true"
+                android:textSize="@dimen/sub_list_text_size" />
+
+        </LinearLayout>
+
+
+        <EditText
+            android:id="@+id/editTextEmail"
+            android:layout_width="match_parent"
+            android:padding="15dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/flexo_demi"
+            android:layout_marginBottom="@dimen/spacing_of_editext"
+            android:focusableInTouchMode="true"
+            android:background="@drawable/button_rectangle"
+            android:imeOptions="actionNext"
+            android:inputType="text"
+            android:scrollHorizontally="true"
+            android:textSize="@dimen/sub_list_text_size" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="2"
+            android:orientation="horizontal">
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:padding="15dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/spacing_of_editext"
+                android:focusableInTouchMode="true"
+                android:layout_weight="1"
+                android:fontFamily="@font/flexo_demi"
+                android:background="@drawable/button_rectangle"
+                android:imeOptions="actionNext"
+                android:layout_marginRight="2dp"
+                android:inputType="text"
+                android:scrollHorizontally="true"
+                android:textSize="@dimen/sub_list_text_size" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:padding="15dp"
+                android:layout_marginLeft="2dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/spacing_of_editext"
+                android:focusableInTouchMode="true"
+                android:fontFamily="@font/flexo_demi"
+                android:background="@drawable/button_rectangle"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:scrollHorizontally="true"
+                android:textSize="@dimen/sub_list_text_size" />
+
+        </LinearLayout>
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:padding="15dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/flexo_demi"
+            android:layout_marginBottom="@dimen/spacing_of_editext"
+            android:focusableInTouchMode="true"
+            android:background="@drawable/button_rectangle"
+            android:imeOptions="actionNext"
+            android:inputType="text"
+            android:scrollHorizontally="true"
+            android:textSize="@dimen/sub_list_text_size" />
+
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:background="@drawable/button_rectangle"
+            android:layout_marginBottom="@dimen/spacing_of_editext"
+            style="@style/Widget.App.Spinner"
+            android:padding="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="45dp" />
+
+
+
+        <EditText
+            android:id="@+id/remarks"
+            android:layout_width="match_parent"
+            android:padding="15dp"
+            android:layout_height="120dp"
+            android:gravity="top|left"
+            android:textColor="@color/text_color"
+            android:layout_marginBottom="@dimen/spacing_of_editext"
+            android:lines="4"
+            android:maxLines="4"
+            android:fontFamily="@font/flexo_demi"
+            android:focusableInTouchMode="true"
+            android:background="@drawable/button_rectangle"
+            android:imeOptions="actionNext"
+            android:inputType="textMultiLine"
+            android:scrollbars="vertical"
+            android:textSize="@dimen/sub_list_text_size" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="3"
+            android:orientation="horizontal">
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:padding="15dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/spacing_of_editext"
+                android:focusableInTouchMode="true"
+                android:layout_weight="1"
+                android:fontFamily="@font/flexo_demi"
+                android:background="@drawable/button_rectangle"
+                android:imeOptions="actionNext"
+                android:layout_marginRight="2dp"
+                android:inputType="text"
+                android:scrollHorizontally="true"
+                android:textSize="@dimen/sub_list_text_size" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:padding="15dp"
+                android:layout_marginLeft="2dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/spacing_of_editext"
+                android:focusableInTouchMode="true"
+                android:fontFamily="@font/flexo_demi"
+                android:background="@drawable/button_rectangle"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:scrollHorizontally="true"
+                android:textSize="@dimen/sub_list_text_size" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:padding="15dp"
+                android:layout_marginLeft="2dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/spacing_of_editext"
+                android:focusableInTouchMode="true"
+                android:fontFamily="@font/flexo_demi"
+                android:background="@drawable/button_rectangle"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:scrollHorizontally="true"
+                android:textSize="@dimen/sub_list_text_size" />
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
+
+</FrameLayout>

@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".BottomNavigation.AgentDashboard.Filter.FilterFragment">
+
+    <RelativeLayout
+        android:layout_width="350dp"
+        android:layout_height="500dp">
+
+        <LinearLayout
+            android:background="@drawable/rounded_shape"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/horizontal_default_padding"
+                android:paddingVertical="@dimen/vertical_default_padding"
+                android:text="VALUE"
+                android:textColor="@color/fpg_gray"
+                android:textSize="@dimen/setting_title"
+                android:textStyle="bold"/>
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/filter_chip_group_value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/horizontal_default_padding"
+                app:singleSelection="true">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/filter_chip"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:text="500K - 1M"
+                    android:checkable="true"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:textColor="@color/fpg_gray"
+                    android:textSize="@dimen/setting_title"/>
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/filter_chip2"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:text="1M - 1.5M"
+                    android:checkable="true"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:textColor="@color/fpg_gray"
+                    android:textSize="@dimen/setting_title"/>
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/filter_chip3"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:text="1.5 - 2M"
+                    android:checkable="true"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:textColor="@color/fpg_gray"
+                    android:textSize="@dimen/setting_title"/>
+            </com.google.android.material.chip.ChipGroup>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/horizontal_default_padding"
+                android:paddingVertical="@dimen/vertical_default_padding"
+                android:text="YEAR"
+                android:textColor="@color/fpg_gray"
+                android:textSize="@dimen/setting_title"
+                android:textStyle="bold"/>
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/filter_chip_group_year"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:singleSelection="true"
+                android:paddingHorizontal="@dimen/horizontal_default_padding">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/filter_year1"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:text="2020"
+                    android:textColor="@color/fpg_gray"
+                    android:textSize="@dimen/setting_title"/>
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/filter_year2"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:text="2019"
+                    android:textColor="@color/fpg_gray"
+                    android:textSize="@dimen/setting_title"/>
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/filter_year3"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:text="2018"
+                    android:textColor="@color/fpg_gray"
+                    android:textSize="@dimen/setting_title"/>
+            </com.google.android.material.chip.ChipGroup>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/horizontal_default_padding"
+                android:paddingVertical="@dimen/vertical_default_padding"
+                android:text="MAKE"
+                android:textColor="@color/fpg_gray"
+                android:textSize="@dimen/setting_title"
+                android:textStyle="bold"/>
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/filter_chip_group_make"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:singleSelection="true"
+                android:paddingHorizontal="@dimen/horizontal_default_padding">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/filter_audi"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:text="Audi"
+                    android:textColor="@color/fpg_gray"
+                    android:textSize="@dimen/setting_title"/>
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/filter_BMW"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:text="BMW"
+                    android:textColor="@color/fpg_gray"
+                    android:textSize="@dimen/setting_title"/>
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/filter_Chevrolet"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:text="Chevrolet"
+                    android:textColor="@color/fpg_gray"
+                    android:textSize="@dimen/setting_title"/>
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/filter_Ferrari"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:text="Ferrari"
+                    android:textColor="@color/fpg_gray"
+                    android:textSize="@dimen/setting_title"/>
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/filter_Ford"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:text="Ford"
+                    android:textColor="@color/fpg_gray"
+                    android:textSize="@dimen/setting_title"/>
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/filter_Honda"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:text="Honda"
+                    android:textColor="@color/fpg_gray"
+                    android:textSize="@dimen/setting_title"/>
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/filter_Hyundai"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:text="Hyundai"
+                    android:textColor="@color/fpg_gray"
+                    android:textSize="@dimen/setting_title"/>
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/filter_Isuzu"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:text="Isuzu"
+                    android:textColor="@color/fpg_gray"
+                    android:textSize="@dimen/setting_title"/>
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/filter_Jaguar"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:text="Jaguar"
+                    android:textColor="@color/fpg_gray"
+                    android:textSize="@dimen/setting_title"/>
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/filter_Mazda"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:text="Mazda"
+                    android:textColor="@color/fpg_gray"
+                    android:textSize="@dimen/setting_title"/>
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/filter_Toyota"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:text="Toyota"
+                    android:textColor="@color/fpg_gray"
+                    android:textSize="@dimen/setting_title"/>
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/filter_Nissan"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:text="Nissan"
+                    android:textColor="@color/fpg_gray"
+                    android:textSize="@dimen/setting_title"/>
+
+            </com.google.android.material.chip.ChipGroup>
+        </LinearLayout>
+        <Button
+            android:id="@+id/btn_done"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DONE"
+            android:textColor="@color/white"
+            android:background="@drawable/login_button"
+            android:textSize="@dimen/setting_title"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="@dimen/vertical_default_padding"
+            android:layout_marginHorizontal="@dimen/horizontal_default_padding"/>
+    </RelativeLayout>
+
+</FrameLayout>

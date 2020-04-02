@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="hyperlink">#4895FE</color>
+    <color name="fpg_orange">#FF5000</color>
+    <color name="fpg_light_orange">#FF7E00</color>
+    <color name="fpg_gray">#39383a</color>
+
+    <color name="light_green">#10A69B</color>
+    <color name="line_separator">#333333</color>
+    <color name="text_color">#333333</color>
+
+    <color name="colorPrimary1">#005A99</color>
+    <color name="card_color_prevet">#FF1369A6</color>
+    <color name="colorWhiteByChris">#e8e8e8</color>
+
+    <color name="pink">#FF4081</color>
+    <color name="indigo">#3F51B5</color>
+    <color name="lime">#CDDC39</color>
+
+    <color name="colorBlueThemed">#173E74</color>
+    <color name="colorBlueThemed1">#1B3D61</color>
+    <color name="colorBlueCalendarPicker">#1A3E62</color>
+    <color name="colorDarckBlueThemed">#1A3E62</color>
+    <color name="colorBlueButtonThemed">#005A99</color>
+    <color name="textColorWhite">#FFF</color>
+    <color name="buttonColor">#173E74</color>
+
+    <color name="black">#000</color>
+    <color name="orange">#FA0</color>
+    <color name="white">#FFF</color>
+
+    <color name="bluePrimaryDark">#048BFE</color>
+    <color name="bluePrimary">#2199FF</color>
+    <color name="bluePrimaryLight">#BADFFF</color>
+
+    <color name="blackPrimaryDark">#282828</color>
+    <color name="blackPrimary">#2E2E2E</color>
+    <color name="blackPrimaryLight">#8F8F8F</color>
+
+
+    <color name="fineGray">#E7E7E7</color>
+    <color name="transparent">#4D706f6f</color>
+
+    <color name="white_opacity80">#CCFFFFFF</color>
+    <color name="white_opacity60">#99FFFFFF</color>
+    <color name="white_opacity70">#B3FFFFFF</color>
+    <color name="white_opacity50">#99FFFFFF</color>
+    <color name="white_opacity40">#66FFFFFF</color>
+    <color name="white_opacity35">#59FFFFFF</color>
+    <color name="white_opacity20">#33FFFFFF</color>
+    <color name="white_opacity10">#16FFFFFF</color>
+
+
+    <color name="black_opacity90">#E6333333</color>
+    <color name="black_opacity80">#CC333333</color>
+    <color name="black_opacity70">#B3333333</color>
+    <color name="black_opacity60">#99333333</color>
+    <color name="black_opacity50">#99000000</color>
+    <color name="black_opacity35">#59333333</color>
+    <color name="black_opacity20">#33000000</color>
+    <color name="black_opacity15">#26000000</color>
+    <color name="black_opacity10">#16000000</color>
+    <color name="black_opacity5">#0D000000</color>
+
+
+    <color name="orange_opacity80">#CCFF5000</color>
+    <color name="lightorange_opacity80">#CCFF7E00</color>
+
+    <!-- Refresh Swipe -->
+    <color name="theme_accent_1">#00b0ff</color>
+    <color name="refresh_progress_1">@color/colorPrimary1</color>
+    <color name="refresh_progress_2">@color/theme_accent_1</color>
+    <color name="refresh_progress_3">@color/colorBlueThemed</color>
+
+    <!-- ITEM Loading -->
+    <color name="placeholder_grey_20">#33AAADC4</color>
+    <color name="placeholder_grey_5">#00000000</color>
+    <color name="placeholder_grey_40">#40000000</color>
+    <color name="placeholder_greyy">#AAADC4</color>
+
+    <color name="green01">#5EC639</color>
+    <color name="google_green">#3cba54</color>
+    <color name="google_yellow">#f4c20d</color>
+    <color name="google_red">#db3236</color>
+    <color name="google_blue">#4885ed</color>
+    <color name="google_white">#f2f2f2</color>
+
+    <color name="dark_red">#D01B25</color>
+    <color name="blue_green">#0d98ba</color>
+
+    <color name="background_white">#FFFFFF</color>
+
+    //BottomSheetDialog
+    <color name="material_dialog_background">@android:color/white</color>
+
+    <color name="material_dialog_title_text_color">@android:color/primary_text_light</color>
+    <color name="material_dialog_message_text_color">@android:color/secondary_text_light</color>
+
+    <color name="material_dialog_positive_button_text_color">?android:colorAccent</color>
+    <color name="material_dialog_negative_button_text_color">#1E88E5</color>
+
+    <color name="material_dialog_positive_button_color">#FF5000</color>
+
+</resources>

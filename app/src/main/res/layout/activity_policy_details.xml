@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BottomNavigation.AgentDashboard.MotorActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingHorizontal="@dimen/horizontal_default_padding"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/img_backbutton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="@dimen/page_default_margin_horizontal"
+                android:paddingVertical="@dimen/page_default_margin_horizontal"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_action_back" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="POLICY DETAILS"
+                android:textStyle="bold"
+                android:layout_gravity="center_vertical"
+                android:textSize="@dimen/head_textsize"
+                android:textColor="@color/fpg_gray">
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:clickable="true"
+            android:paddingVertical="@dimen/vertical_default_padding"
+            android:foreground="?android:attr/selectableItemBackground">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:maxLines="1"
+                android:layout_marginTop="@dimen/listing_division"
+                android:text="Make"
+                android:textColor="@color/fpg_gray"
+                android:textSize="@dimen/setting_title" />
+
+            <TextView
+                android:id="@+id/txt_carmake"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:maxLines="1"
+                android:layout_marginTop="@dimen/listing_division"
+                android:textAllCaps="true"
+                android:textColor="@color/fpg_gray"
+                android:textSize="@dimen/setting_title"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:clickable="true"
+            android:paddingVertical="@dimen/vertical_default_padding"
+            android:foreground="?android:attr/selectableItemBackground">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:maxLines="1"
+                android:layout_marginTop="@dimen/listing_division"
+                android:text="Value"
+                android:textColor="@color/fpg_gray"
+                android:textSize="@dimen/setting_title" />
+
+            <TextView
+                android:id="@+id/txt_carValue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:maxLines="1"
+                android:layout_marginTop="@dimen/listing_division"
+                android:textAllCaps="true"
+                android:textColor="@color/fpg_gray"
+                android:textSize="@dimen/setting_title"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:clickable="true"
+            android:paddingVertical="@dimen/vertical_default_padding"
+            android:foreground="?android:attr/selectableItemBackground">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:maxLines="1"
+                android:layout_marginTop="@dimen/listing_division"
+                android:text="Year"
+                android:textColor="@color/fpg_gray"
+                android:textSize="@dimen/setting_title" />
+
+            <TextView
+                android:id="@+id/txt_carYear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:maxLines="1"
+                android:layout_marginTop="@dimen/listing_division"
+                android:textAllCaps="true"
+                android:textColor="@color/fpg_gray"
+                android:textSize="@dimen/setting_title"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:clickable="true"
+            android:paddingVertical="@dimen/vertical_default_padding"
+            android:foreground="?android:attr/selectableItemBackground">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:maxLines="1"
+                android:layout_marginTop="@dimen/listing_division"
+                android:text="@string/plate_no"
+                android:textColor="@color/fpg_gray"
+                android:textSize="@dimen/setting_title" />
+
+            <TextView
+                android:id="@+id/txt_platenum"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:maxLines="1"
+                android:layout_marginTop="@dimen/listing_division"
+                android:textAllCaps="true"
+                android:textColor="@color/fpg_gray"
+                android:textSize="@dimen/setting_title"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:clickable="true"
+            android:paddingVertical="@dimen/vertical_default_padding"
+            android:foreground="?android:attr/selectableItemBackground">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:maxLines="1"
+                android:layout_marginTop="@dimen/listing_division"
+                android:text="Chassis Number"
+                android:textColor="@color/fpg_gray"
+                android:textSize="@dimen/setting_title" />
+
+            <TextView
+                android:id="@+id/txt_chassisnum"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:maxLines="1"
+                android:layout_marginTop="@dimen/listing_division"
+                android:textAllCaps="true"
+                android:textColor="@color/fpg_gray"
+                android:textSize="@dimen/setting_title"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

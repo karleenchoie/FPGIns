@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/card"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/mainCardView"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="2dp"
+        app:cardPreventCornerOverlap="false"
+        android:layout_marginBottom="@dimen/edittext_spacing"
+        android:elevation="10dp">
+
+        <LinearLayout
+
+            android:id="@+id/topLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/clickLayout"
+                android:orientation="horizontal">
+
+                <FrameLayout
+                    android:id="@+id/frameLayoutButtonSJ"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:background="?attr/selectableItemBackground"
+                    android:focusable="true"
+                    android:padding="5dp"
+                    android:minEms="4">
+
+
+                    <ImageView
+                        android:id="@+id/firstImage"
+                        android:layout_width="85dp"
+                        android:layout_height="85dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_gravity="center"
+                        android:scrollHorizontally="true"
+                        android:src="@drawable/fpg_logo2" />
+
+                </FrameLayout>
+
+                <HorizontalScrollView
+                    android:layout_width="wrap_content"
+                    android:id="@+id/horizontalView"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:id="@+id/lh"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:clickable="true"
+                        android:layout_marginLeft="@dimen/edittext_spacing"
+                        android:background="@drawable/ripple_effect">
+
+                        <LinearLayout
+                            android:id="@+id/textViewLabelLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:padding="5sp"
+                            android:paddingStart="-10sp">
+
+                            <TextView
+                                android:id="@+id/draftAddress"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:layout_weight="1"
+                                android:ellipsize="end"
+                                android:maxLength="25"
+                                android:gravity="center_vertical"
+                                android:scrollHorizontally="true"
+                                android:singleLine="true"
+                                android:hint="Address"
+                                android:textColorHint="@color/fpg_light_orange"
+                                android:textColor="@color/fpg_gray"
+                                android:textSize="@dimen/text_title_size" />
+
+                            <TextView
+                                android:id="@+id/draftDateTime"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:layout_weight="1"
+                                android:ellipsize="end"
+                                android:maxLength="25"
+                                android:gravity="center_vertical"
+                                android:scrollHorizontally="true"
+                                android:singleLine="true"
+                                android:hint="Date and Time"
+                                android:textColorHint="@color/fpg_light_orange"
+                                android:textColor="@color/fpg_gray"
+                                android:textSize="@dimen/text_title_size"  />
+
+                            <TextView
+                                android:id="@+id/draftRemarks"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:layout_weight="1"
+                                android:maxLength="25"
+                                android:ellipsize="middle"
+                                android:gravity="center_vertical"
+                                android:scrollHorizontally="true"
+                                android:singleLine="true"
+                                android:hint="Remarks"
+                                android:textColorHint="@color/fpg_light_orange"
+                                android:textColor="@color/fpg_gray"
+                                android:textSize="@dimen/text_title_size"  />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:background="@drawable/ripple_effect"
+            android:id="@+id/linearClicked"
+            android:orientation="vertical">
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/dottedButton"
+            android:layout_width="55dp"
+            android:layout_height="50dp"
+            android:scaleType="centerInside"
+            android:padding="10dp"
+            android:layout_marginEnd="15dp"
+            android:layout_gravity="right|bottom"
+            android:src="@drawable/delete_button">
+
+        </ImageView>
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

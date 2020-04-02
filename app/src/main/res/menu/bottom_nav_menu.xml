@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_claims"
+        android:icon="@drawable/bottom_nav_claims"
+        android:title="@string/dashboard"/>
+
+    <item
+        android:id="@+id/navigation_products"
+        android:icon="@drawable/bottom_nav_products"
+        android:title="Products" />
+
+    <item
+        android:id="@+id/navigation_fpgassist"
+        android:icon="@drawable/bottom_nav_fpgassist"
+        android:title="24/7" />
+
+    <item
+        android:id="@+id/navigation_partners"
+        android:icon="@drawable/bottom_nav_shop"
+        android:title="Partners" />
+
+    <item
+        android:id="@+id/navigation_settings"
+        android:icon="@drawable/bottom_nav_settings"
+        android:title="Settings" />
+
+</menu>

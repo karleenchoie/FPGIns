@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/parent_linear"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/stepsIndicator"
+            android:padding="15dp"
+            android:weightSum="7"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/step1circle"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="5sp"
+                    android:textAlignment="center"
+                    android:gravity="center_vertical"
+                    android:text="1"
+                    android:fontFamily="@font/exo_demibold"
+                    android:layout_marginBottom="4dp"
+                    android:background="@drawable/circle_processing"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/sub_top_title_text_size"
+                    android:textStyle="normal|bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <View
+                    android:id="@+id/line1"
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:background="@color/black_opacity20"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/step2circle"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="5sp"
+                    android:textAlignment="center"
+                    android:fontFamily="@font/exo_demibold"
+                    android:layout_marginBottom="4dp"
+                    android:background="@drawable/circle_processing"
+                    android:textColor="@android:color/black"
+                    android:gravity="center_vertical"
+                    android:text="2"
+                    android:textSize="@dimen/sub_top_title_text_size"
+                    android:textStyle="normal|bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <View
+                    android:id="@+id/line2"
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:background="@color/black_opacity20"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/step3circle"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="5sp"
+                    android:textAlignment="center"
+                    android:fontFamily="@font/exo_demibold"
+                    android:layout_marginBottom="4dp"
+                    android:background="@drawable/circle_processing"
+                    android:textColor="@android:color/black"
+                    android:gravity="center_vertical"
+                    android:text="3"
+                    android:textSize="@dimen/sub_top_title_text_size"
+                    android:textStyle="normal|bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <View
+                    android:id="@+id/line3"
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:background="@color/black_opacity20"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/step4circle"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="5sp"
+                    android:textAlignment="center"
+                    android:fontFamily="@font/exo_demibold"
+                    android:layout_marginBottom="4dp"
+                    android:background="@drawable/circle_processing"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/sub_top_title_text_size"
+                    android:gravity="center_vertical"
+                    android:text="4"
+                    android:textStyle="normal|bold" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/fragment_layout"
+            android:padding="15dp"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <fragment
+                android:id="@+id/nav_motor_fragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:defaultNavHost="true"
+                android:name="androidx.navigation.fragment.NavHostFragment"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="15dp">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/btnNext"
+            android:background="@color/fpg_orange"
+            android:text="Next"
+            android:textColor="@color/white"
+            android:textSize="20sp"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>
