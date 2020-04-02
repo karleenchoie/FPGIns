@@ -12,6 +12,7 @@ import com.example.fpgins.R;
 
 public class ClaimsListFragment extends Fragment {
 
+//    test
 
     public ClaimsListFragment() {
         // Required empty public constructor
