@@ -23,7 +23,6 @@
             android:hint="Title"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
-            android:paddingHorizontal="@dimen/horizontal_default_padding"
             android:textSize="@dimen/head_textsize"
             android:textColor="@color/fpg_gray">
         </TextView>
@@ -32,7 +31,7 @@
             android:id="@+id/img_branch"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/icon_message"
+            android:src="@drawable/icon_branch"
             android:layout_toLeftOf="@id/img_notification"
             android:layout_centerVertical="true"
             android:padding="@dimen/vertical_default_padding"/>

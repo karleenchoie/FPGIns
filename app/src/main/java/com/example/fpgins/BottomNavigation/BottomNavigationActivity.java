@@ -50,7 +50,7 @@ public class BottomNavigationActivity extends AppCompatActivity {
     private Camera mCamera;
     private String mImageName;
     private TextView mAppbarTitle;
-    private ImageView mNotification;
+    private ImageView mNotification,mBranchLocator,mShare;
     private String mCurrentTitle = "";
     private boolean isReadNewsLetter;
     private UserData mUserData;
@@ -80,6 +80,8 @@ public class BottomNavigationActivity extends AppCompatActivity {
         mUserData = new UserData(PreferenceManager.getDefaultSharedPreferences(this));
 
         mNotification = view.findViewById(R.id.img_notification);
+        mBranchLocator = view.findViewById(R.id.img_branch);
+        mShare = view.findViewById(R.id.img_share);
         mNotification.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
