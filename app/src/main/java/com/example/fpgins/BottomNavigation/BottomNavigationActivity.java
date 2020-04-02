@@ -46,6 +46,8 @@ import java.util.ArrayList;
 public class BottomNavigationActivity extends AppCompatActivity {
 
 
+    //MACKYYY
+
     //MACKY Try
     //MACKY Comment ulit
     private UserSessionManager mSession;
