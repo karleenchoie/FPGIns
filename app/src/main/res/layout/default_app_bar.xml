@@ -29,10 +29,28 @@
         </TextView>
 
         <ImageView
+            android:id="@+id/img_branch"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/icon_message"
+            android:layout_toLeftOf="@id/img_notification"
+            android:layout_centerVertical="true"
+            android:padding="@dimen/vertical_default_padding"/>
+
+        <ImageView
             android:id="@+id/img_notification"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:src="@drawable/icon_message"
+            android:layout_toLeftOf="@id/img_share"
+            android:layout_centerVertical="true"
+            android:padding="@dimen/vertical_default_padding"/>
+
+        <ImageView
+            android:id="@+id/img_share"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/icon_share"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:padding="@dimen/vertical_default_padding"/>
