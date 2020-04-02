@@ -32,6 +32,7 @@ import com.example.fpgins.Login.Session.UserSessionManager;
 import com.example.fpgins.Network.Cloud;
 import com.example.fpgins.NewsLetterNotificationDialog;
 import com.example.fpgins.R;
+import com.example.fpgins.ui.BranchLocator.BranchLocator;
 import com.example.fpgins.ui.NotificationMessage.NotifMessage;
 import com.example.fpgins.ui.NotificationMessage.NotifMessageFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -80,13 +81,26 @@ public class BottomNavigationActivity extends AppCompatActivity {
         mUserData = new UserData(PreferenceManager.getDefaultSharedPreferences(this));
 
         mNotification = view.findViewById(R.id.img_notification);
-        mBranchLocator = view.findViewById(R.id.img_branch);
-        mShare = view.findViewById(R.id.img_share);
         mNotification.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), NotifMessageFragment.class);
                 startActivity(intent);
+            }
+        });
+        mBranchLocator = view.findViewById(R.id.img_branch);
+        mBranchLocator.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), BranchLocator.class);
+                startActivity(intent);
+            }
+        });
+        mShare = view.findViewById(R.id.img_share);
+        mShare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
             }
         });
 

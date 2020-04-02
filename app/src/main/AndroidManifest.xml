@@ -43,6 +43,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".ui.BranchLocator.BranchLocator"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".BottomNavigation.AgentDashboard.AgentsActivities.MotorDetailsActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity

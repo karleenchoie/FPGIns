@@ -72,6 +72,7 @@
     <string name="change_password">Change Password</string>
     <string name="logout_sure">Are you sure you want to logout?</string>
     <string name="profile_picture_updated">Profile picture updated</string>
+    <string name="branch_locator">Branch Locator</string>
 
     //Customer Care
     <string name="title_contact_us">Contact Us</string>
