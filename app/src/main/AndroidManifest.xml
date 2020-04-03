@@ -42,6 +42,8 @@
         android:roundIcon="@mipmap/user_icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Login.AgentRegistration"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ui.BranchLocator.BranchLocator"
             android:theme="@style/AppTheme.NoActionBar" />

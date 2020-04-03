@@ -212,25 +212,6 @@
                         android:textSize="@dimen/setting_title" />
 
                     <TextView
-                        android:id="@+id/shareButton"
-                        style="@style/TextAppearance.AppCompat.Caption"
-                        android:background="@color/white"
-                        android:layout_width="match_parent"
-                        android:paddingVertical="15dp"
-                        android:layout_height="wrap_content"
-                        android:paddingHorizontal="@dimen/horizontal_default_padding"
-                        android:gravity="left"
-                        android:maxLines="1"
-                        android:layout_marginTop="@dimen/listing_division"
-                        android:text="@string/share"
-                        android:drawablePadding="@dimen/page_default_margin_horizontal"
-                        android:drawableRight="@drawable/icon_share"
-                        android:clickable="true"
-                        android:foreground="?android:attr/selectableItemBackground"
-                        android:textColor="@color/fpg_gray"
-                        android:textSize="@dimen/setting_title" />
-
-                    <TextView
                         android:id="@+id/txt_logout"
                         style="@style/TextAppearance.AppCompat.Caption"
                         android:background="@color/white"

@@ -100,7 +100,16 @@ public class BottomNavigationActivity extends AppCompatActivity {
         mShare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                try {
+                    Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                    shareIntent.setType("text/plain");
+                    shareIntent.putExtra(Intent.EXTRA_SUBJECT, "FPG Mobile\n");
+                    String shareMessage = "You can click this link for installation of FPG Mobile app\n\nLink";
+                    shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage);
+                    startActivity(Intent.createChooser(shareIntent, "Choose One"));
+                } catch(Exception e) {
+                    e.getMessage();
+                }
             }
         });
 

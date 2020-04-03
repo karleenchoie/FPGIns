@@ -20,6 +20,7 @@
     <string name="dashboard">Dashboard</string>
     <string name="claim_drafts">Claims Drafts</string>
     <string name="help_and_support">Help &amp; Support</string>
+    <string name="news_and_events">News &amp; Events</string>
     <string name="Faq">Faq</string>
 
     //Login
@@ -104,6 +105,7 @@
 
     //Register
     <string name="account_registration">Account Registration</string>
+    <string name="client_registration">Client Registration</string>
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
     <string name="full_name">Full Name</string>

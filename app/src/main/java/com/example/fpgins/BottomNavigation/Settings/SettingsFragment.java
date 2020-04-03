@@ -39,7 +39,6 @@ public class SettingsFragment extends Fragment {
     private TextView mPersonalInfo, mFullName;
     private TextView mChangePassword, mAccountType;
     private TextView mLogout;
-    private TextView mShareButton;
     private Dialog mDialog;
     private UserData mUserData;
     private final int SELECT_PICTURE = 1;
@@ -77,7 +76,6 @@ public class SettingsFragment extends Fragment {
         mLogout = view.findViewById(R.id.txt_logout);
         mAccountPicture = view.findViewById(R.id.img_accountPic);
         mEditPic = view.findViewById(R.id.img_editAccountPic);
-        mShareButton = view.findViewById(R.id.shareButton);
         mDialog = createLoadingDialog();
 
         StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
@@ -168,21 +166,21 @@ public class SettingsFragment extends Fragment {
             }
         });
 
-        mShareButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try {
-                    Intent shareIntent = new Intent(Intent.ACTION_SEND);
-                    shareIntent.setType("text/plain");
-                    shareIntent.putExtra(Intent.EXTRA_SUBJECT, "FPG Mobile\n");
-                    String shareMessage = "You can click this link for installation of FPG Mobile app\n\nLink";
-                    shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage);
-                    startActivity(Intent.createChooser(shareIntent, "Choose One"));
-                } catch(Exception e) {
-                    e.getMessage();
-                }
-            }
-        });
+//        mShareButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                try {
+//                    Intent shareIntent = new Intent(Intent.ACTION_SEND);
+//                    shareIntent.setType("text/plain");
+//                    shareIntent.putExtra(Intent.EXTRA_SUBJECT, "FPG Mobile\n");
+//                    String shareMessage = "You can click this link for installation of FPG Mobile app\n\nLink";
+//                    shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage);
+//                    startActivity(Intent.createChooser(shareIntent, "Choose One"));
+//                } catch(Exception e) {
+//                    e.getMessage();
+//                }
+//            }
+//        });
 
     }
 

@@ -49,11 +49,12 @@
 
         <RelativeLayout
             android:id="@+id/rellay1"
-            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/linear1"
-            android:paddingTop="60dp">
+            android:layout_marginTop="0dp"
+            android:paddingTop="60dp"
+            android:visibility="gone">
 
             <LinearLayout
                 android:id="@+id/login_form"
@@ -71,12 +72,11 @@
                         android:id="@+id/btn_login"
                         android:layout_width="match_parent"
                         android:layout_height="45dp"
-                        android:textSize="@dimen/button_textsize"
+                        android:background="@drawable/login_button"
                         android:text="LOG IN"
-                        android:textColor="@color/white"
                         android:textAlignment="center"
-                        android:background="@drawable/login_button">
-                    </Button>
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/button_textsize"></Button>
 
                 </LinearLayout>
 
@@ -90,32 +90,32 @@
                         android:id="@+id/btn_signup"
                         android:layout_width="match_parent"
                         android:layout_height="45dp"
-                        android:textSize="@dimen/button_textsize"
+                        android:background="@drawable/signin_button"
                         android:text="@string/account_registration"
+                        android:textAlignment="center"
                         android:textAllCaps="true"
                         android:textColor="@color/fpg_gray"
-                        android:textAlignment="center"
-                        android:background="@drawable/signin_button">
-                    </Button>
+                        android:textSize="@dimen/button_textsize"></Button>
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="100dp"
+                    android:layout_marginTop="@dimen/setting_head_text_size"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/txt_NeedHelp"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
-                        android:paddingLeft="@dimen/vertical_default_padding"
                         android:paddingVertical="@dimen/vertical_default_padding"
-                        android:textSize="15sp"
-                        android:text="NEED HELP?"
+                        android:paddingLeft="@dimen/vertical_default_padding"
+                        android:text="HELP CENTER"
+                        android:textAlignment="center"
                         android:textColor="@color/fpg_gray"
-                        android:textAlignment="textEnd">
-                    </TextView>
+                        android:textSize="15sp"></TextView>
 
                 </LinearLayout>
 

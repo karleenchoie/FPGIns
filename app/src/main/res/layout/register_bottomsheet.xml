@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:paddingBottom="8dp"
+    app:cardCornerRadius="10dp"
+    android:paddingTop="8dp">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="REGISTER AS:"
+            android:textSize="@dimen/setting_title"
+            android:textColor="@color/fpg_gray"
+            android:textStyle="bold"
+            android:paddingHorizontal="@dimen/horizontal_default_padding"
+            android:paddingVertical="@dimen/vertical_default_padding"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="2"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/linear_regAgent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:orientation="vertical"
+            android:paddingBottom="8dp"
+            android:gravity="center"
+            android:paddingHorizontal="@dimen/horizontal_default_padding"
+            android:paddingVertical="@dimen/vertical_default_padding">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/icon_agent"
+                android:tint="#737373" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Agent"
+                android:textAllCaps="true"
+                android:textColor="@color/fpg_gray"
+                android:layout_marginVertical="@dimen/vertical_default_padding"
+                android:textSize="@dimen/setting_title" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_regClient"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:paddingBottom="8dp"
+            android:paddingLeft="@dimen/activity_margin"
+            android:paddingRight="@dimen/activity_margin"
+            android:paddingVertical="@dimen/vertical_default_padding">
+
+            <ImageView
+                android:layout_width="46dp"
+                android:layout_height="50dp"
+                android:src="@drawable/icon_client"
+                android:tint="#737373" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Client"
+                android:textAllCaps="true"
+                android:layout_marginVertical="@dimen/vertical_default_padding"
+                android:textColor="@color/fpg_gray"
+                android:textSize="@dimen/setting_title" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

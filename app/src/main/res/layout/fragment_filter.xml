@@ -35,38 +35,35 @@
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/filter_chip"
-                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    style="@style/My_Widget.MaterialComponents.Chip.Filter"
                     android:layout_width="wrap_content"
                     android:layout_height="35dp"
                     android:text="500K - 1M"
                     android:checkable="true"
                     android:clickable="true"
                     android:focusable="true"
-                    android:textColor="@color/fpg_gray"
                     android:textSize="@dimen/setting_title"/>
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/filter_chip2"
-                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    style="@style/My_Widget.MaterialComponents.Chip.Filter"
                     android:layout_width="wrap_content"
                     android:layout_height="35dp"
                     android:text="1M - 1.5M"
                     android:checkable="true"
                     android:clickable="true"
                     android:focusable="true"
-                    android:textColor="@color/fpg_gray"
                     android:textSize="@dimen/setting_title"/>
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/filter_chip3"
-                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    style="@style/My_Widget.MaterialComponents.Chip.Filter"
                     android:layout_width="wrap_content"
                     android:layout_height="35dp"
                     android:text="1.5 - 2M"
                     android:checkable="true"
                     android:clickable="true"
                     android:focusable="true"
-                    android:textColor="@color/fpg_gray"
                     android:textSize="@dimen/setting_title"/>
             </com.google.android.material.chip.ChipGroup>
 
@@ -89,29 +86,26 @@
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/filter_year1"
-                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    style="@style/My_Widget.MaterialComponents.Chip.Filter"
                     android:layout_width="wrap_content"
                     android:layout_height="35dp"
                     android:text="2020"
-                    android:textColor="@color/fpg_gray"
                     android:textSize="@dimen/setting_title"/>
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/filter_year2"
-                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    style="@style/My_Widget.MaterialComponents.Chip.Filter"
                     android:layout_width="wrap_content"
                     android:layout_height="35dp"
                     android:text="2019"
-                    android:textColor="@color/fpg_gray"
                     android:textSize="@dimen/setting_title"/>
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/filter_year3"
-                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    style="@style/My_Widget.MaterialComponents.Chip.Filter"
                     android:layout_width="wrap_content"
                     android:layout_height="35dp"
                     android:text="2018"
-                    android:textColor="@color/fpg_gray"
                     android:textSize="@dimen/setting_title"/>
             </com.google.android.material.chip.ChipGroup>
 
@@ -121,8 +115,8 @@
                 android:paddingHorizontal="@dimen/horizontal_default_padding"
                 android:paddingVertical="@dimen/vertical_default_padding"
                 android:text="MAKE"
-                android:textColor="@color/fpg_gray"
                 android:textSize="@dimen/setting_title"
+                android:textColor="@color/fpg_gray"
                 android:textStyle="bold"/>
 
             <com.google.android.material.chip.ChipGroup
@@ -134,110 +128,98 @@
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/filter_audi"
-                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    style="@style/My_Widget.MaterialComponents.Chip.Filter"
                     android:layout_width="wrap_content"
                     android:layout_height="35dp"
                     android:text="Audi"
-                    android:textColor="@color/fpg_gray"
                     android:textSize="@dimen/setting_title"/>
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/filter_BMW"
-                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    style="@style/My_Widget.MaterialComponents.Chip.Filter"
                     android:layout_width="wrap_content"
                     android:layout_height="35dp"
                     android:text="BMW"
-                    android:textColor="@color/fpg_gray"
                     android:textSize="@dimen/setting_title"/>
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/filter_Chevrolet"
-                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    style="@style/My_Widget.MaterialComponents.Chip.Filter"
                     android:layout_width="wrap_content"
                     android:layout_height="35dp"
                     android:text="Chevrolet"
-                    android:textColor="@color/fpg_gray"
                     android:textSize="@dimen/setting_title"/>
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/filter_Ferrari"
-                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    style="@style/My_Widget.MaterialComponents.Chip.Filter"
                     android:layout_width="wrap_content"
                     android:layout_height="35dp"
                     android:text="Ferrari"
-                    android:textColor="@color/fpg_gray"
                     android:textSize="@dimen/setting_title"/>
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/filter_Ford"
-                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    style="@style/My_Widget.MaterialComponents.Chip.Filter"
                     android:layout_width="wrap_content"
                     android:layout_height="35dp"
                     android:text="Ford"
-                    android:textColor="@color/fpg_gray"
                     android:textSize="@dimen/setting_title"/>
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/filter_Honda"
-                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    style="@style/My_Widget.MaterialComponents.Chip.Filter"
                     android:layout_width="wrap_content"
                     android:layout_height="35dp"
                     android:text="Honda"
-                    android:textColor="@color/fpg_gray"
                     android:textSize="@dimen/setting_title"/>
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/filter_Hyundai"
-                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    style="@style/My_Widget.MaterialComponents.Chip.Filter"
                     android:layout_width="wrap_content"
                     android:layout_height="35dp"
                     android:text="Hyundai"
-                    android:textColor="@color/fpg_gray"
                     android:textSize="@dimen/setting_title"/>
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/filter_Isuzu"
-                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    style="@style/My_Widget.MaterialComponents.Chip.Filter"
                     android:layout_width="wrap_content"
                     android:layout_height="35dp"
                     android:text="Isuzu"
-                    android:textColor="@color/fpg_gray"
                     android:textSize="@dimen/setting_title"/>
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/filter_Jaguar"
-                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    style="@style/My_Widget.MaterialComponents.Chip.Filter"
                     android:layout_width="wrap_content"
                     android:layout_height="35dp"
                     android:text="Jaguar"
-                    android:textColor="@color/fpg_gray"
                     android:textSize="@dimen/setting_title"/>
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/filter_Mazda"
-                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    style="@style/My_Widget.MaterialComponents.Chip.Filter"
                     android:layout_width="wrap_content"
                     android:layout_height="35dp"
                     android:text="Mazda"
-                    android:textColor="@color/fpg_gray"
                     android:textSize="@dimen/setting_title"/>
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/filter_Toyota"
-                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    style="@style/My_Widget.MaterialComponents.Chip.Filter"
                     android:layout_width="wrap_content"
                     android:layout_height="35dp"
                     android:text="Toyota"
-                    android:textColor="@color/fpg_gray"
                     android:textSize="@dimen/setting_title"/>
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/filter_Nissan"
-                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    style="@style/My_Widget.MaterialComponents.Chip.Filter"
                     android:layout_width="wrap_content"
                     android:layout_height="35dp"
                     android:text="Nissan"
-                    android:textColor="@color/fpg_gray"
                     android:textSize="@dimen/setting_title"/>
 
             </com.google.android.material.chip.ChipGroup>

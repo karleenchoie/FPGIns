@@ -16,14 +16,19 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.fpgins.BottomNavigation.BottomNavigationActivity;
 import com.example.fpgins.BottomNavigation.ClientDashboard.ClaimsOptionFragment;
 import com.example.fpgins.BottomNavigation.FPGAssist.HelpActivity;
 import com.example.fpgins.BottomSheetDialog.BottomSheetMaterialDialog;
+import com.example.fpgins.BottomSheetDialog.BottomsheetFragment;
 import com.example.fpgins.Login.Session.UserSessionManager;
 import com.example.fpgins.R;
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
-public class SplashScreen extends Activity{
+public class SplashScreen extends AppCompatActivity {
 
     private ViewGroup tContainer,tContainer2;
     private RelativeLayout rellay1, rellay2;
@@ -94,33 +99,34 @@ public class SplashScreen extends Activity{
         mSignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent intent = new Intent(SplashScreen.this, Registration.class);
-//                startActivity(intent);
 
-                BottomSheetMaterialDialog bottomSheetMaterialDialog = new BottomSheetMaterialDialog.Builder(SplashScreen.this)
-                        .setTitle(getString(R.string.choose_account_type))
-                        .setMessage(getString(R.string.detail_choose))
-                        .setCancelable(false)
-                        .setPositiveButton(getString(R.string.agent) ,new BottomSheetMaterialDialog.OnClickListener(){
+                showBottomSheetDialogFragment();
 
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int which) {
-                                Intent intent = new Intent(SplashScreen.this, Registration.class);
-                                startActivity(intent);
-                                dialogInterface.dismiss();
-                            }
-                        })
-                        .setNegativeButton(getString(R.string.client), new BottomSheetMaterialDialog.OnClickListener(){
 
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int which) {
-                                Intent intent = new Intent(SplashScreen.this, Registration.class);
-                                startActivity(intent);
-                                dialogInterface.dismiss();
-                            }
-                        })
-                        .build();
-                bottomSheetMaterialDialog.show();
+//                BottomSheetMaterialDialog bottomSheetMaterialDialog = new BottomSheetMaterialDialog.Builder(SplashScreen.this)
+//                        .setTitle(getString(R.string.choose_account_type))
+//                        .setMessage(getString(R.string.detail_choose))
+//                        .setCancelable(false)
+//                        .setPositiveButton(getString(R.string.agent) ,new BottomSheetMaterialDialog.OnClickListener(){
+//
+//                            @Override
+//                            public void onClick(DialogInterface dialogInterface, int which) {
+//                                Intent intent = new Intent(SplashScreen.this, AgentRegistration.class);
+//                                startActivity(intent);
+//                                dialogInterface.dismiss();
+//                            }
+//                        })
+//                        .setNegativeButton(getString(R.string.client), new BottomSheetMaterialDialog.OnClickListener(){
+//
+//                            @Override
+//                            public void onClick(DialogInterface dialogInterface, int which) {
+//                                Intent intent = new Intent(SplashScreen.this, Registration.class);
+//                                startActivity(intent);
+//                                dialogInterface.dismiss();
+//                            }
+//                        })
+//                        .build();
+//                bottomSheetMaterialDialog.show();
             }
         });
 
@@ -170,5 +176,10 @@ public class SplashScreen extends Activity{
     public void onHideKeyboard(){
         InputMethodManager imm = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
         imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
+    }
+
+    public void showBottomSheetDialogFragment() {
+        BottomsheetFragment bottomSheetFragment = new BottomsheetFragment();
+        bottomSheetFragment.show(getSupportFragmentManager(), bottomSheetFragment.getTag());
     }
 }

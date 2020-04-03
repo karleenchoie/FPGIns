@@ -19,6 +19,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:weightSum="4"
+                android:paddingTop="@dimen/vertical_default_padding"
                 android:paddingHorizontal="@dimen/horizontal_default_padding"
                 android:orientation="horizontal">
 
@@ -46,6 +47,7 @@
                         android:gravity="center_horizontal"
                         android:text="Claim"
                         android:maxLines="3"
+                        android:textStyle="bold"
                         android:textSize="@dimen/textview_dashboard_label"
                         android:textAllCaps="true"
                         android:textColor="@color/fpg_gray" />
@@ -71,6 +73,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Motor"
+                        android:textStyle="bold"
                         android:maxLines="1"
                         android:textAllCaps="true"
                         android:textSize="@dimen/textview_dashboard_label"
@@ -99,6 +102,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
                         android:maxLines="1"
+                        android:textStyle="bold"
                         android:text="PA"
                         android:textAllCaps="true"
                         android:textColor="@color/fpg_gray"
@@ -127,6 +131,7 @@
                         android:layout_height="match_parent"
                         android:gravity="center_horizontal"
                         android:text="Travel"
+                        android:textStyle="bold"
                         android:maxLines="3"
                         android:textSize="@dimen/textview_dashboard_label"
                         android:textAllCaps="true"
@@ -166,6 +171,7 @@
                         android:gravity="center_horizontal"
                         android:text="Corporate"
                         android:maxLines="3"
+                        android:textStyle="bold"
                         android:textSize="@dimen/textview_dashboard_label"
                         android:textAllCaps="true"
                         android:textColor="@color/fpg_gray" />
@@ -194,6 +200,7 @@
                         android:gravity="center_horizontal"
                         android:text="Home"
                         android:maxLines="3"
+                        android:textStyle="bold"
                         android:textSize="@dimen/textview_dashboard_label"
                         android:textAllCaps="true"
                         android:textColor="@color/fpg_gray" />
@@ -203,6 +210,7 @@
                 <LinearLayout
                     android:id="@+id/iconFileExist"
                     android:clickable="true"
+                    android:textStyle="bold"
                     android:foreground="?android:attr/selectableItemBackground"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -222,6 +230,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Menu"
+                        android:textStyle="bold"
                         android:maxLines="3"
                         android:textAllCaps="true"
                         android:textSize="@dimen/textview_dashboard_label"
@@ -286,6 +295,7 @@
                         android:layout_height="match_parent"
                         android:gravity="center_horizontal"
                         android:text="Show More"
+                        android:textStyle="bold"
                         android:maxLines="3"
                         android:textSize="@dimen/textview_dashboard_label"
                         android:textAllCaps="true"
@@ -299,6 +309,7 @@
                 android:id="@+id/linear_moreMenus"
                 android:visibility="gone"
                 android:animateLayoutChanges="true"
+                android:paddingBottom="@dimen/vertical_default_padding"
                 android:background="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -326,6 +337,7 @@
                         android:layout_height="match_parent"
                         android:gravity="center_horizontal"
                         android:text="Menu"
+                        android:textStyle="bold"
                         android:maxLines="3"
                         android:textSize="@dimen/textview_dashboard_label"
                         android:textAllCaps="true"
@@ -355,6 +367,7 @@
                         android:text="MENU"
                         android:maxLines="3"
                         android:textSize="@dimen/textview_dashboard_label"
+                        android:textStyle="bold"
                         android:textAllCaps="true"
                         android:textColor="@color/fpg_gray" />
 
@@ -382,6 +395,7 @@
                         android:layout_height="wrap_content"
                         android:text="MENU"
                         android:maxLines="3"
+                        android:textStyle="bold"
                         android:textAllCaps="true"
                         android:textSize="@dimen/textview_dashboard_label"
                         android:textColor="@color/fpg_gray"
@@ -413,6 +427,7 @@
                         android:gravity="center_horizontal"
                         android:text="SHOW LESS"
                         android:maxLines="3"
+                        android:textStyle="bold"
                         android:textSize="@dimen/textview_dashboard_label"
                         android:textAllCaps="true"
                         android:textColor="@color/fpg_gray" />
@@ -422,7 +437,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_marginTop="2dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:padding="5dp"
                 android:id="@+id/topLinearLayout"
@@ -525,7 +540,7 @@
                     android:layout_gravity="center_vertical"
                     android:scrollHorizontally="true"
                     android:singleLine="true"
-                    android:text="We're sure you'll like this"
+                    android:text="@string/news_and_events"
                     android:textColor="@color/fpg_gray"
                     android:textStyle="bold"
                     android:textSize="@dimen/setting_title"/>
@@ -540,7 +555,7 @@
                     android:scrollHorizontally="true"
                     android:singleLine="true"
                     android:text="View All"
-                    android:textColor="@color/bluePrimaryDark"
+                    android:textColor="@color/fpg_orange"
                     android:textStyle="bold"
                     android:layout_alignParentRight="true"
                     android:layout_marginEnd="10dp"

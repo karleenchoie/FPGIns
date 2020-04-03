@@ -109,4 +109,11 @@
 
     </style>
 
+    <style name="My_Widget.MaterialComponents.Chip.Filter" parent="Widget.MaterialComponents.Chip.Filter">
+        <!-- Chip text color selector -->
+        <item name="android:textColor">@color/chip_color_effect</item>
+        <!-- Chip close icon color selector -->
+<!--        <item name="closeIconTint">@color/mtrl_chip_close_icon_tint</item>-->
+    </style>
+
 </resources>
