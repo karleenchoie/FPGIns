@@ -89,12 +89,7 @@ public class SubmittedFormsActivity extends AppCompatActivity {
 
     private void checkComponents(){
         getData(mUserData.getId());
-        if (mData.size() == 0){
-            mNoContent.setVisibility(View.VISIBLE);
-            mTvInfo.setText("No submitted forms yet");
-        } else {
-            mNoContent.setVisibility(View.GONE);
-        }
+
     }
 
     private void getData(String accountId){
@@ -157,6 +152,13 @@ public class SubmittedFormsActivity extends AppCompatActivity {
                     SubmittedFormsData data = new SubmittedFormsData(id, claimNo, policyNo, date, status, trasactionId, statusName);
                     mData.add(data);
                 }
+            }
+
+            if (mData.size() == 0){
+                mNoContent.setVisibility(View.VISIBLE);
+                mTvInfo.setText("No submitted forms yet");
+            } else {
+                mNoContent.setVisibility(View.GONE);
             }
 
         } catch (Exception e){

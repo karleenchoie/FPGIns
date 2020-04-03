@@ -127,7 +127,7 @@
                             android:textColor="@color/fpg_gray"
                             android:gravity="center_vertical"
                             android:text="Claim No."
-                            android:textSize="@dimen/text_title_size" />
+                            android:textSize="@dimen/setting_title" />
 
                         <TextView
                             android:id="@+id/tvLabelDetail2"
@@ -139,7 +139,7 @@
                             android:textColor="@color/fpg_gray"
                             android:gravity="center_vertical"
                             android:text="Policy No."
-                            android:textSize="@dimen/text_title_size" />
+                            android:textSize="@dimen/setting_title" />
 
                     </LinearLayout>
 
@@ -196,7 +196,7 @@
                             android:gravity="left|center_vertical"
                             android:scrollHorizontally="true"
                             android:text="0000000000000000"
-                            android:textSize="@dimen/text_title_size"
+                            android:textSize="@dimen/setting_title"
                             android:textColor="@color/fpg_gray"
                             android:textStyle="normal" />
 
@@ -213,7 +213,7 @@
                             android:gravity="left|center_vertical"
                             android:scrollHorizontally="true"
                             android:text="0000000000000000"
-                            android:textSize="@dimen/text_title_size"
+                            android:textSize="@dimen/setting_title"
                             android:textColor="@color/fpg_gray"
                             android:textStyle="normal" />
 
@@ -251,7 +251,7 @@
                         android:maxLines="1"
                         android:layout_below="@+id/iconStatus"
                         android:text="Pending"
-                        android:textSize="@dimen/textview_error_textsize" />
+                        android:textSize="@dimen/setting_title" />
 
 
                 </RelativeLayout>

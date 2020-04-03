@@ -44,7 +44,7 @@ public class FilterFragment extends DialogFragment {
                 Intent intent = new Intent(getContext(), MotorActivity.class);
                 intent.putExtra("selectedmake", make);
                 intent.putExtra("selectedValue", value);
-                intent.putExtra("selectedYear", value);
+                intent.putExtra("selectedYear", year);
                 dismiss();
             }
         });

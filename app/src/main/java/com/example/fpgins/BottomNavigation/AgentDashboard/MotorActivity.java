@@ -4,16 +4,22 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.fpgins.DataModel.MotorData;
 import com.example.fpgins.BottomNavigation.AgentDashboard.Filter.FilterFragment;
 import com.example.fpgins.R;
+import com.google.android.material.chip.Chip;
+import com.google.android.material.chip.ChipGroup;
 
 import java.util.ArrayList;
 
@@ -29,6 +35,7 @@ public class MotorActivity extends AppCompatActivity {
     private String make = "";
     private String value = "";
     private String year = "";
+    private String filteredContent = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +54,73 @@ public class MotorActivity extends AppCompatActivity {
         mFilterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showFilter();
+//                showFilter();
+                LayoutInflater li = LayoutInflater.from(MotorActivity.this);
+                View view = li.inflate(R.layout.fragment_filter, null);
+
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MotorActivity.this);
+
+                alertDialogBuilder.setView(view);
+
+                final ChipGroup groupMake, groupValue, groupYear;
+
+                groupMake = view.findViewById(R.id.filter_chip_group_make);
+                groupValue = view.findViewById(R.id.filter_chip_group_value);
+                groupYear = view.findViewById(R.id.filter_chip_group_year);
+
+                groupValue.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(ChipGroup chipGroup, int i) {
+                        Chip chip = chipGroup.findViewById(i);
+                        if (chip != null){
+                            Toast.makeText(MotorActivity.this, chip.getText().toString(),Toast.LENGTH_LONG).show();
+                            value = chip.getText().toString().toLowerCase();
+                        }
+                    }
+                });
+
+                groupYear.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(ChipGroup chipGroup, int i) {
+                        Chip chip = chipGroup.findViewById(i);
+                        if (chip != null){
+                            Toast.makeText(MotorActivity.this, chip.getText().toString(),Toast.LENGTH_LONG).show();
+                            year = chip.getText().toString().toLowerCase();
+                        }
+                    }
+                });
+
+
+                groupMake.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(ChipGroup chipGroup, int i) {
+                        Chip chip = chipGroup.findViewById(i);
+                        if (chip != null){
+                            Toast.makeText(MotorActivity.this, chip.getText().toString(),Toast.LENGTH_LONG).show();
+                            make = chip.getText().toString().toLowerCase();
+                        }
+                    }
+                });
+
+                alertDialogBuilder
+                        .setCancelable(false)
+                        .setPositiveButton(R.string.done, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                filteredContent = value + "," + year + "," + make;
+                                mAdapter.getFilter().filter(filteredContent);
+                            }
+                        })
+                        .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
+
+                AlertDialog alertDialog = alertDialogBuilder.create();
+                alertDialog.show();
+
             }
         });
 
@@ -106,16 +179,6 @@ public class MotorActivity extends AppCompatActivity {
         mRecyclerView = findViewById(R.id.recyclerView);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this);
-
-//        mMotorListFiltered = new ArrayList<>();
-//
-//        for (MotorData motorData : mMotorList){
-//            if (motorData.getmPolicyCarMake().toLowerCase().contains(make)
-//                    && motorData.getmPolicyCarValue().toLowerCase().contains(value)
-//                    && motorData.getmPolicyCarValue().toLowerCase().contains(year)){
-//                mMotorListFiltered.add(motorData);
-//            }
-//        }
 
         mAdapter = new MotorAdapter(mMotorList, getApplicationContext());
         mRecyclerView.setLayoutManager(mLayoutManager);

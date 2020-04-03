@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -19,6 +20,7 @@ import java.util.ArrayList;
 public class MotorAdapter extends RecyclerView.Adapter<MotorAdapter.MotorViewHolder> {
 
     private ArrayList<MotorData> mMotorList;
+    private ArrayList<MotorData> mCopyList;
     private Context mContext;
 
     public class MotorViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -53,6 +55,7 @@ public class MotorAdapter extends RecyclerView.Adapter<MotorAdapter.MotorViewHol
     public MotorAdapter(ArrayList<MotorData> mMotorList, Context context) {
         this.mMotorList = mMotorList;
         this.mContext = context;
+        mCopyList = mMotorList;
     }
 
     @Override
@@ -78,5 +81,47 @@ public class MotorAdapter extends RecyclerView.Adapter<MotorAdapter.MotorViewHol
     public void filterList(ArrayList<MotorData> filteredList) {
         mMotorList = filteredList;
         notifyDataSetChanged();
+    }
+
+    public Filter getFilter(){
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence constraint) {
+                ArrayList<MotorData> filteredResults = null;
+                if (constraint.length() == 0) {
+                    filteredResults = mCopyList;
+                } else {
+                    filteredResults = getFilteredResults(constraint.toString().toLowerCase());
+                }
+
+                FilterResults results = new FilterResults();
+                results.values = filteredResults;
+
+                return results;
+            }
+
+            @Override
+            protected void publishResults(CharSequence constraint, FilterResults results) {
+                mMotorList = (ArrayList<MotorData>) results.values;
+                notifyDataSetChanged();
+            }
+        };
+    }
+
+    protected ArrayList<MotorData> getFilteredResults(String constraint){
+        ArrayList<MotorData> results = new ArrayList<>();
+        String[] content = constraint.split(",");
+
+        String value = content[0];
+        String year = content[1];
+        String make = content[2];
+
+        for (MotorData item : mCopyList) {
+            if (item.getmPolicyCarYear().contains(year)
+                    && item.getmPolicyCarMake().toLowerCase().contains(make)) {
+                results.add(item);
+            }
+        }
+        return results;
     }
 }

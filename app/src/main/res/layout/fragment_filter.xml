@@ -8,7 +8,7 @@
 
     <RelativeLayout
         android:layout_width="350dp"
-        android:layout_height="500dp">
+        android:layout_height="350dp">
 
         <LinearLayout
             android:background="@drawable/rounded_shape"
@@ -224,18 +224,18 @@
 
             </com.google.android.material.chip.ChipGroup>
         </LinearLayout>
-        <Button
-            android:id="@+id/btn_done"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="DONE"
-            android:textColor="@color/white"
-            android:background="@drawable/login_button"
-            android:textSize="@dimen/setting_title"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginBottom="@dimen/vertical_default_padding"
-            android:layout_marginHorizontal="@dimen/horizontal_default_padding"/>
+<!--        <Button-->
+<!--            android:id="@+id/btn_done"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="DONE"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:background="@drawable/login_button"-->
+<!--            android:textSize="@dimen/setting_title"-->
+<!--            android:layout_alignParentBottom="true"-->
+<!--            android:layout_alignParentRight="true"-->
+<!--            android:layout_marginBottom="@dimen/vertical_default_padding"-->
+<!--            android:layout_marginHorizontal="@dimen/horizontal_default_padding"/>-->
     </RelativeLayout>
 
 </FrameLayout>
