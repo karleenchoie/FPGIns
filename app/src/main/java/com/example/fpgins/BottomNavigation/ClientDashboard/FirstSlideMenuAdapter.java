@@ -72,7 +72,8 @@ public class FirstSlideMenuAdapter extends RecyclerView.Adapter<FirstSlideMenuAd
 
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent(context, NotifMessage.class);
+//            Intent intent = new Intent(context, NotifMessage.class);
+            Intent intent = new Intent(context, NewsandEvents.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(intent);
         }

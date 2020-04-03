@@ -584,9 +584,6 @@
             <ScrollView
                 android:background="@color/white"
                 android:layout_width="match_parent"
-                android:paddingStart="@dimen/vertical_default_padding"
-                android:paddingEnd="@dimen/vertical_default_padding"
-                android:layout_marginBottom="@dimen/vertical_default_padding"
                 android:layout_height="match_parent"
                 android:fillViewport="true">
 
@@ -594,6 +591,8 @@
                     android:id="@+id/firstMenuSlideRView"
                     tools:listitem="@layout/item_dashboard_promo"
                     android:layout_width="match_parent"
+                    android:layout_marginHorizontal="@dimen/vertical_default_padding"
+                    android:verticalSpacing="@dimen/vertical_default_padding"
                     android:layout_height="wrap_content">
                 </androidx.recyclerview.widget.RecyclerView>
 
@@ -603,14 +602,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/white"
+                android:layout_marginVertical="@dimen/vertical_default_padding"
                 android:orientation="vertical">
 
                 <com.example.fpgins.RoundedCornerImageView
                     android:layout_marginVertical="10dp"
                     android:id="@+id/imageUploaded"
-                    android:paddingTop="@dimen/vertical_default_padding"
-                    android:paddingBottom="@dimen/vertical_default_padding"
-                    android:paddingHorizontal="@dimen/vertical_default_padding"
+                    android:layout_marginBottom="@dimen/vertical_default_padding"
+                    android:layout_marginTop="@dimen/vertical_default_padding"
+                    android:layout_marginHorizontal="@dimen/vertical_default_padding"
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
                     android:scaleType="centerCrop"

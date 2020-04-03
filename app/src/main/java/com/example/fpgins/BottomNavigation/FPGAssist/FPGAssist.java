@@ -74,7 +74,6 @@ public class FPGAssist extends Fragment implements OnMapReadyCallback {
         mSOS = mView.findViewById(R.id.imgSOS);
         mSOS.setOnLongClickListener(speakHoldListener);
         mSOS.setOnTouchListener(speakTouchListener);
-
         mUserData = new UserData(PreferenceManager.getDefaultSharedPreferences(getContext()));
         name = mUserData.getFirstName() + " " + mUserData.getLastName();
 

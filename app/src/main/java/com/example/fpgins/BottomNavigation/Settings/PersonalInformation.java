@@ -150,7 +150,6 @@ public class PersonalInformation extends AppCompatActivity {
                     .show();
         }catch (Exception e){
             e.getMessage();
-
         }
     }
 
@@ -176,6 +175,7 @@ public class PersonalInformation extends AppCompatActivity {
                         Toast.makeText(PersonalInformation.this, message, Toast.LENGTH_SHORT).show();
                     }catch (JSONException e){
                         e.printStackTrace();
+                        Toast.makeText(PersonalInformation.this, "Please check your connection and try again", Toast.LENGTH_SHORT).show();
                     }
                 }else {
                     //SUCCESS

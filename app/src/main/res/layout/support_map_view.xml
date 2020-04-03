@@ -44,10 +44,9 @@
                 android:id="@+id/txt_timer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Please press button within 3 seconds"
                 android:textColor="@color/fpg_gray"
                 android:layout_gravity="center"
-                android:textAlignment="center"
+                android:textAlignment="textEnd"
                 android:layout_margin="@dimen/page_default_margin_horizontal"
                 android:textSize="@dimen/edittext_textsize">
 

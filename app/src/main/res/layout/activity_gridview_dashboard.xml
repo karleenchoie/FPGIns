@@ -24,7 +24,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/dashboard"
+            android:text="@string/news_and_events"
             android:textStyle="bold"
             android:textSize="@dimen/head_textsize"
             android:layout_gravity="center_vertical"
@@ -37,7 +37,7 @@
         android:background="@color/white"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingHorizontal="@dimen/horizontal_default_padding"
+        android:paddingHorizontal="10dp"
         android:fillViewport="true">
 
         <GridView
@@ -47,7 +47,7 @@
             android:numColumns="2"
             android:stretchMode="columnWidth"
             tools:listitem="@layout/item_dashboard_promo"
-            android:verticalSpacing="5dp"
+            android:verticalSpacing="@dimen/vertical_default_padding"
             android:scrollbarStyle="outsideOverlay"
             android:verticalScrollbarPosition="right"
             android:scrollbars="vertical">
