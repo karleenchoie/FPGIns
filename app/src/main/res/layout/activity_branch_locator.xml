@@ -59,9 +59,10 @@
 
             <TextView
                 style="@style/TextAppearance.AppCompat.Caption"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="left"
+                android:drawableRight="@drawable/arrow_down"
+                android:gravity="center_vertical"
                 android:paddingVertical="@dimen/page_default_margin_horizontal"
                 android:maxLines="1"
                 android:text="@string/indonesia"
@@ -132,9 +133,9 @@
 
                 <ImageView
                     android:layout_width="wrap_content"
-                    android:layout_height="13dp"
-                    android:layout_gravity="start"
-                    android:src="@drawable/icon_email" />
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/icon_email"
+                    android:layout_gravity="start"/>
 
                 <TextView
                     style="@style/TextAppearance.AppCompat.Caption"
@@ -159,9 +160,10 @@
 
             <TextView
                 style="@style/TextAppearance.AppCompat.Caption"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="left"
+                android:drawableRight="@drawable/arrow_down"
+                android:gravity="center_vertical"
                 android:paddingVertical="@dimen/page_default_margin_horizontal"
                 android:maxLines="1"
                 android:text="@string/philippines"
@@ -260,9 +262,10 @@
 
             <TextView
                 style="@style/TextAppearance.AppCompat.Caption"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
+                android:drawableRight="@drawable/arrow_down"
+                android:gravity="center_vertical"
                 android:maxLines="1"
                 android:paddingVertical="@dimen/page_default_margin_horizontal"
                 android:paddingHorizontal="@dimen/horizontal_default_padding"

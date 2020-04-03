@@ -46,8 +46,7 @@
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:src="@drawable/icon_agent"
-                android:tint="#737373" />
+                android:src="@drawable/agent_icon"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -75,10 +74,9 @@
             android:paddingVertical="@dimen/vertical_default_padding">
 
             <ImageView
-                android:layout_width="46dp"
+                android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:src="@drawable/icon_client"
-                android:tint="#737373" />
+                android:src="@drawable/client_icon"/>
 
             <TextView
                 android:layout_width="wrap_content"
