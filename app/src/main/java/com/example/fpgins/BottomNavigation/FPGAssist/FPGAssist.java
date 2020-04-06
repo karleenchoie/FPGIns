@@ -35,6 +35,7 @@ import com.example.fpgins.DataModel.UserData;
 import com.example.fpgins.R;
 import com.example.fpgins.Utility.DefaultDialog;
 import com.example.fpgins.Utility.GetLocation;
+import com.example.fpgins.ui.customercare.CustomerCareFragment;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -54,7 +55,7 @@ public class FPGAssist extends Fragment implements OnMapReadyCallback {
     private MapView mMap;
     private View mView;
     private LocationManager mLocationManager;
-    private LinearLayout mHelp;
+    private LinearLayout mHelp, mContactUs;
     private Vibrator vibrate;
     private TextView mTimer;
     private boolean isSpeakButtonLongPressed = false;
@@ -70,6 +71,7 @@ public class FPGAssist extends Fragment implements OnMapReadyCallback {
         mView = inflater.inflate(R.layout.support_map_view, container, false);
         mLocationManager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
         mHelp = mView.findViewById(R.id.linear_help);
+        mContactUs = mView.findViewById(R.id.linear_contact);
         mTimer = mView.findViewById(R.id.txt_timer);
         mSOS = mView.findViewById(R.id.imgSOS);
         mSOS.setOnLongClickListener(speakHoldListener);
@@ -82,6 +84,14 @@ public class FPGAssist extends Fragment implements OnMapReadyCallback {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), HelpActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        mContactUs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), CustomerCareFragment.class);
                 startActivity(intent);
             }
         });

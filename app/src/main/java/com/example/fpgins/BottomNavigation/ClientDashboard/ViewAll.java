@@ -55,7 +55,7 @@ public class ViewAll extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 FirstSlideMenuData data = mData.get(position);
 
-                Intent intent = new Intent(ViewAll.this, NotifMessage.class);
+                Intent intent = new Intent(ViewAll.this, NewsandEvents.class);
                 startActivity(intent);
             }
         });

@@ -23,11 +23,11 @@
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
 
-    <fragment
-        android:id="@+id/nav_customercare"
-        android:name="com.example.fpgins.ui.customercare.CustomerCareFragment"
-        android:label="@string/menu_customer_care"
-        tools:layout="@layout/fragment_tools" />
+<!--    <fragment-->
+<!--        android:id="@+id/nav_customercare"-->
+<!--        android:name="com.example.fpgins.ui.customercare.CustomerCareFragment"-->
+<!--        android:label="@string/menu_customer_care"-->
+<!--        tools:layout="@layout/fragment_tools" />-->
 
     <fragment
         android:id="@+id/nav_share"

@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
     tools:context=".BottomNavigation.AgentDashboard.MotorActivity">
     <LinearLayout
         android:layout_width="match_parent"
@@ -38,325 +39,2318 @@
             </TextView>
         </LinearLayout>
 
-        <LinearLayout
+        <ScrollView
+            android:id="@+id/sv_Branch"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:orientation="vertical">
-
-            <TextView
-                style="@style/TextAppearance.AppCompat.Caption"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:maxLines="1"
-                android:paddingVertical="@dimen/page_default_margin_horizontal"
-                android:textStyle="bold"
-                android:paddingHorizontal="@dimen/horizontal_default_padding"
-                android:text="@string/get_in_touch"
-                android:textColor="@color/fpg_gray"
-                android:textSize="@dimen/setting_title" />
-
-            <TextView
-                style="@style/TextAppearance.AppCompat.Caption"
+            android:layout_height="match_parent"
+            android:animateLayoutChanges="true">
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableRight="@drawable/arrow_down"
-                android:gravity="center_vertical"
-                android:paddingVertical="@dimen/page_default_margin_horizontal"
-                android:maxLines="1"
-                android:text="@string/indonesia"
-                android:paddingHorizontal="@dimen/horizontal_default_padding"
-                android:textColor="@color/fpg_orange"
-                android:textSize="@dimen/setting_title" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:layout_marginTop="@dimen/page_default_margin_horizontal"
-                android:layout_marginHorizontal="@dimen/horizontal_default_padding">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/icon_address"
-                    android:layout_gravity="start"/>
+                android:background="@color/white"
+                android:orientation="vertical">
 
                 <TextView
                     style="@style/TextAppearance.AppCompat.Caption"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="left"
-                    android:gravity="left"
-                    android:maxLines="3"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:paddingVertical="@dimen/page_default_margin_horizontal"
+                    android:textStyle="bold"
                     android:paddingHorizontal="@dimen/horizontal_default_padding"
-                    android:text="Chase Plaza Tower 4th Floor Jl. Jend. Sudirman Kav. 21 Jakarta 12920, Indonesia"
+                    android:text="@string/get_in_touch"
                     android:textColor="@color/fpg_gray"
                     android:textSize="@dimen/setting_title" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:layout_marginTop="@dimen/page_default_margin_horizontal"
-                android:layout_marginHorizontal="@dimen/horizontal_default_padding">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/icon_mobile"
-                    android:layout_gravity="start"/>
 
                 <TextView
                     style="@style/TextAppearance.AppCompat.Caption"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="left"
-                    android:gravity="left"
-                    android:maxLines="3"
+                    android:gravity="center_vertical"
+                    android:paddingVertical="@dimen/page_default_margin_horizontal"
+                    android:maxLines="1"
+                    android:text="@string/indonesia"
                     android:paddingHorizontal="@dimen/horizontal_default_padding"
-                    android:text="+62 21 50821555"
-                    android:textColor="@color/fpg_gray"
+                    android:textColor="@color/fpg_orange"
                     android:textSize="@dimen/setting_title" />
 
-            </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                    android:layout_marginHorizontal="@dimen/horizontal_default_padding">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:layout_marginTop="@dimen/page_default_margin_horizontal"
-                android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/icon_address"
+                        android:layout_gravity="start"/>
 
-                <ImageView
-                    android:layout_width="wrap_content"
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Caption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:gravity="left"
+                        android:maxLines="3"
+                        android:paddingHorizontal="@dimen/horizontal_default_padding"
+                        android:text="Chase Plaza Tower 4th Floor Jl. Jend. Sudirman Kav. 21 Jakarta 12920, Indonesia"
+                        android:textColor="@color/fpg_gray"
+                        android:textSize="@dimen/setting_title" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                    android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/icon_mobile"
+                        android:layout_gravity="start"/>
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Caption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:gravity="left"
+                        android:maxLines="3"
+                        android:paddingHorizontal="@dimen/horizontal_default_padding"
+                        android:text="+62 21 50821555"
+                        android:textColor="@color/fpg_gray"
+                        android:textSize="@dimen/setting_title" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                    android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/icon_email"
+                        android:layout_gravity="start"/>
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Caption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:gravity="left"
+                        android:maxLines="3"
+                        android:paddingHorizontal="@dimen/horizontal_default_padding"
+                        android:text="insure@fpgins.com"
+                        android:textColor="@color/fpg_gray"
+                        android:textSize="@dimen/setting_title" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/fineGray"
+                    android:layout_marginVertical="@dimen/page_default_margin_horizontal">
+                </View>
+
+                <TextView
+                    android:id="@+id/txt_Ph"
+                    style="@style/TextAppearance.AppCompat.Caption"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/icon_email"
-                    android:layout_gravity="start"/>
+                    android:drawableRight="@drawable/arrow_down"
+                    android:gravity="center_vertical"
+                    android:paddingVertical="@dimen/page_default_margin_horizontal"
+                    android:maxLines="1"
+                    android:text="@string/philippines"
+                    android:paddingHorizontal="@dimen/horizontal_default_padding"
+                    android:textColor="@color/fpg_orange"
+                    android:textSize="@dimen/setting_title" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                    android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/icon_address"
+                        android:layout_gravity="start"/>
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Caption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:gravity="left"
+                        android:maxLines="3"
+                        android:paddingHorizontal="@dimen/horizontal_default_padding"
+                        android:text="6/F Zuellig Buiding, Makati Avenue corner Paseo de Roxas, Makati City, 1225 Philippines"
+                        android:textColor="@color/fpg_gray"
+                        android:textSize="@dimen/setting_title" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                    android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/icon_mobile"
+                        android:layout_gravity="start"/>
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Caption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:gravity="left"
+                        android:maxLines="3"
+                        android:paddingHorizontal="@dimen/horizontal_default_padding"
+                        android:text="(+632) 8859 1200 / (+632) 7944 1300"
+                        android:textColor="@color/fpg_gray"
+                        android:textSize="@dimen/setting_title" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                    android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/icon_email"
+                        android:layout_gravity="start"/>
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Caption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:gravity="left"
+                        android:maxLines="3"
+                        android:paddingHorizontal="@dimen/horizontal_default_padding"
+                        android:text="phcustomercare@fpgins.com"
+                        android:textColor="@color/fpg_gray"
+                        android:textSize="@dimen/setting_title" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linear_phBranch"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingVertical="@dimen/vertical_default_padding"
+                    android:paddingLeft="@dimen/horizontal_default_padding">
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Caption"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:paddingVertical="@dimen/page_default_margin_horizontal"
+                        android:maxLines="1"
+                        android:text="Alabang"
+                        android:paddingHorizontal="@dimen/horizontal_default_padding"
+                        android:textColor="@color/fpg_orange"
+                        android:textSize="@dimen/setting_title" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_address"
+                            android:layout_gravity="start"/>
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="left"
+                            android:maxLines="3"
+                            android:paddingHorizontal="@dimen/horizontal_default_padding"
+                            android:text="5/F Unit A CTP Alpha Building Investment Drive, Madrigal Business Park Ayala Alabang, Muntinlupa City"
+                            android:textColor="@color/fpg_gray"
+                            android:textSize="@dimen/setting_title" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_mobile"
+                            android:layout_gravity="start"/>
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="left"
+                            android:maxLines="3"
+                            android:paddingHorizontal="@dimen/horizontal_default_padding"
+                            android:text="+63 8807 1875"
+                            android:textColor="@color/fpg_gray"
+                            android:textSize="@dimen/setting_title" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_email"
+                            android:layout_gravity="start"/>
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="left"
+                            android:maxLines="3"
+                            android:paddingHorizontal="@dimen/horizontal_default_padding"
+                            android:text="mcarillo@fpgins.com"
+                            android:textColor="@color/fpg_gray"
+                            android:textSize="@dimen/setting_title" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Caption"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:paddingVertical="@dimen/page_default_margin_horizontal"
+                        android:maxLines="1"
+                        android:text="Angeles"
+                        android:layout_marginTop="@dimen/vertical_default_padding"
+                        android:paddingHorizontal="@dimen/horizontal_default_padding"
+                        android:textColor="@color/fpg_orange"
+                        android:textSize="@dimen/setting_title" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_address"
+                            android:layout_gravity="start"/>
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="left"
+                            android:maxLines="3"
+                            android:paddingHorizontal="@dimen/horizontal_default_padding"
+                            android:text="No. 303 McArthur Highway Balibago, Angeles City Pampanga"
+                            android:textColor="@color/fpg_gray"
+                            android:textSize="@dimen/setting_title" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_mobile"
+                            android:layout_gravity="start"/>
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="left"
+                            android:maxLines="3"
+                            android:paddingHorizontal="@dimen/horizontal_default_padding"
+                            android:text="+63 8807 1875"
+                            android:textColor="@color/fpg_gray"
+                            android:textSize="@dimen/setting_title" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_email"
+                            android:layout_gravity="start"/>
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="left"
+                            android:maxLines="3"
+                            android:paddingHorizontal="@dimen/horizontal_default_padding"
+                            android:text="mcarillo@fpgins.com"
+                            android:textColor="@color/fpg_gray"
+                            android:textSize="@dimen/setting_title" />
+
+
+
+                    </LinearLayout>
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Caption"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:paddingVertical="@dimen/page_default_margin_horizontal"
+                        android:maxLines="1"
+                        android:text="Batangas"
+                        android:layout_marginTop="@dimen/vertical_default_padding"
+                        android:paddingHorizontal="@dimen/horizontal_default_padding"
+                        android:textColor="@color/fpg_orange"
+                        android:textSize="@dimen/setting_title" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_address"
+                            android:layout_gravity="start"/>
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="left"
+                            android:maxLines="3"
+                            android:paddingHorizontal="@dimen/horizontal_default_padding"
+                            android:text="2/F Unit C, RDC Plaza J.P. Laurel Highway Barangay Balintawak Lipa City, Batangas"
+                            android:textColor="@color/fpg_gray"
+                            android:textSize="@dimen/setting_title" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_mobile"
+                            android:layout_gravity="start"/>
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="left"
+                            android:maxLines="3"
+                            android:paddingHorizontal="@dimen/horizontal_default_padding"
+                            android:text="(043) 702-3384 / 757-1358"
+                            android:textColor="@color/fpg_gray"
+                            android:textSize="@dimen/setting_title" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_email"
+                            android:layout_gravity="start"/>
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="left"
+                            android:maxLines="3"
+                            android:paddingHorizontal="@dimen/horizontal_default_padding"
+                            android:text="jsolis@fpgins.com"
+                            android:textColor="@color/fpg_gray"
+                            android:textSize="@dimen/setting_title" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Caption"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:paddingVertical="@dimen/page_default_margin_horizontal"
+                        android:maxLines="1"
+                        android:text="Bacolod"
+                        android:layout_marginTop="@dimen/vertical_default_padding"
+                        android:paddingHorizontal="@dimen/horizontal_default_padding"
+                        android:textColor="@color/fpg_orange"
+                        android:textSize="@dimen/setting_title" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_address"
+                            android:layout_gravity="start"/>
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="left"
+                            android:maxLines="3"
+                            android:paddingHorizontal="@dimen/horizontal_default_padding"
+                            android:text="2/F VSB Building corner 6th and 7th St.,Lacson St. Bacolod City"
+                            android:textColor="@color/fpg_gray"
+                            android:textSize="@dimen/setting_title" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_mobile"
+                            android:layout_gravity="start"/>
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="left"
+                            android:maxLines="3"
+                            android:paddingHorizontal="@dimen/horizontal_default_padding"
+                            android:text="(043) 435-2104"
+                            android:textColor="@color/fpg_gray"
+                            android:textSize="@dimen/setting_title" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_email"
+                            android:layout_gravity="start"/>
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="left"
+                            android:maxLines="3"
+                            android:paddingHorizontal="@dimen/horizontal_default_padding"
+                            android:text="mgolez@fpgins.com"
+                            android:textColor="@color/fpg_gray"
+                            android:textSize="@dimen/setting_title" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Caption"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:paddingVertical="@dimen/page_default_margin_horizontal"
+                        android:maxLines="1"
+                        android:text="Binondo"
+                        android:layout_marginTop="@dimen/vertical_default_padding"
+                        android:paddingHorizontal="@dimen/horizontal_default_padding"
+                        android:textColor="@color/fpg_orange"
+                        android:textSize="@dimen/setting_title" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_address"
+                            android:layout_gravity="start"/>
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="left"
+                            android:maxLines="3"
+                            android:paddingHorizontal="@dimen/horizontal_default_padding"
+                            android:text="Unit 602 G.A. Cu-Unjieng Centre, 208 Dasmariñas St.,"
+                            android:textColor="@color/fpg_gray"
+                            android:textSize="@dimen/setting_title" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_mobile"
+                            android:layout_gravity="start"/>
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="left"
+                            android:maxLines="3"
+                            android:paddingHorizontal="@dimen/horizontal_default_padding"
+                            android:text="(02) 8242 4161"
+                            android:textColor="@color/fpg_gray"
+                            android:textSize="@dimen/setting_title" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_email"
+                            android:layout_gravity="start"/>
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="left"
+                            android:maxLines="3"
+                            android:paddingHorizontal="@dimen/horizontal_default_padding"
+                            android:text="dherrera@fpgins.com"
+                            android:textColor="@color/fpg_gray"
+                            android:textSize="@dimen/setting_title" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Caption"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:paddingVertical="@dimen/page_default_margin_horizontal"
+                        android:maxLines="1"
+                        android:text="Cagayan De Oro"
+                        android:layout_marginTop="@dimen/vertical_default_padding"
+                        android:paddingHorizontal="@dimen/horizontal_default_padding"
+                        android:textColor="@color/fpg_orange"
+                        android:textSize="@dimen/setting_title" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_address"
+                            android:layout_gravity="start"/>
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="left"
+                            android:maxLines="3"
+                            android:paddingHorizontal="@dimen/horizontal_default_padding"
+                            android:text="2/F CFI Community Cooperative Building, Tiano Bros. corner Mabini Street, Cagayan De Oro City, Misamis Oriental"
+                            android:textColor="@color/fpg_gray"
+                            android:textSize="@dimen/setting_title" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_mobile"
+                            android:layout_gravity="start"/>
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="left"
+                            android:maxLines="3"
+                            android:paddingHorizontal="@dimen/horizontal_default_padding"
+                            android:text="(088) 850 1155"
+                            android:textColor="@color/fpg_gray"
+                            android:textSize="@dimen/setting_title" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_email"
+                            android:layout_gravity="start"/>
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="left"
+                            android:maxLines="3"
+                            android:paddingHorizontal="@dimen/horizontal_default_padding"
+                            android:text="mgalla@fpgins.com"
+                            android:textColor="@color/fpg_gray"
+                            android:textSize="@dimen/setting_title" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Caption"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:paddingVertical="@dimen/page_default_margin_horizontal"
+                        android:maxLines="1"
+                        android:text="Cavite"
+                        android:layout_marginTop="@dimen/vertical_default_padding"
+                        android:paddingHorizontal="@dimen/horizontal_default_padding"
+                        android:textColor="@color/fpg_orange"
+                        android:textSize="@dimen/setting_title" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_address"
+                            android:layout_gravity="start"/>
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="left"
+                            android:maxLines="3"
+                            android:paddingHorizontal="@dimen/horizontal_default_padding"
+                            android:text="2/F Unit 15, Ecstacy Building, Km. 47, Salitran II, Dasmariñas City, Cavite"
+                            android:textColor="@color/fpg_gray"
+                            android:textSize="@dimen/setting_title" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_mobile"
+                            android:layout_gravity="start"/>
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="left"
+                            android:maxLines="3"
+                            android:paddingHorizontal="@dimen/horizontal_default_padding"
+                            android:text="(046) 437-9957"
+                            android:textColor="@color/fpg_gray"
+                            android:textSize="@dimen/setting_title" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_email"
+                            android:layout_gravity="start"/>
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="left"
+                            android:maxLines="3"
+                            android:paddingHorizontal="@dimen/horizontal_default_padding"
+                            android:text="mlucas@fpgins.com"
+                            android:textColor="@color/fpg_gray"
+                            android:textSize="@dimen/setting_title" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Caption"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:paddingVertical="@dimen/page_default_margin_horizontal"
+                        android:maxLines="1"
+                        android:text="Cebu"
+                        android:layout_marginTop="@dimen/vertical_default_padding"
+                        android:paddingHorizontal="@dimen/horizontal_default_padding"
+                        android:textColor="@color/fpg_orange"
+                        android:textSize="@dimen/setting_title" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_address"
+                            android:layout_gravity="start"/>
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="left"
+                            android:maxLines="3"
+                            android:paddingHorizontal="@dimen/horizontal_default_padding"
+                            android:text="Unit 207-209, The QC Pavillion, Gorordo Avenue, Lahug, Cebu City, Cebu"
+                            android:textColor="@color/fpg_gray"
+                            android:textSize="@dimen/setting_title" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_mobile"
+                            android:layout_gravity="start"/>
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="left"
+                            android:maxLines="3"
+                            android:paddingHorizontal="@dimen/horizontal_default_padding"
+                            android:text="(032) 232-4715 / (032) 232-6861"
+                            android:textColor="@color/fpg_gray"
+                            android:textSize="@dimen/setting_title" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_email"
+                            android:layout_gravity="start"/>
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="left"
+                            android:maxLines="3"
+                            android:paddingHorizontal="@dimen/horizontal_default_padding"
+                            android:text="jdiaz@fpgins.com"
+                            android:textColor="@color/fpg_gray"
+                            android:textSize="@dimen/setting_title" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Caption"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:paddingVertical="@dimen/page_default_margin_horizontal"
+                        android:maxLines="1"
+                        android:text="Commonwealth"
+                        android:layout_marginTop="@dimen/vertical_default_padding"
+                        android:paddingHorizontal="@dimen/horizontal_default_padding"
+                        android:textColor="@color/fpg_orange"
+                        android:textSize="@dimen/setting_title" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_address"
+                            android:layout_gravity="start"/>
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="left"
+                            android:maxLines="3"
+                            android:paddingHorizontal="@dimen/horizontal_default_padding"
+                            android:text="Unit No. 3 LG/F, Diliman Commercial Center, Don Mariano Marcos Avenue, Commonwealth Avenue, Diliman, Quezon City"
+                            android:textColor="@color/fpg_gray"
+                            android:textSize="@dimen/setting_title" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_mobile"
+                            android:layout_gravity="start"/>
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="left"
+                            android:maxLines="3"
+                            android:paddingHorizontal="@dimen/horizontal_default_padding"
+                            android:text="(+632) 8859 1261"
+                            android:textColor="@color/fpg_gray"
+                            android:textSize="@dimen/setting_title" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_email"
+                            android:layout_gravity="start"/>
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="left"
+                            android:maxLines="3"
+                            android:paddingHorizontal="@dimen/horizontal_default_padding"
+                            android:text="gbaluran@fpgins.com"
+                            android:textColor="@color/fpg_gray"
+                            android:textSize="@dimen/setting_title" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Caption"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:paddingVertical="@dimen/page_default_margin_horizontal"
+                        android:maxLines="1"
+                        android:text="Corporate Business Group III"
+                        android:layout_marginTop="@dimen/vertical_default_padding"
+                        android:paddingHorizontal="@dimen/horizontal_default_padding"
+                        android:textColor="@color/fpg_orange"
+                        android:textSize="@dimen/setting_title" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_address"
+                            android:layout_gravity="start"/>
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="left"
+                            android:maxLines="3"
+                            android:paddingHorizontal="@dimen/horizontal_default_padding"
+                            android:text="Unit 2306, 23/F, The Orient Square, Emerald Avenue, Ortigas Center, Pasig City"
+                            android:textColor="@color/fpg_gray"
+                            android:textSize="@dimen/setting_title" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_mobile"
+                            android:layout_gravity="start"/>
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="left"
+                            android:maxLines="3"
+                            android:paddingHorizontal="@dimen/horizontal_default_padding"
+                            android:text="(632) 634-9379/ 5067048"
+                            android:textColor="@color/fpg_gray"
+                            android:textSize="@dimen/setting_title" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_email"
+                            android:layout_gravity="start"/>
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="left"
+                            android:maxLines="3"
+                            android:paddingHorizontal="@dimen/horizontal_default_padding"
+                            android:text="elibao@fpgins.com"
+                            android:textColor="@color/fpg_gray"
+                            android:textSize="@dimen/setting_title" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Caption"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:paddingVertical="@dimen/page_default_margin_horizontal"
+                        android:maxLines="1"
+                        android:text="Dagupan"
+                        android:layout_marginTop="@dimen/vertical_default_padding"
+                        android:paddingHorizontal="@dimen/horizontal_default_padding"
+                        android:textColor="@color/fpg_orange"
+                        android:textSize="@dimen/setting_title" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_address"
+                            android:layout_gravity="start"/>
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="left"
+                            android:maxLines="3"
+                            android:paddingHorizontal="@dimen/horizontal_default_padding"
+                            android:text="G/F P&amp;C Fernandez Building II, Music Warehouse Compound. Perez Boulevard, Dagupan City, Pangasinan"
+                            android:textColor="@color/fpg_gray"
+                            android:textSize="@dimen/setting_title" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_mobile"
+                            android:layout_gravity="start"/>
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="left"
+                            android:maxLines="3"
+                            android:paddingHorizontal="@dimen/horizontal_default_padding"
+                            android:text="(075) 515-7570"
+                            android:textColor="@color/fpg_gray"
+                            android:textSize="@dimen/setting_title" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_email"
+                            android:layout_gravity="start"/>
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="left"
+                            android:maxLines="3"
+                            android:paddingHorizontal="@dimen/horizontal_default_padding"
+                            android:text="ericafort@fpgins.com"
+                            android:textColor="@color/fpg_gray"
+                            android:textSize="@dimen/setting_title" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Caption"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:paddingVertical="@dimen/page_default_margin_horizontal"
+                        android:maxLines="1"
+                        android:text="Davao"
+                        android:layout_marginTop="@dimen/vertical_default_padding"
+                        android:paddingHorizontal="@dimen/horizontal_default_padding"
+                        android:textColor="@color/fpg_orange"
+                        android:textSize="@dimen/setting_title" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_address"
+                            android:layout_gravity="start"/>
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="left"
+                            android:maxLines="3"
+                            android:paddingHorizontal="@dimen/horizontal_default_padding"
+                            android:text="2/F Suite A205-206, Plaza de Luisa Bldg. Ramon Magsaysay Ave. Davao City"
+                            android:textColor="@color/fpg_gray"
+                            android:textSize="@dimen/setting_title" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_mobile"
+                            android:layout_gravity="start"/>
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="left"
+                            android:maxLines="3"
+                            android:paddingHorizontal="@dimen/horizontal_default_padding"
+                            android:text="(082) 224-1289 / 224-1290 / 222-0013"
+                            android:textColor="@color/fpg_gray"
+                            android:textSize="@dimen/setting_title" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_email"
+                            android:layout_gravity="start"/>
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="left"
+                            android:maxLines="3"
+                            android:paddingHorizontal="@dimen/horizontal_default_padding"
+                            android:text="bmontinola@fpgins.com"
+                            android:textColor="@color/fpg_gray"
+                            android:textSize="@dimen/setting_title" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Caption"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:paddingVertical="@dimen/page_default_margin_horizontal"
+                        android:maxLines="1"
+                        android:text="General Santos"
+                        android:layout_marginTop="@dimen/vertical_default_padding"
+                        android:paddingHorizontal="@dimen/horizontal_default_padding"
+                        android:textColor="@color/fpg_orange"
+                        android:textSize="@dimen/setting_title" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_address"
+                            android:layout_gravity="start"/>
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="left"
+                            android:maxLines="3"
+                            android:paddingHorizontal="@dimen/horizontal_default_padding"
+                            android:text="Unit 202, 2/F RDRDC Bldg P. Acharon Blvd. cor Santiago Blvd General Santos City"
+                            android:textColor="@color/fpg_gray"
+                            android:textSize="@dimen/setting_title" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_mobile"
+                            android:layout_gravity="start"/>
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="left"
+                            android:maxLines="3"
+                            android:paddingHorizontal="@dimen/horizontal_default_padding"
+                            android:text="(083) 552-7959"
+                            android:textColor="@color/fpg_gray"
+                            android:textSize="@dimen/setting_title" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_email"
+                            android:layout_gravity="start"/>
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="left"
+                            android:maxLines="3"
+                            android:paddingHorizontal="@dimen/horizontal_default_padding"
+                            android:text="ddegracia@fpgins.com"
+                            android:textColor="@color/fpg_gray"
+                            android:textSize="@dimen/setting_title" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Caption"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:paddingVertical="@dimen/page_default_margin_horizontal"
+                        android:maxLines="1"
+                        android:text="Iloilo"
+                        android:layout_marginTop="@dimen/vertical_default_padding"
+                        android:paddingHorizontal="@dimen/horizontal_default_padding"
+                        android:textColor="@color/fpg_orange"
+                        android:textSize="@dimen/setting_title" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_address"
+                            android:layout_gravity="start"/>
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="left"
+                            android:maxLines="3"
+                            android:paddingHorizontal="@dimen/horizontal_default_padding"
+                            android:text="2/F Dolores O. Tan Bldg Valeria St., Iloilo City"
+                            android:textColor="@color/fpg_gray"
+                            android:textSize="@dimen/setting_title" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_mobile"
+                            android:layout_gravity="start"/>
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="left"
+                            android:maxLines="3"
+                            android:paddingHorizontal="@dimen/horizontal_default_padding"
+                            android:text="(033) 335-4299 / 859-1258"
+                            android:textColor="@color/fpg_gray"
+                            android:textSize="@dimen/setting_title" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_email"
+                            android:layout_gravity="start"/>
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="left"
+                            android:maxLines="3"
+                            android:paddingHorizontal="@dimen/horizontal_default_padding"
+                            android:text="ajarantilla@fpgins.com"
+                            android:textColor="@color/fpg_gray"
+                            android:textSize="@dimen/setting_title" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Caption"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:paddingVertical="@dimen/page_default_margin_horizontal"
+                        android:maxLines="1"
+                        android:text="Laguna"
+                        android:layout_marginTop="@dimen/vertical_default_padding"
+                        android:paddingHorizontal="@dimen/horizontal_default_padding"
+                        android:textColor="@color/fpg_orange"
+                        android:textSize="@dimen/setting_title" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_address"
+                            android:layout_gravity="start"/>
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="left"
+                            android:maxLines="3"
+                            android:paddingHorizontal="@dimen/horizontal_default_padding"
+                            android:text="Unit 3 Daniel Building, National Highway, Parian Calamba City, Laguna"
+                            android:textColor="@color/fpg_gray"
+                            android:textSize="@dimen/setting_title" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_mobile"
+                            android:layout_gravity="start"/>
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="left"
+                            android:maxLines="3"
+                            android:paddingHorizontal="@dimen/horizontal_default_padding"
+                            android:text="(049) 545-7578"
+                            android:textColor="@color/fpg_gray"
+                            android:textSize="@dimen/setting_title" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_email"
+                            android:layout_gravity="start"/>
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="left"
+                            android:maxLines="3"
+                            android:paddingHorizontal="@dimen/horizontal_default_padding"
+                            android:text="fvergara@fpgins.com"
+                            android:textColor="@color/fpg_gray"
+                            android:textSize="@dimen/setting_title" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Caption"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:paddingVertical="@dimen/page_default_margin_horizontal"
+                        android:maxLines="1"
+                        android:text="Makati Business Lounge"
+                        android:layout_marginTop="@dimen/vertical_default_padding"
+                        android:paddingHorizontal="@dimen/horizontal_default_padding"
+                        android:textColor="@color/fpg_orange"
+                        android:textSize="@dimen/setting_title" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_address"
+                            android:layout_gravity="start"/>
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="left"
+                            android:maxLines="3"
+                            android:paddingHorizontal="@dimen/horizontal_default_padding"
+                            android:text="G/F Unit 100 Executive Building Center, Sen. Gil Puyat Avenue corner Makati Avenue, Makati City, Metro Manila"
+                            android:textColor="@color/fpg_gray"
+                            android:textSize="@dimen/setting_title" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_mobile"
+                            android:layout_gravity="start"/>
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="left"
+                            android:maxLines="3"
+                            android:paddingHorizontal="@dimen/horizontal_default_padding"
+                            android:text="(+632) 8662 8606"
+                            android:textColor="@color/fpg_gray"
+                            android:textSize="@dimen/setting_title" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_email"
+                            android:layout_gravity="start"/>
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="left"
+                            android:maxLines="3"
+                            android:paddingHorizontal="@dimen/horizontal_default_padding"
+                            android:text="dballares@fpgins.com"
+                            android:textColor="@color/fpg_gray"
+                            android:textSize="@dimen/setting_title" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Caption"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:paddingVertical="@dimen/page_default_margin_horizontal"
+                        android:maxLines="1"
+                        android:text="Masinag"
+                        android:layout_marginTop="@dimen/vertical_default_padding"
+                        android:paddingHorizontal="@dimen/horizontal_default_padding"
+                        android:textColor="@color/fpg_orange"
+                        android:textSize="@dimen/setting_title" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_address"
+                            android:layout_gravity="start"/>
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="left"
+                            android:maxLines="3"
+                            android:paddingHorizontal="@dimen/horizontal_default_padding"
+                            android:text="J&amp;FI -U2 19-20 Kingsville Commercial Arcade, Marcos Highway, Masinag, Antipolo City"
+                            android:textColor="@color/fpg_gray"
+                            android:textSize="@dimen/setting_title" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_mobile"
+                            android:layout_gravity="start"/>
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="left"
+                            android:maxLines="3"
+                            android:paddingHorizontal="@dimen/horizontal_default_padding"
+                            android:text="(+632) 8477 8281"
+                            android:textColor="@color/fpg_gray"
+                            android:textSize="@dimen/setting_title" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_email"
+                            android:layout_gravity="start"/>
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="left"
+                            android:maxLines="3"
+                            android:paddingHorizontal="@dimen/horizontal_default_padding"
+                            android:text="jdancel@fpgins.com"
+                            android:textColor="@color/fpg_gray"
+                            android:textSize="@dimen/setting_title" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Caption"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:paddingVertical="@dimen/page_default_margin_horizontal"
+                        android:maxLines="1"
+                        android:text="Ortigas"
+                        android:layout_marginTop="@dimen/vertical_default_padding"
+                        android:paddingHorizontal="@dimen/horizontal_default_padding"
+                        android:textColor="@color/fpg_orange"
+                        android:textSize="@dimen/setting_title" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_address"
+                            android:layout_gravity="start"/>
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="left"
+                            android:maxLines="3"
+                            android:paddingHorizontal="@dimen/horizontal_default_padding"
+                            android:text="Unit 1007, One Corporate Center, Julia Vargas corner Meralco Avenue, Ortigas Center, Pasig City"
+                            android:textColor="@color/fpg_gray"
+                            android:textSize="@dimen/setting_title" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_mobile"
+                            android:layout_gravity="start"/>
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="left"
+                            android:maxLines="3"
+                            android:paddingHorizontal="@dimen/horizontal_default_padding"
+                            android:text="(+632) 8721 2321 / (+632) 8859 1269"
+                            android:textColor="@color/fpg_gray"
+                            android:textSize="@dimen/setting_title" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_email"
+                            android:layout_gravity="start"/>
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="left"
+                            android:maxLines="3"
+                            android:paddingHorizontal="@dimen/horizontal_default_padding"
+                            android:text="rcuaresma@fpgins.com"
+                            android:textColor="@color/fpg_gray"
+                            android:textSize="@dimen/setting_title" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Caption"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:paddingVertical="@dimen/page_default_margin_horizontal"
+                        android:maxLines="1"
+                        android:text="Palawan"
+                        android:layout_marginTop="@dimen/vertical_default_padding"
+                        android:paddingHorizontal="@dimen/horizontal_default_padding"
+                        android:textColor="@color/fpg_orange"
+                        android:textSize="@dimen/setting_title" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_address"
+                            android:layout_gravity="start"/>
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="left"
+                            android:maxLines="3"
+                            android:paddingHorizontal="@dimen/horizontal_default_padding"
+                            android:text="2/F Chiu Commercial Building, Rizal Avenue, Puerto Princesa City, Palawan"
+                            android:textColor="@color/fpg_gray"
+                            android:textSize="@dimen/setting_title" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_mobile"
+                            android:layout_gravity="start"/>
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="left"
+                            android:maxLines="3"
+                            android:paddingHorizontal="@dimen/horizontal_default_padding"
+                            android:text="(048) 717 0070"
+                            android:textColor="@color/fpg_gray"
+                            android:textSize="@dimen/setting_title" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_email"
+                            android:layout_gravity="start"/>
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="left"
+                            android:maxLines="3"
+                            android:paddingHorizontal="@dimen/horizontal_default_padding"
+                            android:text="mllano@fpgins.com"
+                            android:textColor="@color/fpg_gray"
+                            android:textSize="@dimen/setting_title" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Caption"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:paddingVertical="@dimen/page_default_margin_horizontal"
+                        android:maxLines="1"
+                        android:text="Quezon City"
+                        android:layout_marginTop="@dimen/vertical_default_padding"
+                        android:paddingHorizontal="@dimen/horizontal_default_padding"
+                        android:textColor="@color/fpg_orange"
+                        android:textSize="@dimen/setting_title" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_address"
+                            android:layout_gravity="start"/>
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="left"
+                            android:maxLines="3"
+                            android:paddingHorizontal="@dimen/horizontal_default_padding"
+                            android:text="Unit 602 &amp; 604, The Richwell Center, 102 Timog Avenue,Quezon City, Metro Manila"
+                            android:textColor="@color/fpg_gray"
+                            android:textSize="@dimen/setting_title" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_mobile"
+                            android:layout_gravity="start"/>
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="left"
+                            android:maxLines="3"
+                            android:paddingHorizontal="@dimen/horizontal_default_padding"
+                            android:text="(+632) 7944 1300"
+                            android:textColor="@color/fpg_gray"
+                            android:textSize="@dimen/setting_title" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_email"
+                            android:layout_gravity="start"/>
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="left"
+                            android:maxLines="3"
+                            android:paddingHorizontal="@dimen/horizontal_default_padding"
+                            android:text="blee@fpgins.com"
+                            android:textColor="@color/fpg_gray"
+                            android:textSize="@dimen/setting_title" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Caption"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:paddingVertical="@dimen/page_default_margin_horizontal"
+                        android:maxLines="1"
+                        android:text="Tarlac"
+                        android:layout_marginTop="@dimen/vertical_default_padding"
+                        android:paddingHorizontal="@dimen/horizontal_default_padding"
+                        android:textColor="@color/fpg_orange"
+                        android:textSize="@dimen/setting_title" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_address"
+                            android:layout_gravity="start"/>
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="left"
+                            android:maxLines="3"
+                            android:paddingHorizontal="@dimen/horizontal_default_padding"
+                            android:text="Unit 7, 2/F, Intellect Building, MacArthur Hway, Bgy.San Sebastian, Tarlac City, Tarlac"
+                            android:textColor="@color/fpg_gray"
+                            android:textSize="@dimen/setting_title" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_mobile"
+                            android:layout_gravity="start"/>
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="left"
+                            android:maxLines="3"
+                            android:paddingHorizontal="@dimen/horizontal_default_padding"
+                            android:text="(045) 491-4378"
+                            android:textColor="@color/fpg_gray"
+                            android:textSize="@dimen/setting_title" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_email"
+                            android:layout_gravity="start"/>
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:gravity="left"
+                            android:maxLines="3"
+                            android:paddingHorizontal="@dimen/horizontal_default_padding"
+                            android:text="rguzman@fpgins.com"
+                            android:textColor="@color/fpg_gray"
+                            android:textSize="@dimen/setting_title" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/fineGray"
+                    android:layout_marginVertical="@dimen/page_default_margin_horizontal">
+                </View>
 
                 <TextView
                     style="@style/TextAppearance.AppCompat.Caption"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="left"
-                    android:gravity="left"
-                    android:maxLines="3"
+                    android:gravity="center_vertical"
+                    android:maxLines="1"
+                    android:paddingVertical="@dimen/page_default_margin_horizontal"
                     android:paddingHorizontal="@dimen/horizontal_default_padding"
-                    android:text="insure@fpgins.com"
-                    android:textColor="@color/fpg_gray"
+                    android:text="@string/thailand"
+                    android:textColor="@color/fpg_orange"
                     android:textSize="@dimen/setting_title" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                    android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/icon_address"
+                        android:layout_gravity="start"/>
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Caption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:gravity="left"
+                        android:maxLines="3"
+                        android:paddingHorizontal="@dimen/horizontal_default_padding"
+                        android:text="52 Thaniya Plaza Building, Floor 16, 24 Silom Road, Suriyawong Subdistrict, Bang Rak District, Bangkok 10500"
+                        android:textColor="@color/fpg_gray"
+                        android:textSize="@dimen/setting_title" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/page_default_margin_horizontal"
+                    android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/icon_mobile"
+                        android:layout_gravity="start"/>
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Caption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:gravity="left"
+                        android:maxLines="3"
+                        android:paddingHorizontal="@dimen/horizontal_default_padding"
+                        android:text="+66 (0) 2231 2640"
+                        android:textColor="@color/fpg_gray"
+                        android:textSize="@dimen/setting_title" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:paddingBottom="@dimen/vertical_default_padding"
+                    android:layout_marginVertical="@dimen/page_default_margin_horizontal"
+                    android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/icon_email"
+                        android:layout_gravity="start"/>
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Caption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:gravity="left"
+                        android:maxLines="3"
+                        android:paddingHorizontal="@dimen/horizontal_default_padding"
+                        android:text="th.customerservice@fpgins.com"
+                        android:textColor="@color/fpg_gray"
+                        android:textSize="@dimen/setting_title" />
+
+                </LinearLayout>
 
             </LinearLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/fineGray"
-                android:layout_marginVertical="@dimen/page_default_margin_horizontal">
-            </View>
+        </ScrollView>
 
-            <TextView
-                style="@style/TextAppearance.AppCompat.Caption"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawableRight="@drawable/arrow_down"
-                android:gravity="center_vertical"
-                android:paddingVertical="@dimen/page_default_margin_horizontal"
-                android:maxLines="1"
-                android:text="@string/philippines"
-                android:paddingHorizontal="@dimen/horizontal_default_padding"
-                android:textColor="@color/fpg_orange"
-                android:textSize="@dimen/setting_title" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:layout_marginTop="@dimen/page_default_margin_horizontal"
-                android:layout_marginHorizontal="@dimen/horizontal_default_padding">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/icon_address"
-                    android:layout_gravity="start"/>
-
-                <TextView
-                    style="@style/TextAppearance.AppCompat.Caption"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="left"
-                    android:gravity="left"
-                    android:maxLines="3"
-                    android:paddingHorizontal="@dimen/horizontal_default_padding"
-                    android:text="6/F Zuellig Buiding, Makati Avenue corner Paseo de Roxas, Makati City, 1225 Philippines"
-                    android:textColor="@color/fpg_gray"
-                    android:textSize="@dimen/setting_title" />
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:layout_marginTop="@dimen/page_default_margin_horizontal"
-                android:layout_marginHorizontal="@dimen/horizontal_default_padding">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/icon_mobile"
-                    android:layout_gravity="start"/>
-
-                <TextView
-                    style="@style/TextAppearance.AppCompat.Caption"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="left"
-                    android:gravity="left"
-                    android:maxLines="3"
-                    android:paddingHorizontal="@dimen/horizontal_default_padding"
-                    android:text="(+632) 8859 1200 / (+632) 7944 1300"
-                    android:textColor="@color/fpg_gray"
-                    android:textSize="@dimen/setting_title" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:layout_marginTop="@dimen/page_default_margin_horizontal"
-                android:layout_marginHorizontal="@dimen/horizontal_default_padding">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/icon_email"
-                    android:layout_gravity="start"/>
-
-                <TextView
-                    style="@style/TextAppearance.AppCompat.Caption"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="left"
-                    android:gravity="left"
-                    android:maxLines="3"
-                    android:paddingHorizontal="@dimen/horizontal_default_padding"
-                    android:text="phcustomercare@fpgins.com"
-                    android:textColor="@color/fpg_gray"
-                    android:textSize="@dimen/setting_title" />
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/fineGray"
-                android:layout_marginVertical="@dimen/page_default_margin_horizontal">
-            </View>
-
-            <TextView
-                style="@style/TextAppearance.AppCompat.Caption"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawableRight="@drawable/arrow_down"
-                android:gravity="center_vertical"
-                android:maxLines="1"
-                android:paddingVertical="@dimen/page_default_margin_horizontal"
-                android:paddingHorizontal="@dimen/horizontal_default_padding"
-                android:text="@string/thailand"
-                android:textColor="@color/fpg_orange"
-                android:textSize="@dimen/setting_title" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:layout_marginTop="@dimen/page_default_margin_horizontal"
-                android:layout_marginHorizontal="@dimen/horizontal_default_padding">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/icon_address"
-                    android:layout_gravity="start"/>
-
-                <TextView
-                    style="@style/TextAppearance.AppCompat.Caption"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="left"
-                    android:gravity="left"
-                    android:maxLines="3"
-                    android:paddingHorizontal="@dimen/horizontal_default_padding"
-                    android:text="52 Thaniya Plaza Building, Floor 16, 24 Silom Road, Suriyawong Subdistrict, Bang Rak District, Bangkok 10500"
-                    android:textColor="@color/fpg_gray"
-                    android:textSize="@dimen/setting_title" />
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:layout_marginTop="@dimen/page_default_margin_horizontal"
-                android:layout_marginHorizontal="@dimen/horizontal_default_padding">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/icon_mobile"
-                    android:layout_gravity="start"/>
-
-                <TextView
-                    style="@style/TextAppearance.AppCompat.Caption"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="left"
-                    android:gravity="left"
-                    android:maxLines="3"
-                    android:paddingHorizontal="@dimen/horizontal_default_padding"
-                    android:text="+66 (0) 2231 2640"
-                    android:textColor="@color/fpg_gray"
-                    android:textSize="@dimen/setting_title" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:paddingBottom="@dimen/vertical_default_padding"
-                android:layout_marginVertical="@dimen/page_default_margin_horizontal"
-                android:layout_marginHorizontal="@dimen/horizontal_default_padding">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/icon_email"
-                    android:layout_gravity="start"/>
-
-                <TextView
-                    style="@style/TextAppearance.AppCompat.Caption"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="left"
-                    android:gravity="left"
-                    android:maxLines="3"
-                    android:paddingHorizontal="@dimen/horizontal_default_padding"
-                    android:text="th.customerservice@fpgins.com"
-                    android:textColor="@color/fpg_gray"
-                    android:textSize="@dimen/setting_title" />
-
-            </LinearLayout>
-
-        </LinearLayout>
 
     </LinearLayout>
 </LinearLayout>

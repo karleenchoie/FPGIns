@@ -277,10 +277,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     DashboardFragment dashboardFragment = new DashboardFragment();
                     setFragmentView(true, groupPosition, 0, "tag_overview", dashboardFragment);
                     break;
-                case "customercare":
-                    CustomerCareFragment customerCareFragment = new CustomerCareFragment();
-                    setFragmentView(true, groupPosition, 0, "tag_customercare", customerCareFragment);
-                    break;
+//                case "customercare":
+//                    CustomerCareFragment customerCareFragment = new CustomerCareFragment();
+//                    setFragmentView(true, groupPosition, 0, "tag_customercare", customerCareFragment);
+//                    break;
                 case "fpgAssist":
                     FPGAssist fpgAssist = new FPGAssist();
                     setFragmentView(true, groupPosition, 0, "", fpgAssist);

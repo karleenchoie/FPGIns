@@ -82,6 +82,9 @@
             android:name=".BottomNavigation.FPGAssist.HelpActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+            android:name=".ui.customercare.CustomerCareFragment"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".BottomNavigation.Claims.TabLayout.TabularActivity"
             android:label="@string/title_activity_tabular"
             android:screenOrientation="portrait"

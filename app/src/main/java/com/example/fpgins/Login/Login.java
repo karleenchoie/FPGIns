@@ -98,6 +98,8 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 onBackPressed();
+//                Intent intent = new Intent(getApplicationContext(), SplashScreen.class);
+//                startActivity(intent);
             }
         });
 
