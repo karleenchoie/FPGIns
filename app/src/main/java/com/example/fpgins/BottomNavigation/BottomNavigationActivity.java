@@ -98,6 +98,15 @@ public class BottomNavigationActivity extends AppCompatActivity {
             }
         });
         mShare = view.findViewById(R.id.img_share);
+
+        if (mUserData.getAccountCode().contentEquals("AGT")){
+            userType = 2;
+            mShare.setVisibility(View.VISIBLE);
+        } else {
+            userType = 3;
+            mShare.setVisibility(View.GONE);
+        }
+
         mShare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -113,12 +122,6 @@ public class BottomNavigationActivity extends AppCompatActivity {
                 }
             }
         });
-
-        if (mUserData.getAccountCode() == "AGT"){
-            userType = 2;
-        } else {
-            userType = 3;
-        }
 
         showNewsLetter();
 
@@ -345,14 +348,15 @@ public class BottomNavigationActivity extends AppCompatActivity {
                     }catch (JSONException e){
                         e.printStackTrace();
                     }
-                }else {
-                    //SUCCESS
-                    try {
-                        Toast.makeText(BottomNavigationActivity.this, "Notification has been closed", Toast.LENGTH_SHORT).show();
-                    } catch (Exception e) {
-                        e.getMessage();
-                    }
                 }
+//                else {
+//                    //SUCCESS
+//                    try {
+////                        Toast.makeText(BottomNavigationActivity.this, "Notification has been closed", Toast.LENGTH_SHORT).show();
+//                    } catch (Exception e) {
+//                        e.getMessage();
+//                    }
+//                }
             }
         });
     }
