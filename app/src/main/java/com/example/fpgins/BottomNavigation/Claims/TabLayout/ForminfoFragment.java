@@ -120,7 +120,7 @@ public class ForminfoFragment extends Fragment {
                     try {
                         mDialog.dismiss();
                         String message = jsonObject.getString("message");
-                        Toast.makeText(getActivity().getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(getActivity().getApplicationContext(), message, Toast.LENGTH_SHORT).show();
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }

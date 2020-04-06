@@ -192,7 +192,7 @@ public class MessagingFragment extends Fragment {
                     //SUCCESS
                     try {
                         mSwipeRefresh.setRefreshing(false);
-                        Toast.makeText(getActivity(), "Message sent", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(getActivity(), "Message sent", Toast.LENGTH_SHORT).show();
                         mMessage.setText("");
                     } catch (Exception e) {
                         e.getMessage();
