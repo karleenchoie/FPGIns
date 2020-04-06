@@ -1,6 +1,7 @@
 package com.example.fpgins.BottomNavigation.Claims;
 
 import android.Manifest;
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
@@ -263,44 +264,45 @@ public class ClaimsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                DBHelper dbHelper = new DBHelper(ClaimsActivity.this);
-                dbHelper.open();
-
-                if (mSaveAsDraft.getText().toString().contentEquals(getString(R.string.edit))){
-                    //edit on sqlite
-                    boolean isUpdated = dbHelper.updateMotorDraftRow(motorId, mPolicyNo.getText().toString(), mPlateNo.getText().toString(),
-                                            mConduction.getText().toString(), mRemarks.getText().toString(), mAddress.getText().toString(),
-                                            longitude, latitude);
-
-                    if (isUpdated){
-                        Toast.makeText(ClaimsActivity.this, "Successfully editted", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(ClaimsActivity.this, DraftsActivity.class);
-                        startActivity(intent);
-                        finish();
-                    } else {
-                        Toast.makeText(ClaimsActivity.this, "Unable to edit", Toast.LENGTH_SHORT).show();
-                    }
-
-                } else {
-                    mUserData.setDrafts(true);
-                    //first image that has been uploaded
-                    mImageData = mData.get(0);
-                    Date c = Calendar.getInstance().getTime();
-                    SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-                    String formattedDate = df.format(c);
-                    String fullName = mUserData.getFirstName() + " " + mUserData.getLastName();
-                    boolean isInserted = dbHelper.insertMotorDetails(mUserData.getEmail(), fullName, mContactNumber.getText().toString(), mAddress.getText().toString(),
-                            String.valueOf(mLongitude), String.valueOf(mLattitude), formattedDate, mImageData.getBitmap(), mRemarks.getText().toString(), mUserData.getDraftsCount(),
-                            "Form", mPolicyNo.getText().toString(), mPlateNo.getText().toString(), mConduction.getText().toString());
-
-                    if (isInserted){
-                        Intent intent = new Intent(ClaimsActivity.this, DraftsActivity.class);
-                        startActivity(intent);
-                        finish();
-                    } else {
-                        Toast.makeText(ClaimsActivity.this.getApplicationContext(), "Can't add in drafts", Toast.LENGTH_LONG).show();
-                    }
-                }
+                draftFunction();
+//                DBHelper dbHelper = new DBHelper(ClaimsActivity.this);
+//                dbHelper.open();
+//
+//                if (mSaveAsDraft.getText().toString().contentEquals(getString(R.string.edit))){
+//                    //edit on sqlite
+//                    boolean isUpdated = dbHelper.updateMotorDraftRow(motorId, mPolicyNo.getText().toString(), mPlateNo.getText().toString(),
+//                                            mConduction.getText().toString(), mRemarks.getText().toString(), mAddress.getText().toString(),
+//                                            longitude, latitude);
+//
+//                    if (isUpdated){
+//                        Toast.makeText(ClaimsActivity.this, "Successfully editted", Toast.LENGTH_SHORT).show();
+//                        Intent intent = new Intent(ClaimsActivity.this, DraftsActivity.class);
+//                        startActivity(intent);
+//                        finish();
+//                    } else {
+//                        Toast.makeText(ClaimsActivity.this, "Unable to edit", Toast.LENGTH_SHORT).show();
+//                    }
+//
+//                } else {
+//                    mUserData.setDrafts(true);
+//                    //first image that has been uploaded
+//                    mImageData = mData.get(0);
+//                    Date c = Calendar.getInstance().getTime();
+//                    SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+//                    String formattedDate = df.format(c);
+//                    String fullName = mUserData.getFirstName() + " " + mUserData.getLastName();
+//                    boolean isInserted = dbHelper.insertMotorDetails(mUserData.getEmail(), fullName, mContactNumber.getText().toString(), mAddress.getText().toString(),
+//                            String.valueOf(mLongitude), String.valueOf(mLattitude), formattedDate, mImageData.getBitmap(), mRemarks.getText().toString(), mUserData.getDraftsCount(),
+//                            "Form", mPolicyNo.getText().toString(), mPlateNo.getText().toString(), mConduction.getText().toString());
+//
+//                    if (isInserted){
+//                        Intent intent = new Intent(ClaimsActivity.this, DraftsActivity.class);
+//                        startActivity(intent);
+//                        finish();
+//                    } else {
+//                        Toast.makeText(ClaimsActivity.this.getApplicationContext(), "Can't add in drafts", Toast.LENGTH_LONG).show();
+//                    }
+//                }
             }
         });
 
@@ -391,6 +393,48 @@ public class ClaimsActivity extends AppCompatActivity {
         return dialog;
     }
 
+    private void draftFunction(){
+        DBHelper dbHelper = new DBHelper(ClaimsActivity.this);
+        dbHelper.open();
+
+        if (mSaveAsDraft.getText().toString().contentEquals(getString(R.string.edit))){
+            //edit on sqlite
+            boolean isUpdated = dbHelper.updateMotorDraftRow(motorId, mPolicyNo.getText().toString(), mPlateNo.getText().toString(),
+                    mConduction.getText().toString(), mRemarks.getText().toString(), mAddress.getText().toString(),
+                    longitude, latitude);
+
+            if (isUpdated){
+                Toast.makeText(ClaimsActivity.this, "Successfully editted", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(ClaimsActivity.this, DraftsActivity.class);
+                startActivity(intent);
+                finish();
+            } else {
+                Toast.makeText(ClaimsActivity.this, "Unable to edit", Toast.LENGTH_SHORT).show();
+            }
+
+        } else {
+            mUserData.setDrafts(true);
+            //first image that has been uploaded
+            mImageData = mData.get(0);
+            Date c = Calendar.getInstance().getTime();
+            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+            String formattedDate = df.format(c);
+            String fullName = mUserData.getFirstName() + " " + mUserData.getLastName();
+            boolean isInserted = dbHelper.insertMotorDetails(mUserData.getEmail(), fullName, mContactNumber.getText().toString(), mAddress.getText().toString(),
+                    String.valueOf(mLongitude), String.valueOf(mLattitude), formattedDate, mImageData.getBitmap(), mRemarks.getText().toString(), mUserData.getDraftsCount(),
+                    "Form", mPolicyNo.getText().toString(), mPlateNo.getText().toString(), mConduction.getText().toString());
+
+            if (isInserted){
+                Intent intent = new Intent(ClaimsActivity.this, DraftsActivity.class);
+                startActivity(intent);
+                Toast.makeText(ClaimsActivity.this.getApplicationContext(), "Successfully added to drafts", Toast.LENGTH_LONG).show();
+                finish();
+            } else {
+                Toast.makeText(ClaimsActivity.this.getApplicationContext(), "Can't add in drafts", Toast.LENGTH_LONG).show();
+            }
+        }
+    }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -428,7 +472,7 @@ public class ClaimsActivity extends AppCompatActivity {
 
 
 
-    private void postMotorClaim(String[] info){
+    private void postMotorClaim(final String[] info){
         Cloud.motorRegister(info, new Cloud.ResultListener() {
             @Override
             public void onResult(JSONObject result) {
@@ -443,23 +487,45 @@ public class ClaimsActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
-                if (returnCode != Cloud.DefaultReturnCode.SUCCESS){
-                    //FAIL
-                    try {
-                        mDialog.dismiss();
-                        String message = jsonObject.getString("message");
-                        Toast.makeText(ClaimsActivity.this, message, Toast.LENGTH_SHORT).show();
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
+                if (returnCode == Cloud.DefaultReturnCode.INTERNAL_SERVER_ERROR){
+                    new DefaultDialog.Builder(ClaimsActivity.this)
+                            .message(ClaimsActivity.this.getResources().getString(R.string.internet_connection_error))
+                            .detail(ClaimsActivity.this.getResources().getString(R.string.internet_connection_detail))
+                            .positiveAction(ClaimsActivity.this.getResources().getString(R.string.retry), new DefaultDialog.OnClickListener() {
+                                @Override
+                                public void onClick(Dialog dialog, String et) {
+                                    //retry
+                                    postMotorClaim(info);
+                                    dialog.dismiss();
+                                }
+                            })
+                            .negativeAction(ClaimsActivity.this.getResources().getString(R.string.save_as_draft), new DefaultDialog.OnClickListener() {
+                                @Override
+                                public void onClick(Dialog dialog, String et) {
+                                    draftFunction();
+                                }
+                            })
+                            .build()
+                            .show();
                 } else {
-                    //SUCCESS
-                    try {
-                        String mobileId = jsonObject.getString("mobile_id");
-                        Cloud.upload(mBitmaps, mFileNames, mobileId,ClaimsActivity.this,  motorId, mDialog, draftKey());
+                    if (returnCode != Cloud.DefaultReturnCode.SUCCESS){
+                        //FAIL
+                        try {
+                            mDialog.dismiss();
+                            String message = jsonObject.getString("message");
+                            Toast.makeText(ClaimsActivity.this, message, Toast.LENGTH_SHORT).show();
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    } else {
+                        //SUCCESS
+                        try {
+                            String mobileId = jsonObject.getString("mobile_id");
+                            Cloud.upload(mBitmaps, mFileNames, mobileId,ClaimsActivity.this,  motorId, mDialog, draftKey());
 
-                    } catch (Exception e) {
-                        e.getMessage();
+                        } catch (Exception e) {
+                            e.getMessage();
+                        }
                     }
                 }
             }

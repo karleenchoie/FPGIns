@@ -206,6 +206,10 @@
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="something_went_wrong">Something went wrong</string>
+    <string name="retry">Retry</string>
+    <string name="save">Save</string>
+    <string name="internet_connection_error">No Internet Connection</string>
+    <string name="internet_connection_detail">Please check your internet connection.</string>
 
 
     //Messages

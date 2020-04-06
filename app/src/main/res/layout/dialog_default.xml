@@ -114,6 +114,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:padding="8dp"
+            android:layout_marginRight="10dp"
             android:background="@drawable/button_dialog"
             android:textColor="@color/fpg_orange" />
 
