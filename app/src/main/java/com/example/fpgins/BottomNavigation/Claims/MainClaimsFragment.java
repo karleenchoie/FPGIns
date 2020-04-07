@@ -67,17 +67,17 @@ public class MainClaimsFragment extends Fragment {
                         ContextCompat.getDrawable(getContext(), R.drawable.pic_five));
         dataList.add(data);
 
-        data = new MainClaimsData("Personal Accident", "Find out more" ,
-                ContextCompat.getDrawable(getContext(), R.drawable.pic_six));
-        dataList.add(data);
-
-        data = new MainClaimsData("Home", "Find out more" ,
-                ContextCompat.getDrawable(getContext(), R.drawable.pic_seven));
-        dataList.add(data);
-
-        data = new MainClaimsData("Corporate Products", "Find out more" ,
-                ContextCompat.getDrawable(getContext(), R.drawable.pic_one));
-        dataList.add(data);
+//        data = new MainClaimsData("Personal Accident", "Find out more" ,
+//                ContextCompat.getDrawable(getContext(), R.drawable.pic_six));
+//        dataList.add(data);
+//
+//        data = new MainClaimsData("Home", "Find out more" ,
+//                ContextCompat.getDrawable(getContext(), R.drawable.pic_seven));
+//        dataList.add(data);
+//
+//        data = new MainClaimsData("Corporate Products", "Find out more" ,
+//                ContextCompat.getDrawable(getContext(), R.drawable.pic_one));
+//        dataList.add(data);
 
         mAdapter.notifyDataSetChanged();
     }

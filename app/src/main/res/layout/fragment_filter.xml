@@ -21,7 +21,7 @@
                 android:layout_height="wrap_content"
                 android:paddingHorizontal="@dimen/horizontal_default_padding"
                 android:paddingVertical="@dimen/vertical_default_padding"
-                android:text="VALUE"
+                android:text="SUM VALUE"
                 android:textColor="@color/fpg_gray"
                 android:textSize="@dimen/setting_title"
                 android:textStyle="bold"/>

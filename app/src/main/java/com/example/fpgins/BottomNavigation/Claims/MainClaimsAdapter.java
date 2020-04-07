@@ -50,18 +50,18 @@ public class MainClaimsAdapter extends RecyclerView.Adapter<MainClaimsAdapter.My
                 urlWeb = "https://www.fpgins.com/ph/products/travel";
                 Intent intent = new Intent(mContext, ProductsFragment.class);
                 mContext.startActivity(intent);
-            } if (getLayoutPosition() == 2){
-                urlWeb = "https://www.fpgins.com/ph/products/personal-accident";
-                Intent intent = new Intent(mContext, ProductsFragment.class);
-                mContext.startActivity(intent);
-            } if (getLayoutPosition() == 3){
-                urlWeb = "https://www.fpgins.com/ph/products/home/home-insurance";
-                Intent intent = new Intent(mContext, ProductsFragment.class);
-                mContext.startActivity(intent);
-            } if (getLayoutPosition() == 4){
-                urlWeb = "https://www.fpgins.com/ph/corporate/corporate-products";
-                Intent intent = new Intent(mContext, ProductsFragment.class);
-                mContext.startActivity(intent);
+//            } if (getLayoutPosition() == 2){
+//                urlWeb = "https://www.fpgins.com/ph/products/personal-accident";
+//                Intent intent = new Intent(mContext, ProductsFragment.class);
+//                mContext.startActivity(intent);
+//            } if (getLayoutPosition() == 3){
+//                urlWeb = "https://www.fpgins.com/ph/products/home/home-insurance";
+//                Intent intent = new Intent(mContext, ProductsFragment.class);
+//                mContext.startActivity(intent);
+//            } if (getLayoutPosition() == 4){
+//                urlWeb = "https://www.fpgins.com/ph/corporate/corporate-products";
+//                Intent intent = new Intent(mContext, ProductsFragment.class);
+//                mContext.startActivity(intent);
             }else {
                 //do nothing
             }
