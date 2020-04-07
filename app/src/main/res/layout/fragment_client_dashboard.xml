@@ -10,7 +10,7 @@
     <include
         android:id="@+id/view_Client"
         android:visibility="gone"
-        layout="@layout/client_dashboard"/>
+        layout="@layout/client_dashboard_modified"/>
 
     <include
         android:id="@+id/view_Agent"

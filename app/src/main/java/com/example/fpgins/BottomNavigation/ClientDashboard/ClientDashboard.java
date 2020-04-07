@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
@@ -20,6 +21,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
+import com.example.fpgins.BottomNavigation.Claims.DraftsActivity;
+import com.example.fpgins.BottomNavigation.Claims.SubmittedFormsActivity;
 import com.example.fpgins.BottomNavigation.ClientDashboard.ClientMenus.ClientMotorActivity;
 import com.example.fpgins.BottomNavigation.ClientDashboard.ClientMenus.CorporateActivity;
 import com.example.fpgins.BottomNavigation.ClientDashboard.ClientMenus.HomeActivity;
@@ -51,6 +54,7 @@ public class ClientDashboard extends Fragment {
     private boolean isShowMenus = false;
     private UserData mUserData;
     private LinearLayout mClientPage, mAgentPage;
+    private RelativeLayout mFile, mInquire;
 
     //for Agent
     private int backIndex, series1Index;
@@ -89,13 +93,15 @@ public class ClientDashboard extends Fragment {
         mRecyclerView = view.findViewById(R.id.firstMenuSlideRView);
         mFileClaim = view.findViewById(R.id.iconFileClaim);
         mFileExisting = view.findViewById(R.id.iconFileExist);
-        mMotor = view.findViewById(R.id.linear_motor);
-        mPersonalAccident = view.findViewById(R.id.linear_pa);
-        mTravel = view.findViewById(R.id.linear_travel);
-        mCorporate = view.findViewById(R.id.linear_corporate);
-        mHome = view.findViewById(R.id.linear_home);
+        mFile = view.findViewById(R.id.relative_file);
+        mInquire = view.findViewById(R.id.relative_Inquire);
+//        mMotor = view.findViewById(R.id.linear_motor);
+//        mPersonalAccident = view.findViewById(R.id.linear_pa);
+//        mTravel = view.findViewById(R.id.linear_travel);
+//        mCorporate = view.findViewById(R.id.linear_corporate);
+//        mHome = view.findViewById(R.id.linear_home);
         mViewAll = view.findViewById(R.id.viewAll);
-        mChangingMenu = view.findViewById(R.id.linear_changingMenu);
+//        mChangingMenu = view.findViewById(R.id.linear_changingMenu);
         mSingleImage = view.findViewById(R.id.imageUploaded);
         mTransactionHistory = view.findViewById(R.id.topLinearLayout);
         mShowMoreMenu = view.findViewById(R.id.linear_showMore);
@@ -113,37 +119,53 @@ public class ClientDashboard extends Fragment {
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mRecyclerView.setAdapter(mAdapter);
 
-
-        mFileClaim.setOnClickListener(new View.OnClickListener() {
+        mFile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showClaimsOption();
-            }
-        });
-
-        mPersonalAccident.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getContext(), PersonalAccidentActivity.class);
+                Intent intent = new Intent(getActivity(), DraftsActivity.class);
                 startActivity(intent);
             }
         });
 
-        mTravel.setOnClickListener(new View.OnClickListener() {
+        mInquire.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), TravelActivity.class);
+                Intent intent = new Intent(getActivity(), SubmittedFormsActivity.class);
                 startActivity(intent);
             }
         });
 
-        mCorporate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getContext(), CorporateActivity.class);
-                startActivity(intent);
-            }
-        });
+
+//        mFileClaim.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                showClaimsOption();
+//            }
+//        });
+
+//        mPersonalAccident.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(getContext(), PersonalAccidentActivity.class);
+//                startActivity(intent);
+//            }
+//        });
+
+//        mTravel.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(getContext(), TravelActivity.class);
+//                startActivity(intent);
+//            }
+//        });
+
+//        mCorporate.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(getContext(), CorporateActivity.class);
+//                startActivity(intent);
+//            }
+//        });
 
         mTransactionHistory.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -153,55 +175,55 @@ public class ClientDashboard extends Fragment {
             }
         });
 
-        mHome.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getContext(), HomeActivity.class);
-                startActivity(intent);
-            }
-        });
+//        mHome.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(getContext(), HomeActivity.class);
+//                startActivity(intent);
+//            }
+//        });
 
-        mMotor.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getContext(), ClientMotorActivity.class);
-                startActivity(intent);
-            }
-        });
+//        mMotor.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(getContext(), ClientMotorActivity.class);
+//                startActivity(intent);
+//            }
+//        });
 
-        mShowMoreMenu.setOnClickListener(new View.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.M)
-            @Override
-            public void onClick(View v) {
-                isShowMenus = false;
-                TypedValue typedValue = new TypedValue();
-                getActivity().getTheme().resolveAttribute(android.R.attr.selectableItemBackground, typedValue, true);
-                if (!isShowMenus){
-                    mMoreMenus.setVisibility(View.VISIBLE);
-                    mChangingMenu.setVisibility(View.VISIBLE);
-                    mShowMoreMenu.setVisibility(View.GONE);
-                }else {
-                    //do nothing
-                }
-            }
-        });
+//        mShowMoreMenu.setOnClickListener(new View.OnClickListener() {
+//            @RequiresApi(api = Build.VERSION_CODES.M)
+//            @Override
+//            public void onClick(View v) {
+//                isShowMenus = false;
+//                TypedValue typedValue = new TypedValue();
+//                getActivity().getTheme().resolveAttribute(android.R.attr.selectableItemBackground, typedValue, true);
+//                if (!isShowMenus){
+//                    mMoreMenus.setVisibility(View.VISIBLE);
+//                    mChangingMenu.setVisibility(View.VISIBLE);
+//                    mShowMoreMenu.setVisibility(View.GONE);
+//                }else {
+//                    //do nothing
+//                }
+//            }
+//        });
 
-        mShowLessMenu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                isShowMenus = true;
-                mMoreMenus.setVisibility(View.GONE);
-                mChangingMenu.setVisibility(View.GONE);
-                mShowMoreMenu.setVisibility(View.VISIBLE);
-            }
-        });
+//        mShowLessMenu.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                isShowMenus = true;
+//                mMoreMenus.setVisibility(View.GONE);
+//                mChangingMenu.setVisibility(View.GONE);
+//                mShowMoreMenu.setVisibility(View.VISIBLE);
+//            }
+//        });
 
-        mFileExisting.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
+//        mFileExisting.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//            }
+//        });
 
         mViewAll.setOnClickListener(new View.OnClickListener() {
             @Override
