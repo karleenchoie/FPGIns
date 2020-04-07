@@ -21,7 +21,7 @@
                 android:layout_height="wrap_content"
                 android:paddingHorizontal="@dimen/horizontal_default_padding"
                 android:paddingVertical="@dimen/vertical_default_padding"
-                android:text="SUM VALUE"
+                android:text="SUM INSURED"
                 android:textColor="@color/fpg_gray"
                 android:textSize="@dimen/setting_title"
                 android:textStyle="bold"/>
