@@ -165,14 +165,14 @@ public class MotorActivity extends AppCompatActivity {
 
     private void createExampleList() {
         mMotorList = new ArrayList<>();
-        mMotorList.add(new MotorData("Standard", "ST10850007000031", "AKA 1234", "MNCLSFE405W491231","Toyota","800,000", "2020"));
-        mMotorList.add(new MotorData("Standard", "ST10940006000022", "DAG 5234", "FTNSWPS405W491232","Honda","1,000,000", "2019"));
-        mMotorList.add(new MotorData("Premium", "PR90850007900039", "DEB 6528", "PLOATZW405W491233","Audi","1,700,000","2020"));
-        mMotorList.add(new MotorData("Standard", "ST10130007000075", "ABY 8512", "CHQTOSX405W491234","Toyota","900,000","2018"));
-        mMotorList.add(new MotorData("Premium", "DE60930217000090", "AST 8901", "MLASGTD405W491235","Ford","1,300,000","2020"));
-        mMotorList.add(new MotorData("Standard", "DE00930217008990", "NCE 3901", "CHASSIS405W491236","Nissan","1,100,000","2019"));
-        mMotorList.add(new MotorData("Premium", "PR70850007900659", "AKA 1023", "PLATQSX405W491237","Jaguar","2,000,000","2020"));
-        mMotorList.add(new MotorData("Premium", "PR30850007907030", "ACR 1099", "QWOSQAM405W491238","Ferrari","2,000,000","2018"));
+        mMotorList.add(new MotorData("Karleen Choie Galicia", "ST10850007000031", "AKA 1234", "MNCLSFE405W491231","Toyota","800,000", "2020"));
+        mMotorList.add(new MotorData("Maximo Sevidal", "ST10940006000022", "DAG 5234", "FTNSWPS405W491232","Honda","1,000,000", "2019"));
+        mMotorList.add(new MotorData("Jeffrey Dimla", "PR90850007900039", "DEB 6528", "PLOATZW405W491233","Audi","1,700,000","2020"));
+        mMotorList.add(new MotorData("Hector Thomas Javier", "ST10130007000075", "ABY 8512", "CHQTOSX405W491234","Toyota","900,000","2018"));
+        mMotorList.add(new MotorData("Matthew Dominic Estive", "DE60930217000090", "AST 8901", "MLASGTD405W491235","Ford","1,300,000","2020"));
+        mMotorList.add(new MotorData("Ivan Eubans", "DE00930217008990", "NCE 3901", "CHASSIS405W491236","Nissan","1,100,000","2019"));
+        mMotorList.add(new MotorData("Christian Grande", "PR70850007900659", "AKA 1023", "PLATQSX405W491237","Jaguar","2,000,000","2020"));
+        mMotorList.add(new MotorData("Aldrene Victor Atienza", "PR30850007907030", "ACR 1099", "QWOSQAM405W491238","Ferrari","2,000,000","2018"));
     }
 
     private void buildRecyclerView() {
