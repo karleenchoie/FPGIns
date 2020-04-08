@@ -9,11 +9,13 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.fpgins.BottomNavigation.Products.ProductsFragment;
 import com.example.fpgins.DataModel.PartnersData;
+import com.example.fpgins.DataModel.UserData;
 import com.example.fpgins.Network.ImageUploaderUtility.DownloadImageTask;
 import com.example.fpgins.R;
 
@@ -70,12 +72,17 @@ public class PartnersAdapter extends RecyclerView.Adapter<PartnersAdapter.MyView
         PartnersData partnersData = partnersDataList.get(position);
         holder.title.setText(partnersData.getTitle());
         holder.details.setText(partnersData.getContent());
-        Glide.with(mContext)
-                .asBitmap()
-                .placeholder(R.drawable.default_image)
-                .load(partnersData.getCompanyPic())
-                .into(holder.image);
-//        new DownloadImageTask(holder.image, partnersData.getCompanyPic());
+
+        UserData userData = new UserData(PreferenceManager.getDefaultSharedPreferences(mContext));
+
+        String url = userData.getPhoto();
+//
+//        Glide.with(mContext)
+//                .asBitmap()
+//                .placeholder(R.drawable.default_image)
+//                .load(partnersData.getCompanyPic())
+//                .into(holder.image);
+        new DownloadImageTask(holder.image, "http://10.52.254.58/control/upload/account/P652501-20200405181804.jpg");
     }
 
     @Override
