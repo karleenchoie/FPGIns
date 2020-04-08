@@ -125,24 +125,24 @@ public class PartnersFragment extends Fragment {
 
     private void generateResult(JSONArray jsonArray){
         String dateToday = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
+        String companyPic = "";
         try {
             for (int i = 0; i < jsonArray.length(); i++){
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 String id = jsonObject.getString("id");
-                String company = jsonObject.getString("company");
-                String description = jsonObject.getString("description");
-                String photo = jsonObject.getString("photo");
+                String title = jsonObject.getString("title");
+                String content = jsonObject.getString("content");
                 String link = jsonObject.getString("link");
-                String dateStart = jsonObject.getString("date_start");
-                String dateExpiry = jsonObject.getString("date_expiry");
-                String createdBy = jsonObject.getString("created_by");
-                String createdWhen = jsonObject.getString("created_when");
-                String updatedBy = jsonObject.getString("updated_by");
-                String updatedWhen = jsonObject.getString("updated_when");
+                String postDate = jsonObject.getString("post_date");
+                String expiryDate = jsonObject.getString("expiry_date");
+                String partnerClientName = jsonObject.getString("partner_client_name");
 
-                if (dateToday.compareTo(dateExpiry) < 0){
-                    PartnersData partnersData = new PartnersData(id, company, description, photo, link, dateStart,
-                                                dateExpiry, createdBy, createdWhen, updatedBy, updatedWhen);
+                JSONArray files = jsonObject.getJSONArray("files");
+                JSONObject obj = files.getJSONObject(0);
+                String pic = obj.getString("file_url");
+
+                if (dateToday.compareTo(expiryDate) < 0){
+                    PartnersData partnersData = new PartnersData(id, title, content, link, postDate, expiryDate, partnerClientName, pic);
                     mData.add(partnersData);
                 }
 

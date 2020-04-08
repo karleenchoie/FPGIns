@@ -1,75 +1,74 @@
 package com.example.fpgins.DataModel;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+
 public class PartnersData {
 
-    private String id;
-    private String company;
-    private String description;
-    private String companyPic;
-    private String link;
-    private String startDate;
-    private String expiryDate;
-    private String createdBy;
-    private String createdWhen;
-    private String updatedBy;
-    private String updatedWhen;
+//    private String id;
+//    private String company;
+//    private String description;
+//    private String companyPic;
+//    private String link;
+//    private String startDate;
+//    private String expiryDate;
+//    private String createdBy;
+//    private String createdWhen;
+//    private String updatedBy;
+//    private String updatedWhen;
 
-    public PartnersData(String id, String company, String desc, String pic, String link, String startDate, String expDate,
-                        String createdBy, String createdWhen, String updatedBy, String updatedWhen) {
+    private String id;
+    private String title;
+    private String content;
+    private String link;
+    private String postDate;
+    private String expiryDate;
+    private String partnerClientName;
+    private String companyPic;
+
+    public PartnersData(String id, String title, String content, String link, String postDate, String expiryDate, String partnerClientName, String companyPic) {
         this.id = id;
-        this.company = company;
-        this.description = desc;
-        this.companyPic = pic;
+        this.title = title;
+        this.content = content;
         this.link = link;
-        this.startDate = startDate;
-        this.expiryDate = expDate;
-        this.createdBy = createdBy;
-        this.createdWhen = createdWhen;
-        this.updatedBy = updatedBy;
-        this.updatedWhen = updatedWhen;
+        this.postDate = postDate;
+        this.expiryDate = expiryDate;
+        this.partnerClientName = partnerClientName;
+        this.companyPic = companyPic;
     }
 
     public String getId() {
         return id;
     }
 
-    public String getCompany() {
-        return company;
+    public String getTitle() {
+        return title;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public String getCompanyPic() {
-        return companyPic;
+    public String getContent() {
+        return content;
     }
 
     public String getLink() {
         return link;
     }
 
-    public String getStartDate() {
-        return startDate;
+    public String getPostDate() {
+        return postDate;
     }
 
     public String getExpiryDate() {
         return expiryDate;
     }
 
-    public String getCreatedBy() {
-        return createdBy;
+    public String getPartnerClientName() {
+        return partnerClientName;
     }
 
-    public String getCreatedWhen() {
-        return createdWhen;
-    }
-
-    public String getUpdatedBy() {
-        return updatedBy;
-    }
-
-    public String getUpdatedWhen() {
-        return updatedWhen;
+    public String getCompanyPic() {
+        return companyPic;
     }
 }

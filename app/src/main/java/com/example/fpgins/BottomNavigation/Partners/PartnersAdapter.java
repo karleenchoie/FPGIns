@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.fpgins.BottomNavigation.Products.ProductsFragment;
 import com.example.fpgins.DataModel.PartnersData;
 import com.example.fpgins.Network.ImageUploaderUtility.DownloadImageTask;
@@ -67,9 +68,14 @@ public class PartnersAdapter extends RecyclerView.Adapter<PartnersAdapter.MyView
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         PartnersData partnersData = partnersDataList.get(position);
-        holder.title.setText(partnersData.getCompany());
-        holder.details.setText(partnersData.getDescription());
-        new DownloadImageTask(holder.image, partnersData.getCompanyPic());
+        holder.title.setText(partnersData.getTitle());
+        holder.details.setText(partnersData.getContent());
+        Glide.with(mContext)
+                .asBitmap()
+                .placeholder(R.drawable.default_image)
+                .load(partnersData.getCompanyPic())
+                .into(holder.image);
+//        new DownloadImageTask(holder.image, partnersData.getCompanyPic());
     }
 
     @Override
