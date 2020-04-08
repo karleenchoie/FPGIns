@@ -11,6 +11,7 @@ public class UserData {
     private final String LAST_NAME = "last_name";
     private final String ACCT_CODE = "acct_code";
     private final String PHOTO = "photo";
+    private final String CONTACT_NO = "contact_no";
 
     private final String SELECTED_CLAIM_NO = "claim_no";
 
@@ -63,6 +64,10 @@ public class UserData {
 
     public String getPhoto() {
         return sharedPreferences.getString(PHOTO, null);
+    }
+
+    public String getContactNo() {
+        return sharedPreferences.getString(CONTACT_NO, null);
     }
 
     public boolean isActivityRunning(){
@@ -136,6 +141,12 @@ public class UserData {
                 .apply();
     }
 
+    public void setContactNo(String value){
+        sharedPreferences.edit()
+                .putString(CONTACT_NO, value)
+                .apply();
+    }
+
     public void clearData(){
         String clear = "";
         sharedPreferences.edit()
@@ -146,6 +157,7 @@ public class UserData {
                 .putString(LAST_NAME, clear)
                 .putString(ACCT_CODE, clear)
                 .putString(PHOTO, clear)
+                .putString(CONTACT_NO, clear)
                 .apply();
     }
 

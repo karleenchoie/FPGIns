@@ -237,7 +237,7 @@
                 android:layout_gravity="center_vertical"
                 android:scrollHorizontally="true"
                 android:singleLine="true"
-                android:text="Promos and freebies"
+                android:text="Current and precise"
                 android:textColor="@color/fpg_gray"
                 android:textStyle="normal"
                 android:paddingBottom="@dimen/vertical_default_padding"

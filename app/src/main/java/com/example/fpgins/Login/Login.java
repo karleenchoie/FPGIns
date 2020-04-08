@@ -281,6 +281,7 @@ public class Login extends AppCompatActivity {
         String lastName = object.getString("last_name");
         String acctCode = object.getString("account_code");
         String photo = object.getString("photo");
+        String contactNo = object.getString("mobile_no");
 
         UserData userData = new UserData(PreferenceManager.getDefaultSharedPreferences(Login.this));
         userData.setId(id);
@@ -290,6 +291,8 @@ public class Login extends AppCompatActivity {
         userData.setLastName(lastName);
         userData.setAccountCode(acctCode);
         userData.setPhoto(photo);
+        userData.setContactNo(contactNo);
+
         onHandleSuccessLogin(id);
     }
 

@@ -82,6 +82,8 @@ public class Cloud {
 
     //DEMO STAGE
     public static final String DOMAIN_NAME = "http://10.52.254.58/eclaims";
+    //CMS
+    public static final String DOMAIN_NAME_CMS = "http://10.52.254.58/control";
 //    public static final String DOMAIN_NAME = "http://10.52.2.58/eclaims/account";
 
     public static final int REQUEST_CONNECTION_TIMEOUT = 10;
@@ -729,122 +731,6 @@ public class Cloud {
         return new JSONObject(response.body().string());
     }
 
-    //===================================== NOTIFICATION-ALL ======================================//
-
-    public static void notificationAll(final String accountCode, final ResultListener listener){
-        new AsyncTask<String, String, JSONObject>() {
-            @Override
-            protected JSONObject doInBackground(String... strings) {
-                try {
-                    JSONObject jsonObject = notificationAll(accountCode);
-                    return jsonObject;
-
-                } catch (Exception e){
-                    return resultException(e);
-                }
-            }
-
-            @Override
-            protected void onPostExecute(JSONObject jsonObject) {
-                listener.onResult(jsonObject);
-            }
-        }.execute();
-    }
-
-    private static JSONObject notificationAll(String accountCode) throws IOException, JSONException {
-        String url = HttpUrl.parse(DOMAIN_NAME + "/communication/notification-all").newBuilder()
-                .addQueryParameter("account_code", accountCode)
-                .build().toString();
-
-        OkHttpClient client = defaultHttpClient();
-
-        Request request = new Request.Builder()
-                .url(url)
-                .build();
-
-        Response response = client.newCall(request).execute();
-
-        return new JSONObject(response.body().string());
-    }
-
-    //===================================== NEW NOTIFICATION =======================================//
-
-    public static void newNotification(final String accountId, final ResultListener listener){
-        new AsyncTask<String, String, JSONObject>() {
-            @Override
-            protected JSONObject doInBackground(String... strings) {
-                try {
-                    JSONObject jsonObject = newNotification(accountId);
-                    return jsonObject;
-
-                } catch (Exception e){
-                    return resultException(e);
-                }
-            }
-
-            @Override
-            protected void onPostExecute(JSONObject jsonObject) {
-                listener.onResult(jsonObject);
-            }
-        }.execute();
-    }
-
-    private static JSONObject newNotification(String accountId) throws IOException, JSONException {
-        String url = HttpUrl.parse(DOMAIN_NAME + "/communication/notification-new").newBuilder()
-                .addQueryParameter("account_id", accountId)
-                .build().toString();
-
-        OkHttpClient client = defaultHttpClient();
-
-        Request request = new Request.Builder()
-                .url(url)
-                .build();
-
-        Response response = client.newCall(request).execute();
-
-        return new JSONObject(response.body().string());
-    }
-
-    //================================== DISMISS NOTIFICATION =====================================//
-
-    public static void dismissNotification(final String[] info, final ResultListener listener){
-        new AsyncTask<String, String, JSONObject>() {
-            @Override
-            protected JSONObject doInBackground(String... strings) {
-                try {
-                    JSONObject jsonObject = dismissNotification(info);
-                    return jsonObject;
-
-                } catch (Exception e){
-                    return resultException(e);
-                }
-            }
-
-            @Override
-            protected void onPostExecute(JSONObject jsonObject) {
-                listener.onResult(jsonObject);
-            }
-        }.execute();
-    }
-
-    private static JSONObject dismissNotification(final String[] information) throws IOException, JSONException {
-        String url = HttpUrl.parse(DOMAIN_NAME + "/communication/notification-dismiss").newBuilder()
-                .addQueryParameter("notification_id", information[0])
-                .addQueryParameter("notification_recipient_id", information[1])
-                .addQueryParameter("account_id", information[2])
-                .build().toString();
-
-        OkHttpClient client = defaultHttpClient();
-
-        Request request = new Request.Builder()
-                .url(url)
-                .build();
-
-        Response response = client.newCall(request).execute();
-
-        return new JSONObject(response.body().string());
-    }
-
     //========================================== UPLOAD ===========================================//
 
     public static void upload(ArrayList<Bitmap> bitmaps, final ArrayList<String> names, final String mobileId,
@@ -931,6 +817,127 @@ public class Cloud {
         });
     }
 
+
+
+
+    //******************************************* CMS **********************************************//
+
+    //===================================== NOTIFICATION-ALL ======================================//
+
+    public static void notificationAll(final String accountCode, final ResultListener listener){
+        new AsyncTask<String, String, JSONObject>() {
+            @Override
+            protected JSONObject doInBackground(String... strings) {
+                try {
+                    JSONObject jsonObject = notificationAll(accountCode);
+                    return jsonObject;
+
+                } catch (Exception e){
+                    return resultException(e);
+                }
+            }
+
+            @Override
+            protected void onPostExecute(JSONObject jsonObject) {
+                listener.onResult(jsonObject);
+            }
+        }.execute();
+    }
+
+    private static JSONObject notificationAll(String accountCode) throws IOException, JSONException {
+        String url = HttpUrl.parse(DOMAIN_NAME_CMS + "/notification/all").newBuilder()
+                .addQueryParameter("account_code", accountCode)
+                .build().toString();
+
+        OkHttpClient client = defaultHttpClient();
+
+        Request request = new Request.Builder()
+                .url(url)
+                .build();
+
+        Response response = client.newCall(request).execute();
+
+        return new JSONObject(response.body().string());
+    }
+
+    //===================================== NEW NOTIFICATION =======================================//
+
+    public static void newNotification(final String accountId, final ResultListener listener){
+        new AsyncTask<String, String, JSONObject>() {
+            @Override
+            protected JSONObject doInBackground(String... strings) {
+                try {
+                    JSONObject jsonObject = newNotification(accountId);
+                    return jsonObject;
+
+                } catch (Exception e){
+                    return resultException(e);
+                }
+            }
+
+            @Override
+            protected void onPostExecute(JSONObject jsonObject) {
+                listener.onResult(jsonObject);
+            }
+        }.execute();
+    }
+
+    private static JSONObject newNotification(String accountId) throws IOException, JSONException {
+        String url = HttpUrl.parse(DOMAIN_NAME_CMS + "/notification/latest").newBuilder()
+                .addQueryParameter("account_id", accountId)
+                .build().toString();
+
+        OkHttpClient client = defaultHttpClient();
+
+        Request request = new Request.Builder()
+                .url(url)
+                .build();
+
+        Response response = client.newCall(request).execute();
+
+        return new JSONObject(response.body().string());
+    }
+
+    //================================== DISMISS NOTIFICATION =====================================//
+
+    public static void dismissNotification(final String[] info, final ResultListener listener){
+        new AsyncTask<String, String, JSONObject>() {
+            @Override
+            protected JSONObject doInBackground(String... strings) {
+                try {
+                    JSONObject jsonObject = dismissNotification(info);
+                    return jsonObject;
+
+                } catch (Exception e){
+                    return resultException(e);
+                }
+            }
+
+            @Override
+            protected void onPostExecute(JSONObject jsonObject) {
+                listener.onResult(jsonObject);
+            }
+        }.execute();
+    }
+
+    private static JSONObject dismissNotification(final String[] information) throws IOException, JSONException {
+        String url = HttpUrl.parse(DOMAIN_NAME_CMS + "/notification/dismiss").newBuilder()
+                .addQueryParameter("notification_id", information[0])
+                .addQueryParameter("notification_recipient_id", information[1])
+                .addQueryParameter("account_id", information[2])
+                .build().toString();
+
+        OkHttpClient client = defaultHttpClient();
+
+        Request request = new Request.Builder()
+                .url(url)
+                .build();
+
+        Response response = client.newCall(request).execute();
+
+        return new JSONObject(response.body().string());
+    }
+
     //========================================= PARTNERS ==========================================//
 
     public static void getAllPartners(final ResultListener listener){
@@ -954,7 +961,7 @@ public class Cloud {
     }
 
     private static JSONObject getAllPartners() throws IOException, JSONException{
-        String url = DOMAIN_NAME + "/partners/all";
+        String url = DOMAIN_NAME_CMS + "/partner/all";
 
         OkHttpClient client = defaultHttpClient();
 
@@ -966,6 +973,343 @@ public class Cloud {
 
         return new JSONObject(response.body().string());
     }
+
+    //========================================== BANNER ===========================================//
+
+    public static void getBanner(final ResultListener listener){
+        new AsyncTask<String, String, JSONObject>() {
+            @Override
+            protected JSONObject doInBackground(String... strings) {
+                try {
+                    JSONObject jsonObject = getBanner();
+                    return jsonObject;
+
+                } catch (Exception e){
+                    return resultException(e);
+                }
+            }
+
+            @Override
+            protected void onPostExecute(JSONObject jsonObject) {
+                listener.onResult(jsonObject);
+            }
+        }.execute();
+    }
+
+    private static JSONObject getBanner()throws IOException, JSONException{
+        String url = DOMAIN_NAME_CMS + "/banner/all";
+
+        OkHttpClient client = defaultHttpClient();
+
+        Request request = new Request.Builder()
+                .url(url)
+                .build();
+
+        Response response = client.newCall(request).execute();
+
+        return new JSONObject(response.body().string());
+    }
+
+    //====================================== NEWS AND EVENTS ======================================//
+
+    public static void getNewsAndEvents(final ResultListener listener){
+        new AsyncTask<String, String, JSONObject>() {
+            @Override
+            protected JSONObject doInBackground(String... strings) {
+                try {
+                    JSONObject jsonObject = getNewsAndEvents();
+                    return jsonObject;
+
+                } catch (Exception e){
+                    return resultException(e);
+                }
+            }
+
+            @Override
+            protected void onPostExecute(JSONObject jsonObject) {
+                listener.onResult(jsonObject);
+            }
+        }.execute();
+    }
+
+    private static JSONObject getNewsAndEvents() throws IOException, JSONException {
+        String url = DOMAIN_NAME_CMS + "/event/all";
+
+        OkHttpClient client = defaultHttpClient();
+
+        Request request = new Request.Builder()
+                .url(url)
+                .build();
+
+        Response response = client.newCall(request).execute();
+
+        return new JSONObject(response.body().string());
+    }
+
+    public static void getSpecificNewsAndEvents(final String articleId, final ResultListener listener){
+        new AsyncTask<String, String, JSONObject>() {
+            @Override
+            protected JSONObject doInBackground(String... strings) {
+                try {
+                    JSONObject jsonObject = getSpecificNewsAndEvents(articleId);
+                    return jsonObject;
+
+                } catch (Exception e){
+                    return resultException(e);
+                }
+            }
+
+            @Override
+            protected void onPostExecute(JSONObject jsonObject) {
+                listener.onResult(jsonObject);
+            }
+        }.execute();
+    }
+
+    private static JSONObject getSpecificNewsAndEvents(String articleId) throws IOException, JSONException {
+        String url = HttpUrl.parse(DOMAIN_NAME_CMS + "/events/view").newBuilder()
+                .addQueryParameter("article_id", articleId)
+                .build().toString();;
+
+        OkHttpClient client = defaultHttpClient();
+
+        Request request = new Request.Builder()
+                .url(url)
+                .build();
+
+        Response response = client.newCall(request).execute();
+
+        return new JSONObject(response.body().string());
+    }
+
+    //======================================= OFFICE ADDRESS ======================================//
+
+    public static void getOfficeAddress(final ResultListener listener){
+        new AsyncTask<String, String, JSONObject>() {
+            @Override
+            protected JSONObject doInBackground(String... strings) {
+                try {
+                    JSONObject jsonObject = getOfficeAddress();
+                    return jsonObject;
+
+                } catch (Exception e){
+                    return resultException(e);
+                }
+            }
+
+            @Override
+            protected void onPostExecute(JSONObject jsonObject) {
+                listener.onResult(jsonObject);
+            }
+        }.execute();
+    }
+
+    private static JSONObject getOfficeAddress() throws IOException, JSONException {
+        String url = DOMAIN_NAME_CMS + "/support/office";
+
+        OkHttpClient client = defaultHttpClient();
+
+        Request request = new Request.Builder()
+                .url(url)
+                .build();
+
+        Response response = client.newCall(request).execute();
+
+        return new JSONObject(response.body().string());
+    }
+
+    //=========================== FREQUENTLY ASKED QUESTIONS (FAQ) ================================//
+
+    public static void getFAQ(final ResultListener listener) {
+        new AsyncTask<String, String, JSONObject>() {
+            @Override
+            protected JSONObject doInBackground(String... strings) {
+                try {
+                    JSONObject jsonObject = getFAQ();
+                    return jsonObject;
+
+                } catch (Exception e){
+                    return resultException(e);
+                }
+            }
+
+            @Override
+            protected void onPostExecute(JSONObject jsonObject) {
+                listener.onResult(jsonObject);
+            }
+        }.execute();
+    }
+
+    private static JSONObject getFAQ() throws IOException, JSONException {
+        String url = DOMAIN_NAME_CMS + "/support/faq";
+
+        OkHttpClient client = defaultHttpClient();
+
+        Request request = new Request.Builder()
+                .url(url)
+                .build();
+
+        Response response = client.newCall(request).execute();
+
+        return new JSONObject(response.body().string());
+    }
+
+    //================================= INQUIRY (Contact-Us) ======================================//
+
+    public static void manageInquiry(final int accountId, final int departmentId, final String policyNo, final String message, final ResultListener listener){
+        new AsyncTask<String, String, JSONObject>() {
+            @Override
+            protected JSONObject doInBackground(String... strings) {
+                try {
+                    JSONObject jsonObject = manageInquiry(accountId, departmentId, policyNo, message);
+                    return jsonObject;
+
+                } catch (Exception e){
+                    return resultException(e);
+                }
+            }
+
+            @Override
+            protected void onPostExecute(JSONObject jsonObject) {
+                listener.onResult(jsonObject);
+            }
+        }.execute();
+    }
+
+    private static JSONObject manageInquiry(int accountId, int departmentId, String policyNo, String message) throws IOException, JSONException{
+        String url = HttpUrl.parse(DOMAIN_NAME_CMS + "/events/view").newBuilder()
+                .addQueryParameter("account_id ", String.valueOf(accountId))
+                .addQueryParameter("department_id ", String.valueOf(departmentId))
+                .addQueryParameter("policy_no", policyNo)
+                .addQueryParameter("message", message)
+                .build().toString();;
+
+        OkHttpClient client = defaultHttpClient();
+
+        Request request = new Request.Builder()
+                .url(url)
+                .build();
+
+        Response response = client.newCall(request).execute();
+
+        return new JSONObject(response.body().string());
+    }
+
+    //======================================= SOS Alert ===========================================//
+
+    public static void sosAlert(final int accountId, final String location, final String longitude, final String latitude, final String mobileNo, final ResultListener listener){
+        new AsyncTask<String, String, JSONObject>() {
+            @Override
+            protected JSONObject doInBackground(String... strings) {
+                try {
+                    JSONObject jsonObject = sosAlert(accountId, location, longitude, latitude, mobileNo);
+                    return jsonObject;
+
+                } catch (Exception e){
+                    return resultException(e);
+                }
+            }
+
+            @Override
+            protected void onPostExecute(JSONObject jsonObject) {
+                listener.onResult(jsonObject);
+            }
+        }.execute();
+    }
+
+    private static JSONObject sosAlert(int accountId, String location, String longitude, String latitude, String mobileNo) throws IOException, JSONException {
+        String url = HttpUrl.parse(DOMAIN_NAME_CMS + "/support/sos-manage").newBuilder()
+                .addQueryParameter("account_id ", String.valueOf(accountId))
+                .addQueryParameter("location ", location)
+                .addQueryParameter("longitude", longitude)
+                .addQueryParameter("latitude", latitude)
+                .addQueryParameter("mobile_no", mobileNo)
+                .build().toString();
+
+        OkHttpClient client = defaultHttpClient();
+
+        Request request = new Request.Builder()
+                .url(url)
+                .build();
+
+        Response response = client.newCall(request).execute();
+
+        return new JSONObject(response.body().string());
+    }
+
+    //====================================== DEPARTMENT ===========================================//
+
+    public static void getAllDepartment(final ResultListener listener) {
+        new AsyncTask<String, String, JSONObject>() {
+            @Override
+            protected JSONObject doInBackground(String... strings) {
+                try {
+                    JSONObject jsonObject = getAllDepartment();
+                    return jsonObject;
+
+                } catch (Exception e){
+                    return resultException(e);
+                }
+            }
+
+            @Override
+            protected void onPostExecute(JSONObject jsonObject) {
+                listener.onResult(jsonObject);
+            }
+        }.execute();
+    }
+
+    private static JSONObject getAllDepartment() throws IOException, JSONException {
+        String url = DOMAIN_NAME_CMS + "/master/department";
+
+        OkHttpClient client = defaultHttpClient();
+
+        Request request = new Request.Builder()
+                .url(url)
+                .build();
+
+        Response response = client.newCall(request).execute();
+
+        return new JSONObject(response.body().string());
+    }
+
+    //========================================= SETUP =============================================//
+
+    public static void getSystemConfig(final ResultListener listener){
+        new AsyncTask<String, String, JSONObject>() {
+            @Override
+            protected JSONObject doInBackground(String... strings) {
+                try {
+                    JSONObject jsonObject = getSystemConfig();
+                    return jsonObject;
+
+                } catch (Exception e){
+                    return resultException(e);
+                }
+            }
+
+            @Override
+            protected void onPostExecute(JSONObject jsonObject) {
+                listener.onResult(jsonObject);
+            }
+        }.execute();
+    }
+
+    private static JSONObject getSystemConfig() throws IOException, JSONException {
+        String url = DOMAIN_NAME_CMS + "/system/setup";
+
+        OkHttpClient client = defaultHttpClient();
+
+        Request request = new Request.Builder()
+                .url(url)
+                .build();
+
+        Response response = client.newCall(request).execute();
+
+        return new JSONObject(response.body().string());
+    }
+
+    //=============================================================================================//
 
     @NonNull
     private static MultipartBody.Part prepareFilePart(String partName, File file) {
