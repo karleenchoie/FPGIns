@@ -40,7 +40,7 @@ public class HelpAdapter extends RecyclerView.Adapter<HelpAdapter.ViewHolder> {
 
         final boolean isExpanded = position == mExpandedPosition;
         holder.question.setText(data.getTitle());
-        holder.question.setCompoundDrawablesWithIntrinsicBounds(0, 0, isExpanded ? R.drawable.arrow_down : R.drawable.arrow_up, 0);
+        holder.question.setCompoundDrawablesWithIntrinsicBounds(0, 0, isExpanded ? R.drawable.arrow_up : R.drawable.arrow_down, 0);
         holder.description.setText(data.getContent());
         holder.description.setVisibility(isExpanded ? View.VISIBLE : View.GONE);
         holder.itemView.setActivated(isExpanded);

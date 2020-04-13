@@ -1178,11 +1178,11 @@ public class Cloud {
 
     private static JSONObject manageInquiry(int accountId, int departmentId, String policyNo, String message) throws IOException, JSONException{
         String url = HttpUrl.parse(DOMAIN_NAME_CMS + "/events/view").newBuilder()
-                .addQueryParameter("account_id ", String.valueOf(accountId))
-                .addQueryParameter("department_id ", String.valueOf(departmentId))
+                .addQueryParameter("account_id", String.valueOf(accountId))
+                .addQueryParameter("department_id", String.valueOf(departmentId))
                 .addQueryParameter("policy_no", policyNo)
                 .addQueryParameter("message", message)
-                .build().toString();;
+                .build().toString();
 
         OkHttpClient client = defaultHttpClient();
 

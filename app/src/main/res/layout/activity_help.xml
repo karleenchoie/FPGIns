@@ -51,6 +51,18 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+            <TextView
+                style="@style/TextAppearance.AppCompat.Caption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/horizontal_default_padding"
+                android:maxLines="1"
+                android:paddingVertical="@dimen/page_default_margin_horizontal"
+                android:text="@string/frequently_asked_question"
+                android:textColor="@color/fpg_gray"
+                android:textStyle="bold"
+                android:textSize="@dimen/setting_title" />
+
 
             <ScrollView
                 android:layout_below="@id/linear_nav"
