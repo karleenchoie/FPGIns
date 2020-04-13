@@ -7,14 +7,11 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import androidx.recyclerview.widget.RecyclerView;
-
 import com.bumptech.glide.Glide;
 import com.example.fpgins.DataModel.FirstSlideMenuData;
 import com.example.fpgins.R;
 import com.example.fpgins.RoundedCornerImageView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ViewAllAdapter extends BaseAdapter {
@@ -56,7 +53,7 @@ public class ViewAllAdapter extends BaseAdapter {
         Glide.with(convertView)
                 .asBitmap()
                 .placeholder(R.drawable.default_image)
-                .load(mData.get(position).getImage())
+                .load(mData.get(position).getId())
                 .into(roundedCornerImageView);
 
         return convertView;

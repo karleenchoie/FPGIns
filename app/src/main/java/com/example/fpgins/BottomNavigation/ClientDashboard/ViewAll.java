@@ -63,17 +63,17 @@ public class ViewAll extends AppCompatActivity {
     }
 
     private void getFirstMenuData(){
-        FirstSlideMenuData firstSlideMenuData1 = new FirstSlideMenuData("https://i0.wp.com/www.adobomagazine.com/wp-content/uploads/2020/01/fpg-hero.jpg?fit=1440%2C757&ssl=1","New CEO", "FPG has new CEO");
-
-        mData.add(firstSlideMenuData1);
-
-        FirstSlideMenuData firstSlideMenuData2 = new FirstSlideMenuData("https://3.bp.blogspot.com/-jpRH0GXm9U0/XBNMhvu0rAI/AAAAAAAAAcc/UYsnWY1x2TomYc-eBlfktgtWeXWOxOdUACLcBGAs/s1600/FPG%2Bx%2BMYEG.jpg","I-Pay Partnership", "FPG Insurance inks partnership");
-
-        mData.add(firstSlideMenuData2);
-
-        FirstSlideMenuData firstSlideMenuData3 = new FirstSlideMenuData("https://3.bp.blogspot.com/-t7LaWaX7GUE/XH6he44xpmI/AAAAAAAChh0/JEZy0eyv074qm30YYoRVoFWNyMuFAClngCLcBGAs/s1600/FPG-Iloilo%2B%25283%2529.jpg","E-life", "FPG Insurance and Cebuana Lhuillier foundation");
-
-        mData.add(firstSlideMenuData3);
+//        FirstSlideMenuData firstSlideMenuData1 = new FirstSlideMenuData("https://i0.wp.com/www.adobomagazine.com/wp-content/uploads/2020/01/fpg-hero.jpg?fit=1440%2C757&ssl=1","New CEO", "FPG has new CEO");
+//
+//        mData.add(firstSlideMenuData1);
+//
+//        FirstSlideMenuData firstSlideMenuData2 = new FirstSlideMenuData("https://3.bp.blogspot.com/-jpRH0GXm9U0/XBNMhvu0rAI/AAAAAAAAAcc/UYsnWY1x2TomYc-eBlfktgtWeXWOxOdUACLcBGAs/s1600/FPG%2Bx%2BMYEG.jpg","I-Pay Partnership", "FPG Insurance inks partnership");
+//
+//        mData.add(firstSlideMenuData2);
+//
+//        FirstSlideMenuData firstSlideMenuData3 = new FirstSlideMenuData("https://3.bp.blogspot.com/-t7LaWaX7GUE/XH6he44xpmI/AAAAAAAChh0/JEZy0eyv074qm30YYoRVoFWNyMuFAClngCLcBGAs/s1600/FPG-Iloilo%2B%25283%2529.jpg","E-life", "FPG Insurance and Cebuana Lhuillier foundation");
+//
+//        mData.add(firstSlideMenuData3);
 
         mAdapter.notifyDataSetChanged();
     }

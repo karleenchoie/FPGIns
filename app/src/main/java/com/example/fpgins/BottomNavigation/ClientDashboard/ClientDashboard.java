@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
@@ -30,7 +31,9 @@ import com.example.fpgins.BottomNavigation.ClientDashboard.ClientMenus.PersonalA
 import com.example.fpgins.BottomNavigation.ClientDashboard.ClientMenus.TravelActivity;
 import com.example.fpgins.BottomNavigation.AgentDashboard.main.SectionsPagerAdapter;
 import com.example.fpgins.DataModel.FirstSlideMenuData;
+import com.example.fpgins.DataModel.SubmittedFormsData;
 import com.example.fpgins.DataModel.UserData;
+import com.example.fpgins.Network.Cloud;
 import com.example.fpgins.Network.ImageUploaderUtility.DownloadImageTask;
 import com.example.fpgins.R;
 import com.google.android.material.tabs.TabLayout;
@@ -38,6 +41,10 @@ import com.hookedonplay.decoviewlib.DecoView;
 import com.hookedonplay.decoviewlib.charts.EdgeDetail;
 import com.hookedonplay.decoviewlib.charts.SeriesItem;
 import com.hookedonplay.decoviewlib.events.DecoEvent;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -300,19 +307,94 @@ public class ClientDashboard extends Fragment {
     }
 
     private void getFirstMenuData(){
-        FirstSlideMenuData firstSlideMenuData1 = new FirstSlideMenuData("https://i0.wp.com/www.adobomagazine.com/wp-content/uploads/2020/01/fpg-hero.jpg?fit=1440%2C757&ssl=1","New CEO", "FPG has new CEO");
+        mData.clear();
 
-        mData.add(firstSlideMenuData1);
+        Cloud.getNewsAndEvents(new Cloud.ResultListener() {
+            @Override
+            public void onResult(JSONObject result) {
+                int returnCode;
+                JSONObject jsonObject = new JSONObject();
 
-        FirstSlideMenuData firstSlideMenuData2 = new FirstSlideMenuData("https://3.bp.blogspot.com/-jpRH0GXm9U0/XBNMhvu0rAI/AAAAAAAAAcc/UYsnWY1x2TomYc-eBlfktgtWeXWOxOdUACLcBGAs/s1600/FPG%2Bx%2BMYEG.jpg","I-Pay Partnership", "FPG Insurance inks partnership");
+                try {
+                    jsonObject = result;
+                    returnCode = Integer.parseInt(jsonObject.get("code").toString());
+                } catch (JSONException e){
+                    returnCode = Cloud.DefaultReturnCode.INTERNAL_SERVER_ERROR;
+                    e.printStackTrace();
+                }
 
-        mData.add(firstSlideMenuData2);
-
-        FirstSlideMenuData firstSlideMenuData3 = new FirstSlideMenuData("https://3.bp.blogspot.com/-t7LaWaX7GUE/XH6he44xpmI/AAAAAAAChh0/JEZy0eyv074qm30YYoRVoFWNyMuFAClngCLcBGAs/s1600/FPG-Iloilo%2B%25283%2529.jpg","E-life", "FPG Insurance and Cebuana Lhuillier foundation");
-
-        mData.add(firstSlideMenuData3);
+                if (returnCode != Cloud.DefaultReturnCode.SUCCESS){
+                    //FAIL
+                    try {
+                        String message = jsonObject.getString("message");
+                        Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    //SUCCESS
+                    try {
+                        JSONArray jsonArray = jsonObject.getJSONArray("record");
+                        generateResult(jsonArray);
+                        mRecyclerView.setAdapter(mAdapter);
+                    } catch (Exception e) {
+                        e.getMessage();
+                    }
+                }
+            }
+        });
+//        FirstSlideMenuData firstSlideMenuData1 = new FirstSlideMenuData("https://i0.wp.com/www.adobomagazine.com/wp-content/uploads/2020/01/fpg-hero.jpg?fit=1440%2C757&ssl=1","New CEO", "FPG has new CEO");
+//
+//        mData.add(firstSlideMenuData1);
+//
+//        FirstSlideMenuData firstSlideMenuData2 = new FirstSlideMenuData("https://3.bp.blogspot.com/-jpRH0GXm9U0/XBNMhvu0rAI/AAAAAAAAAcc/UYsnWY1x2TomYc-eBlfktgtWeXWOxOdUACLcBGAs/s1600/FPG%2Bx%2BMYEG.jpg","I-Pay Partnership", "FPG Insurance inks partnership");
+//
+//        mData.add(firstSlideMenuData2);
+//
+//        FirstSlideMenuData firstSlideMenuData3 = new FirstSlideMenuData("https://3.bp.blogspot.com/-t7LaWaX7GUE/XH6he44xpmI/AAAAAAAChh0/JEZy0eyv074qm30YYoRVoFWNyMuFAClngCLcBGAs/s1600/FPG-Iloilo%2B%25283%2529.jpg","E-life", "FPG Insurance and Cebuana Lhuillier foundation");
+//
+//        mData.add(firstSlideMenuData3);
 
         mAdapter.notifyDataSetChanged();
+    }
+
+    private void generateResult(JSONArray jsonArray){
+        ArrayList<String> pictures = new ArrayList<>();
+        try {
+            for (int i = 0; i < jsonArray.length(); i++){
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                String id = jsonObject.getString("id");
+                String title = jsonObject.getString("title");
+                String content = jsonObject.getString("content");
+                String link = jsonObject.getString("link");
+                String postDate = jsonObject.getString("post_date");
+                String categoryName = jsonObject.getString("category_name");
+
+                JSONArray files = jsonObject.getJSONArray("files");
+                JSONObject obj = files.getJSONObject(0);
+                String pic = obj.getString("file_url");
+
+                if (files.length() > 0){
+                    for (int m = 0; m < files.length(); m++){
+                        JSONObject jsonPics = files.getJSONObject(m);
+                        String pict = jsonPics.getString("file_url");
+                        pictures.add(pict);
+                    }
+                } else {
+                    pictures.add(null);
+                }
+
+                FirstSlideMenuData data = new FirstSlideMenuData(id, title, content, link, postDate, categoryName, pictures);
+                mData.add(data);
+
+                pictures.clear();
+            }
+
+
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     public void showClaimsOption(){

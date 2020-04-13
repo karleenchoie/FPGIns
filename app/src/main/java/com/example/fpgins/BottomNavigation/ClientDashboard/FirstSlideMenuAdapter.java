@@ -14,7 +14,6 @@ import com.bumptech.glide.Glide;
 import com.example.fpgins.DataModel.FirstSlideMenuData;
 import com.example.fpgins.R;
 import com.example.fpgins.RoundedCornerImageView;
-import com.example.fpgins.ui.NotificationMessage.NotifMessage;
 
 import java.util.List;
 
@@ -41,7 +40,7 @@ public class FirstSlideMenuAdapter extends RecyclerView.Adapter<FirstSlideMenuAd
         Glide.with(context)
                 .asBitmap()
                 .placeholder(R.drawable.default_image)
-                .load(data.getImage())
+                .load(data.getPictures().get(0))
                 .into(holder.roundedCornerImageView);
         holder.title.setText(data.getTitle());
         holder.description.setText(data.getDescription());
