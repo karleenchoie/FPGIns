@@ -82,7 +82,7 @@ public class PartnersAdapter extends RecyclerView.Adapter<PartnersAdapter.MyView
 //                .placeholder(R.drawable.default_image)
 //                .load(partnersData.getCompanyPic())
 //                .into(holder.image);
-        new DownloadImageTask(holder.image, "http://10.52.254.58/control/upload/account/P652501-20200405181804.jpg");
+        new DownloadImageTask(holder.image, partnersData.getCompanyPic());
     }
 
     @Override

@@ -1,22 +1,33 @@
 package com.example.fpgins.BottomNavigation.FPGAssist;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.fpgins.BottomNavigation.Claims.SubmittedFormsActivity;
+import com.example.fpgins.DataModel.FAQData;
+import com.example.fpgins.Network.Cloud;
 import com.example.fpgins.R;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 public class HelpActivity extends AppCompatActivity {
 
     private ImageView mBackButton;
-
-    private TextView mQuestionOne, mQuestioTwo, mQuestionThree, mDescriptionOne, mDescriptionTwo, mDescriptionThree;
-    private boolean isDisplayOne = false;
-    private boolean isDisplayTwo = false;
-    private boolean isDisplayThree = false;
+    private ArrayList<FAQData> mData = new ArrayList<>();
+    private HelpAdapter mAdapter;
+    private RecyclerView mRecyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,13 +35,12 @@ public class HelpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_help);
 
         mBackButton = findViewById(R.id.img_backbutton);
+        mRecyclerView = findViewById(R.id.faq_recyclerview);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(HelpActivity.this));
+        mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+        mAdapter = new HelpAdapter(mData, HelpActivity.this);
 
-        mQuestionOne = findViewById(R.id.txt_question1);
-        mQuestioTwo = findViewById(R.id.txt_question2);
-        mQuestionThree = findViewById(R.id.txt_question3);
-        mDescriptionOne = findViewById(R.id.txt_question1_desc);
-        mDescriptionTwo = findViewById(R.id.txt_question2_desc);
-        mDescriptionThree = findViewById(R.id.txt_question3_desc);
+        getAllFAQ();
 
         mBackButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,74 +49,64 @@ public class HelpActivity extends AppCompatActivity {
             }
         });
 
-        mQuestionOne.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                isDisplayOne = !isDisplayOne;
-                if (isDisplayOne == true){
-                    mDescriptionOne.setVisibility(View.VISIBLE);
-                    mQuestionOne.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.arrow_up, 0);
-                    mQuestioTwo.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.arrow_down, 0);
-                    mQuestionThree.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.arrow_down, 0);
-                    mDescriptionTwo.setVisibility(View.GONE);
-                    mDescriptionThree.setVisibility(View.GONE);
-
-                }else {
-                    mQuestionOne.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.arrow_down, 0);
-                    mQuestioTwo.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.arrow_down, 0);
-                    mQuestionThree.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.arrow_down, 0);
-                    mDescriptionOne.setVisibility(View.GONE);
-                    mDescriptionTwo.setVisibility(View.GONE);
-                    mDescriptionThree.setVisibility(View.GONE);
-                }
-            }
-        });
-        mQuestioTwo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                isDisplayTwo = !isDisplayTwo;
-                if (isDisplayTwo == true){
-                    mQuestioTwo.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.arrow_up, 0);
-                    mQuestionOne.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.arrow_down, 0);
-                    mQuestionThree.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.arrow_down, 0);
-                    mDescriptionOne.setVisibility(View.GONE);
-                    mDescriptionTwo.setVisibility(View.VISIBLE);
-                    mDescriptionThree.setVisibility(View.GONE);
-                }else {
-                    mQuestioTwo.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.arrow_down, 0);
-                    mQuestionOne.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.arrow_down, 0);
-                    mQuestionThree.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.arrow_down, 0);
-                    mDescriptionOne.setVisibility(View.GONE);
-                    mDescriptionTwo.setVisibility(View.GONE);
-                    mDescriptionThree.setVisibility(View.GONE);
-                }
-            }
-        });
-
-        mQuestionThree.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                isDisplayThree = !isDisplayThree;
-                if (isDisplayThree == true){
-                    mQuestionThree.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.arrow_up, 0);
-                    mQuestionOne.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.arrow_down, 0);
-                    mQuestioTwo.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.arrow_down, 0);
-                    mDescriptionOne.setVisibility(View.GONE);
-                    mDescriptionTwo.setVisibility(View.GONE);
-                    mDescriptionThree.setVisibility(View.VISIBLE);
-                }else {
-                    mQuestionThree.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.arrow_down, 0);
-                    mQuestionOne.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.arrow_down, 0);
-                    mQuestionThree.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.arrow_down, 0);
-                    mDescriptionOne.setVisibility(View.GONE);
-                    mDescriptionTwo.setVisibility(View.GONE);
-                    mDescriptionThree.setVisibility(View.GONE);
-                }
-            }
-        });
     }
 
-    public void checkDisplayed(){
+    public void getAllFAQ(){
+        mData.clear();
 
+        Cloud.getFAQ(new Cloud.ResultListener() {
+            @Override
+            public void onResult(JSONObject result) {
+                int returnCode;
+                JSONObject jsonObject = new JSONObject();
+
+                try {
+                    jsonObject = result;
+                    returnCode = Integer.parseInt(jsonObject.get("code").toString());
+                } catch (JSONException e){
+                    returnCode = Cloud.DefaultReturnCode.INTERNAL_SERVER_ERROR;
+                    e.printStackTrace();
+                }
+
+                if (returnCode != Cloud.DefaultReturnCode.SUCCESS){
+                    //FAIL
+                    try {
+                        String message = jsonObject.getString("message");
+                        Toast.makeText(HelpActivity.this, message, Toast.LENGTH_SHORT).show();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    //SUCCESS
+                    try {
+                        JSONArray jsonArray = jsonObject.getJSONArray("record");
+                        generateResult(jsonArray);
+                        mRecyclerView.setAdapter(mAdapter);
+                    } catch (Exception e) {
+                        e.getMessage();
+                    }
+                }
+            }
+        });
+
+    }
+
+    private void generateResult(JSONArray jsonArray){
+        try {
+            for (int i = 0; i < jsonArray.length(); i++){
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                String id = jsonObject.getString("id");
+                String title = jsonObject.getString("title");
+                String content = jsonObject.getString("content");
+                String link = jsonObject.getString("link");
+
+                FAQData data = new FAQData(id, title, content, link);
+                mData.add(data);
+            }
+
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }

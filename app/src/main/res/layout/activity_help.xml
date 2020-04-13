@@ -42,131 +42,40 @@
                 android:textColor="@color/fpg_gray">
 
             </TextView>
+
+
         </LinearLayout>
 
-        <ScrollView
-            android:layout_below="@id/linear_nav"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:fadeScrollbars="true"
-            android:fillViewport="true"
-            android:scrollbars="vertical"
-            android:id="@+id/createPasswordScrollView"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+            android:orientation="vertical">
 
-            <LinearLayout
+
+            <ScrollView
+                android:layout_below="@id/linear_nav"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:fadeScrollbars="true"
+                android:fillViewport="true"
+                android:scrollbars="vertical"
+                android:id="@+id/createPasswordScrollView"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-                <TextView
-                    style="@style/TextAppearance.AppCompat.Caption"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/faq_recyclerview"
+                    tools:listitem="@layout/item_faq_file"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingHorizontal="@dimen/horizontal_default_padding"
-                    android:maxLines="1"
-                    android:paddingVertical="@dimen/page_default_margin_horizontal"
-                    android:text="@string/frequently_asked_question"
-                    android:textColor="@color/fpg_gray"
-                    android:textStyle="bold"
-                    android:textSize="@dimen/setting_title" />
+                    android:layout_marginHorizontal="@dimen/vertical_default_padding"
+                    android:verticalSpacing="@dimen/vertical_default_padding"
+                    android:layout_height="wrap_content">
+                </androidx.recyclerview.widget.RecyclerView>
 
-                <TextView
-                    android:id="@+id/txt_question1"
-                    style="@style/TextAppearance.AppCompat.Caption"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/page_default_margin_horizontal"
-                    android:background="@color/white"
-                    android:drawableRight="@drawable/arrow_down"
-                    android:drawablePadding="@dimen/page_default_margin_horizontal"
-                    android:gravity="left|center_vertical"
-                    android:paddingHorizontal="@dimen/horizontal_default_padding"
-                    android:paddingVertical="@dimen/page_default_margin_horizontal"
-                    android:text="@string/app_changed"
-                    android:textColor="@color/fpg_gray"
-                    android:textSize="@dimen/setting_title" />
+            </ScrollView>
 
-                <TextView
-                    android:id="@+id/txt_question1_desc"
-                    style="@style/TextAppearance.AppCompat.Caption"
-                    android:layout_width="match_parent"
-                    android:visibility="gone"
-                    android:background="@color/white"
-                    android:paddingHorizontal="@dimen/horizontal_default_padding"
-                    android:lineSpacingExtra="@dimen/paragraph_default_padding"
-                    android:layout_height="wrap_content"
-                    android:gravity="left"
-                    android:paddingBottom="@dimen/page_default_margin_horizontal"
-                    android:text="@string/lorem_ipsum"
-                    android:textColor="@color/fpg_gray"
-                    android:textSize="@dimen/head_title_textsize" />
+        </LinearLayout>
 
-                <TextView
-                    android:id="@+id/txt_question2"
-                    style="@style/TextAppearance.AppCompat.Caption"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="left|center_vertical"
-                    android:drawablePadding="@dimen/page_default_margin_horizontal"
-                    android:paddingHorizontal="@dimen/horizontal_default_padding"
-                    android:background="@color/white"
-                    android:layout_marginTop="3dp"
-                    android:paddingVertical="@dimen/page_default_margin_horizontal"
-                    android:drawableRight="@drawable/arrow_down"
-                    android:text="@string/whats_new"
-                    android:textColor="@color/fpg_gray"
-                    android:textSize="@dimen/setting_title" />
 
-                <TextView
-                    android:id="@+id/txt_question2_desc"
-                    style="@style/TextAppearance.AppCompat.Caption"
-                    android:layout_width="match_parent"
-                    android:visibility="gone"
-                    android:lineSpacingExtra="@dimen/paragraph_default_padding"
-                    android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:gravity="left"
-                    android:paddingBottom="@dimen/page_default_margin_horizontal"
-                    android:paddingHorizontal="@dimen/horizontal_default_padding"
-                    android:text="@string/lorem_ipsum"
-                    android:textColor="@color/fpg_gray"
-                    android:textSize="@dimen/head_title_textsize"  />
-
-                <TextView
-                    android:id="@+id/txt_question3"
-                    style="@style/TextAppearance.AppCompat.Caption"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:layout_marginTop="3dp"
-                    android:drawablePadding="@dimen/page_default_margin_horizontal"
-                    android:paddingVertical="@dimen/page_default_margin_horizontal"
-                    android:gravity="left|center_vertical"
-                    android:paddingHorizontal="@dimen/horizontal_default_padding"
-                    android:text="@string/after_successful_activating"
-                    android:textColor="@color/fpg_gray"
-                    android:drawableRight="@drawable/arrow_down"
-                    android:textSize="@dimen/setting_title"  />
-
-                <TextView
-                    android:id="@+id/txt_question3_desc"
-                    style="@style/TextAppearance.AppCompat.Caption"
-                    android:layout_width="match_parent"
-                    android:visibility="gone"
-                    android:paddingHorizontal="@dimen/horizontal_default_padding"
-                    android:background="@color/white"
-                    android:layout_height="wrap_content"
-                    android:paddingBottom="@dimen/page_default_margin_horizontal"
-                    android:gravity="left"
-                    android:lineSpacingExtra="@dimen/paragraph_default_padding"
-                    android:text="@string/lorem_ipsum"
-                    android:textColor="@color/fpg_gray"
-                    android:textSize="@dimen/head_title_textsize" />
-
-            </LinearLayout>
-
-        </ScrollView>
 
 
     </LinearLayout>
