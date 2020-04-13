@@ -1,5 +1,6 @@
 package com.example.fpgins.ui.customercare;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -10,14 +11,18 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.PreferenceManager;
 
 import com.example.fpgins.BottomSheetDialog.BottomSheetMaterialDialog;
+import com.example.fpgins.DataModel.UserData;
 import com.example.fpgins.Network.Cloud;
 import com.example.fpgins.R;
+import com.example.fpgins.Utility.DefaultDialog;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -26,7 +31,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CustomerCareFragment extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class CustomerCareFragment extends AppCompatActivity{
 
     private Button mSubmit;
     private BottomSheetMaterialDialog bottomSheetMaterialDialog;
@@ -35,13 +40,15 @@ public class CustomerCareFragment extends AppCompatActivity implements AdapterVi
     private int mAccountId, mDepartmentId;
     private String mPolicyNum, mInquiry;
     private Spinner mSpinner;
+    private UserData mUserData;
     private List<String> list = new ArrayList<String>();
+    private int id;
+    private int departmentId = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_tools);
-
 
         mBackButton = findViewById(R.id.img_backbutton);
         mBackButton.setOnClickListener(new View.OnClickListener() {
@@ -50,6 +57,9 @@ public class CustomerCareFragment extends AppCompatActivity implements AdapterVi
                 onBackPressed();
             }
         });
+
+        mUserData = new UserData(PreferenceManager.getDefaultSharedPreferences(getApplicationContext()));
+        id = Integer.parseInt(mUserData.getId());
 
         mNumber = findViewById(R.id.edt_contactPolicy);
         mMessage = findViewById(R.id.edt_contactMessage);
@@ -61,13 +71,14 @@ public class CustomerCareFragment extends AppCompatActivity implements AdapterVi
         mSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sendInquiry(2714, 44, "12345L", "FROM ANDROID!");
-//                Toast.makeText(getApplicationContext(), String.valueOf(mSpinner.getSelectedItem()), Toast.LENGTH_LONG).show();
+                String policyNumber = mNumber.getText().toString().trim();
+                String message = mMessage.getText().toString().trim();
+                sendInquiry(id, departmentId, policyNumber, message);
             }
         });
     }
 
-    public void sendInquiry(int accountId, int department_id, final String policy_number, final String message){
+    public void sendInquiry(int accountId, int department_id,String policy_number,String message){
         Cloud.manageInquiry(accountId, department_id, policy_number, message, new Cloud.ResultListener() {
             @Override
             public void onResult(JSONObject result) {
@@ -91,12 +102,18 @@ public class CustomerCareFragment extends AppCompatActivity implements AdapterVi
                         e.printStackTrace();
                     }
                 }else {
-                    //SUCCESS
                     try {
-                        Toast.makeText(getApplicationContext(), "SUCCESSSSSSS!", Toast.LENGTH_LONG).show();
-//                        sendSMS(mobile, "Location : " + location + "\n"
-//                                + "Longitude : " + longitude +"\n"
-//                                + "Latitude : " + latitude +"\n");
+//                        new DefaultDialog.Builder(getApplicationContext())
+//                                .message("Your inquiry has been successfully sent.")
+//                                .detail("FPG representative will answer it as soon as possible. Thank you.")
+//                                .positiveAction("Ok", new DefaultDialog.OnClickListener() {
+//                                    @Override
+//                                    public void onClick(Dialog dialog, String et) {
+//                                        dialog.dismiss();
+//                                    }
+//                                })
+//                                .build()
+//                                .show();
                     } catch (Exception e) {
                         e.getMessage();
                     }
@@ -104,41 +121,6 @@ public class CustomerCareFragment extends AppCompatActivity implements AdapterVi
             }
         });
     }
-
-//    public void sendInquiry(final int accountId,final int departmentId,final String policyNo,final String message){
-//        Cloud.manageInquiry(accountId, departmentId, policyNo, message, new Cloud.ResultListener() {
-//            @Override
-//            public void onResult(JSONObject result) {
-//                int returnCode;
-//                JSONObject jsonObject = new JSONObject();
-//                try {
-//                    jsonObject = result;
-//                    returnCode = Integer.parseInt(jsonObject.get("code").toString());
-//                }catch (JSONException e){
-//                    returnCode = Cloud.DefaultReturnCode.INTERNAL_SERVER_ERROR;
-//                    e.printStackTrace();
-//                }
-//
-//                if (returnCode != Cloud.DefaultReturnCode.SUCCESS){
-//                    //FAIL
-//                    try {
-//                        String message = jsonObject.getString("message");
-//                        Log.d("Server Error Message: ", message);
-//                        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
-//                    }catch (JSONException e){
-//                        e.printStackTrace();
-//                    }
-//                }else {
-//                    //SUCCESS
-//                    try {
-//                        Toast.makeText(getApplicationContext(), "SUCCESS", Toast.LENGTH_LONG).show();
-//                    } catch (Exception e) {
-//                        e.getMessage();
-//                    }
-//                }
-//            }
-//        });
-//    }
 
     private void getAllDepartment() {
         Cloud.getAllDepartment(new Cloud.ResultListener() {
@@ -185,23 +167,32 @@ public class CustomerCareFragment extends AppCompatActivity implements AdapterVi
                 String department_category_id = jsonObject.getString("department_category_id");
                 String department_category_name = jsonObject.getString("department_category_name");
                 list.add(name);
-                Log.i("RESULT", id + name + department_category_id + department_category_name);
             }
             ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,R.layout.spinner_layout, list);
             dataAdapter.setDropDownViewResource(R.layout.spinner_dropdown_layout);
             mSpinner.setAdapter(dataAdapter);
+            mSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    String department = parent.getSelectedItem().toString();
+                    if (department.equals("Engineering")){
+                        departmentId = 46;
+                    }
+                    if (department.equals("Marine")){
+                        departmentId = 43;
+
+                    }if (department.equals("Travel")){
+                        departmentId = 45;
+                    }
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
+
+                }
+            });
         } catch (Exception e){
             e.printStackTrace();
         }
-    }
-
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-
     }
 }

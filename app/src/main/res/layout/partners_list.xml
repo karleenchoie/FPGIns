@@ -36,6 +36,7 @@
 
     <ImageView
         android:id="@+id/imgPhoto"
+        android:background="#e9eef1"
         android:scaleType="centerInside"
         android:layout_width="match_parent"
         android:layout_height="190dp"

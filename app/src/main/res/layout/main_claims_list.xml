@@ -38,5 +38,6 @@
         android:scaleType="centerInside"
         android:layout_width="match_parent"
         android:layout_height="180dp"
-        android:src="@drawable/pic_one"/>
+        android:background="#e9eef1"
+        android:src="@drawable/default_image"/>
 </LinearLayout>
