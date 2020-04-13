@@ -1219,8 +1219,8 @@ public class Cloud {
 
     private static JSONObject sosAlert(int accountId, String location, String longitude, String latitude, String mobileNo) throws IOException, JSONException {
         String url = HttpUrl.parse(DOMAIN_NAME_CMS + "/support/sos-manage").newBuilder()
-                .addQueryParameter("account_id ", String.valueOf(accountId))
-                .addQueryParameter("location ", location)
+                .addQueryParameter("account_id", String.valueOf(accountId))
+                .addQueryParameter("location", location)
                 .addQueryParameter("longitude", longitude)
                 .addQueryParameter("latitude", latitude)
                 .addQueryParameter("mobile_no", mobileNo)

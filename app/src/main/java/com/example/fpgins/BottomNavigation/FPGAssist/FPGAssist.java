@@ -15,6 +15,7 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Vibrator;
 import android.telephony.SmsManager;
+import android.util.Log;
 import android.view.HapticFeedbackConstants;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -31,7 +32,9 @@ import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.preference.PreferenceManager;
 
+import com.example.fpgins.BottomNavigation.Settings.PersonalInformation;
 import com.example.fpgins.DataModel.UserData;
+import com.example.fpgins.Network.Cloud;
 import com.example.fpgins.R;
 import com.example.fpgins.Utility.DefaultDialog;
 import com.example.fpgins.Utility.GetLocation;
@@ -45,6 +48,10 @@ import com.google.android.gms.maps.Projection;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.Timer;
 
@@ -64,6 +71,7 @@ public class FPGAssist extends Fragment implements OnMapReadyCallback {
     private CountDownTimer mCountdownTimer;
     private UserData mUserData;
     private  String name, number;
+    private int id;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -78,6 +86,8 @@ public class FPGAssist extends Fragment implements OnMapReadyCallback {
         mSOS.setOnTouchListener(speakTouchListener);
         mUserData = new UserData(PreferenceManager.getDefaultSharedPreferences(getContext()));
         name = mUserData.getFirstName() + " " + mUserData.getLastName();
+        number = mUserData.getContactNo();
+        id = Integer.parseInt(mUserData.getId());
 
 
         mHelp.setOnClickListener(new View.OnClickListener() {
@@ -107,7 +117,7 @@ public class FPGAssist extends Fragment implements OnMapReadyCallback {
             v.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
             String locationAddress = "";
             final String information = name +
-                    "09178869020\n";
+                    number;
             if (!mLocationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)){
                 GetLocation.confirmLocation(getActivity());
             } else {
@@ -129,10 +139,10 @@ public class FPGAssist extends Fragment implements OnMapReadyCallback {
                     public void onFinish() {
                         mTimer.setText("done!");
                         isSpeakButtonLongPressed = false;
-                        sendSMS("09665808190", information +
-                                Double.valueOf(longitude) + "\n" +
-                                Double.valueOf(lattitude) + "\n" +
-                                finalLocationAddress);
+                        sendSOS(id, finalLocationAddress,
+                                Double.valueOf(longitude).toString().trim(),
+                                Double.valueOf(lattitude).toString().trim(),
+                                number);
                     }
                 }.start();
             }
@@ -156,43 +166,6 @@ public class FPGAssist extends Fragment implements OnMapReadyCallback {
             return false;
         }
     };
-
-    public void sendSMS(String phoneNo, String msg) {
-
-        if (ActivityCompat.checkSelfPermission(getActivity().getApplicationContext(), Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED)
-        {
-            try {
-                SmsManager smsManager = SmsManager.getDefault();
-                smsManager.sendTextMessage(phoneNo, null, msg, null, null);
-                Bitmap mIcon = BitmapFactory.decodeResource(getActivity().getResources(),R.drawable.green_check);
-//                mSOS.doneLoadingAnimation(R.color.black, mIcon);
-                new DefaultDialog.Builder(getActivity())
-                        .message("The SOS message has been sent successfully.")
-                        .detail("FPG representative will contact you shortly. Thank you.")
-                        .positiveAction("Ok", new DefaultDialog.OnClickListener() {
-                            @Override
-                            public void onClick(Dialog dialog, String et) {
-                                dialog.dismiss();
-                            }
-                        })
-                        .build()
-                        .show();
-            } catch (Exception ex) {
-                Toast.makeText(getActivity().getApplicationContext(),ex.getMessage().toString(),
-                        Toast.LENGTH_LONG).show();
-                ex.printStackTrace();
-            }
-        }
-        else
-        {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
-            {
-                requestPermissions(new String[]{Manifest.permission.SEND_SMS}, 10);
-            }
-        }
-
-    }
-
 
     @Override
     public void onStart() {
@@ -277,5 +250,78 @@ public class FPGAssist extends Fragment implements OnMapReadyCallback {
         marker.showInfoWindow();
         CameraUpdate center = CameraUpdateFactory.newLatLng(aboveMarkerLatLng);
         mGoogleMap.animateCamera(center);
+    }
+
+    public void sendSOS(int accountId, final String location, final String longitude, final String latitude, final String mobile){
+        Cloud.sosAlert(accountId, location, longitude, latitude, mobile, new Cloud.ResultListener() {
+            @Override
+            public void onResult(JSONObject result) {
+                int returnCode;
+                JSONObject jsonObject = new JSONObject();
+                try {
+                    jsonObject = result;
+                    returnCode = Integer.parseInt(jsonObject.get("code").toString());
+                }catch (JSONException e){
+                    returnCode = Cloud.DefaultReturnCode.INTERNAL_SERVER_ERROR;
+                    e.printStackTrace();
+                }
+
+                if (returnCode != Cloud.DefaultReturnCode.SUCCESS){
+                    //FAIL
+                    try {
+                        String message = jsonObject.getString("message");
+                        Log.d("Server Error Message: ", message);
+                        Toast.makeText(getContext(), message, Toast.LENGTH_LONG).show();
+                    }catch (JSONException e){
+                        e.printStackTrace();
+                    }
+                }else {
+                    //SUCCESS
+                    try {
+                        sendSMS(mobile, "Location : " + location + "\n"
+                                + "Longitude : " + longitude +"\n"
+                                + "Latitude : " + latitude +"\n");
+                    } catch (Exception e) {
+                        e.getMessage();
+                    }
+                }
+            }
+        });
+    }
+
+    public void sendSMS(String phoneNo, String msg) {
+
+        if (ActivityCompat.checkSelfPermission(getActivity().getApplicationContext(), Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED)
+        {
+            try {
+                SmsManager smsManager = SmsManager.getDefault();
+                smsManager.sendTextMessage(phoneNo, null, msg, null, null);
+                Bitmap mIcon = BitmapFactory.decodeResource(getActivity().getResources(),R.drawable.green_check);
+//                mSOS.doneLoadingAnimation(R.color.black, mIcon);
+                new DefaultDialog.Builder(getActivity())
+                        .message("The SOS message has been sent successfully.")
+                        .detail("FPG representative will contact you shortly. Thank you.")
+                        .positiveAction("Ok", new DefaultDialog.OnClickListener() {
+                            @Override
+                            public void onClick(Dialog dialog, String et) {
+                                dialog.dismiss();
+                            }
+                        })
+                        .build()
+                        .show();
+            } catch (Exception ex) {
+                Toast.makeText(getActivity().getApplicationContext(),ex.getMessage().toString(),
+                        Toast.LENGTH_LONG).show();
+                ex.printStackTrace();
+            }
+        }
+        else
+        {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+            {
+                requestPermissions(new String[]{Manifest.permission.SEND_SMS}, 10);
+            }
+        }
+
     }
 }
