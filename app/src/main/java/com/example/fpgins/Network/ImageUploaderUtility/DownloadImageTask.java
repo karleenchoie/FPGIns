@@ -20,8 +20,8 @@ import java.net.URLEncoder;
 public class DownloadImageTask {
 
     private ImageView[] images;
-    private int downloadingImage = R.drawable.default_image;
-    private int oopsImage = R.drawable.default_image;
+    private int downloadingImage = R.drawable.default_image_banner;
+    private int oopsImage = R.drawable.default_image_banner;
 
     public DownloadImageTask(ImageView imageView,  String url, int resImageError, int resImageLoading) {
         oopsImage = resImageError;

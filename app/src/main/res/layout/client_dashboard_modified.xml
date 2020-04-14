@@ -184,7 +184,6 @@
                 </LinearLayout>
             </LinearLayout>
 
-
             <RelativeLayout
                 android:background="@color/white"
                 android:layout_width="wrap_content"

@@ -10,5 +10,354 @@
         android:layout_height="match_parent"
         android:paddingVertical="@dimen/page_default_margin_horizontal">
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/linear_header"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/linear1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingVertical="@dimen/vertical_default_padding"
+                    android:paddingHorizontal="@dimen/horizontal_default_padding"
+                    android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:maxLines="1"
+                        android:layout_marginTop="@dimen/listing_division"
+                        android:text="TOTAL CLAIMS ISSUED"
+                        android:textColor="@color/fpg_gray"
+                        android:textSize="@dimen/setting_title" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:maxLines="1"
+                        android:layout_marginTop="@dimen/listing_division"
+                        android:text="1045"
+                        android:textColor="@color/fpg_gray"
+                        android:textSize="@dimen/setting_title" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linear_claimMotor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:clickable="true"
+                    android:paddingVertical="@dimen/vertical_default_padding"
+                    android:paddingHorizontal="@dimen/horizontal_default_padding"
+                    android:foreground="?android:attr/selectableItemBackground">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:maxLines="1"
+                        android:paddingLeft="@dimen/horizontal_default_padding"
+                        android:layout_marginTop="@dimen/listing_division"
+                        android:text="@string/motor"
+                        android:textColor="@color/fpg_gray"
+                        android:textSize="@dimen/setting_title" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:maxLines="1"
+                        android:layout_marginTop="@dimen/listing_division"
+                        android:text="234"
+                        android:textColor="@color/fpg_gray"
+                        android:textSize="@dimen/setting_title" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linear_claimPa"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:clickable="true"
+                    android:paddingVertical="@dimen/vertical_default_padding"
+                    android:paddingHorizontal="@dimen/horizontal_default_padding"
+                    android:foreground="?android:attr/selectableItemBackground">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:maxLines="1"
+                        android:paddingLeft="@dimen/horizontal_default_padding"
+                        android:layout_marginTop="@dimen/listing_division"
+                        android:text="@string/personal_accident"
+                        android:textColor="@color/fpg_gray"
+                        android:textSize="@dimen/setting_title" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:maxLines="1"
+                        android:layout_marginTop="@dimen/listing_division"
+                        android:text="79"
+                        android:textColor="@color/fpg_gray"
+                        android:textSize="@dimen/setting_title" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linear_claimTravel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:clickable="true"
+                    android:paddingVertical="@dimen/vertical_default_padding"
+                    android:paddingHorizontal="@dimen/horizontal_default_padding"
+                    android:foreground="?android:attr/selectableItemBackground">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:maxLines="1"
+                        android:paddingLeft="@dimen/horizontal_default_padding"
+                        android:layout_marginTop="@dimen/listing_division"
+                        android:text="@string/travel"
+                        android:textColor="@color/fpg_gray"
+                        android:textSize="@dimen/setting_title" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:maxLines="1"
+                        android:layout_marginTop="@dimen/listing_division"
+                        android:text="162"
+                        android:textColor="@color/fpg_gray"
+                        android:textSize="@dimen/setting_title" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linear_claimCorporate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:clickable="true"
+                    android:paddingVertical="@dimen/vertical_default_padding"
+                    android:paddingHorizontal="@dimen/horizontal_default_padding"
+                    android:foreground="?android:attr/selectableItemBackground">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:maxLines="1"
+                        android:paddingLeft="@dimen/horizontal_default_padding"
+                        android:layout_marginTop="@dimen/listing_division"
+                        android:text="@string/corporate"
+                        android:textColor="@color/fpg_gray"
+                        android:textSize="@dimen/setting_title" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:maxLines="1"
+                        android:layout_marginTop="@dimen/listing_division"
+                        android:text="379"
+                        android:textColor="@color/fpg_gray"
+                        android:textSize="@dimen/setting_title" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linear_claimHome"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:clickable="true"
+                    android:paddingVertical="@dimen/vertical_default_padding"
+                    android:paddingHorizontal="@dimen/horizontal_default_padding"
+                    android:foreground="?android:attr/selectableItemBackground">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:maxLines="1"
+                        android:paddingLeft="@dimen/horizontal_default_padding"
+                        android:layout_marginTop="@dimen/listing_division"
+                        android:text="@string/home"
+                        android:textColor="@color/fpg_gray"
+                        android:textSize="@dimen/setting_title" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:maxLines="1"
+                        android:layout_marginTop="@dimen/listing_division"
+                        android:text="190"
+                        android:textColor="@color/fpg_gray"
+                        android:textSize="@dimen/setting_title" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linear_fileAClaim"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingVertical="@dimen/vertical_default_padding"
+                    android:paddingHorizontal="@dimen/horizontal_default_padding"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:clickable="true">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:maxLines="1"
+                        android:textStyle="bold"
+                        android:layout_marginTop="@dimen/listing_division"
+                        android:text="FILE A CLAIM"
+                        android:textColor="@color/fpg_gray"
+                        android:textSize="@dimen/setting_title" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:maxLines="1"
+                        android:layout_marginTop="@dimen/listing_division"
+                        android:textColor="@color/fpg_gray"
+                        android:textSize="@dimen/setting_title" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linear_inquireClaimStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingVertical="@dimen/vertical_default_padding"
+                    android:paddingHorizontal="@dimen/horizontal_default_padding"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:clickable="true">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:maxLines="1"
+                        android:layout_marginTop="@dimen/listing_division"
+                        android:text="INQUIRE CLAIM STATUS"
+                        android:textStyle="bold"
+                        android:textColor="@color/fpg_gray"
+                        android:textSize="@dimen/setting_title" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:maxLines="1"
+                        android:layout_marginTop="@dimen/listing_division"
+                        android:textColor="@color/fpg_gray"
+                        android:textSize="@dimen/setting_title" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+<!--            <LinearLayout-->
+<!--                android:id="@+id/linear2"-->
+<!--                android:layout_below="@+id/linear1"-->
+<!--                android:background="@color/white"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:paddingVertical="@dimen/vertical_default_padding"-->
+<!--                android:paddingHorizontal="@dimen/horizontal_default_padding"-->
+<!--                android:orientation="horizontal">-->
+
+<!--                <RelativeLayout-->
+<!--                    android:id="@+id/relative_file"-->
+<!--                    android:clickable="true"-->
+<!--                    android:foreground="?android:attr/selectableItemBackground"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:orientation="vertical"-->
+<!--                    android:gravity="center"-->
+<!--                    android:layout_weight="1">-->
+
+<!--                    <com.example.fpgins.RoundedCornerImageView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="100dp"-->
+<!--                        android:scaleType="centerCrop"-->
+<!--                        android:background="@color/white_opacity35"-->
+<!--                        android:src="@drawable/claims_bg">-->
+<!--                    </com.example.fpgins.RoundedCornerImageView>-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="File a claim"-->
+<!--                        android:textColor="@color/fpg_gray"-->
+<!--                        android:textAllCaps="true"-->
+<!--                        android:textStyle="bold"-->
+<!--                        android:textSize="@dimen/setting_title"-->
+<!--                        android:layout_centerVertical="true"-->
+<!--                        android:paddingHorizontal="@dimen/horizontal_default_padding"-->
+<!--                        android:background="@color/white_opacity35"/>-->
+
+<!--                </RelativeLayout>-->
+
+<!--            </LinearLayout>-->
+
+<!--            <LinearLayout-->
+<!--                android:id="@+id/linear3"-->
+<!--                android:layout_below="@id/linear2"-->
+<!--                android:layout_alignParentBottom="true"-->
+<!--                android:background="@color/white"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:paddingHorizontal="@dimen/horizontal_default_padding"-->
+<!--                android:orientation="horizontal">-->
+
+<!--                <RelativeLayout-->
+<!--                    android:id="@+id/relative_Inquire"-->
+<!--                    android:clickable="true"-->
+<!--                    android:foreground="?android:attr/selectableItemBackground"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:orientation="vertical"-->
+<!--                    android:gravity="center"-->
+<!--                    android:layout_weight="1">-->
+
+<!--                    <com.example.fpgins.RoundedCornerImageView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="100dp"-->
+<!--                        android:scaleType="centerCrop"-->
+<!--                        android:background="@color/white_opacity35"-->
+<!--                        android:src="@drawable/pic_three">-->
+<!--                    </com.example.fpgins.RoundedCornerImageView>-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Inquire claim Status"-->
+<!--                        android:textColor="@color/fpg_gray"-->
+<!--                        android:textAllCaps="true"-->
+<!--                        android:textStyle="bold"-->
+<!--                        android:textSize="@dimen/setting_title"-->
+<!--                        android:layout_alignParentRight="true"-->
+<!--                        android:layout_centerVertical="true"-->
+<!--                        android:paddingHorizontal="@dimen/horizontal_default_padding"-->
+<!--                        android:background="@color/white_opacity35"/>-->
+
+<!--                </RelativeLayout>-->
+
+<!--            </LinearLayout>-->
+
+        </RelativeLayout>
+
     </ScrollView>
 </LinearLayout>

@@ -21,6 +21,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
 
 import com.example.fpgins.BottomSheetDialog.BottomSheetMaterialDialog;
+import com.example.fpgins.DataModel.DepartmentsData;
 import com.example.fpgins.DataModel.UserData;
 import com.example.fpgins.Network.Cloud;
 import com.example.fpgins.R;
@@ -84,7 +85,7 @@ public class CustomerCareFragment extends AppCompatActivity{
         });
     }
 
-    public void sendInquiry(int accountId, int department_id,String policy_number,String message){
+    public void sendInquiry(int accountId, final int department_id, String policy_number, String message){
         Cloud.manageInquiry(accountId, department_id, policy_number, message, new Cloud.ResultListener() {
             @Override
             public void onResult(JSONObject result) {
@@ -102,17 +103,33 @@ public class CustomerCareFragment extends AppCompatActivity{
                     //FAIL
                     try {
                         String message = jsonObject.getString("message");
-                        new DefaultDialog.Builder(CustomerCareFragment.this)
-                                .message("Unable to send inquiry")
-                                .detail("Please select department or Check you internet connection and try it again")
-                                .positiveAction("Ok", new DefaultDialog.OnClickListener() {
-                                    @Override
-                                    public void onClick(Dialog dialog, String et) {
-                                        dialog.dismiss();
-                                    }
-                                })
-                                .build()
-                                .show();
+                        if (department_id != 0){
+                            new DefaultDialog.Builder(CustomerCareFragment.this)
+                                    .message("Unable to send inquiry")
+                                    .detail(message)
+                                    .positiveAction("Ok", new DefaultDialog.OnClickListener() {
+                                        @Override
+                                        public void onClick(Dialog dialog, String et) {
+                                            dialog.dismiss();
+                                        }
+                                    })
+                                    .build()
+                                    .show();
+                        }
+                        if (department_id == 0){
+                            new DefaultDialog.Builder(CustomerCareFragment.this)
+                                    .message("Department")
+                                    .detail("Please select department")
+                                    .positiveAction("Ok", new DefaultDialog.OnClickListener() {
+                                        @Override
+                                        public void onClick(Dialog dialog, String et) {
+                                            dialog.dismiss();
+                                        }
+                                    })
+                                    .build()
+                                    .show();
+                        }
+
                         Log.i("CONTACT US FAILED", message);
                     }catch (JSONException e){
                         e.printStackTrace();
@@ -182,6 +199,7 @@ public class CustomerCareFragment extends AppCompatActivity{
                 String name = jsonObject.getString("name");
                 String department_category_id = jsonObject.getString("department_category_id");
                 String department_category_name = jsonObject.getString("department_category_name");
+//                DepartmentsData data = new DepartmentsData(id, name, department_category_id, department_category_name);
                 list.add(name);
             }
             ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,R.layout.spinner_layout, list);

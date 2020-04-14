@@ -64,7 +64,7 @@ public class SettingsFragment extends Fragment {
                 .placeholder(R.drawable.default_image)
                 .load(mUserData.getPhoto())
                 .into(mAccountPicture);
-//        mFullName.setText(mUserData.getFirstName()+ " " + mUserData.getLastName());
+        mFullName.setText(mUserData.getFirstName()+ " " + mUserData.getLastName());
     }
 
     private void initialize(View view){

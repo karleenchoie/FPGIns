@@ -380,8 +380,6 @@ public class ClientDashboard extends Fragment {
                 pictures.clear();
             }
 
-
-
         } catch (Exception e){
             e.printStackTrace();
         }
