@@ -3,6 +3,7 @@ package com.example.fpgins.ui.NotificationMessage;
 
 import android.app.Dialog;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
@@ -134,8 +135,8 @@ public class NotifMessageFragment extends AppCompatActivity {
                 final String id = jsonObject.getString("id");
                 String notificationTypeId = jsonObject.getString("notification_type_id");
                 String notificationRecipientId = jsonObject.getString("notification_recipient_id");
-                String title = jsonObject.getString("title");
-                String content = jsonObject.getString("content");
+                String title =  Html.fromHtml(jsonObject.getString("title")).toString();
+                String content =  Html.fromHtml(jsonObject.getString("content")).toString();
 
                 JSONArray pictures = jsonObject.getJSONArray("files");
                 String pict = "";

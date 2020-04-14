@@ -11,6 +11,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.Html;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -256,8 +257,8 @@ public class BottomNavigationActivity extends AppCompatActivity {
                 final String id = jsonObject.getString("id");
                 String notificationTypeId = jsonObject.getString("notification_type_id");
                 String notificationRecipientId = jsonObject.getString("notification_recipient_id");
-                String title_ = jsonObject.getString("title");
-                String content = jsonObject.getString("content");
+                String title_ =  Html.fromHtml(jsonObject.getString("title")).toString();
+                String content =  Html.fromHtml(jsonObject.getString("content")).toString();
                 String pict = "";
 
                 JSONArray pictures = jsonObject.getJSONArray("files");

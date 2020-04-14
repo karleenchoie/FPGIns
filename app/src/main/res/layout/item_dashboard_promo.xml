@@ -20,7 +20,7 @@
         android:layout_marginTop="@dimen/vertical_default_padding"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ellipsize="middle"
+        android:ellipsize="end"
         android:scrollHorizontally="true"
         android:singleLine="true"
         android:text="Title"

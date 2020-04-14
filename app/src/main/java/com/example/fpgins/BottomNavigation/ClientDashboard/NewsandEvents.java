@@ -52,9 +52,9 @@ public class NewsandEvents extends AppCompatActivity {
 
         if (bundle != null){
             mTitle.setText(bundle.getString("title"));
-            mDate.setText(bundle.getString("date"));
-            mTime.setText(bundle.getString("time"));
-            mContent.setText(bundle.getString("content"));
+            mDate.setText(bundle.getString("postDate"));
+            mTime.setText("");
+            mContent.setText(bundle.getString("description"));
             mLink = bundle.getString("link");
             ImagesArray = bundle.getStringArrayList("pictures");
 

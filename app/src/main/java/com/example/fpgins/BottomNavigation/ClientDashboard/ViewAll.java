@@ -2,10 +2,12 @@ package com.example.fpgins.BottomNavigation.ClientDashboard;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,8 +19,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.fpgins.BottomNavigation.Claims.DraftsActivity;
 import com.example.fpgins.DataModel.FirstSlideMenuData;
 import com.example.fpgins.DataModel.UserData;
+import com.example.fpgins.Network.Cloud;
 import com.example.fpgins.R;
 import com.example.fpgins.ui.NotificationMessage.NotifMessage;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,6 +63,16 @@ public class ViewAll extends AppCompatActivity {
                 FirstSlideMenuData data = mData.get(position);
 
                 Intent intent = new Intent(ViewAll.this, NewsandEvents.class);
+
+                //Extras upon viewing
+                intent.putExtra("id", data.getId());
+                intent.putExtra("title", data.getTitle());
+                intent.putExtra("description", data.getDescription());
+                intent.putExtra("link", data.getLink());
+                intent.putExtra("postDate", data.getPostDate());
+                intent.putExtra("categoryName", data.getCategoryName());
+                intent.putExtra("pictures", data.getPictures());
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
             }
         });
@@ -63,18 +80,84 @@ public class ViewAll extends AppCompatActivity {
     }
 
     private void getFirstMenuData(){
-//        FirstSlideMenuData firstSlideMenuData1 = new FirstSlideMenuData("https://i0.wp.com/www.adobomagazine.com/wp-content/uploads/2020/01/fpg-hero.jpg?fit=1440%2C757&ssl=1","New CEO", "FPG has new CEO");
-//
-//        mData.add(firstSlideMenuData1);
-//
-//        FirstSlideMenuData firstSlideMenuData2 = new FirstSlideMenuData("https://3.bp.blogspot.com/-jpRH0GXm9U0/XBNMhvu0rAI/AAAAAAAAAcc/UYsnWY1x2TomYc-eBlfktgtWeXWOxOdUACLcBGAs/s1600/FPG%2Bx%2BMYEG.jpg","I-Pay Partnership", "FPG Insurance inks partnership");
-//
-//        mData.add(firstSlideMenuData2);
-//
-//        FirstSlideMenuData firstSlideMenuData3 = new FirstSlideMenuData("https://3.bp.blogspot.com/-t7LaWaX7GUE/XH6he44xpmI/AAAAAAAChh0/JEZy0eyv074qm30YYoRVoFWNyMuFAClngCLcBGAs/s1600/FPG-Iloilo%2B%25283%2529.jpg","E-life", "FPG Insurance and Cebuana Lhuillier foundation");
-//
-//        mData.add(firstSlideMenuData3);
+
+        mData.clear();
+
+        Cloud.getNewsAndEvents(new Cloud.ResultListener() {
+            @Override
+            public void onResult(JSONObject result) {
+                int returnCode;
+                JSONObject jsonObject = new JSONObject();
+
+                try {
+                    jsonObject = result;
+                    returnCode = Integer.parseInt(jsonObject.get("code").toString());
+                } catch (JSONException e){
+                    returnCode = Cloud.DefaultReturnCode.INTERNAL_SERVER_ERROR;
+                    e.printStackTrace();
+                }
+
+                if (returnCode != Cloud.DefaultReturnCode.SUCCESS){
+                    //FAIL
+                    try {
+                        String message = jsonObject.getString("message");
+                        Toast.makeText(ViewAll.this, message, Toast.LENGTH_SHORT).show();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    //SUCCESS
+                    try {
+                        JSONArray jsonArray = jsonObject.getJSONArray("record");
+                        generateResult(jsonArray);
+                        mGridView.setAdapter(mAdapter);
+                    } catch (Exception e) {
+                        e.getMessage();
+                    }
+                }
+            }
+        });
 
         mAdapter.notifyDataSetChanged();
+
+    }
+
+    private void generateResult(JSONArray jsonArray){
+        ArrayList<String> pictures = new ArrayList<>();
+        try {
+            for (int i = 0; i < jsonArray.length(); i++){
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                String id = jsonObject.getString("id");
+                String title = Html.fromHtml(jsonObject.getString("title")).toString();
+                String content = Html.fromHtml(jsonObject.getString("content")).toString();
+                String link = jsonObject.getString("link");
+                String postDate = jsonObject.getString("post_date");
+                String categoryName = jsonObject.getString("category_name");
+
+                JSONArray files = jsonObject.getJSONArray("files");
+                JSONObject obj = files.getJSONObject(0);
+                String pic = obj.getString("file_url");
+
+                if (files.length() > 0){
+                    for (int m = 0; m < files.length(); m++){
+                        JSONObject jsonPics = files.getJSONObject(m);
+                        String pict = jsonPics.getString("file_url");
+                        pictures.add(pict);
+                    }
+                } else {
+                    pictures.add(null);
+                }
+
+                FirstSlideMenuData data = new FirstSlideMenuData(id, title, content, link, postDate, categoryName, pictures);
+                mData.add(data);
+
+                pictures.clear();
+            }
+
+
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }

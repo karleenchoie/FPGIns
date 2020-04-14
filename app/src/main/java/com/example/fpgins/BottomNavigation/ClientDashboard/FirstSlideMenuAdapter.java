@@ -11,9 +11,11 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.fpgins.BottomNavigation.BottomNavigationActivity;
 import com.example.fpgins.DataModel.FirstSlideMenuData;
 import com.example.fpgins.R;
 import com.example.fpgins.RoundedCornerImageView;
+import com.example.fpgins.ui.NotificationMessage.NotifMessage;
 
 import java.util.List;
 
@@ -72,7 +74,21 @@ public class FirstSlideMenuAdapter extends RecyclerView.Adapter<FirstSlideMenuAd
         @Override
         public void onClick(View v) {
 //            Intent intent = new Intent(context, NotifMessage.class);
+//            Intent intent = new Intent(context, NewsandEvents.class);
+//            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//            context.startActivity(intent);
+            FirstSlideMenuData data = firstSlideMenuData.get(getLayoutPosition());
+
             Intent intent = new Intent(context, NewsandEvents.class);
+
+            //Extras upon viewing
+            intent.putExtra("id", data.getId());
+            intent.putExtra("title", data.getTitle());
+            intent.putExtra("description", data.getDescription());
+            intent.putExtra("link", data.getLink());
+            intent.putExtra("postDate", data.getPostDate());
+            intent.putExtra("categoryName", data.getCategoryName());
+            intent.putExtra("pictures", data.getPictures());
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(intent);
         }
