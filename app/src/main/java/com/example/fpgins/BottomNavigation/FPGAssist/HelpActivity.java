@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.text.Html;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -97,7 +98,7 @@ public class HelpActivity extends AppCompatActivity {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 String id = jsonObject.getString("id");
                 String title = jsonObject.getString("title");
-                String content = jsonObject.getString("content");
+                String content = Html.fromHtml(jsonObject.getString("content")).toString();
                 String link = jsonObject.getString("link");
 
                 FAQData data = new FAQData(id, title, content, link);

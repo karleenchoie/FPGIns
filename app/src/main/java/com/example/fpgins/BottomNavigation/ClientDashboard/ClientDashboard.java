@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -364,8 +365,8 @@ public class ClientDashboard extends Fragment {
             for (int i = 0; i < jsonArray.length(); i++){
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 String id = jsonObject.getString("id");
-                String title = jsonObject.getString("title");
-                String content = jsonObject.getString("content");
+                String title = Html.fromHtml(jsonObject.getString("title")).toString();
+                String content = Html.fromHtml(jsonObject.getString("content")).toString();
                 String link = jsonObject.getString("link");
                 String postDate = jsonObject.getString("post_date");
                 String categoryName = jsonObject.getString("category_name");

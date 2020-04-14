@@ -7,6 +7,7 @@
     <color name="fpg_orange">#FF5000</color>
     <color name="fpg_light_orange">#FF7E00</color>
     <color name="fpg_gray">#39383a</color>
+    <color name="fpg_default_bg_color">#e9eef1</color>
 
     <color name="light_green">#10A69B</color>
     <color name="line_separator">#333333</color>

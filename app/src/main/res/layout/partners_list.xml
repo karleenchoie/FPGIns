@@ -36,9 +36,9 @@
 
     <ImageView
         android:id="@+id/imgPhoto"
-        android:background="#e9eef1"
-        android:scaleType="centerInside"
+        android:background="@color/fpg_default_bg_color"
+        android:scaleType="centerCrop"
         android:layout_width="match_parent"
         android:layout_height="190dp"
-        android:src="@drawable/ic_no_image"/>
+        android:src="@drawable/pic_one"/>
 </LinearLayout>

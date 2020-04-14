@@ -2,6 +2,8 @@ package com.example.fpgins.ui.customercare;
 
 import android.app.Dialog;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,12 +64,16 @@ public class CustomerCareFragment extends AppCompatActivity{
         id = Integer.parseInt(mUserData.getId());
 
         mNumber = findViewById(R.id.edt_contactPolicy);
+        mNumber.addTextChangedListener(getTextWatcher(mNumber));
         mMessage = findViewById(R.id.edt_contactMessage);
+        mMessage.addTextChangedListener(getTextWatcher(mMessage));
         mSpinner = findViewById(R.id.spinner2);
 
         getAllDepartment();
 
         mSubmit = findViewById(R.id.btn_sumbit);
+        mSubmit.setEnabled(false);
+        mSubmit.setAlpha((float) 0.5);
         mSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -96,24 +102,34 @@ public class CustomerCareFragment extends AppCompatActivity{
                     //FAIL
                     try {
                         String message = jsonObject.getString("message");
-                        Log.d("Server Error Message: ", message);
-                        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
+                        new DefaultDialog.Builder(CustomerCareFragment.this)
+                                .message("Unable to send inquiry")
+                                .detail("Please select department or Check you internet connection and try it again")
+                                .positiveAction("Ok", new DefaultDialog.OnClickListener() {
+                                    @Override
+                                    public void onClick(Dialog dialog, String et) {
+                                        dialog.dismiss();
+                                    }
+                                })
+                                .build()
+                                .show();
+                        Log.i("CONTACT US FAILED", message);
                     }catch (JSONException e){
                         e.printStackTrace();
                     }
                 }else {
                     try {
-//                        new DefaultDialog.Builder(getApplicationContext())
-//                                .message("Your inquiry has been successfully sent.")
-//                                .detail("FPG representative will answer it as soon as possible. Thank you.")
-//                                .positiveAction("Ok", new DefaultDialog.OnClickListener() {
-//                                    @Override
-//                                    public void onClick(Dialog dialog, String et) {
-//                                        dialog.dismiss();
-//                                    }
-//                                })
-//                                .build()
-//                                .show();
+                        new DefaultDialog.Builder(CustomerCareFragment.this)
+                                .message("Your inquiry has been successfully sent.")
+                                .detail("FPG representative will answer it as soon as possible. Thank you.")
+                                .positiveAction("Ok", new DefaultDialog.OnClickListener() {
+                                    @Override
+                                    public void onClick(Dialog dialog, String et) {
+                                        dialog.dismiss();
+                                    }
+                                })
+                                .build()
+                                .show();
                     } catch (Exception e) {
                         e.getMessage();
                     }
@@ -194,5 +210,34 @@ public class CustomerCareFragment extends AppCompatActivity{
         } catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    private TextWatcher getTextWatcher(final EditText editText) {
+        return new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                mSubmit.setEnabled(false);
+                mSubmit.setAlpha((float) 0.5);
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                // do what you want with your EditText
+                if (mNumber.getText().length() != 0 && mMessage.getText().length() != 0){
+                    mSubmit.setEnabled(true);
+                    mSubmit.setAlpha(1);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+                if (mNumber.getText().length() == 0 || mMessage.getText().length() == 0){
+                    mSubmit.setEnabled(false);
+                    mSubmit.setAlpha((float) 0.5);
+                }
+
+            }
+        };
     }
 }
