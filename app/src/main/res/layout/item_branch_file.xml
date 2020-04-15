@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
-        android:paddingVertical="@dimen/page_default_margin_horizontal"
+        android:paddingBottom="@dimen/page_default_margin_horizontal"
         android:maxLines="1"
         android:layout_marginLeft="@dimen/horizontal_default_padding"
         android:text="Branch Name"

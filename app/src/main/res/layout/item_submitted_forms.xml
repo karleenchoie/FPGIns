@@ -105,7 +105,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:id="@+id/ll1"
-                    android:layout_weight="1.4"
+                    android:layout_weight="1.3"
                     android:orientation="horizontal"
                     android:paddingVertical="10dp">
 
@@ -224,7 +224,7 @@
                 <RelativeLayout
                     android:id="@+id/buttonTaskFrameLayout"
                     android:layout_width="0dp"
-                    android:layout_weight=".3"
+                    android:layout_weight=".4"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:background="?selectableItemBackgroundBorderless"
@@ -251,7 +251,7 @@
                         android:maxLines="1"
                         android:layout_below="@+id/iconStatus"
                         android:text="Pending"
-                        android:textSize="@dimen/setting_title" />
+                        android:textSize="12dp" />
 
 
                 </RelativeLayout>

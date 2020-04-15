@@ -72,9 +72,9 @@ public class PartnersAdapter extends RecyclerView.Adapter<PartnersAdapter.MyView
         PartnersData partnersData = partnersDataList.get(position);
         holder.title.setText(partnersData.getTitle());
         holder.details.setText(partnersData.getContent());
+        String partnersPic = partnersData.getCompanyPic().trim();
 
         UserData userData = new UserData(PreferenceManager.getDefaultSharedPreferences(mContext));
-
         String url = userData.getPhoto();
 //
 //        Glide.with(mContext)
@@ -82,7 +82,7 @@ public class PartnersAdapter extends RecyclerView.Adapter<PartnersAdapter.MyView
 //                .placeholder(R.drawable.default_image)
 //                .load(partnersData.getCompanyPic())
 //                .into(holder.image);
-        new DownloadImageTask(holder.image, partnersData.getCompanyPic());
+        new DownloadImageTask(holder.image,partnersPic);
     }
 
     @Override

@@ -52,7 +52,8 @@ public class NotifImageAdapter extends PagerAdapter {
 //                .placeholder(R.drawable.default_image)
 //                .into(imageView);
 
-        new DownloadImageTask(imageView, Images.get(position));
+        String picture = Images.get(position).trim();
+        new DownloadImageTask(imageView, picture);
         new DownloadImageTask(imageView, Images.get(position));
 
 //        imageView.setImageResource(Images.get(position));

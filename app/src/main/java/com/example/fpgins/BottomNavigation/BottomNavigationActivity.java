@@ -47,8 +47,6 @@ import java.util.ArrayList;
 
 public class BottomNavigationActivity extends AppCompatActivity {
 
-    //Try
-    //MACKY
     private UserSessionManager mSession;
     private Camera mCamera;
     private String mImageName;
