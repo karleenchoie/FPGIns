@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/txt_branchName"
+        style="@style/TextAppearance.AppCompat.Caption"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:paddingVertical="@dimen/page_default_margin_horizontal"
+        android:maxLines="1"
+        android:text="@string/indonesia"
+        android:paddingHorizontal="@dimen/horizontal_default_padding"
+        android:textColor="@color/fpg_orange"
+        android:textSize="@dimen/setting_title" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_address"
+            android:layout_gravity="start"/>
+
+        <TextView
+            android:id="@+id/txt_branchAddress"
+            style="@style/TextAppearance.AppCompat.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:gravity="left"
+            android:maxLines="3"
+            android:paddingHorizontal="@dimen/horizontal_default_padding"
+            android:text="Chase Plaza Tower 4th Floor Jl. Jend. Sudirman Kav. 21 Jakarta 12920, Indonesia"
+            android:textColor="@color/fpg_gray"
+            android:textSize="@dimen/setting_title" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_mobile"
+            android:layout_gravity="start"/>
+
+        <TextView
+            android:id="@+id/txt_branchNumber"
+            style="@style/TextAppearance.AppCompat.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:gravity="left"
+            android:maxLines="3"
+            android:paddingHorizontal="@dimen/horizontal_default_padding"
+            android:text="+62 21 50821555"
+            android:textColor="@color/fpg_gray"
+            android:textSize="@dimen/setting_title" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_email"
+            android:layout_gravity="start"/>
+
+        <TextView
+            android:id="@+id/txt_branchEmail"
+            style="@style/TextAppearance.AppCompat.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:gravity="left"
+            android:maxLines="3"
+            android:paddingHorizontal="@dimen/horizontal_default_padding"
+            android:text="insure@fpgins.com"
+            android:textColor="@color/fpg_gray"
+            android:textSize="@dimen/setting_title" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/fineGray"
+        android:layout_marginVertical="@dimen/page_default_margin_horizontal">
+    </View>
+
+</LinearLayout>
