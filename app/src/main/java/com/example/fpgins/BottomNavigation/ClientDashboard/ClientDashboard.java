@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.Html;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -31,12 +32,14 @@ import com.example.fpgins.BottomNavigation.ClientDashboard.ClientMenus.HomeActiv
 import com.example.fpgins.BottomNavigation.ClientDashboard.ClientMenus.PersonalAccidentActivity;
 import com.example.fpgins.BottomNavigation.ClientDashboard.ClientMenus.TravelActivity;
 import com.example.fpgins.BottomNavigation.AgentDashboard.main.SectionsPagerAdapter;
+import com.example.fpgins.DataModel.BannerData;
 import com.example.fpgins.DataModel.FirstSlideMenuData;
 import com.example.fpgins.DataModel.SubmittedFormsData;
 import com.example.fpgins.DataModel.UserData;
 import com.example.fpgins.Network.Cloud;
 import com.example.fpgins.Network.ImageUploaderUtility.DownloadImageTask;
 import com.example.fpgins.R;
+import com.example.fpgins.ui.NotificationMessage.NotifImageAdapter;
 import com.google.android.material.tabs.TabLayout;
 import com.hookedonplay.decoviewlib.DecoView;
 import com.hookedonplay.decoviewlib.charts.EdgeDetail;
@@ -49,6 +52,8 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class ClientDashboard extends Fragment {
 
@@ -58,7 +63,13 @@ public class ClientDashboard extends Fragment {
     private LinearLayout mFileClaim, mMotor, mPersonalAccident, mTravel, mCorporate, mHome;
     private LinearLayout mFileExisting, mTransactionHistory, mShowMoreMenu, mMoreMenus, mShowLessMenu, mChangingMenu;
     private TextView mViewAll, mShowmore;
-    private ImageView mSingleImage;
+
+    private ViewPager mSingleImage;
+    private List<BannerData> ImagesArray = new ArrayList<BannerData>();
+    private BannerAdapter mBannerAdapter;
+    private int count = 0;
+    private Timer timer;
+
     private boolean isShowMenus = false;
     private UserData mUserData;
     private LinearLayout mClientPage, mAgentPage;
@@ -111,15 +122,16 @@ public class ClientDashboard extends Fragment {
         mViewAll = view.findViewById(R.id.viewAll);
 //        mChangingMenu = view.findViewById(R.id.linear_changingMenu);
         mSingleImage = view.findViewById(R.id.imageUploaded);
+
         mTransactionHistory = view.findViewById(R.id.topLinearLayout);
         mShowMoreMenu = view.findViewById(R.id.linear_showMore);
         mShowLessMenu = view.findViewById(R.id.linear_showLess);
         mShowmore = view.findViewById(R.id.txt_showMore);
         mMoreMenus = view.findViewById(R.id.linear_moreMenus);
 
-        new DownloadImageTask
-                ("https://cdn.dribbble.com/users/2005930/screenshots/5487747/dribbble-fpg-insurance-stbd_4x.png",
-                        mSingleImage);
+//        new DownloadImageTask
+//                ("https://cdn.dribbble.com/users/2005930/screenshots/5487747/dribbble-fpg-insurance-stbd_4x.png",
+//                        mSingleImage);
 
         mAdapter = new FirstSlideMenuAdapter(mData, getContext());
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
@@ -242,6 +254,9 @@ public class ClientDashboard extends Fragment {
         });
 
         getFirstMenuData();
+        getBanner();
+
+
     }
 
     private void initializeAgent(View view){
@@ -391,4 +406,100 @@ public class ClientDashboard extends Fragment {
         coverBannerDialogFragment.setArguments(args);
         coverBannerDialogFragment.show(getFragmentManager(), null);
     }
+
+    private void getBanner(){
+        ImagesArray.clear();
+        Cloud.getBanner(new Cloud.ResultListener() {
+            @Override
+            public void onResult(JSONObject result) {
+                int returnCode;
+                JSONObject jsonObject = new JSONObject();
+
+                try {
+                    jsonObject = result;
+                    returnCode = Integer.parseInt(jsonObject.get("code").toString());
+                } catch (JSONException e){
+                    returnCode = Cloud.DefaultReturnCode.INTERNAL_SERVER_ERROR;
+                    e.printStackTrace();
+                }
+
+                if (returnCode != Cloud.DefaultReturnCode.SUCCESS){
+                    //FAIL
+                    try {
+                        String message = jsonObject.getString("message");
+                        Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    //SUCCESS
+                    try {
+                        JSONArray jsonArray = jsonObject.getJSONArray("record");
+                        generateBannerResult(jsonArray);
+                    } catch (Exception e) {
+                        e.getMessage();
+                    }
+                }
+            }
+        });
+
+        mAdapter.notifyDataSetChanged();
+    }
+
+    private void generateBannerResult(JSONArray jsonArray){
+        ArrayList<String> bannerPictures = new ArrayList<>();
+        try {
+            for (int i = 0; i < jsonArray.length(); i++){
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                String id = jsonObject.getString("id");
+                String title = Html.fromHtml(jsonObject.getString("title")).toString();
+                String link = jsonObject.getString("link");
+                String postDate = jsonObject.getString("post_date");
+                String bannerLocationName = jsonObject.getString("banner_location_name");
+
+                JSONArray files = jsonObject.getJSONArray("files");
+                JSONObject obj = files.getJSONObject(0);
+                String pic = obj.getString("file_url");
+
+                if (files.length() > 0){
+                    for (int m = 0; m < files.length(); m++){
+                        JSONObject jsonPics = files.getJSONObject(m);
+                        String pict = jsonPics.getString("file_url");
+                        bannerPictures.add(pict);
+                    }
+                } else {
+                    bannerPictures.add(null);
+                }
+
+                BannerData data = new BannerData(id, title, link, postDate, bannerLocationName, bannerPictures);
+                ImagesArray.add(data);
+
+                mBannerAdapter = new BannerAdapter(bannerPictures,getContext());
+                mSingleImage.setAdapter(mBannerAdapter);
+
+                timer = new Timer();
+                timer.schedule(new TimerTask() {
+                    @Override
+                    public void run() {
+                        getActivity().runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                if (count <= 5){
+                                    mSingleImage.setCurrentItem(count);
+                                    count++;
+                                }else {
+                                    count = 0;
+                                    mSingleImage.setCurrentItem(count);
+                                }
+                            }
+                        });
+                    }
+                },5000,5000);
+            }
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
 }

@@ -14,6 +14,7 @@ import androidx.viewpager.widget.PagerAdapter;
 import com.bumptech.glide.Glide;
 import com.example.fpgins.Network.ImageUploaderUtility.DownloadImageTask;
 import com.example.fpgins.R;
+import com.example.fpgins.RoundedCornerImageView;
 
 import java.util.ArrayList;
 
@@ -44,13 +45,14 @@ public class NotifImageAdapter extends PagerAdapter {
         View imageLayout = inflater.inflate(R.layout.notification_imageslider, container, false);
 
         assert imageLayout != null;
-        ImageView imageView = (ImageView) imageLayout.findViewById(R.id.image);
+        RoundedCornerImageView imageView = imageLayout.findViewById(R.id.image);
 //        Glide.with(context)
 //                .asBitmap()
 //                .load(Images.get(position))
 //                .placeholder(R.drawable.default_image)
 //                .into(imageView);
 
+        new DownloadImageTask(imageView, Images.get(position));
         new DownloadImageTask(imageView, Images.get(position));
 
 //        imageView.setImageResource(Images.get(position));

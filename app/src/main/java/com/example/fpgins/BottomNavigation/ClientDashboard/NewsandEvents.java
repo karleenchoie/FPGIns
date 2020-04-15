@@ -11,7 +11,6 @@ import android.widget.TextView;
 
 import com.example.fpgins.R;
 import com.example.fpgins.ui.NotificationMessage.NotifImageAdapter;
-import com.example.fpgins.ui.NotificationMessage.NotifMessage;
 
 import java.util.ArrayList;
 
@@ -100,6 +99,5 @@ public class NewsandEvents extends AppCompatActivity {
     private void init() {
         mPager.setAdapter(new NotifImageAdapter(ImagesArray, NewsandEvents.this));
         NUM_PAGES = ImagesArray.size();
-
     }
 }
