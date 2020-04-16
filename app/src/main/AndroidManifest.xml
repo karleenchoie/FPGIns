@@ -121,6 +121,10 @@
         <activity
             android:name=".BottomNavigation.Claims.DraftsActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".ui.BranchLocator.BranchExpandableList"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Login.ForgotPassword"
             android:theme="@style/AppTheme.NoActionBar"

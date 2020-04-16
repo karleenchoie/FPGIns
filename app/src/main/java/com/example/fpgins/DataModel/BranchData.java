@@ -1,14 +1,14 @@
 package com.example.fpgins.DataModel;
 
 public class BranchData {
-    private String id;
-    private String name;
-    private String address;
-    private String contact_no;
-    private String email;
-    private String fax_no;
-    private String office_country_name;
-    private String office_type_name;
+    public String id;
+    public String name;
+    public String address;
+    public String contact_no;
+    public String email;
+    public String fax_no;
+    public String office_country_name;
+    public String office_type_name;
 
     public BranchData(String id,String name, String address, String contact_no, String email, String fax_no, String office_country_name, String office_type_name) {
         this.id = id;

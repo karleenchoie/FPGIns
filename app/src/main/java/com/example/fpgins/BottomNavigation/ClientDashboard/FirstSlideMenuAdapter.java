@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.fpgins.BottomNavigation.BottomNavigationActivity;
 import com.example.fpgins.DataModel.FirstSlideMenuData;
+import com.example.fpgins.Network.ImageUploaderUtility.DownloadImageTask;
 import com.example.fpgins.R;
 import com.example.fpgins.RoundedCornerImageView;
 import com.example.fpgins.ui.NotificationMessage.NotifMessage;
@@ -39,11 +40,12 @@ public class FirstSlideMenuAdapter extends RecyclerView.Adapter<FirstSlideMenuAd
     public void onBindViewHolder(ViewHolder holder, int position) {
 
         FirstSlideMenuData data = firstSlideMenuData.get(position);
-        Glide.with(context)
-                .asBitmap()
-                .placeholder(R.drawable.default_image)
-                .load(data.getPictures().get(0))
-                .into(holder.roundedCornerImageView);
+//        Glide.with(context)
+//                .asBitmap()
+//                .placeholder(R.drawable.default_image)
+//                .load(data.getPictures().get(0))
+//                .into(holder.roundedCornerImageView);
+        new DownloadImageTask(holder.roundedCornerImageView, data.getPictures().get(0));
         holder.title.setText(data.getTitle());
         holder.description.setText(data.getDescription());
 

@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.fpgins.DataModel.FirstSlideMenuData;
+import com.example.fpgins.Network.ImageUploaderUtility.DownloadImageTask;
 import com.example.fpgins.R;
 import com.example.fpgins.RoundedCornerImageView;
 
@@ -55,6 +56,8 @@ public class ViewAllAdapter extends BaseAdapter {
                 .placeholder(R.drawable.default_image)
                 .load(mData.get(position).getId())
                 .into(roundedCornerImageView);
+
+        new DownloadImageTask(roundedCornerImageView, mData.get(position).getPictures().get(0));
 
         return convertView;
     }

@@ -379,8 +379,6 @@ public class ClientDashboard extends Fragment {
                 String categoryName = jsonObject.getString("category_name");
 
                 JSONArray files = jsonObject.getJSONArray("files");
-                JSONObject obj = files.getJSONObject(0);
-                String pic = obj.getString("file_url");
 
                 if (files.length() > 0){
                     for (int m = 0; m < files.length(); m++){

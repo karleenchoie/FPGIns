@@ -60,9 +60,10 @@
 <!--        </androidx.recyclerview.widget.RecyclerView>-->
 
         <ExpandableListView
-            android:id="@android:id/list"
+            android:id="@+id/expandableList"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            tools:listitem="@layout/item_mainoffice_file"
             android:layout_margin="10dp"
             android:divider="@android:color/darker_gray"
             android:childDivider="@android:color/white"

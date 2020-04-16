@@ -33,6 +33,7 @@ import com.example.fpgins.Login.Session.UserSessionManager;
 import com.example.fpgins.Network.Cloud;
 import com.example.fpgins.NewsLetterNotificationDialog;
 import com.example.fpgins.R;
+import com.example.fpgins.ui.BranchLocator.BranchExpandableList;
 import com.example.fpgins.ui.BranchLocator.BranchLocator;
 import com.example.fpgins.ui.NotificationMessage.NotifMessage;
 import com.example.fpgins.ui.NotificationMessage.NotifMessageFragment;
@@ -92,7 +93,7 @@ public class BottomNavigationActivity extends AppCompatActivity {
         mBranchLocator.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), BranchLocator.class);
+                Intent intent = new Intent(getApplicationContext(), BranchExpandableList.class);
                 startActivity(intent);
             }
         });
