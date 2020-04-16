@@ -51,6 +51,8 @@ public class BranchExpandableList extends AppCompatActivity {
         mExpandableListView.setDivider(ContextCompat.getDrawable(BranchExpandableList.this, R.color.white));
         mExpandableListView.setDividerHeight(2);
 
+        mAdapter = new BranchExpandableListAdapter(mData, mDataChild, this);
+
         getBranch();
         populateExpandableList();
 
@@ -126,13 +128,11 @@ public class BranchExpandableList extends AppCompatActivity {
 
 
     private void generateEacItem(JSONArray jsonArray){
-        List<BranchData> branch = new ArrayList<BranchData>();
+        BranchData branchData = null;
         try {
             for (int m = 0; m < jsonArray.length(); m++){
                 JSONObject jsonObject = jsonArray.getJSONObject(m);
                 JSONArray headOffice = jsonObject.getJSONArray("HeadOffice");
-
-                BranchData branchData = null;
 
                 for (int p = 0; p < headOffice.length(); p++){
                     JSONObject ho = headOffice.getJSONObject(p);
@@ -151,19 +151,20 @@ public class BranchExpandableList extends AppCompatActivity {
                 JSONArray branches = jsonObject.getJSONArray("Branch");
 
                 if (branches != null && branches.length() > 0){
+                    List<BranchData> branch = new ArrayList<BranchData>();
                     for (int n = 0; n < branches.length(); n++){
-                        JSONObject ho = branches.getJSONObject(n);
-                        String id = ho.getString("id");
-                        String name = ho.getString("name");
-                        String address = ho.getString("address");
-                        String contact_no = ho.getString("contact_no");
-                        String email = ho.getString("email");
-                        String fax_no = ho.getString("fax_no");
-                        String office_country_name = ho.getString("office_country_name");
-                        String office_type_name = ho.getString("office_type_name");
-                        BranchData branchData1 = new BranchData(id, name, address, contact_no, email, fax_no, office_country_name, office_type_name);
+                        JSONObject br = branches.getJSONObject(n);
+                        String id = br.getString("id");
+                        String name = br.getString("name");
+                        String address = br.getString("address");
+                        String contact_no = br.getString("contact_no");
+                        String email = br.getString("email");
+                        String fax_no = br.getString("fax_no");
+                        String office_country_name = br.getString("office_country_name");
+                        String office_type_name = br.getString("office_type_name");
+                        BranchData branchesData = new BranchData(id, name, address, contact_no, email, fax_no, office_country_name, office_type_name);
 
-                        branch.add(branchData1);
+                        branch.add(branchesData);
                     }
 
                     mDataChild.put(branchData, branch);
@@ -174,26 +175,30 @@ public class BranchExpandableList extends AppCompatActivity {
         } catch (Exception e){
             e.printStackTrace();
         }
-        branch.clear();
     }
 
     private void populateExpandableList(){
-        mAdapter = new BranchExpandableListAdapter(mData, mDataChild, this);
 
         mExpandableListView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
             @Override
             public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
-                mExpandableListView.expandGroup(groupPosition);
-                return true;
+                if (parent.isGroupExpanded(groupPosition)) {
+                    parent.collapseGroup(groupPosition);
+                } else {
+                    parent.expandGroup(groupPosition);
+                }
+
+                return false;
             }
         });
 //
-//        mExpandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
-//            @Override
-//            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
-//                return false;
-//            }
-//        });
+        mExpandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+            @Override
+            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
+
+                return false;
+            }
+        });
     }
 
 

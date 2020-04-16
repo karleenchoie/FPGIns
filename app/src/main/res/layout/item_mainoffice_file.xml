@@ -2,8 +2,6 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:focusable="false"
-    android:focusableInTouchMode="false"
     android:id="@+id/hoLinear"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -62,7 +60,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/icon_mobile"
-            android:focusable="false" android:focusableInTouchMode="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
             android:layout_gravity="start"/>
 
         <TextView
@@ -91,7 +90,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/icon_email"
-            android:focusable="false" android:focusableInTouchMode="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
             android:layout_gravity="start"/>
 
         <TextView

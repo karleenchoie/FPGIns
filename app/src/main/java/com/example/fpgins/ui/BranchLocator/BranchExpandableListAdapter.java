@@ -5,6 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.ExpandableListView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.fpgins.DataModel.BranchData;
@@ -21,9 +23,9 @@ public class BranchExpandableListAdapter extends BaseExpandableListAdapter {
 
 
     public BranchExpandableListAdapter(List<BranchData> headOffice, HashMap<BranchData, List<BranchData>> branchOffice, Context context){
-        this.mContext = context;
         this.headOffice = headOffice;
         this.branchOffice = branchOffice;
+        this.mContext = context;
     }
 
     @Override
@@ -89,7 +91,7 @@ public class BranchExpandableListAdapter extends BaseExpandableListAdapter {
     }
 
     @Override
-    public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
+    public View getGroupView(int groupPosition, boolean isExpanded, View convertView, final ViewGroup parent) {
 
         if (convertView == null) {
             LayoutInflater infalInflater = (LayoutInflater) this.mContext
@@ -106,6 +108,7 @@ public class BranchExpandableListAdapter extends BaseExpandableListAdapter {
         address.setText(getGroup(groupPosition).address);
         number.setText(getGroup(groupPosition).contact_no + " Fax: " + getGroup(groupPosition).fax_no);
         email.setText(getGroup(groupPosition).email);
+
 
         return convertView;
     }

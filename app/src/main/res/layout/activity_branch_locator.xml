@@ -42,6 +42,22 @@
 
     </LinearLayout>
 
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
+        <ExpandableListView
+            android:id="@+id/expandableList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:indicatorLeft="?android:attr/expandableListPreferredItemIndicatorLeft"
+            android:background="@android:color/white"
+            android:dividerHeight="0dp"
+            android:divider="@android:color/transparent" />
+
+    </RelativeLayout>
+
 <!--    <ScrollView-->
 <!--        android:layout_below="@id/linear_nav"-->
 <!--        android:layout_width="match_parent"-->
@@ -72,14 +88,7 @@
 <!--            android:fadingEdge="none">-->
 <!--        </ExpandableListView>-->
 
-        <ExpandableListView
-            android:id="@+id/expandableList"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:indicatorLeft="?android:attr/expandableListPreferredItemIndicatorLeft"
-            android:background="@android:color/white"
-            android:dividerHeight="0dp"
-            android:divider="@android:color/transparent" />
+
 
 <!--    </ScrollView>-->
 
