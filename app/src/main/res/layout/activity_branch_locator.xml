@@ -24,6 +24,8 @@
             android:layout_gravity="center_vertical"
             android:paddingVertical="@dimen/page_default_margin_horizontal"
             android:paddingRight="@dimen/page_default_margin_horizontal"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
             android:src="@drawable/ic_action_back" />
 
         <TextView
@@ -40,15 +42,15 @@
 
     </LinearLayout>
 
-    <ScrollView
-        android:layout_below="@id/linear_nav"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fadeScrollbars="true"
-        android:fillViewport="true"
-        android:scrollbars="vertical"
-        android:id="@+id/createPasswordScrollView"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+<!--    <ScrollView-->
+<!--        android:layout_below="@id/linear_nav"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:fadeScrollbars="true"-->
+<!--        android:fillViewport="true"-->
+<!--        android:scrollbars="vertical"-->
+<!--        android:id="@+id/createPasswordScrollView"-->
+<!--        app:layout_behavior="@string/appbar_scrolling_view_behavior">-->
 
 <!--        <androidx.recyclerview.widget.RecyclerView-->
 <!--            android:id="@+id/mainOffice_recyclerview"-->
@@ -59,18 +61,26 @@
 <!--            android:layout_height="wrap_content">-->
 <!--        </androidx.recyclerview.widget.RecyclerView>-->
 
+<!--        <ExpandableListView-->
+<!--            android:id="@+id/expandableList"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_margin="10dp"-->
+<!--            android:divider="@android:color/darker_gray"-->
+<!--            android:childDivider="@android:color/white"-->
+<!--            android:dividerHeight="2dp"-->
+<!--            android:fadingEdge="none">-->
+<!--        </ExpandableListView>-->
+
         <ExpandableListView
             android:id="@+id/expandableList"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:listitem="@layout/item_mainoffice_file"
-            android:layout_margin="10dp"
-            android:divider="@android:color/darker_gray"
-            android:childDivider="@android:color/white"
-            android:dividerHeight="2dp"
-            android:fadingEdge="none">
-        </ExpandableListView>
+            android:layout_height="wrap_content"
+            android:indicatorLeft="?android:attr/expandableListPreferredItemIndicatorLeft"
+            android:background="@android:color/white"
+            android:dividerHeight="0dp"
+            android:divider="@android:color/transparent" />
 
-    </ScrollView>
+<!--    </ScrollView>-->
 
 </LinearLayout>

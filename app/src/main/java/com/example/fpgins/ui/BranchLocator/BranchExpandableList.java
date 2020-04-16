@@ -17,6 +17,7 @@ import com.example.fpgins.ExpandableListAdapter;
 import com.example.fpgins.MenuModel;
 import com.example.fpgins.Network.Cloud;
 import com.example.fpgins.R;
+import com.google.gson.JsonArray;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -50,10 +51,8 @@ public class BranchExpandableList extends AppCompatActivity {
         mExpandableListView.setDivider(ContextCompat.getDrawable(BranchExpandableList.this, R.color.white));
         mExpandableListView.setDividerHeight(2);
 
-
-        mAdapter = new BranchExpandableListAdapter(mData, mDataChild, this);
-
         getBranch();
+        populateExpandableList();
 
         mBackButton = findViewById(R.id.img_backbutton);
         mBackButton.setOnClickListener(new View.OnClickListener() {
@@ -108,11 +107,6 @@ public class BranchExpandableList extends AppCompatActivity {
 
     private void generateResult(JSONArray jsonArray){
 
-        BranchData headerData = null;
-        BranchData childData = null;
-        List<BranchData> indoBranch = new ArrayList<BranchData>();
-        List<BranchData> phBranch = new ArrayList<BranchData>();
-        List<BranchData> thBranch = new ArrayList<BranchData>();
         try {
             for (int i = 0; i < jsonArray.length(); i++){
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
@@ -130,13 +124,13 @@ public class BranchExpandableList extends AppCompatActivity {
         }
     }
 
+
     private void generateEacItem(JSONArray jsonArray){
         List<BranchData> branch = new ArrayList<BranchData>();
         try {
             for (int m = 0; m < jsonArray.length(); m++){
                 JSONObject jsonObject = jsonArray.getJSONObject(m);
-                JSONArray headOffice = jsonObject.getJSONArray("head-office");
-                JSONArray branches = jsonObject.getJSONArray("branch");
+                JSONArray headOffice = jsonObject.getJSONArray("HeadOffice");
 
                 BranchData branchData = null;
 
@@ -152,24 +146,29 @@ public class BranchExpandableList extends AppCompatActivity {
                     String office_type_name = ho.getString("office_type_name");
                     branchData = new BranchData(id, name, address, contact_no, email, fax_no, office_country_name, office_type_name);
                     mData.add(branchData);
-
                 }
 
-                for (int n = 0; n < branches.length(); n++){
-                    JSONObject ho = branches.getJSONObject(n);
-                    String id = ho.getString("id");
-                    String name = ho.getString("name");
-                    String address = ho.getString("address");
-                    String contact_no = ho.getString("contact_no");
-                    String email = ho.getString("email");
-                    String fax_no = ho.getString("fax_no");
-                    String office_country_name = ho.getString("office_country_name");
-                    String office_type_name = ho.getString("office_type_name");
-                    BranchData branchData1 = new BranchData(id, name, address, contact_no, email, fax_no, office_country_name, office_type_name);
+                JSONArray branches = jsonObject.getJSONArray("Branch");
 
-                    branch.add(branchData1);
+                if (branches != null && branches.length() > 0){
+                    for (int n = 0; n < branches.length(); n++){
+                        JSONObject ho = branches.getJSONObject(n);
+                        String id = ho.getString("id");
+                        String name = ho.getString("name");
+                        String address = ho.getString("address");
+                        String contact_no = ho.getString("contact_no");
+                        String email = ho.getString("email");
+                        String fax_no = ho.getString("fax_no");
+                        String office_country_name = ho.getString("office_country_name");
+                        String office_type_name = ho.getString("office_type_name");
+                        BranchData branchData1 = new BranchData(id, name, address, contact_no, email, fax_no, office_country_name, office_type_name);
+
+                        branch.add(branchData1);
+                    }
+
                     mDataChild.put(branchData, branch);
-
+                } else {
+                    mDataChild.put(branchData, null);
                 }
             }
         } catch (Exception e){
@@ -178,12 +177,25 @@ public class BranchExpandableList extends AppCompatActivity {
         branch.clear();
     }
 
-    public List<BranchData> hasChildren(String countryName, List<BranchData> list){
-        List<BranchData> newList = new ArrayList<>();
+    private void populateExpandableList(){
+        mAdapter = new BranchExpandableListAdapter(mData, mDataChild, this);
 
-
-        return null;
+        mExpandableListView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
+            @Override
+            public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
+                mExpandableListView.expandGroup(groupPosition);
+                return true;
+            }
+        });
+//
+//        mExpandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+//            @Override
+//            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
+//                return false;
+//            }
+//        });
     }
+
 
     @Override
     protected void onResume() {
