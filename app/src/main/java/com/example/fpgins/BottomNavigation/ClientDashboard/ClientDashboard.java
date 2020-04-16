@@ -2,6 +2,7 @@ package com.example.fpgins.BottomNavigation.ClientDashboard;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -68,6 +69,8 @@ public class ClientDashboard extends Fragment {
     private List<BannerData> ImagesArray = new ArrayList<BannerData>();
     private BannerAdapter mBannerAdapter;
     private int count = 0;
+    private static int currentPage = 0;
+    private static int NUM_PAGES = 0;
     private Timer timer;
 
     private boolean isShowMenus = false;
@@ -447,13 +450,14 @@ public class ClientDashboard extends Fragment {
     }
 
     private void generateBannerResult(JSONArray jsonArray){
-        ArrayList<String> bannerPictures = new ArrayList<>();
+        final ArrayList<String> bannerPictures = new ArrayList<>();
+        final ArrayList<String> bannerLinks = new ArrayList<>();
         try {
             for (int i = 0; i < jsonArray.length(); i++){
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 String id = jsonObject.getString("id");
                 String title = Html.fromHtml(jsonObject.getString("title")).toString();
-                String link = jsonObject.getString("link");
+                final String link = jsonObject.getString("link");
                 String postDate = jsonObject.getString("post_date");
                 String bannerLocationName = jsonObject.getString("banner_location_name");
 
@@ -471,12 +475,13 @@ public class ClientDashboard extends Fragment {
                     bannerPictures.add(null);
                 }
 
-                BannerData data = new BannerData(id, title, link, postDate, bannerLocationName, bannerPictures);
+                bannerLinks.add(link);
+
+                final BannerData data = new BannerData(id, title, bannerLinks, postDate, bannerLocationName, bannerPictures);
                 ImagesArray.add(data);
 
-                mBannerAdapter = new BannerAdapter(bannerPictures,getContext());
+                mBannerAdapter = new BannerAdapter(bannerPictures,bannerLinks,getContext());
                 mSingleImage.setAdapter(mBannerAdapter);
-
                 timer = new Timer();
                 timer.schedule(new TimerTask() {
                     @Override

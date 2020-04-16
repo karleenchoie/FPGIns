@@ -9,15 +9,15 @@ import java.util.ArrayList;
 public class BannerData {
     private String id;
     private String title;
-    private String link;
+    private ArrayList<String> link;
     private String date;
     private String banner_location_name;
     private String pictures;
 
-    public BannerData(String id, String title, String link, String date, String banner_location_name, ArrayList<String> pictures) {
+    public BannerData(String id, String title, ArrayList<String>link, String date, String banner_location_name, ArrayList<String> pictures) {
         this.id = id;
         this.title = title;
-        this.link = link;
+        this.link=link;
         this.date = date;
         this.banner_location_name = banner_location_name;
 
@@ -42,11 +42,11 @@ public class BannerData {
         this.title = title;
     }
 
-    public String getLink() {
+    public ArrayList<String> getLink() {
         return link;
     }
 
-    public void setLink(String link) {
+    public void setLink(ArrayList<String> link) {
         this.link = link;
     }
 
