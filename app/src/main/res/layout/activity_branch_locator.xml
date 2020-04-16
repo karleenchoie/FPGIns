@@ -50,14 +50,25 @@
         android:id="@+id/createPasswordScrollView"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/mainOffice_recyclerview"
-            tools:listitem="@layout/item_mainoffice_file"
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:id="@+id/mainOffice_recyclerview"-->
+<!--            tools:listitem="@layout/item_mainoffice_file"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_marginHorizontal="@dimen/vertical_default_padding"-->
+<!--            android:verticalSpacing="@dimen/vertical_default_padding"-->
+<!--            android:layout_height="wrap_content">-->
+<!--        </androidx.recyclerview.widget.RecyclerView>-->
+
+        <ExpandableListView
+            android:id="@android:id/list"
             android:layout_width="match_parent"
-            android:layout_marginHorizontal="@dimen/vertical_default_padding"
-            android:verticalSpacing="@dimen/vertical_default_padding"
-            android:layout_height="wrap_content">
-        </androidx.recyclerview.widget.RecyclerView>
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:divider="@android:color/darker_gray"
+            android:childDivider="@android:color/white"
+            android:dividerHeight="2dp"
+            android:fadingEdge="none">
+        </ExpandableListView>
 
     </ScrollView>
 

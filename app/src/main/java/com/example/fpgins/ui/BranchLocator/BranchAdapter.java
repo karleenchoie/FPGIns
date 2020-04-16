@@ -107,7 +107,7 @@ private class BranchOfficeHolder extends RecyclerView.ViewHolder {
     }
 
     void bind (BranchData branchData){
-        name.setText(branchData.getOffice_country_name());
+        name.setText(branchData.getName());
         address.setText(branchData.getAddress());
         number.setText(branchData.getContact_no());
         address.setText(branchData.getAddress());

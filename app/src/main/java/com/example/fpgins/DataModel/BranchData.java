@@ -2,6 +2,7 @@ package com.example.fpgins.DataModel;
 
 public class BranchData {
     private String id;
+    private String name;
     private String address;
     private String contact_no;
     private String email;
@@ -9,8 +10,9 @@ public class BranchData {
     private String office_country_name;
     private String office_type_name;
 
-    public BranchData(String id, String address, String contact_no, String email, String fax_no, String office_country_name, String office_type_name) {
+    public BranchData(String id,String name, String address, String contact_no, String email, String fax_no, String office_country_name, String office_type_name) {
         this.id = id;
+        this.name = name;
         this.address = address;
         this.contact_no = contact_no;
         this.email = email;
@@ -25,6 +27,14 @@ public class BranchData {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getAddress() {
