@@ -1,6 +1,7 @@
 package com.example.fpgins.ui.customercare;
 
 import android.app.Dialog;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -202,7 +203,30 @@ public class CustomerCareFragment extends AppCompatActivity{
 //                DepartmentsData data = new DepartmentsData(id, name, department_category_id, department_category_name);
                 list.add(name);
             }
-            ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,R.layout.spinner_layout, list);
+
+            ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,R.layout.spinner_layout, list){
+                @Override
+                public boolean isEnabled(int position){
+                    if (position == 0){
+                        return false;
+                    }else {
+                        return true;
+                    }
+                }
+                @Override
+                public View getDropDownView(int position, View convertView, ViewGroup parent){
+                    View view = super.getDropDownView(position, convertView, parent);
+                    TextView tv = (TextView) view;
+                    if(position == 0){
+                        // Set the hint text color gray
+                        tv.setTextColor(Color.GRAY);
+                    }
+                    else {
+                        tv.setTextColor(getResources().getColor(R.color.fpg_gray));
+                    }
+                    return view;
+                }
+            };
             dataAdapter.setDropDownViewResource(R.layout.spinner_dropdown_layout);
             mSpinner.setAdapter(dataAdapter);
             mSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

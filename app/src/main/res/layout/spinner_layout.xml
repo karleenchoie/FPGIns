@@ -4,9 +4,12 @@
     android:id="@android:id/text1"
     android:singleLine="true"
     android:textColor="@color/fpg_gray"
+    android:textStyle="bold"
     android:padding="15dp"
+    android:background="@drawable/edittext_background"
     android:textSize="@dimen/setting_title"
     android:layout_width="match_parent"
     android:layout_height="50dp"
     android:ellipsize="marquee"
+    android:drawableRight="@drawable/arrow_down"
     android:textAlignment="inherit"/>

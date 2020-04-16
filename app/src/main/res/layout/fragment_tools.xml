@@ -88,6 +88,7 @@
                 android:id="@+id/spinner2"
                 android:layout_marginTop="@dimen/vertical_default_padding"
                 android:layout_width="match_parent"
+                android:background="@null"
                 android:layout_height="wrap_content"/>
 
             <EditText
