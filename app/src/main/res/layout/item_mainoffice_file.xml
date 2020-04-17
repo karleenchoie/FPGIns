@@ -12,12 +12,14 @@
         style="@style/TextAppearance.AppCompat.Caption"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:paddingVertical="@dimen/page_default_margin_horizontal"
-        android:maxLines="1"
-        android:text="@string/indonesia"
         android:drawableRight="@drawable/arrow_down"
+        android:gravity="center_vertical"
+        android:maxLines="1"
         android:paddingHorizontal="@dimen/horizontal_default_padding"
+        android:paddingVertical="@dimen/page_default_margin_horizontal"
+        android:text="@string/indonesia"
+        android:textAllCaps="true"
+        android:textStyle="bold"
         android:textColor="@color/fpg_orange"
         android:textSize="@dimen/setting_title" />
 

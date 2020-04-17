@@ -55,7 +55,7 @@ public class BranchExpandableListAdapter extends BaseExpandableListAdapter {
         TextView address = convertView.findViewById(R.id.txt_branchAddress2);
         TextView number = convertView.findViewById(R.id.txt_branchNumber2);
         TextView email = convertView.findViewById(R.id.txt_branchEmail2);
-        View line = convertView.findViewById(R.id.divider_description_child);
+//        View line = convertView.findViewById(R.id.divider_description_child);
 
         branchOffice.setText(getChild(groupPosition, childPosition).name);
         address.setText(getChild(groupPosition, childPosition).address);
@@ -63,11 +63,11 @@ public class BranchExpandableListAdapter extends BaseExpandableListAdapter {
                 getChild(groupPosition, childPosition).fax_no);
         email.setText(getChild(groupPosition, childPosition).email);
 
-        if(isLastChild){
-            line.setVisibility(View.VISIBLE);
-        } else {
-            line.setVisibility(View.GONE);
-        }
+//        if(isLastChild){
+//            line.setVisibility(View.VISIBLE);
+//        } else {
+//            line.setVisibility(View.GONE);
+//        }
 
         return convertView;
     }

@@ -66,6 +66,8 @@
     <color name="black_opacity10">#16000000</color>
     <color name="black_opacity5">#0D000000</color>
 
+    <color name="branch_bg">#f9f9f9</color>
+
 
     <color name="orange_opacity80">#CCFF5000</color>
     <color name="lightorange_opacity80">#CCFF7E00</color>
