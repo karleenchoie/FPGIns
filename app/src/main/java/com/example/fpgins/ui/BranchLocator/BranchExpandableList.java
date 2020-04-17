@@ -179,6 +179,16 @@ public class BranchExpandableList extends AppCompatActivity {
 
     private void populateExpandableList(){
 
+        mExpandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
+            int previousGroup = -1;
+            @Override
+            public void onGroupExpand(int groupPosition) {
+                if(groupPosition != previousGroup)
+                    mExpandableListView.collapseGroup(previousGroup);
+                previousGroup = groupPosition;
+            }
+        });
+
         mExpandableListView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
             @Override
             public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
@@ -187,7 +197,6 @@ public class BranchExpandableList extends AppCompatActivity {
 //                } else {
 //                    parent.expandGroup(groupPosition);
 //                }
-
                 return false;
             }
         });

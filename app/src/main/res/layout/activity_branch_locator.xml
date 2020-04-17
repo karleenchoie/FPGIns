@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:animateLayoutChanges="true"
     android:orientation="vertical"
     tools:context=".BottomNavigation.AgentDashboard.MotorActivity">
@@ -53,10 +53,17 @@
             android:layout_height="wrap_content"
             android:indicatorLeft="?android:attr/expandableListPreferredItemIndicatorLeft"
             android:background="@android:color/white"
-            android:dividerHeight="0dp"
-            android:divider="@android:color/transparent" />
+            android:childDivider="#00000000"
+            android:dividerHeight="1dp"
+            android:divider="@color/fineGray" />
 
     </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/fineGray">
+    </View>
 
 <!--    <ScrollView-->
 <!--        android:layout_below="@id/linear_nav"-->
