@@ -8,6 +8,7 @@
     android:layout_marginBottom="@dimen/listing_division">
 
     <RelativeLayout
+        android:id="@+id/relative_clientName"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingHorizontal="@dimen/horizontal_default_padding"

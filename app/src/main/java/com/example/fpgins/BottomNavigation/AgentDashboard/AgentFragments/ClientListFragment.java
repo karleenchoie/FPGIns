@@ -42,7 +42,7 @@ public class ClientListFragment extends Fragment {
         mRecyclerView = view.findViewById(R.id.recyclerView);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(view.getContext());
-        mAdapter = new ClientNamesAdapter(mClientNameData);
+        mAdapter = new ClientNamesAdapter(mClientNameData,getContext());
 
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);

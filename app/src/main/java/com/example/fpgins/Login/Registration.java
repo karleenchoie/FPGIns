@@ -37,9 +37,6 @@ import org.json.JSONObject;
 
 public class Registration extends AppCompatActivity {
 
-    //Macky Sevidal
-
-    //MACKYYYY LAST
     private EditText mFirstName;
     private EditText mLastName;
     private EditText mEmail;

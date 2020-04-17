@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.example.fpgins.BottomNavigation.ClientDashboard.ClientMenus.CorporateActivity;
 import com.example.fpgins.BottomNavigation.ClientDashboard.ClientMenus.HomeActivity;
@@ -23,7 +24,7 @@ import com.example.fpgins.R;
  */
 public class PolicyListFragment extends Fragment {
 
-    private LinearLayout mMotor, mPA, mTravel, mHome, mCorporate;
+    private LinearLayout mMotor, mPA, mTravel, mHome, mCorporate, mPaid, mUnpaid;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -36,6 +37,8 @@ public class PolicyListFragment extends Fragment {
         mTravel = root.findViewById(R.id.linear_policyTravel);
         mHome = root.findViewById(R.id.linear_policyHome);
         mCorporate = root.findViewById(R.id.linear_policyCorporate);
+        mPaid = root.findViewById(R.id.linear_paid);
+        mUnpaid = root.findViewById(R.id.linear_unpaid);
         mMotor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -73,6 +76,22 @@ public class PolicyListFragment extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), HomeActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        mPaid.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                Toast.makeText(getContext(), "LONG PRESS PAID", Toast.LENGTH_LONG).show();
+                return false;
+            }
+        });
+
+        mUnpaid.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                Toast.makeText(getContext(), "DISPLAY SOA", Toast.LENGTH_LONG).show();
+                return false;
             }
         });
 

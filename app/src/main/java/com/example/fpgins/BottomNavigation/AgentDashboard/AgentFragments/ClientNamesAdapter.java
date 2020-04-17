@@ -1,36 +1,54 @@
 package com.example.fpgins.BottomNavigation.AgentDashboard.AgentFragments;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.fpgins.BottomNavigation.AgentDashboard.AgentsActivities.MotorDetailsActivity;
 import com.example.fpgins.DataModel.ClientNameData;
 import com.example.fpgins.R;
 
 import java.util.ArrayList;
 
 public class ClientNamesAdapter extends RecyclerView.Adapter<ClientNamesAdapter.ClientNameViewHolder> {
-    private ArrayList<ClientNameData> mClientList;
 
-    public static class ClientNameViewHolder extends RecyclerView.ViewHolder {
+    private ArrayList<ClientNameData> mClientList;
+    private Context mContext;
+
+    public class ClientNameViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public TextView mTextView1;
         public TextView mTextView2;
         public TextView mTextView4;
+        public RelativeLayout mRelative;
 
         public ClientNameViewHolder(View itemView) {
             super(itemView);
             mTextView1 = itemView.findViewById(R.id.name);
             mTextView2 = itemView.findViewById(R.id.address);
             mTextView4 = itemView.findViewById(R.id.policy);
+            mRelative = itemView.findViewById(R.id.relative_clientName);
+
+            mRelative.setOnClickListener(this);
+
+        }
+
+        @Override
+        public void onClick(View v) {
+            Intent intent = new Intent(mContext, ClientNameDetails.class);
+            mContext.startActivity(intent);
 
         }
     }
 
-    public ClientNamesAdapter(ArrayList<ClientNameData> motorList) {
+    public ClientNamesAdapter(ArrayList<ClientNameData> motorList, Context context) {
         mClientList = motorList;
+        this.mContext = context;
     }
 
     @Override
