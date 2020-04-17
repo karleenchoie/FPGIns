@@ -55,12 +55,19 @@ public class BranchExpandableListAdapter extends BaseExpandableListAdapter {
         TextView address = convertView.findViewById(R.id.txt_branchAddress2);
         TextView number = convertView.findViewById(R.id.txt_branchNumber2);
         TextView email = convertView.findViewById(R.id.txt_branchEmail2);
+        View line = convertView.findViewById(R.id.divider_description_child);
 
         branchOffice.setText(getChild(groupPosition, childPosition).name);
         address.setText(getChild(groupPosition, childPosition).address);
         number.setText(getChild(groupPosition, childPosition).contact_no + " Fax: " +
                 getChild(groupPosition, childPosition).fax_no);
         email.setText(getChild(groupPosition, childPosition).email);
+
+        if(isLastChild){
+            line.setVisibility(View.VISIBLE);
+        } else {
+            line.setVisibility(View.GONE);
+        }
 
         return convertView;
     }
@@ -109,6 +116,12 @@ public class BranchExpandableListAdapter extends BaseExpandableListAdapter {
         number.setText(getGroup(groupPosition).contact_no + " Fax: " + getGroup(groupPosition).fax_no);
         email.setText(getGroup(groupPosition).email);
 
+        if (getChildrenCount(groupPosition) > 0){
+            headOffice.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0,
+                    isExpanded ? R.drawable.arrow_up : R.drawable.arrow_down, 0);
+        } else {
+            headOffice.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, 0, 0);
+        }
 
         return convertView;
     }

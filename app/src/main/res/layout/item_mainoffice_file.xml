@@ -16,6 +16,7 @@
         android:paddingVertical="@dimen/page_default_margin_horizontal"
         android:maxLines="1"
         android:text="@string/indonesia"
+        android:drawableRight="@drawable/arrow_down"
         android:paddingHorizontal="@dimen/horizontal_default_padding"
         android:textColor="@color/fpg_orange"
         android:textSize="@dimen/setting_title" />

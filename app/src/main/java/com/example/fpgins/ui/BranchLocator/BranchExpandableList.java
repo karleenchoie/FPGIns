@@ -192,15 +192,11 @@ public class BranchExpandableList extends AppCompatActivity {
         mExpandableListView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
             @Override
             public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
-//                if (parent.isGroupExpanded(groupPosition)) {
-//                    parent.collapseGroup(groupPosition);
-//                } else {
-//                    parent.expandGroup(groupPosition);
-//                }
+
                 return false;
             }
         });
-//
+
         mExpandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
