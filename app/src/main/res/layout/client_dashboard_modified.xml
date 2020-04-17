@@ -34,7 +34,7 @@
 
                     <com.example.fpgins.RoundedCornerImageView
                         android:layout_width="match_parent"
-                        android:layout_height="90dp"
+                        android:layout_height="95dp"
                         android:scaleType="centerCrop"
                         android:background="@color/white_opacity35"
                         android:src="@drawable/claims_bg">
@@ -75,7 +75,7 @@
 
                     <com.example.fpgins.RoundedCornerImageView
                         android:layout_width="match_parent"
-                        android:layout_height="90dp"
+                        android:layout_height="95dp"
                         android:scaleType="centerCrop"
                         android:background="@color/white_opacity35"
                         android:src="@drawable/pic_three">
@@ -280,7 +280,7 @@
                 <androidx.viewpager.widget.ViewPager
                     android:id="@+id/imageUploaded"
                     android:layout_width="match_parent"
-                    android:layout_height="150dp"
+                    android:layout_height="160dp"
                     android:background="@drawable/rounded_shape"
                     android:paddingBottom="1dp"
                     android:layout_marginBottom="@dimen/vertical_default_padding"
