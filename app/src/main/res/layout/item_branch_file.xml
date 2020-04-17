@@ -4,7 +4,8 @@
     android:orientation="vertical"
     android:id="@+id/branchLinearLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/vertical_default_padding">
 
     <TextView
         android:id="@+id/txt_branchName2"
