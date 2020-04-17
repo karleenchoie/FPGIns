@@ -47,9 +47,9 @@ public class BranchExpandableList extends AppCompatActivity {
 
         mExpandableListView.setGroupIndicator(null);
         mExpandableListView.setChildIndicator(null);
-        mExpandableListView.setChildDivider(ContextCompat.getDrawable(BranchExpandableList.this, R.color.white));
-        mExpandableListView.setDivider(ContextCompat.getDrawable(BranchExpandableList.this, R.color.white));
-        mExpandableListView.setDividerHeight(2);
+//        mExpandableListView.setChildDivider(ContextCompat.getDrawable(BranchExpandableList.this, R.color.white));
+//        mExpandableListView.setDivider(ContextCompat.getDrawable(BranchExpandableList.this, R.color.white));
+//        mExpandableListView.setDividerHeight(2);
 
         mAdapter = new BranchExpandableListAdapter(mData, mDataChild, this);
 

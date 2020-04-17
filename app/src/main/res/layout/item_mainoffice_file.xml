@@ -4,7 +4,8 @@
     android:orientation="vertical"
     android:id="@+id/hoLinear"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/vertical_default_padding">
 
     <TextView
         android:id="@+id/txt_branchName"
@@ -109,11 +110,11 @@
 
     </LinearLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/fineGray"
-        android:layout_marginVertical="@dimen/page_default_margin_horizontal">
-    </View>
+<!--    <View-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="1dp"-->
+<!--        android:background="@color/fineGray"-->
+<!--        android:layout_marginVertical="@dimen/page_default_margin_horizontal">-->
+<!--    </View>-->
 
 </LinearLayout>
