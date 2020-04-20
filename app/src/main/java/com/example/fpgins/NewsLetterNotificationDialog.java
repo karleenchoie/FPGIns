@@ -8,6 +8,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -19,8 +20,8 @@ import java.util.ArrayList;
 
 public class NewsLetterNotificationDialog extends Dialog {
 
-    private Button mImageButtonClose;
-    private Button mViewMore;
+    private ImageButton mImageButtonClose;
+    private TextView mViewMore;
     private RoundedCornerImageView mImageButtonCoverBanner;
     private TextView mNews;
     private String mNotificationId;

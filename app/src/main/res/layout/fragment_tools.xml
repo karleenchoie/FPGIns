@@ -60,6 +60,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
+                android:paddingTop="@dimen/vertical_default_padding"
                 android:text="@string/cc_definition"
                 android:textAlignment="center"
                 android:lineSpacingExtra="@dimen/paragraph_default_padding"

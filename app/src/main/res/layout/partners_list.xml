@@ -15,24 +15,24 @@
         android:id="@+id/txtComapany"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="@dimen/edittext_spacing"
+        android:paddingVertical="@dimen/vertical_default_padding"
         android:text="Second"
         android:textAlignment="center"
         android:textColor="@color/fpg_gray"
         android:textStyle="bold"
         android:textSize="@dimen/setting_title" />
 
-    <TextView
-        android:id="@+id/txtDesc"
-        android:text="Third"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/fpg_gray"
-        android:paddingHorizontal="@dimen/horizontal_default_padding"
-        android:paddingBottom="@dimen/page_default_margin_horizontal"
-        android:textAlignment="center"
-        android:textSize="@dimen/textview_error_textsize"
-        android:textAllCaps="true" />
+<!--    <TextView-->
+<!--        android:id="@+id/txtDesc"-->
+<!--        android:text="Third"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:textColor="@color/fpg_gray"-->
+<!--        android:paddingHorizontal="@dimen/horizontal_default_padding"-->
+<!--        android:paddingBottom="@dimen/page_default_margin_horizontal"-->
+<!--        android:textAlignment="center"-->
+<!--        android:textSize="@dimen/textview_error_textsize"-->
+<!--        android:textAllCaps="true" />-->
 
     <ImageView
         android:id="@+id/imgPhoto"

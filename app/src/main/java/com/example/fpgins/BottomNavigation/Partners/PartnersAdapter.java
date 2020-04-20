@@ -27,7 +27,7 @@ public class PartnersAdapter extends RecyclerView.Adapter<PartnersAdapter.MyView
     private Context mContext;
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        public TextView details, title;
+        public TextView title;
         public ImageView image;
         public LinearLayout linearLayout;
 
@@ -35,7 +35,7 @@ public class PartnersAdapter extends RecyclerView.Adapter<PartnersAdapter.MyView
         public MyViewHolder(View view) {
             super(view);
             title = view.findViewById(R.id.txtComapany);
-            details = view.findViewById(R.id.txtDesc);
+//            details = view.findViewById(R.id.txtDesc);
             image = view.findViewById(R.id.imgPhoto);
             linearLayout = view.findViewById(R.id.linearMain);
 
@@ -71,7 +71,7 @@ public class PartnersAdapter extends RecyclerView.Adapter<PartnersAdapter.MyView
     public void onBindViewHolder(MyViewHolder holder, int position) {
         PartnersData partnersData = partnersDataList.get(position);
         holder.title.setText(partnersData.getTitle());
-        holder.details.setText(partnersData.getContent());
+//        holder.details.setText(partnersData.getContent());
         String partnersPic = partnersData.getCompanyPic().trim();
 
         UserData userData = new UserData(PreferenceManager.getDefaultSharedPreferences(mContext));

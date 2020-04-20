@@ -12,6 +12,7 @@
         android:background="@drawable/rounded_shape"
         android:layout_width="350dp"
         android:layout_height="500dp"
+        android:layout_margin="@dimen/horizontal_default_padding"
         android:weightSum="2"
         android:orientation="vertical">
 
@@ -26,6 +27,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
+                android:background="@color/white"
                 android:src="@drawable/pic_five"
                 android:layout_margin="@dimen/vertical_default_padding"
                 android:visibility="visible" />
@@ -45,6 +47,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/main_message"
                 android:textSize="@dimen/edittext_textsize"
+                android:layout_marginBottom="@dimen/vertical_default_padding"
                 android:background="@color/white"
                 android:layout_gravity="center_horizontal|center"
                 android:gravity="center"
@@ -57,35 +60,46 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight=".3"
-            android:weightSum="2"
+            android:gravity="center"
             android:layout_marginTop="@dimen/vertical_default_padding"
             android:background="@drawable/rounded_shape"
             android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/imageButtonClose"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_marginHorizontal="@dimen/vertical_default_padding"
-                android:layout_height="@dimen/button_height"
-                android:textSize="@dimen/button_textsize"
-                android:text="Dismiss"
-                android:textColor="@color/white"
-                android:textAlignment="center"
-                android:background="@drawable/login_button" />
+<!--            <Button-->
+<!--                -->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_weight="1"-->
+<!--                android:layout_marginHorizontal="@dimen/vertical_default_padding"-->
+<!--                android:layout_height="@dimen/button_height"-->
+<!--                android:textSize="@dimen/button_textsize"-->
+<!--                android:text="Dismiss"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:textAlignment="center"-->
+<!--                android:background="@drawable/login_button" />-->
 
-            <Button
+            <TextView
                 android:id="@+id/btn_viewMore"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="@dimen/button_height"
-                android:textSize="@dimen/button_textsize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/setting_title"
                 android:text="View More"
-                android:layout_marginHorizontal="@dimen/vertical_default_padding"
                 android:textColor="@color/white"
                 android:textAlignment="center"
+                android:paddingVertical="@dimen/vertical_default_padding"
+                android:layout_marginBottom="@dimen/vertical_default_padding"
                 android:background="@drawable/login_button" />
 
         </LinearLayout>
     </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/imageButtonClose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icon_close"
+        android:background="@drawable/circle_border"
+        android:padding="5dp"
+        android:layout_margin="@dimen/vertical_default_padding"
+        android:layout_gravity="right"/>
+
 </FrameLayout>

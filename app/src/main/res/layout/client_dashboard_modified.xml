@@ -61,6 +61,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:paddingHorizontal="@dimen/horizontal_default_padding"
+                android:paddingBottom="@dimen/vertical_default_padding"
                 android:orientation="horizontal">
 
                 <RelativeLayout
@@ -208,19 +209,19 @@
 
                 <TextView
                     android:id="@+id/viewAll"
-                    android:paddingStart="@dimen/vertical_default_padding"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:background="@drawable/view_all_button"
                     android:ellipsize="middle"
                     android:scrollHorizontally="true"
                     android:singleLine="true"
                     android:text="View All"
                     android:textColor="@color/fpg_orange"
                     android:textStyle="bold"
+                    android:padding="5dp"
                     android:layout_alignParentRight="true"
                     android:layout_marginEnd="10dp"
-                    android:paddingRight="@dimen/vertical_default_padding"
                     android:textSize="@dimen/setting_title"/>
 
 

@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.fpgins.ui.NotificationMessage.NotifMessage;
@@ -22,9 +23,9 @@ public class NewsLetterFragment extends DialogFragment {
 
     //karleennnnnnnnnnnnnn
 
-    private Button mImageButtonClose;
+    private ImageButton mImageButtonClose;
     private RoundedCornerImageView mImageButtonCoverBanner;
-    private Button mViewMore;
+    private TextView mViewMore;
     private TextView mNews;
 
     @Override
