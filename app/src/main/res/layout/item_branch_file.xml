@@ -5,29 +5,46 @@
     android:id="@+id/branchLinearLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/branch_bg"
-    android:paddingTop="@dimen/vertical_default_padding"
-    android:paddingBottom="@dimen/vertical_default_padding">
-
-    <TextView
-        android:id="@+id/txt_branchName2"
-        style="@style/TextAppearance.AppCompat.Caption"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:paddingBottom="@dimen/page_default_margin_horizontal"
-        android:maxLines="1"
-        android:layout_marginLeft="@dimen/horizontal_default_padding"
-        android:text="Branch Name"
-        android:paddingHorizontal="@dimen/horizontal_default_padding"
-        android:textColor="@color/fpg_orange"
-        android:textSize="@dimen/setting_title" />
+    android:background="@color/black_opacity5"
+    android:paddingVertical="@dimen/vertical_default_padding">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="@dimen/page_default_margin_horizontal"
+        android:paddingLeft="@dimen/horizontal_default_padding"
+        android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+        <ImageView
+            android:visibility="invisible"
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:src="@drawable/icon_address"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:layout_gravity="start"/>
+
+        <TextView
+            android:id="@+id/txt_branchName2"
+            style="@style/TextAppearance.AppCompat.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:gravity="left"
+            android:maxLines="3"
+            android:textStyle="bold"
+            android:paddingHorizontal="@dimen/horizontal_default_padding"
+            android:text="Branch Name"
+            android:textColor="@color/fpg_gray"
+            android:textSize="@dimen/setting_title"  />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp"
         android:paddingLeft="@dimen/horizontal_default_padding"
         android:layout_marginHorizontal="@dimen/horizontal_default_padding">
 

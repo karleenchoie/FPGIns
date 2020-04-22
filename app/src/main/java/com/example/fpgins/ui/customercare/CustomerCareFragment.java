@@ -1,7 +1,9 @@
 package com.example.fpgins.ui.customercare;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -14,7 +16,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,12 +23,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
 
 import com.example.fpgins.BottomSheetDialog.BottomSheetMaterialDialog;
-import com.example.fpgins.DataModel.DepartmentsData;
 import com.example.fpgins.DataModel.UserData;
 import com.example.fpgins.Network.Cloud;
 import com.example.fpgins.R;
 import com.example.fpgins.Utility.DefaultDialog;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -48,6 +47,7 @@ public class CustomerCareFragment extends AppCompatActivity{
     private List<String> list = new ArrayList<String>();
     private int id;
     private int departmentId = 0;
+    private ImageView mFacebook, mTwitter, mYoutube, mLinkedin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +61,6 @@ public class CustomerCareFragment extends AppCompatActivity{
                 onBackPressed();
             }
         });
-
         mUserData = new UserData(PreferenceManager.getDefaultSharedPreferences(getApplicationContext()));
         id = Integer.parseInt(mUserData.getId());
 
@@ -82,6 +81,63 @@ public class CustomerCareFragment extends AppCompatActivity{
                 String policyNumber = mNumber.getText().toString().trim();
                 String message = mMessage.getText().toString().trim();
                 sendInquiry(id, departmentId, policyNumber, message);
+            }
+        });
+
+        mFacebook = findViewById(R.id.img_facebook);
+        mTwitter = findViewById(R.id.img_twitter);
+        mYoutube = findViewById(R.id.img_youtube);
+        mLinkedin = findViewById(R.id.img_linkedin);
+
+        mFacebook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/fpginsurance.ph/"));
+                    startActivity(browserIntent);
+                }catch (Exception e){
+                    Toast.makeText(getApplicationContext(),
+                            "PLEASE CHECK URL IF VALID", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
+        mTwitter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/fpginsurance_ph?lang=en"));
+                    startActivity(browserIntent);
+                }catch (Exception e){
+                    Toast.makeText(getApplicationContext(),
+                            "PLEASE CHECK URL IF VALID", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
+        mYoutube.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/channel/UCoYyfzomZHUIIQxiJOWH7DA"));
+                    startActivity(browserIntent);
+                }catch (Exception e){
+                    Toast.makeText(getApplicationContext(),
+                            "PLEASE CHECK URL IF VALID", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
+        mLinkedin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.linkedin.com/company/fpg-insurance"));
+                    startActivity(browserIntent);
+                }catch (Exception e){
+                    Toast.makeText(getApplicationContext(),
+                            "PLEASE CHECK URL IF VALID", Toast.LENGTH_LONG).show();
+                }
             }
         });
     }

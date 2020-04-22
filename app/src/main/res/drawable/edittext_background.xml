@@ -10,7 +10,7 @@
 
     <stroke
         android:width=".3dp"
-        android:color="@color/fpg_gray"/>
+        android:color="@color/fineGray"/>
 
     <solid android:color="@android:color/white"/>
 

@@ -1,6 +1,7 @@
 package com.example.fpgins.BottomNavigation.Partners;
 
 
+import android.app.Dialog;
 import android.os.Bundle;
 
 import androidx.core.content.ContextCompat;
@@ -13,6 +14,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Toast;
 
 import com.example.fpgins.BottomNavigation.Claims.MainClaimsAdapter;
@@ -20,9 +22,11 @@ import com.example.fpgins.BottomNavigation.Claims.SubmittedFormsActivity;
 import com.example.fpgins.DataModel.MainClaimsData;
 import com.example.fpgins.DataModel.PartnersData;
 import com.example.fpgins.DataModel.SubmittedFormsData;
+import com.example.fpgins.Login.Login;
 import com.example.fpgins.Network.Cloud;
 import com.example.fpgins.Network.ImageUploaderUtility.DownloadImageTask;
 import com.example.fpgins.R;
+import com.wang.avi.AVLoadingIndicatorView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -43,6 +47,7 @@ public class PartnersFragment extends Fragment {
     private PartnersAdapter mAdapter;
     private SwipeRefreshLayout mSwipeRefresh;
     private List<PartnersData> mData = new ArrayList<>();
+    private AVLoadingIndicatorView mProgressPartners;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -50,6 +55,7 @@ public class PartnersFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_partners, container, false);
 
+        mProgressPartners = view.findViewById(R.id.progress_partners);
         mRecyclerView = view.findViewById(R.id.rv_Partners);
         mAdapter = new PartnersAdapter(mData, getActivity());
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
@@ -71,7 +77,6 @@ public class PartnersFragment extends Fragment {
 
         });
 
-
         getAllPartners();
 
         return view;
@@ -85,7 +90,6 @@ public class PartnersFragment extends Fragment {
 
     private void getAllPartners() {
         mData.clear();
-
         Cloud.getAllPartners(new Cloud.ResultListener() {
             @Override
             public void onResult(JSONObject result) {
@@ -103,6 +107,9 @@ public class PartnersFragment extends Fragment {
                 if (returnCode != Cloud.DefaultReturnCode.SUCCESS){
                     //FAIL
                     try {
+                        Toast.makeText(getContext(), "Please check your connection and try again",
+                                Toast.LENGTH_LONG).show();
+                        mProgressPartners.setVisibility(View.GONE);
                         String message = jsonObject.getString("message");
                         Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
                     } catch (JSONException e) {
@@ -111,6 +118,7 @@ public class PartnersFragment extends Fragment {
                 } else {
                     //SUCCESS
                     try {
+                        mProgressPartners.setVisibility(View.GONE);
                         JSONArray jsonArray = jsonObject.getJSONArray("record");
                         generateResult(jsonArray);
                         mRecyclerView.setAdapter(mAdapter);

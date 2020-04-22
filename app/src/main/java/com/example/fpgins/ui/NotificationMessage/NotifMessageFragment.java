@@ -32,7 +32,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class NotifMessageFragment extends AppCompatActivity {
 
@@ -43,12 +45,14 @@ public class NotifMessageFragment extends AppCompatActivity {
     private ImageView mBackButton;
     private UserData mUserData;
     ArrayList<String> mPictures = new ArrayList<String>();
+    private Dialog mDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.notification_messages);
 
+        mDialog = createLoadingDialog();
         mBackButton = findViewById(R.id.img_backbutton);
         mRecyclerView = findViewById(R.id.notifList);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
@@ -86,7 +90,7 @@ public class NotifMessageFragment extends AppCompatActivity {
     private void getList(){
         mSwipeRefresh.setRefreshing(true);
         mData.clear();
-
+        mDialog.show();
         Cloud.notificationAll(mUserData.getAccountCode(), new Cloud.ResultListener() {
             @Override
             public void onResult(JSONObject result) {
@@ -105,6 +109,7 @@ public class NotifMessageFragment extends AppCompatActivity {
                 if (returnCode != Cloud.DefaultReturnCode.SUCCESS){
                     //FAIL
                     try {
+                        mDialog.dismiss();
                         String message = jsonObject.getString("message");
                         Toast.makeText(NotifMessageFragment.this, message, Toast.LENGTH_SHORT).show();
                     } catch (JSONException e) {
@@ -113,6 +118,7 @@ public class NotifMessageFragment extends AppCompatActivity {
                 } else {
                     //SUCCESS
                     try {
+                        mDialog.dismiss();
                         JSONArray jsonArray = jsonObject.getJSONArray("record");
                         generateResult(jsonArray);
                         mRecyclerView.setAdapter(mAdapter);
@@ -159,8 +165,13 @@ public class NotifMessageFragment extends AppCompatActivity {
                 String notificationTypeName = jsonObject.getString("notification_type_name");
                 String notificationRecipientName = jsonObject.getString("notification_recipient_name");
 
+                SimpleDateFormat input = new SimpleDateFormat("yyyy-MM-dd");
+                Date datevalue = input.parse(postDate);
+                SimpleDateFormat output = new SimpleDateFormat("MMMM dd, yyyy");
+                String y = output.format(datevalue);
 
-                NotificationList data = new NotificationList(pict, title, content, postDate, postTime, mPictures, content, link);
+
+                NotificationList data = new NotificationList(pict, title, content, y, postTime, mPictures, content, link);
                 mData.add(data);
                 mPictures.clear();
             }
@@ -168,5 +179,14 @@ public class NotifMessageFragment extends AppCompatActivity {
         } catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    private Dialog createLoadingDialog() {
+        Dialog dialog = new Dialog(NotifMessageFragment.this, android.R.style.Theme_Black);
+        View view = LayoutInflater.from(NotifMessageFragment.this).inflate(R.layout.progress_bar, null);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.getWindow().setBackgroundDrawableResource(R.color.transparent);
+        dialog.setContentView(view);
+        return dialog;
     }
 }

@@ -24,7 +24,7 @@ public class NotifMessage extends AppCompatActivity {
     private ImageView mPrevious, mNext;
     private TextView mTitle;
     private TextView mDate;
-    private TextView mTime;
+//    private TextView mTime;
     private TextView mContent;
     private String mLink;
 
@@ -42,7 +42,7 @@ public class NotifMessage extends AppCompatActivity {
         mNext = findViewById(R.id.img_next);
         mTitle = findViewById(R.id.title);
         mDate = findViewById(R.id.date);
-        mTime = findViewById(R.id.time);
+//        mTime = findViewById(R.id.time);
         mContent = findViewById(R.id.content);
 
         slideshowImages = findViewById(R.id.slideshowPicture);
@@ -53,7 +53,7 @@ public class NotifMessage extends AppCompatActivity {
         if (bundle != null){
             mTitle.setText(bundle.getString("title"));
             mDate.setText(bundle.getString("date"));
-            mTime.setText(bundle.getString("time"));
+//            mTime.setText(bundle.getString("time"));
             mContent.setText(bundle.getString("content"));
             mLink = bundle.getString("link");
             ImagesArray = bundle.getStringArrayList("pictures");

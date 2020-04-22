@@ -23,16 +23,25 @@
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_Partners"
-                tools:listitem="@layout/main_claims_list"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-            </androidx.recyclerview.widget.RecyclerView>
+                    android:id="@+id/rv_Partners"
+                    tools:listitem="@layout/main_claims_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                </androidx.recyclerview.widget.RecyclerView>
 
         </ScrollView>
 
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
+    <com.wang.avi.AVLoadingIndicatorView
+        android:id="@+id/progress_partners"
+        android:layout_width="@dimen/progress_size"
+        android:layout_height="@dimen/progress_size"
+        android:layout_centerInParent="true"
+        style="@style/AVLoadingIndicatorView"
+        android:visibility="visible"
+        app:indicatorName="BallSpinFadeLoaderIndicator"
+        app:indicatorColor="@color/fpg_orange" />
 
 </RelativeLayout>

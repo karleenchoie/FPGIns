@@ -8,13 +8,13 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Point;
-import android.graphics.drawable.BitmapDrawable;
 import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Vibrator;
 import android.telephony.SmsManager;
+import android.text.Html;
 import android.util.Log;
 import android.view.HapticFeedbackConstants;
 import android.view.LayoutInflater;
@@ -32,7 +32,8 @@ import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.preference.PreferenceManager;
 
-import com.example.fpgins.BottomNavigation.Settings.PersonalInformation;
+import com.example.fpgins.DataModel.FirstSlideMenuData;
+import com.example.fpgins.DataModel.SOSData;
 import com.example.fpgins.DataModel.UserData;
 import com.example.fpgins.Network.Cloud;
 import com.example.fpgins.R;
@@ -48,12 +49,14 @@ import com.google.android.gms.maps.Projection;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.gson.JsonObject;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.Timer;
+import java.util.ArrayList;
+import java.util.List;
 
 public class FPGAssist extends Fragment implements OnMapReadyCallback {
 
@@ -278,9 +281,43 @@ public class FPGAssist extends Fragment implements OnMapReadyCallback {
                 }else {
                     //SUCCESS
                     try {
-                        sendSMS(mobile, "Location : " + location + "\n"
-                                + "Longitude : " + longitude +"\n"
-                                + "Latitude : " + latitude +"\n");
+                        JSONArray jsonArray = jsonObject.getJSONArray("record");
+//                        generateResult(jsonArray);
+                        ArrayList<String> mobileNumbers = new ArrayList<>();
+                        try {
+                            for (int i = 0; i < jsonArray.length(); i++){
+                                jsonObject = jsonArray.getJSONObject(i);
+
+                                JSONArray sos = jsonObject.getJSONArray("sos");
+                                JSONObject obj = sos.getJSONObject(0);
+                                String message = obj.getString("message");
+
+                                for (int m=0;m<sos.length();m++){
+                                    JSONObject jsonObject2 = sos.getJSONObject(m);
+                                    JSONArray recipient = jsonObject2.getJSONArray("recipient");
+
+                                    for (int r=0; r<recipient.length(); r++){
+                                        JSONObject obj2 = recipient.getJSONObject(r);
+                                        String mobile_no = obj2.getString("mobile_no");
+                                        mobileNumbers.add(mobile_no);
+                                    }
+                                }
+
+                                if (message.equals("")){
+                                    sendSMS(mobile, "Location : " + location + "\n"
+                                            + "Longitude : " + longitude +"\n"
+                                            + "Latitude : " + latitude);
+                                }else {
+                                    sendSMS(mobile, message +"\n" +"\n" + "Location : " + location + "\n"
+                                            + "Longitude : " + longitude +"\n"
+                                            + "Latitude : " + latitude);
+                                }
+                            }
+
+                        } catch (Exception e){
+                            e.printStackTrace();
+                        }
+
                     } catch (Exception e) {
                         e.getMessage();
                     }

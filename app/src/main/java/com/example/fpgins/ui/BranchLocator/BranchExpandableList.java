@@ -1,9 +1,12 @@
 package com.example.fpgins.ui.BranchLocator;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.PersistableBundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -12,12 +15,14 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import com.example.fpgins.BottomNavigation.Claims.SubmittedFormsActivity;
 import com.example.fpgins.DataModel.BranchData;
 import com.example.fpgins.ExpandableListAdapter;
 import com.example.fpgins.MenuModel;
 import com.example.fpgins.Network.Cloud;
 import com.example.fpgins.R;
 import com.google.gson.JsonArray;
+import com.wang.avi.AVLoadingIndicatorView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -36,6 +41,8 @@ public class BranchExpandableList extends AppCompatActivity {
     private HashMap<BranchData, List<BranchData>> mDataChild = new HashMap<>();
     private ExpandableListView mExpandableListView;
     private BranchExpandableListAdapter mAdapter;
+//    private AVLoadingIndicatorView mProgressBranchLocator;
+    private Dialog mDialog;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -44,6 +51,8 @@ public class BranchExpandableList extends AppCompatActivity {
 
 
         mExpandableListView = (ExpandableListView) findViewById(R.id.expandableList);
+//        mProgressBranchLocator = findViewById(R.id.progress_branchlocator);
+        mDialog = createLoadingDialog();
 
         mExpandableListView.setGroupIndicator(null);
         mExpandableListView.setChildIndicator(null);
@@ -68,6 +77,7 @@ public class BranchExpandableList extends AppCompatActivity {
     }
 
     public void getBranch(){
+        mDialog.show();
         mData.clear();
         mDataChild.clear();
         Cloud.getOfficeAddress(new Cloud.ResultListener() {
@@ -87,6 +97,10 @@ public class BranchExpandableList extends AppCompatActivity {
                 if (returnCode != Cloud.DefaultReturnCode.SUCCESS){
                     //FAIL
                     try {
+                        Toast.makeText(getApplicationContext(), "Please check your connection and try again",
+                                Toast.LENGTH_LONG).show();
+                        mDialog.dismiss();
+//                        mProgressBranchLocator.setVisibility(View.GONE);
                         String message = jsonObject.getString("message");
                         Toast.makeText(BranchExpandableList.this, message, Toast.LENGTH_SHORT).show();
                     } catch (JSONException e) {
@@ -95,6 +109,8 @@ public class BranchExpandableList extends AppCompatActivity {
                 } else {
                     //SUCCESS
                     try {
+                        mDialog.dismiss();
+//                        mProgressBranchLocator.setVisibility(View.GONE);
                         JSONArray jsonArray = jsonObject.getJSONArray("record");
                         generateResult(jsonArray);
                         mExpandableListView.setAdapter(mAdapter);
@@ -210,5 +226,14 @@ public class BranchExpandableList extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+    }
+
+    private Dialog createLoadingDialog() {
+        Dialog dialog = new Dialog(BranchExpandableList.this, android.R.style.Theme_Black);
+        View view = LayoutInflater.from(BranchExpandableList.this).inflate(R.layout.progress_bar, null);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.getWindow().setBackgroundDrawableResource(R.color.transparent);
+        dialog.setContentView(view);
+        return dialog;
     }
 }

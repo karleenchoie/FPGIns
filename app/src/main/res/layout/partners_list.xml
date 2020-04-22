@@ -36,7 +36,7 @@
 
     <ImageView
         android:id="@+id/imgPhoto"
-        android:scaleType="centerInside"
+        android:scaleType="centerCrop"
         android:layout_width="match_parent"
         android:layout_height="190dp"
         android:src="@drawable/default_image_banner"/>

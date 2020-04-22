@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -192,9 +193,9 @@
                 android:layout_height="match_parent">
 
                 <TextView
-
+                    android:id="@+id/txt_newsandevents"
                     android:paddingStart="@dimen/vertical_default_padding"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:layout_weight="1"
@@ -208,40 +209,35 @@
                     android:textSize="@dimen/setting_title"/>
 
                 <TextView
+                    android:background="@color/white"
+                    android:paddingStart="20dp"
+                    android:layout_below="@+id/txt_newsandevents"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ellipsize="middle"
+                    android:layout_gravity="center_vertical"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true"
+                    android:text="Current and precise"
+                    android:textColor="@color/fpg_gray"
+                    android:textStyle="normal"
+                    android:paddingBottom="@dimen/vertical_default_padding"
+                    android:textSize="@dimen/textview_error_textsize"/>
+
+                <ImageView
                     android:id="@+id/viewAll"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="@drawable/view_all_button"
-                    android:ellipsize="middle"
                     android:scrollHorizontally="true"
-                    android:singleLine="true"
-                    android:text="View All"
-                    android:textColor="@color/fpg_orange"
-                    android:textStyle="bold"
-                    android:padding="5dp"
+                    android:layout_centerVertical="true"
+                    android:padding="10dp"
                     android:layout_alignParentRight="true"
                     android:layout_marginEnd="10dp"
-                    android:textSize="@dimen/setting_title"/>
-
+                    android:src="@drawable/ic_action_right"/>
 
             </RelativeLayout>
-
-            <TextView
-                android:background="@color/white"
-                android:paddingStart="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ellipsize="middle"
-                android:layout_gravity="center_vertical"
-                android:scrollHorizontally="true"
-                android:singleLine="true"
-                android:text="Current and precise"
-                android:textColor="@color/fpg_gray"
-                android:textStyle="normal"
-                android:paddingBottom="@dimen/vertical_default_padding"
-                android:textSize="@dimen/textview_error_textsize"/>
 
             <ScrollView
                 android:background="@color/white"
@@ -249,18 +245,34 @@
                 android:layout_height="match_parent"
                 android:fillViewport="true">
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/firstMenuSlideRView"
-                    tools:listitem="@layout/item_dashboard_promo"
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_marginHorizontal="@dimen/vertical_default_padding"
-                    android:verticalSpacing="@dimen/vertical_default_padding"
-                    android:layout_height="wrap_content">
-                </androidx.recyclerview.widget.RecyclerView>
+                    android:layout_height="match_parent"
+                    android:minHeight="@dimen/recycler_view_minimum_height">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/firstMenuSlideRView"
+                        tools:listitem="@layout/item_dashboard_promo"
+                        android:layout_width="match_parent"
+                        android:layout_marginHorizontal="@dimen/vertical_default_padding"
+                        android:verticalSpacing="@dimen/vertical_default_padding"
+                        android:layout_height="wrap_content">
+                    </androidx.recyclerview.widget.RecyclerView>
+
+                    <com.wang.avi.AVLoadingIndicatorView
+                        android:id="@+id/progress_newsandevents"
+                        android:layout_width="@dimen/progress_size"
+                        android:layout_height="@dimen/progress_size"
+                        style="@style/AVLoadingIndicatorView"
+                        android:visibility="visible"
+                        android:layout_centerInParent="true"
+                        app:indicatorName="BallSpinFadeLoaderIndicator"
+                        app:indicatorColor="@color/fpg_orange" />
+                </RelativeLayout>
 
             </ScrollView>
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/white"
@@ -289,8 +301,18 @@
                     android:layout_marginHorizontal="@dimen/vertical_default_padding">
                 </androidx.viewpager.widget.ViewPager>
 
+                <com.wang.avi.AVLoadingIndicatorView
+                    android:id="@+id/progress_banner"
+                    android:layout_width="@dimen/progress_size"
+                    android:layout_height="@dimen/progress_size"
+                    style="@style/AVLoadingIndicatorView"
+                    android:visibility="visible"
+                    android:layout_centerInParent="true"
+                    app:indicatorName="BallSpinFadeLoaderIndicator"
+                    app:indicatorColor="@color/fpg_orange" />
 
-            </LinearLayout>
+
+            </RelativeLayout>
 
         </LinearLayout>
 

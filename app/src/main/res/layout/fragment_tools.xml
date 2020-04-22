@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:fab="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:descendantFocusability="beforeDescendants"
     android:focusableInTouchMode="true"
@@ -12,6 +12,7 @@
     android:animateLayoutChanges="true">
 
     <LinearLayout
+        android:id="@+id/linear_main"
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
         android:layout_gravity="left"
@@ -47,12 +48,14 @@
         android:fillViewport="true"
         android:paddingHorizontal="@dimen/horizontal_default_padding"
         android:scrollbars="none"
+        android:layout_below="@id/linear_main"
         android:id="@+id/createPasswordScrollView"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginVertical="@dimen/vertical_default_padding"
             android:orientation="vertical">
 
             <TextView
@@ -60,7 +63,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:paddingTop="@dimen/vertical_default_padding"
+                android:paddingVertical="@dimen/vertical_default_padding"
                 android:text="@string/cc_definition"
                 android:textAlignment="center"
                 android:lineSpacingExtra="@dimen/paragraph_default_padding"
@@ -104,7 +107,6 @@
                 android:imeOptions="actionNext"
                 android:inputType="text"
                 android:scrollHorizontally="true"
-                android:layout_weight="1"
                 android:textSize="@dimen/edittext_textsize" />
 
             <EditText
@@ -118,9 +120,6 @@
                 android:focusableInTouchMode="true"
                 android:background="@drawable/edittext_background"
                 android:imeOptions="actionNext"
-                android:inputType="text"
-                android:scrollHorizontally="true"
-                android:layout_weight="1"
                 android:textSize="@dimen/edittext_textsize" />
 
 
@@ -137,7 +136,154 @@
                 android:background="@drawable/login_button" />
 
         </LinearLayout>
-
-
     </ScrollView>
-</LinearLayout>
+
+    <View
+        android:id="@+id/v_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/fineGray"
+        android:layout_marginTop="@dimen/setting_head_text_size"
+        android:layout_below="@id/createPasswordScrollView">
+    </View>
+
+    <TextView
+        android:id="@+id/txt_SocialMedia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/v_line"
+        android:layout_marginTop="31dp"
+        android:gravity="center"
+        android:paddingHorizontal="@dimen/horizontal_default_padding"
+        android:paddingVertical="@dimen/vertical_default_padding"
+        android:text="Check us out on our social media platforms"
+        android:textColor="@color/fpg_gray"
+        android:textSize="@dimen/setting_title"
+        android:textStyle="bold" />
+
+    <RelativeLayout
+        android:id="@+id/rv_social_media"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="@dimen/horizontal_default_padding"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/vertical_default_padding"
+        android:layout_below="@+id/txt_SocialMedia"
+        android:paddingVertical="@dimen/vertical_default_padding">
+
+        <ImageView
+            android:id="@+id/img_facebook"
+            android:layout_width="@dimen/social_media_icons"
+            android:layout_height="@dimen/social_media_icons"
+            android:layout_toLeftOf="@id/img_twitter"
+            android:layout_marginRight="@dimen/horizontal_default_padding"
+            android:src="@drawable/facebook"/>
+
+        <ImageView
+            android:id="@+id/img_twitter"
+            android:layout_width="@dimen/social_media_icons"
+            android:layout_height="@dimen/social_media_icons"
+            android:layout_toLeftOf="@id/img_youtube"
+            android:layout_marginRight="@dimen/horizontal_default_padding"
+            android:src="@drawable/twitter" />
+
+        <ImageView
+            android:id="@+id/img_youtube"
+            android:layout_width="@dimen/social_media_icons"
+            android:layout_height="@dimen/social_media_icons"
+            android:layout_toLeftOf="@id/img_linkedin"
+            android:layout_marginRight="@dimen/horizontal_default_padding"
+            android:src="@drawable/youtube"/>
+
+        <ImageView
+            android:id="@+id/img_linkedin"
+            android:layout_width="@dimen/social_media_icons"
+            android:layout_height="@dimen/social_media_icons"
+            android:src="@drawable/linkedin"/>
+    </RelativeLayout>
+
+<!--    <View-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="1dp"-->
+<!--        android:background="@color/fineGray"-->
+<!--        android:layout_marginTop="@dimen/setting_head_text_size"-->
+<!--        android:layout_below="@id/rv_social_media">-->
+<!--    </View>-->
+
+<!--    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--        xmlns:fab="http://schemas.android.com/apk/res-auto"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent">-->
+
+<!--        <com.github.clans.fab.FloatingActionMenu-->
+<!--            android:id="@+id/social_floating_menu"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignParentBottom="true"-->
+<!--            android:layout_alignParentRight="true"-->
+<!--            android:layout_marginBottom="11dp"-->
+<!--            android:layout_marginLeft="11dp"-->
+<!--            android:layout_marginRight="11dp"-->
+<!--            fab:menu_animationDelayPerItem="55"-->
+<!--            fab:menu_backgroundColor="@android:color/transparent"-->
+<!--            fab:menu_buttonSpacing="0dp"-->
+<!--            fab:menu_colorNormal="#da3c2f"-->
+<!--            fab:menu_colorPressed="#dc4b3f"-->
+<!--            fab:menu_colorRipple="#99d4d4d4"-->
+<!--            fab:menu_fab_label="Floating Social Icons"-->
+<!--            fab:menu_fab_size="normal"-->
+<!--            fab:menu_icon="@drawable/fab_add"-->
+<!--            fab:menu_labels_colorNormal="#333"-->
+<!--            fab:menu_labels_colorPressed="#444"-->
+<!--            fab:menu_labels_colorRipple="#66efecec"-->
+<!--            fab:menu_labels_cornerRadius="3dp"-->
+<!--            fab:menu_labels_ellipsize="none"-->
+<!--            fab:menu_labels_hideAnimation="@anim/fab_slide_out_to_right"-->
+<!--            fab:menu_labels_margin="0dp"-->
+<!--            fab:menu_labels_maxLines="-1"-->
+<!--            fab:menu_labels_padding="8dp"-->
+<!--            fab:menu_labels_position="left"-->
+<!--            fab:menu_labels_showAnimation="@anim/fab_slide_in_from_right"-->
+<!--            fab:menu_labels_showShadow="true"-->
+<!--            fab:menu_labels_singleLine="false"-->
+<!--            fab:menu_labels_textColor="#f2f1f1"-->
+<!--            fab:menu_labels_textSize="15sp"-->
+<!--            fab:menu_openDirection="up"-->
+<!--            fab:menu_shadowColor="#66aff198"-->
+<!--            fab:menu_shadowRadius="4dp"-->
+<!--            fab:menu_shadowXOffset="1dp"-->
+<!--            fab:menu_shadowYOffset="4dp"-->
+<!--            fab:menu_showShadow="true">-->
+
+<!--            <com.github.clans.fab.FloatingActionButton-->
+<!--                android:id="@+id/floating_facebook"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:src="@mipmap/facebook"-->
+<!--                fab:fab_size="mini" />-->
+
+<!--            <com.github.clans.fab.FloatingActionButton-->
+<!--                android:id="@+id/floating_twitter"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:src="@mipmap/twitter"-->
+<!--                fab:fab_size="mini" />-->
+
+<!--            <com.github.clans.fab.FloatingActionButton-->
+<!--                android:id="@+id/floating_linkdin"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:src="@mipmap/linkedin"-->
+<!--                fab:fab_size="mini" />-->
+
+<!--            <com.github.clans.fab.FloatingActionButton-->
+<!--                android:id="@+id/floating_youtube"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:src="@mipmap/youtube"-->
+<!--                fab:fab_size="mini" />-->
+
+<!--        </com.github.clans.fab.FloatingActionMenu>-->
+<!--    </RelativeLayout>-->
+
+</RelativeLayout>

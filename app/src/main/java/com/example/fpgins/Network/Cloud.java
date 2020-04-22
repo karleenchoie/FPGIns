@@ -81,9 +81,9 @@ public class Cloud {
     }
 
     //DEMO STAGE
-    public static final String DOMAIN_NAME = "http://10.52.254.58/eclaims";
+    public static final String DOMAIN_NAME = "http://10.52.2.58/eclaims";
     //CMS
-    public static final String DOMAIN_NAME_CMS = "http://10.52.254.58/control";
+    public static final String DOMAIN_NAME_CMS = "http://10.52.2.58/control";
 //    public static final String DOMAIN_NAME = "http://10.52.2.58/eclaims/account";
 
     public static final int REQUEST_CONNECTION_TIMEOUT = 10;
@@ -1216,7 +1216,7 @@ public class Cloud {
     }
 
     private static JSONObject sosAlert(int accountId, String location, String longitude, String latitude, String mobileNo) throws IOException, JSONException {
-        String url = HttpUrl.parse(DOMAIN_NAME_CMS + "/support/sos-manage").newBuilder()
+        String url = HttpUrl.parse(DOMAIN_NAME_CMS + "/system/setup").newBuilder()
                 .addQueryParameter("account_id", String.valueOf(accountId))
                 .addQueryParameter("location", location)
                 .addQueryParameter("longitude", longitude)

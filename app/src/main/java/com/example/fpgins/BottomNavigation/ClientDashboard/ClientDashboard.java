@@ -46,6 +46,7 @@ import com.hookedonplay.decoviewlib.DecoView;
 import com.hookedonplay.decoviewlib.charts.EdgeDetail;
 import com.hookedonplay.decoviewlib.charts.SeriesItem;
 import com.hookedonplay.decoviewlib.events.DecoEvent;
+import com.wang.avi.AVLoadingIndicatorView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -63,7 +64,8 @@ public class ClientDashboard extends Fragment {
     private FirstSlideMenuAdapter mAdapter;
     private LinearLayout mFileClaim, mMotor, mPersonalAccident, mTravel, mCorporate, mHome;
     private LinearLayout mFileExisting, mTransactionHistory, mShowMoreMenu, mMoreMenus, mShowLessMenu, mChangingMenu;
-    private TextView mViewAll, mShowmore;
+    private ImageView mViewAll;
+    private TextView mShowmore;
 
     private ViewPager mSingleImage;
     private List<BannerData> ImagesArray = new ArrayList<BannerData>();
@@ -82,6 +84,9 @@ public class ClientDashboard extends Fragment {
     private int backIndex, series1Index;
     private TextView mPercentage;
     private DecoView decoView;
+    private ImageView mHide;
+    private RelativeLayout mAgentHead;
+    private AVLoadingIndicatorView mProgressNews, mProgressBanner;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -125,6 +130,8 @@ public class ClientDashboard extends Fragment {
         mViewAll = view.findViewById(R.id.viewAll);
 //        mChangingMenu = view.findViewById(R.id.linear_changingMenu);
         mSingleImage = view.findViewById(R.id.imageUploaded);
+        mProgressNews = view.findViewById(R.id.progress_newsandevents);
+        mProgressBanner = view.findViewById(R.id.progress_banner);
 
         mTransactionHistory = view.findViewById(R.id.topLinearLayout);
         mShowMoreMenu = view.findViewById(R.id.linear_showMore);
@@ -272,6 +279,15 @@ public class ClientDashboard extends Fragment {
 
         decoView = view.findViewById(R.id.dynamicArcView);
         mPercentage = view.findViewById(R.id.txt_percentage);
+        mAgentHead = view.findViewById(R.id.rv_agentHead);
+        mHide = view.findViewById(R.id.img_hideGraph);
+
+        mHide.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mAgentHead.setVisibility(View.GONE);
+            }
+        });
 
         final SeriesItem seriesItem = new SeriesItem.Builder(Color.parseColor("#FFE2E2E2"))
                 .setLineWidth(29f)
@@ -289,6 +305,7 @@ public class ClientDashboard extends Fragment {
 
         backIndex = decoView.addSeries(seriesItem);
         series1Index = decoView.addSeries(seriesItem2);
+
 
         seriesItem.addArcSeriesItemListener(new SeriesItem.SeriesItemListener() {
             @Override
@@ -327,7 +344,6 @@ public class ClientDashboard extends Fragment {
 
     private void getFirstMenuData(){
         mData.clear();
-
         Cloud.getNewsAndEvents(new Cloud.ResultListener() {
             @Override
             public void onResult(JSONObject result) {
@@ -345,6 +361,9 @@ public class ClientDashboard extends Fragment {
                 if (returnCode != Cloud.DefaultReturnCode.SUCCESS){
                     //FAIL
                     try {
+                        Toast.makeText(getContext(), "Please check your connection and try again",
+                                Toast.LENGTH_LONG).show();
+                        mProgressNews.setVisibility(View.GONE);
                         String message = jsonObject.getString("message");
                         Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
                     } catch (JSONException e) {
@@ -353,6 +372,7 @@ public class ClientDashboard extends Fragment {
                 } else {
                     //SUCCESS
                     try {
+                        mProgressNews.setVisibility(View.GONE);
                         JSONArray jsonArray = jsonObject.getJSONArray("record");
                         generateResult(jsonArray);
                         mRecyclerView.setAdapter(mAdapter);
@@ -427,6 +447,9 @@ public class ClientDashboard extends Fragment {
                 if (returnCode != Cloud.DefaultReturnCode.SUCCESS){
                     //FAIL
                     try {
+                        Toast.makeText(getContext(), "Please check your connection and try again",
+                                Toast.LENGTH_LONG).show();
+                        mProgressBanner.setVisibility(View.GONE);
                         String message = jsonObject.getString("message");
                         Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
                     } catch (JSONException e) {
@@ -435,6 +458,7 @@ public class ClientDashboard extends Fragment {
                 } else {
                     //SUCCESS
                     try {
+                        mProgressBanner.setVisibility(View.GONE);
                         JSONArray jsonArray = jsonObject.getJSONArray("record");
                         generateBannerResult(jsonArray);
                     } catch (Exception e) {

@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.example.fpgins.DataModel.ClientNameData;
@@ -14,8 +15,9 @@ import java.util.ArrayList;
 
 public class ClientNameDetails extends AppCompatActivity {
 
-    private RecyclerView mRecyclerView;
     private ImageView mBackButton;
+    private RecyclerView mRecyclerView;
+    private EditText mPrimaryEmail, mFirstName, mLastName, mBirthday, mContact1;
 
 
     @Override
@@ -30,5 +32,11 @@ public class ClientNameDetails extends AppCompatActivity {
                 onBackPressed();
             }
         });
+
+        mPrimaryEmail = findViewById(R.id.txt_clientEmail);
+        mFirstName = findViewById(R.id.txt_clientFirstName);
+        mLastName = findViewById(R.id.txt_clientLastName);
+        mBirthday = findViewById(R.id.txt_clientBday);
+        mContact1 = findViewById(R.id.txt_clientMobile);
     }
 }

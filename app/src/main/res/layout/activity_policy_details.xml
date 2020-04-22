@@ -39,152 +39,189 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:clickable="true"
-            android:paddingVertical="@dimen/vertical_default_padding"
-            android:foreground="?android:attr/selectableItemBackground">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="left"
-                android:maxLines="1"
-                android:layout_marginTop="@dimen/listing_division"
-                android:text="Make"
-                android:textColor="@color/fpg_gray"
-                android:textSize="@dimen/setting_title" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/txt_carmake"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="right"
-                android:maxLines="1"
-                android:layout_marginTop="@dimen/listing_division"
-                android:textAllCaps="true"
-                android:textColor="@color/fpg_gray"
-                android:textSize="@dimen/setting_title"
-                android:textStyle="bold"/>
+                android:orientation="horizontal"
+                android:clickable="true"
+                android:paddingVertical="@dimen/vertical_default_padding"
+                android:foreground="?android:attr/selectableItemBackground">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:maxLines="1"
+                    android:layout_marginTop="@dimen/listing_division"
+                    android:text="Make / Model"
+                    android:textColor="@color/fpg_gray"
+                    android:textSize="@dimen/setting_title" />
+
+                <TextView
+                    android:id="@+id/txt_carmake"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:maxLines="1"
+                    android:layout_marginTop="@dimen/listing_division"
+                    android:textAllCaps="true"
+                    android:textColor="@color/fpg_gray"
+                    android:textSize="@dimen/setting_title"
+                    android:textStyle="bold"/>
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:clickable="true"
-            android:paddingVertical="@dimen/vertical_default_padding"
-            android:foreground="?android:attr/selectableItemBackground">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="left"
-                android:maxLines="1"
-                android:layout_marginTop="@dimen/listing_division"
-                android:text="Value"
-                android:textColor="@color/fpg_gray"
-                android:textSize="@dimen/setting_title" />
-
-            <TextView
-                android:id="@+id/txt_carValue"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="right"
-                android:maxLines="1"
-                android:layout_marginTop="@dimen/listing_division"
-                android:textAllCaps="true"
-                android:textColor="@color/fpg_gray"
-                android:textSize="@dimen/setting_title"
-                android:textStyle="bold"/>
-        </LinearLayout>
+                android:orientation="horizontal"
+                android:clickable="true"
+                android:paddingVertical="@dimen/vertical_default_padding"
+                android:foreground="?android:attr/selectableItemBackground">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:maxLines="1"
+                    android:layout_marginTop="@dimen/listing_division"
+                    android:text="Value"
+                    android:textColor="@color/fpg_gray"
+                    android:textSize="@dimen/setting_title" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:clickable="true"
-            android:paddingVertical="@dimen/vertical_default_padding"
-            android:foreground="?android:attr/selectableItemBackground">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="left"
-                android:maxLines="1"
-                android:layout_marginTop="@dimen/listing_division"
-                android:text="Year"
-                android:textColor="@color/fpg_gray"
-                android:textSize="@dimen/setting_title" />
+                <TextView
+                    android:id="@+id/txt_carValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:maxLines="1"
+                    android:layout_marginTop="@dimen/listing_division"
+                    android:textAllCaps="true"
+                    android:textColor="@color/fpg_gray"
+                    android:textSize="@dimen/setting_title"
+                    android:textStyle="bold"/>
+            </LinearLayout>
 
-            <TextView
-                android:id="@+id/txt_carYear"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="right"
-                android:maxLines="1"
-                android:layout_marginTop="@dimen/listing_division"
-                android:textAllCaps="true"
-                android:textColor="@color/fpg_gray"
-                android:textSize="@dimen/setting_title"
-                android:textStyle="bold"/>
-        </LinearLayout>
+                android:orientation="horizontal"
+                android:clickable="true"
+                android:paddingVertical="@dimen/vertical_default_padding"
+                android:foreground="?android:attr/selectableItemBackground">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:maxLines="1"
+                    android:layout_marginTop="@dimen/listing_division"
+                    android:text="Year"
+                    android:textColor="@color/fpg_gray"
+                    android:textSize="@dimen/setting_title" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:clickable="true"
-            android:paddingVertical="@dimen/vertical_default_padding"
-            android:foreground="?android:attr/selectableItemBackground">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="left"
-                android:maxLines="1"
-                android:layout_marginTop="@dimen/listing_division"
-                android:text="@string/plate_no"
-                android:textColor="@color/fpg_gray"
-                android:textSize="@dimen/setting_title" />
+                <TextView
+                    android:id="@+id/txt_carYear"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:maxLines="1"
+                    android:layout_marginTop="@dimen/listing_division"
+                    android:textAllCaps="true"
+                    android:textColor="@color/fpg_gray"
+                    android:textSize="@dimen/setting_title"
+                    android:textStyle="bold"/>
+            </LinearLayout>
 
-            <TextView
-                android:id="@+id/txt_platenum"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="right"
-                android:maxLines="1"
-                android:layout_marginTop="@dimen/listing_division"
-                android:textAllCaps="true"
-                android:textColor="@color/fpg_gray"
-                android:textSize="@dimen/setting_title"
-                android:textStyle="bold"/>
-        </LinearLayout>
+                android:orientation="horizontal"
+                android:clickable="true"
+                android:paddingVertical="@dimen/vertical_default_padding"
+                android:foreground="?android:attr/selectableItemBackground">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:maxLines="1"
+                    android:layout_marginTop="@dimen/listing_division"
+                    android:text="@string/plate_no"
+                    android:textColor="@color/fpg_gray"
+                    android:textSize="@dimen/setting_title" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:clickable="true"
-            android:paddingVertical="@dimen/vertical_default_padding"
-            android:foreground="?android:attr/selectableItemBackground">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="left"
-                android:maxLines="1"
-                android:layout_marginTop="@dimen/listing_division"
-                android:text="Chassis Number"
-                android:textColor="@color/fpg_gray"
-                android:textSize="@dimen/setting_title" />
+                <TextView
+                    android:id="@+id/txt_platenum"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:maxLines="1"
+                    android:layout_marginTop="@dimen/listing_division"
+                    android:textAllCaps="true"
+                    android:textColor="@color/fpg_gray"
+                    android:textSize="@dimen/setting_title"
+                    android:textStyle="bold"/>
+            </LinearLayout>
 
-            <TextView
-                android:id="@+id/txt_chassisnum"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="right"
-                android:maxLines="1"
-                android:layout_marginTop="@dimen/listing_division"
-                android:textAllCaps="true"
-                android:textColor="@color/fpg_gray"
-                android:textSize="@dimen/setting_title"
-                android:textStyle="bold"/>
+                android:orientation="horizontal"
+                android:clickable="true"
+                android:paddingVertical="@dimen/vertical_default_padding"
+                android:foreground="?android:attr/selectableItemBackground">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:maxLines="1"
+                    android:layout_marginTop="@dimen/listing_division"
+                    android:text="Chassis Number"
+                    android:textColor="@color/fpg_gray"
+                    android:textSize="@dimen/setting_title" />
+
+                <TextView
+                    android:id="@+id/txt_chassisnum"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:maxLines="1"
+                    android:layout_marginTop="@dimen/listing_division"
+                    android:textAllCaps="true"
+                    android:textColor="@color/fpg_gray"
+                    android:textSize="@dimen/setting_title"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:clickable="true"
+                android:paddingVertical="@dimen/vertical_default_padding"
+                android:foreground="?android:attr/selectableItemBackground">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:maxLines="1"
+                    android:layout_marginTop="@dimen/listing_division"
+                    android:text="Variant"
+                    android:textColor="@color/fpg_gray"
+                    android:textSize="@dimen/setting_title" />
+
+                <TextView
+                    android:id="@+id/txt_variant"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:maxLines="1"
+                    android:layout_marginTop="@dimen/listing_division"
+                    android:textAllCaps="true"
+                    android:textColor="@color/fpg_gray"
+                    android:textSize="@dimen/setting_title"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
         </LinearLayout>
 
     </LinearLayout>
