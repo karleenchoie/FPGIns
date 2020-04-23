@@ -27,6 +27,7 @@ import com.example.fpgins.DataModel.UserData;
 import com.example.fpgins.Login.Login;
 import com.example.fpgins.Login.Session.UserSessionManager;
 import com.example.fpgins.Network.Cloud;
+import com.example.fpgins.Network.ImageUploaderUtility.DownloadImageTask;
 import com.example.fpgins.R;
 import com.mvc.imagepicker.ImagePicker;
 
@@ -64,6 +65,7 @@ public class SettingsFragment extends Fragment {
                 .placeholder(R.drawable.default_image)
                 .load(mUserData.getPhoto())
                 .into(mAccountPicture);
+
         mFullName.setText(mUserData.getFirstName()+ " " + mUserData.getLastName());
     }
 

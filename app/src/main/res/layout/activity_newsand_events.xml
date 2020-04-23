@@ -78,21 +78,21 @@
                         android:text="26 Nov 1992"
                         android:textSize="@dimen/textview_error_textsize" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:textColor="@color/black_opacity50"
-                        android:text=" / "/>
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_gravity="center_vertical"-->
+<!--                        android:textColor="@color/black_opacity50"-->
+<!--                        android:text=" / "/>-->
 
-                    <TextView
-                        android:id="@+id/time"
-                        android:gravity="center_vertical"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black_opacity50"
-                        android:text="11:26 AM"
-                        android:textSize="@dimen/textview_error_textsize" />
+<!--                    <TextView-->
+<!--                        android:id="@+id/time"-->
+<!--                        android:gravity="center_vertical"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:textColor="@color/black_opacity50"-->
+<!--                        android:text="11:26 AM"-->
+<!--                        android:textSize="@dimen/textview_error_textsize" />-->
 
                 </LinearLayout>
 

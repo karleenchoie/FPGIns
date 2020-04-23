@@ -24,7 +24,7 @@ public class NewsandEvents extends AppCompatActivity {
     private ImageView mPrevious, mNext;
     private TextView mTitle;
     private TextView mDate;
-    private TextView mTime;
+//    private TextView mTime;
     private TextView mContent;
     private String mLink;
 
@@ -41,7 +41,7 @@ public class NewsandEvents extends AppCompatActivity {
         mNext = findViewById(R.id.img_next);
         mTitle = findViewById(R.id.title);
         mDate = findViewById(R.id.date);
-        mTime = findViewById(R.id.time);
+//        mTime = findViewById(R.id.time);
         mContent = findViewById(R.id.content);
 
         slideshowImages = findViewById(R.id.slideshowPicture);
@@ -52,7 +52,7 @@ public class NewsandEvents extends AppCompatActivity {
         if (bundle != null){
             mTitle.setText(bundle.getString("title"));
             mDate.setText(bundle.getString("postDate"));
-            mTime.setText("");
+//            mTime.setText("");
             mContent.setText(bundle.getString("description"));
             mLink = bundle.getString("link");
             ImagesArray = bundle.getStringArrayList("pictures");
