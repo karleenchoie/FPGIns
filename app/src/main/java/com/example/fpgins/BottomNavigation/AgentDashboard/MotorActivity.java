@@ -11,6 +11,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -90,24 +91,31 @@ public class MotorActivity extends AppCompatActivity {
                     }
                 });
 
-
-                groupMake.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
-                    @Override
-                    public void onCheckedChanged(ChipGroup chipGroup, int i) {
-                        Chip chip = chipGroup.findViewById(i);
-                        if (chip != null){
-                            Toast.makeText(MotorActivity.this, chip.getText().toString(),Toast.LENGTH_LONG).show();
-                            make = chip.getText().toString().toLowerCase();
+                final ArrayList<String> list = new ArrayList<>();
+                for(int i = 0; i < groupMake.getChildCount(); i++){
+                    Chip chip = (Chip) groupMake.getChildAt(i);
+                    chip.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                        @Override
+                        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                            if(isChecked){
+                                list.add(buttonView.getText().toString());
+                            }else{
+                                list.remove(buttonView.getText().toString());
+                            }
+                            if(!list.isEmpty()){
+                                Toast.makeText(MotorActivity.this, list.toString(),Toast.LENGTH_LONG).show();
+                            }
                         }
-                    }
-                });
+                    });
+                }
 
                 alertDialogBuilder
                         .setCancelable(false)
                         .setPositiveButton(R.string.done, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                filteredContent = value + "," + year + "," + make;
+//                                String output = list.toString().replaceAll("(^\\[|\\]$)", "");
+                                filteredContent = value + "," + year + "," + list;
                                 mAdapter.getFilter().filter(filteredContent);
                             }
                         })

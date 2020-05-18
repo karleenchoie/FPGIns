@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BottomNavigation.Claims.TabLayout.TabularActivity">
+
+    <LinearLayout
+        android:id="@+id/linearMain"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:paddingRight="@dimen/horizontal_default_padding"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/img_backbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="@dimen/page_default_margin_horizontal"
+            android:paddingVertical="@dimen/page_default_margin_horizontal"
+            android:paddingLeft="@dimen/horizontal_default_padding"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_action_back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/policy_details"
+            android:textStyle="bold"
+            android:layout_gravity="center_vertical"
+            android:textSize="@dimen/head_textsize"
+            android:textColor="@color/fpg_gray">
+
+        </TextView>
+    </LinearLayout>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabs"
+        android:layout_below="@+id/linearMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabTextColor="@color/fpg_gray"
+        app:tabRippleColor="@null"
+        app:tabBackground="@drawable/tab_color_selector"
+        app:tabSelectedTextColor="@color/fpg_orange"
+        app:tabIndicatorColor="@color/fpg_orange"/>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_below="@+id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+</RelativeLayout>

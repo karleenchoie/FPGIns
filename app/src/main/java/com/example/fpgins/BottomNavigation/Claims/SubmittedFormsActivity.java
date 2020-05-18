@@ -38,7 +38,7 @@ public class SubmittedFormsActivity extends AppCompatActivity {
     private SubmittedFormsAdapter mAdapter;
     private SwipeRefreshLayout mSwipeRefresh;
 
-    private View mNoContent;
+    private View mNoContent, mNoDataFound;
     private TextView mTvInfo;
 
     private UserData mUserData;
@@ -58,6 +58,7 @@ public class SubmittedFormsActivity extends AppCompatActivity {
             }
         });
         mNoContent = findViewById(R.id.noContent);
+        mNoDataFound = findViewById(R.id.layout_noRecordsFound);
         mTvInfo = findViewById(R.id.tvResult);
 
 
@@ -115,7 +116,7 @@ public class SubmittedFormsActivity extends AppCompatActivity {
                     try {
                         mDialog.dismiss();
                         String message = jsonObject.getString("message");
-                        Toast.makeText(SubmittedFormsActivity.this, message, Toast.LENGTH_SHORT).show();
+                        mNoDataFound.setVisibility(View.VISIBLE);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -127,6 +128,7 @@ public class SubmittedFormsActivity extends AppCompatActivity {
                         mSubmittedList.setAdapter(mAdapter);
                         mSwipeRefresh.setRefreshing(false);
                         mDialog.dismiss();
+                        mNoDataFound.setVisibility(View.GONE);
                     } catch (Exception e) {
                         e.getMessage();
                     }

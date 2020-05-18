@@ -27,9 +27,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:paddingVertical="@dimen/vertical_default_padding"
-                    android:paddingHorizontal="@dimen/horizontal_default_padding"
-                    android:clickable="true"
-                    android:foreground="?android:attr/selectableItemBackground">
+                    android:paddingHorizontal="@dimen/horizontal_default_padding">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

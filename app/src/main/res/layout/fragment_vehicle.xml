@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".BottomNavigation.Settings.VehicleFragment">
+
+    <Spinner
+        android:gravity="center_vertical"
+        android:id="@+id/spinnerCarList"
+        android:layout_marginHorizontal="@dimen/horizontal_default_padding"
+        android:layout_marginTop="@dimen/vertical_default_padding"
+        android:layout_width="match_parent"
+        android:background="@null"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:layout_below="@id/spinnerCarList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/vertical_default_padding"
+        android:layout_marginHorizontal="@dimen/horizontal_default_padding"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:clickable="true"
+            android:paddingVertical="@dimen/vertical_default_padding">
+            <TextView
+                android:layout_width="@dimen/policy_title_width"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:maxLines="1"
+                android:layout_marginTop="@dimen/listing_division"
+                android:text="Make"
+                android:textColor="@color/fpg_gray"
+                android:textSize="@dimen/setting_title" />
+
+            <TextView
+                android:id="@+id/txt_detail_make"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:maxLines="1"
+                android:layout_marginTop="@dimen/listing_division"
+                android:textAllCaps="true"
+                android:textColor="@color/fpg_gray"
+                android:textSize="@dimen/setting_title"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:clickable="true"
+            android:paddingVertical="@dimen/vertical_default_padding">
+            <TextView
+                android:layout_width="@dimen/policy_title_width"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:maxLines="1"
+                android:layout_marginTop="@dimen/listing_division"
+                android:text="Model"
+                android:textColor="@color/fpg_gray"
+                android:textSize="@dimen/setting_title" />
+
+            <TextView
+                android:id="@+id/txt_detail_model"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:maxLines="1"
+                android:layout_marginTop="@dimen/listing_division"
+                android:textAllCaps="true"
+                android:textColor="@color/fpg_gray"
+                android:textSize="@dimen/setting_title"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:clickable="true"
+            android:paddingVertical="@dimen/vertical_default_padding">
+            <TextView
+                android:layout_width="@dimen/policy_title_width"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:maxLines="1"
+                android:layout_marginTop="@dimen/listing_division"
+                android:text="Variance"
+                android:textColor="@color/fpg_gray"
+                android:textSize="@dimen/setting_title" />
+
+            <TextView
+                android:id="@+id/txt_detail_variance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:maxLines="1"
+                android:layout_marginTop="@dimen/listing_division"
+                android:textAllCaps="true"
+                android:textColor="@color/fpg_gray"
+                android:textSize="@dimen/setting_title"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:clickable="true"
+            android:paddingVertical="@dimen/vertical_default_padding">
+            <TextView
+                android:layout_width="@dimen/policy_title_width"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:maxLines="1"
+                android:layout_marginTop="@dimen/listing_division"
+                android:text="Type Body"
+                android:textColor="@color/fpg_gray"
+                android:textSize="@dimen/setting_title" />
+
+            <TextView
+                android:id="@+id/txt_detail_typeBody"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:maxLines="1"
+                android:layout_marginTop="@dimen/listing_division"
+                android:textAllCaps="true"
+                android:textColor="@color/fpg_gray"
+                android:textSize="@dimen/setting_title"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:clickable="true"
+            android:paddingVertical="@dimen/vertical_default_padding">
+            <TextView
+                android:layout_width="@dimen/policy_title_width"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:maxLines="1"
+                android:layout_marginTop="@dimen/listing_division"
+                android:text="Year Manufactured"
+                android:textColor="@color/fpg_gray"
+                android:textSize="@dimen/setting_title" />
+
+            <TextView
+                android:id="@+id/txt_detail_year"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/listing_division"
+                android:gravity="right"
+                android:maxLines="1"
+                android:textAllCaps="true"
+                android:textColor="@color/fpg_gray"
+                android:textSize="@dimen/setting_title"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:clickable="true"
+            android:paddingVertical="@dimen/vertical_default_padding">
+            <TextView
+                android:layout_width="@dimen/policy_title_width"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:maxLines="1"
+                android:layout_marginTop="@dimen/listing_division"
+                android:text="Plate No."
+                android:textColor="@color/fpg_gray"
+                android:textSize="@dimen/setting_title" />
+
+            <TextView
+                android:id="@+id/txt_detail_plateNo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:maxLines="1"
+                android:layout_marginTop="@dimen/listing_division"
+                android:textColor="@color/fpg_gray"
+                android:textSize="@dimen/setting_title"
+                android:textStyle="bold"
+                android:textAllCaps="true"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:clickable="true"
+            android:paddingVertical="@dimen/vertical_default_padding">
+
+            <TextView
+                android:layout_width="@dimen/policy_title_width"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:maxLines="1"
+                android:layout_marginTop="@dimen/listing_division"
+                android:text="Conduction Sticker"
+                android:textColor="@color/fpg_gray"
+                android:textSize="@dimen/setting_title" />
+
+            <TextView
+                android:id="@+id/txt_detail_conduction"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:maxLines="1"
+                android:layout_marginTop="@dimen/listing_division"
+                android:textAllCaps="true"
+                android:textColor="@color/fpg_gray"
+                android:textSize="@dimen/setting_title"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:clickable="true"
+            android:paddingVertical="@dimen/vertical_default_padding">
+
+            <TextView
+                android:layout_width="@dimen/policy_title_width"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:maxLines="1"
+                android:layout_marginTop="@dimen/listing_division"
+                android:text="MV File No."
+                android:textColor="@color/fpg_gray"
+                android:textSize="@dimen/setting_title" />
+
+            <TextView
+                android:id="@+id/txt_detail_mvFileNo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:maxLines="1"
+                android:layout_marginTop="@dimen/listing_division"
+                android:textAllCaps="true"
+                android:textColor="@color/fpg_gray"
+                android:textSize="@dimen/setting_title"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:clickable="true"
+            android:paddingVertical="@dimen/vertical_default_padding">
+
+            <TextView
+                android:layout_width="@dimen/policy_title_width"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:maxLines="1"
+                android:layout_marginTop="@dimen/listing_division"
+                android:text="Engine No."
+                android:textColor="@color/fpg_gray"
+                android:textSize="@dimen/setting_title" />
+
+            <TextView
+                android:id="@+id/txt_detail_engineNo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:maxLines="1"
+                android:layout_marginTop="@dimen/listing_division"
+                android:textAllCaps="true"
+                android:textColor="@color/fpg_gray"
+                android:textSize="@dimen/setting_title"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:clickable="true"
+            android:paddingVertical="@dimen/vertical_default_padding">
+
+            <TextView
+                android:layout_width="@dimen/policy_title_width"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:maxLines="1"
+                android:layout_marginTop="@dimen/listing_division"
+                android:text="Chassis No."
+                android:textColor="@color/fpg_gray"
+                android:textSize="@dimen/setting_title" />
+
+            <TextView
+                android:id="@+id/txt_detail_chassisNo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:maxLines="1"
+                android:layout_marginTop="@dimen/listing_division"
+                android:textAllCaps="true"
+                android:textColor="@color/fpg_gray"
+                android:textSize="@dimen/setting_title"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:clickable="true"
+            android:paddingVertical="@dimen/vertical_default_padding">
+            <TextView
+                android:layout_width="@dimen/policy_title_width"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:maxLines="1"
+                android:layout_marginTop="@dimen/listing_division"
+                android:text="Color"
+                android:textColor="@color/fpg_gray"
+                android:textSize="@dimen/setting_title" />
+
+            <TextView
+                android:id="@+id/txt_detail_color"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:maxLines="1"
+                android:layout_marginTop="@dimen/listing_division"
+                android:textAllCaps="true"
+                android:textColor="@color/fpg_gray"
+                android:textSize="@dimen/setting_title"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:clickable="true"
+            android:paddingVertical="@dimen/vertical_default_padding">
+            <TextView
+                android:layout_width="@dimen/policy_title_width"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:maxLines="1"
+                android:layout_marginTop="@dimen/listing_division"
+                android:text="No. of Passenger"
+                android:textColor="@color/fpg_gray"
+                android:textSize="@dimen/setting_title" />
+
+            <TextView
+                android:id="@+id/txt_detail_passenger"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:maxLines="1"
+                android:layout_marginTop="@dimen/listing_division"
+                android:textAllCaps="true"
+                android:textColor="@color/fpg_gray"
+                android:textSize="@dimen/setting_title"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:clickable="true"
+            android:paddingVertical="@dimen/vertical_default_padding">
+            <TextView
+                android:layout_width="@dimen/policy_title_width"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:maxLines="1"
+                android:layout_marginTop="@dimen/listing_division"
+                android:text="Accessories"
+                android:textColor="@color/fpg_gray"
+                android:textSize="@dimen/setting_title" />
+
+            <TextView
+                android:id="@+id/txt_detail_accessories"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:maxLines="1"
+                android:layout_marginTop="@dimen/listing_division"
+                android:textAllCaps="true"
+                android:textColor="@color/fpg_gray"
+                android:textSize="@dimen/setting_title"
+                android:textStyle="bold"/>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

@@ -24,7 +24,7 @@
 
     <TextView
         android:id="@+id/txtThird"
-        android:text="Third"
+        android:text="Find out more"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/fpg_gray"
@@ -35,9 +35,7 @@
 
     <ImageView
         android:id="@+id/imgMainClaims"
-        android:scaleType="centerInside"
+        android:scaleType="centerCrop"
         android:layout_width="match_parent"
-        android:layout_height="180dp"
-        android:background="#e9eef1"
-        android:src="@drawable/default_image"/>
+        android:layout_height="180dp" />
 </LinearLayout>

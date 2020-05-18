@@ -9,19 +9,28 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.fpgins.BottomNavigation.Partners.PartnersAdapter;
 import com.example.fpgins.BottomNavigation.Products.ProductsFragment;
 import com.example.fpgins.DataModel.MainClaimsData;
+import com.example.fpgins.DataModel.PartnersData;
+import com.example.fpgins.DataModel.ProductsData;
+import com.example.fpgins.DataModel.UserData;
+import com.example.fpgins.Network.ImageUploaderUtility.DownloadImageTask;
 import com.example.fpgins.R;
 
 import java.util.List;
 
 public class MainClaimsAdapter extends RecyclerView.Adapter<MainClaimsAdapter.MyViewHolder> {
 
-    private List<MainClaimsData> mainClaimsList;
+//    private List<MainClaimsData> mainClaimsList;
+//    private Context mContext;
+//    public static String urlWeb = "https://www.fpgins.com/ph/products/motor";
+
+    private List<ProductsData> productsDataList;
     private Context mContext;
-    public static String urlWeb = "https://www.fpgins.com/ph/products/motor";
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public TextView details, title;
@@ -42,37 +51,37 @@ public class MainClaimsAdapter extends RecyclerView.Adapter<MainClaimsAdapter.My
         @Override
         public void onClick(View v) {
 
-            if (getLayoutPosition() == 0){
-                urlWeb = "https://www.fpgins.com/ph/products/motor";
-                Intent intent = new Intent(mContext, ProductsFragment.class);
-                mContext.startActivity(intent);
-            } if (getLayoutPosition() == 1){
-                urlWeb = "https://www.fpgins.com/ph/products/travel";
-                Intent intent = new Intent(mContext, ProductsFragment.class);
-                mContext.startActivity(intent);
-//            } if (getLayoutPosition() == 2){
-//                urlWeb = "https://www.fpgins.com/ph/products/personal-accident";
+            ProductsData productsData = productsDataList.get(getLayoutPosition());
+            Intent intent = new Intent(mContext, ProductsFragment.class);
+            intent.putExtra("product_url", productsData.getLink());
+            mContext.startActivity(intent);
+
+//            if (getLayoutPosition() == 0){
+//                urlWeb = "https://www.fpgins.com/ph/products/motor";
 //                Intent intent = new Intent(mContext, ProductsFragment.class);
+//                intent.putExtra("product_url", urlWeb);
 //                mContext.startActivity(intent);
-//            } if (getLayoutPosition() == 3){
-//                urlWeb = "https://www.fpgins.com/ph/products/home/home-insurance";
+//            } if (getLayoutPosition() == 1){
+//                urlWeb = "https://www.fpgins.com/ph/products/travel";
 //                Intent intent = new Intent(mContext, ProductsFragment.class);
+//                intent.putExtra("product_url", urlWeb);
 //                mContext.startActivity(intent);
-//            } if (getLayoutPosition() == 4){
-//                urlWeb = "https://www.fpgins.com/ph/corporate/corporate-products";
-//                Intent intent = new Intent(mContext, ProductsFragment.class);
-//                mContext.startActivity(intent);
-            }else {
-                //do nothing
-            }
+////            } if (getLayoutPosition() == 2){
+////                urlWeb = "https://www.google.com/";
+////                Intent intent = new Intent(mContext, ProductsFragment.class);
+////                intent.putExtra("product_url", urlWeb);
+////                mContext.startActivity(intent);
+//            }else {
+//                //do nothing
+//            }
 
         }
     }
 
 
-    public MainClaimsAdapter(List<MainClaimsData> mainClaimsList, Context contex) {
-        this.mainClaimsList = mainClaimsList;
-        this.mContext = contex;
+    public MainClaimsAdapter(List<ProductsData> productsData, Context context) {
+        this.productsDataList = productsData;
+        this.mContext = context;
     }
 
     @Override
@@ -84,15 +93,25 @@ public class MainClaimsAdapter extends RecyclerView.Adapter<MainClaimsAdapter.My
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
-        MainClaimsData mainClaims = mainClaimsList.get(position);
-        holder.title.setText(mainClaims.getTitle());
-        holder.details.setText(mainClaims.getDetails());
-        holder.image.setImageDrawable(mainClaims.getImage());
+    public void onBindViewHolder(MainClaimsAdapter.MyViewHolder holder, int position) {
+        ProductsData productsData = productsDataList.get(position);
+        holder.title.setText(productsData.getTitle());
+        holder.details.setText(productsData.getOffice_country_name());
+        String partnersPic = productsData.getCompanyPic().trim();
+
+        UserData userData = new UserData(PreferenceManager.getDefaultSharedPreferences(mContext));
+        String url = userData.getPhoto();
+//
+//        Glide.with(mContext)
+//                .asBitmap()
+//                .placeholder(R.drawable.default_image)
+//                .load(partnersData.getCompanyPic())
+//                .into(holder.image);
+        new DownloadImageTask(holder.image,partnersPic);
     }
 
     @Override
     public int getItemCount() {
-        return mainClaimsList.size();
+        return productsDataList.size();
     }
 }

@@ -82,11 +82,12 @@ public class ClientDashboard extends Fragment {
 
     //for Agent
     private int backIndex, series1Index;
-    private TextView mPercentage;
+    private TextView mPercentage, mTotalClient;
     private DecoView decoView;
     private ImageView mHide;
     private RelativeLayout mAgentHead;
     private AVLoadingIndicatorView mProgressNews, mProgressBanner;
+//    private boolean isShowEarning = false;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -280,8 +281,21 @@ public class ClientDashboard extends Fragment {
         decoView = view.findViewById(R.id.dynamicArcView);
         mPercentage = view.findViewById(R.id.txt_percentage);
         mAgentHead = view.findViewById(R.id.rv_agentHead);
-        mHide = view.findViewById(R.id.img_hideGraph);
 
+        mTotalClient = view.findViewById(R.id.txt_totalClient);
+//        mTotalEarnings.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                isShowEarning = !isShowEarning;
+//                if (!isShowEarning){
+//                    mTotalEarnings.setText("---------");
+//                }else {
+//                    mTotalEarnings.setText("₱ 971,000");
+//                }
+//            }
+//        });
+
+        mHide = view.findViewById(R.id.img_hideGraph);
         mHide.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -322,7 +336,11 @@ public class ClientDashboard extends Fragment {
         seriesItem2.addArcSeriesItemListener(new SeriesItem.SeriesItemListener() {
             @Override
             public void onSeriesItemAnimationProgress(float percentComplete, float currentPosition) {
-                float percentFilled = ((currentPosition - seriesItem2.getMinValue()) / (seriesItem2.getMaxValue() - seriesItem2.getMinValue()));
+                //text displayed percentage
+                float percentFilled =
+                        ((currentPosition - seriesItem2.getMinValue()) /
+                                (seriesItem2.getMaxValue() - seriesItem2.getMinValue()));
+
                 mPercentage.setText(String.format("%.0f%%", percentFilled * 100f));
             }
 
@@ -332,11 +350,17 @@ public class ClientDashboard extends Fragment {
             }
         });
 
+        //put total no of clients registered and total clients here
+        double totalRegistered = 46, totalClientRegistered = 200;
+        float Percentage;
+
+        Percentage = (float)((totalRegistered*50/totalClientRegistered));
+
         decoView.addEvent(new DecoEvent.Builder(50)
                 .setIndex(backIndex)
                 .build());
 
-        decoView.addEvent(new DecoEvent.Builder(35.5f)
+        decoView.addEvent(new DecoEvent.Builder(Percentage)
                 .setIndex(series1Index)
                 .setDelay(2000)
                 .build());

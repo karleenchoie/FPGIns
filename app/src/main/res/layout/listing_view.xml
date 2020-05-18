@@ -17,7 +17,6 @@
         app:cardPreventCornerOverlap="false">
 
         <LinearLayout
-
             android:id="@+id/topLinearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -37,6 +36,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
+                    android:layout_marginRight="@dimen/vertical_default_padding"
                     android:focusable="true"
                     android:minEms="4">
 
@@ -64,21 +64,18 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:orientation="horizontal"
-                        android:padding="10dp">
+                        android:paddingVertical="10dp">
 
                         <LinearLayout
                             android:id="@+id/textViewLabelLayout"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:padding="5sp"
-                            android:paddingStart="-10sp">
+                            android:orientation="vertical">
 
                             <TextView
                                 android:id="@+id/tvTitle"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="10dp"
                                 android:layout_weight="1"
                                 android:ellipsize="end"
                                 android:maxLines="1"
@@ -94,7 +91,6 @@
                                 android:id="@+id/tvDesc"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="10dp"
                                 android:layout_weight="1"
                                 android:ellipsize="end"
                                 android:maxLines="1"
@@ -111,7 +107,6 @@
                                 android:id="@+id/tvDate"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="10dp"
                                 android:layout_weight="1"
                                 android:ellipsize="middle"
                                 android:textColor="@color/fpg_gray"

@@ -39,7 +39,7 @@ public class SettingsFragment extends Fragment {
     private ImageView mEditPic;
     private TextView mPersonalInfo, mFullName;
     private TextView mChangePassword, mAccountType;
-    private TextView mLogout;
+    private TextView mLogout, mPolicy;
     private Dialog mDialog;
     private UserData mUserData;
     private final int SELECT_PICTURE = 1;
@@ -75,6 +75,7 @@ public class SettingsFragment extends Fragment {
         mPersonalInfo = view.findViewById(R.id.txt_personalInformation);
         mChangePassword = view.findViewById(R.id.txt_changePassword);
         mAccountType = view.findViewById(R.id.txt_AcctType);
+        mPolicy = view.findViewById(R.id.txt_policy);
         mLogout = view.findViewById(R.id.txt_logout);
         mAccountPicture = view.findViewById(R.id.img_accountPic);
         mEditPic = view.findViewById(R.id.img_editAccountPic);
@@ -84,10 +85,10 @@ public class SettingsFragment extends Fragment {
         StrictMode.setVmPolicy(builder.build());
 
         mUserData = new UserData(PreferenceManager.getDefaultSharedPreferences(getContext()));
-
+        accountCode = mUserData.getAccountCode();
         mFullName.setText(mUserData.getFirstName()+ " " + mUserData.getLastName());
 
-        if (accountCode == "AGT"){
+        if (accountCode.equals("AGT")){
             accountType = "AGENT";
         } else {
             accountType = "CLIENT";
@@ -135,6 +136,14 @@ public class SettingsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), PersonalInformation.class);
+                startActivity(intent);
+            }
+        });
+
+        mPolicy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), ClientPolicyActivity.class);
                 startActivity(intent);
             }
         });

@@ -184,7 +184,7 @@ public class FPGAssist extends Fragment implements OnMapReadyCallback {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        mMap = (MapView) mView.findViewById(R.id.map);
+        mMap = mView.findViewById(R.id.map);
 
         if (mMap != null){
             mMap.onCreate(null);

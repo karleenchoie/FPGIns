@@ -328,11 +328,6 @@
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
 
-                            <com.jjoe64.graphview.GraphView
-                                android:layout_width="match_parent"
-                                android:layout_height="200dip"
-                                android:id="@+id/bar_graph" />
-
 
                         </LinearLayout>
 
@@ -383,11 +378,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
-
-                            <com.jjoe64.graphview.GraphView
-                                android:layout_width="match_parent"
-                                android:layout_height="200dip"
-                                android:id="@+id/graphLosses" />
 
 
                         </LinearLayout>

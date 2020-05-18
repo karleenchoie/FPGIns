@@ -2,8 +2,11 @@ package com.example.fpgins.BottomNavigation.AgentDashboard.AgentFragments;
 
 
 import android.content.Intent;
+import android.content.IntentSender;
+import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -18,6 +21,9 @@ import com.example.fpgins.BottomNavigation.AgentDashboard.MotorActivity;
 import com.example.fpgins.BottomNavigation.ClientDashboard.ClientMenus.PersonalAccidentActivity;
 import com.example.fpgins.BottomNavigation.ClientDashboard.ClientMenus.TravelActivity;
 import com.example.fpgins.R;
+import com.wang.avi.AVLoadingIndicatorView;
+
+import static android.app.Activity.RESULT_OK;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -82,7 +88,10 @@ public class PolicyListFragment extends Fragment {
         mPaid.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                Toast.makeText(getContext(), "LONG PRESS PAID", Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), "from internet", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(getContext(), ViewActivity.class);
+                intent.putExtra("ViewType", "internet");
+                startActivity(intent);
                 return false;
             }
         });
@@ -90,7 +99,10 @@ public class PolicyListFragment extends Fragment {
         mUnpaid.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                Toast.makeText(getContext(), "DISPLAY SOA", Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), "from assets", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(getContext(), ViewActivity.class);
+                intent.putExtra("ViewType", "assets");
+                startActivity(intent);
                 return false;
             }
         });

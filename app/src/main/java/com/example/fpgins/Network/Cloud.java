@@ -81,10 +81,12 @@ public class Cloud {
     }
 
     //DEMO STAGE
-    public static final String DOMAIN_NAME = "http://10.52.2.58/eclaims";
+    public static final String DOMAIN_NAME = "http://10.52.2.58/control";
     //CMS
-    public static final String DOMAIN_NAME_CMS = "http://10.52.2.58/control";
-//    public static final String DOMAIN_NAME = "http://10.52.2.58/eclaims/account";
+//    public static final String DOMAIN_NAME_CMS = "http://10.52.2.58/control";
+
+    //CARE DOMAIN
+    public static final String DOMAIN_NAME_CARE = "http://10.52.2.58/care";
 
     public static final int REQUEST_CONNECTION_TIMEOUT = 10;
 
@@ -186,7 +188,7 @@ public class Cloud {
         return new JSONObject(response.body().string());
 
     }
-
+    
     //======================================== RESEND =============================================//
 
     public static void resendVerification(final String email, final ResultListener listener){
@@ -843,7 +845,7 @@ public class Cloud {
     }
 
     private static JSONObject notificationAll(String accountCode) throws IOException, JSONException {
-        String url = HttpUrl.parse(DOMAIN_NAME_CMS + "/notification/all").newBuilder()
+        String url = HttpUrl.parse(DOMAIN_NAME + "/notification/all").newBuilder()
                 .addQueryParameter("account_code", accountCode)
                 .build().toString();
 
@@ -881,7 +883,7 @@ public class Cloud {
     }
 
     private static JSONObject newNotification(String accountId) throws IOException, JSONException {
-        String url = HttpUrl.parse(DOMAIN_NAME_CMS + "/notification/latest").newBuilder()
+        String url = HttpUrl.parse(DOMAIN_NAME + "/notification/latest").newBuilder()
                 .addQueryParameter("account_id", accountId)
                 .build().toString();
 
@@ -919,7 +921,7 @@ public class Cloud {
     }
 
     private static JSONObject dismissNotification(final String[] information) throws IOException, JSONException {
-        String url = HttpUrl.parse(DOMAIN_NAME_CMS + "/notification/dismiss").newBuilder()
+        String url = HttpUrl.parse(DOMAIN_NAME + "/notification/dismiss").newBuilder()
                 .addQueryParameter("notification_id", information[0])
                 .addQueryParameter("notification_recipient_id", information[1])
                 .addQueryParameter("account_id", information[2])
@@ -959,7 +961,7 @@ public class Cloud {
     }
 
     private static JSONObject getAllPartners() throws IOException, JSONException{
-        String url = DOMAIN_NAME_CMS + "/partner/all";
+        String url = DOMAIN_NAME + "/partner/all";
 
         OkHttpClient client = defaultHttpClient();
 
@@ -972,6 +974,41 @@ public class Cloud {
         return new JSONObject(response.body().string());
     }
 
+    //========================================= PARTNERS ==========================================//
+
+    public static void getAllProducts(final ResultListener listener){
+        new AsyncTask<String, String, JSONObject>() {
+            @Override
+            protected JSONObject doInBackground(String... strings) {
+                try {
+                    JSONObject jsonObject = getAllProducts();
+                    return jsonObject;
+
+                } catch (Exception e){
+                    return resultException(e);
+                }
+            }
+
+            @Override
+            protected void onPostExecute(JSONObject jsonObject) {
+                listener.onResult(jsonObject);
+            }
+        }.execute();
+    }
+
+    private static JSONObject getAllProducts() throws IOException, JSONException{
+        String url = DOMAIN_NAME + "/product/webview";
+
+        OkHttpClient client = defaultHttpClient();
+
+        Request request = new Request.Builder()
+                .url(url)
+                .build();
+
+        Response response = client.newCall(request).execute();
+
+        return new JSONObject(response.body().string());
+    }
     //========================================== BANNER ===========================================//
 
     public static void getBanner(final ResultListener listener){
@@ -995,7 +1032,7 @@ public class Cloud {
     }
 
     private static JSONObject getBanner()throws IOException, JSONException{
-        String url = DOMAIN_NAME_CMS + "/banner/all";
+        String url = DOMAIN_NAME + "/banner/all";
 
         OkHttpClient client = defaultHttpClient();
 
@@ -1031,7 +1068,7 @@ public class Cloud {
     }
 
     private static JSONObject getNewsAndEvents() throws IOException, JSONException {
-        String url = DOMAIN_NAME_CMS + "/event/all";
+        String url = DOMAIN_NAME + "/event/all";
 
         OkHttpClient client = defaultHttpClient();
 
@@ -1065,7 +1102,7 @@ public class Cloud {
     }
 
     private static JSONObject getSpecificNewsAndEvents(String articleId) throws IOException, JSONException {
-        String url = HttpUrl.parse(DOMAIN_NAME_CMS + "/events/view").newBuilder()
+        String url = HttpUrl.parse(DOMAIN_NAME + "/events/view").newBuilder()
                 .addQueryParameter("article_id", articleId)
                 .build().toString();;
 
@@ -1103,7 +1140,7 @@ public class Cloud {
     }
 
     private static JSONObject getOfficeAddress() throws IOException, JSONException {
-        String url = DOMAIN_NAME_CMS + "/support/office";
+        String url = DOMAIN_NAME + "/support/office";
 
         OkHttpClient client = defaultHttpClient();
 
@@ -1139,7 +1176,7 @@ public class Cloud {
     }
 
     private static JSONObject getFAQ() throws IOException, JSONException {
-        String url = DOMAIN_NAME_CMS + "/support/faq";
+        String url = DOMAIN_NAME + "/support/faq";
 
         OkHttpClient client = defaultHttpClient();
 
@@ -1175,7 +1212,7 @@ public class Cloud {
     }
 
     private static JSONObject manageInquiry(int accountId, int departmentId, String policyNo, String message) throws IOException, JSONException{
-        String url = HttpUrl.parse(DOMAIN_NAME_CMS + "/support/inquiry-manage").newBuilder()
+        String url = HttpUrl.parse(DOMAIN_NAME + "/support/inquiry-manage").newBuilder()
                 .addQueryParameter("account_id", String.valueOf(accountId))
                 .addQueryParameter("department_id", String.valueOf(departmentId))
                 .addQueryParameter("policy_no", policyNo)
@@ -1216,7 +1253,7 @@ public class Cloud {
     }
 
     private static JSONObject sosAlert(int accountId, String location, String longitude, String latitude, String mobileNo) throws IOException, JSONException {
-        String url = HttpUrl.parse(DOMAIN_NAME_CMS + "/system/setup").newBuilder()
+        String url = HttpUrl.parse(DOMAIN_NAME + "/system/setup").newBuilder()
                 .addQueryParameter("account_id", String.valueOf(accountId))
                 .addQueryParameter("location", location)
                 .addQueryParameter("longitude", longitude)
@@ -1258,7 +1295,7 @@ public class Cloud {
     }
 
     private static JSONObject getAllDepartment() throws IOException, JSONException {
-        String url = DOMAIN_NAME_CMS + "/master/department";
+        String url = DOMAIN_NAME + "/master/department";
 
         OkHttpClient client = defaultHttpClient();
 
@@ -1271,6 +1308,119 @@ public class Cloud {
         return new JSONObject(response.body().string());
     }
 
+    //====================================== AGENT DETAILS ===========================================//
+
+    public static void agentDetails(final String code, final ResultListener listener){
+        new AsyncTask<String, String, JSONObject>() {
+            @Override
+            protected JSONObject doInBackground(String... strings) {
+                try {
+                    JSONObject jsonObject = agentDetails(code);
+                    return jsonObject;
+
+                } catch (Exception e){
+                    return resultException(e);
+                }
+            }
+
+            @Override
+            protected void onPostExecute(JSONObject jsonObject) {
+                listener.onResult(jsonObject);
+            }
+        }.execute();
+    }
+
+    private static JSONObject agentDetails(String code) throws IOException, JSONException {
+        String url = HttpUrl.parse(DOMAIN_NAME_CARE + "/agent/get").newBuilder()
+                .addQueryParameter("code", code)
+                .build().toString();
+
+        OkHttpClient client = defaultHttpClient();
+
+        Request request = new Request.Builder()
+                .url(url)
+                .build();
+
+        Response response = client.newCall(request).execute();
+
+        return new JSONObject(response.body().string());
+    }
+
+    //====================================== POLICY: AGENT ===========================================//
+
+    public static void agentPolicy(final String agentCode, final ResultListener listener){
+        new AsyncTask<String, String, JSONObject>() {
+            @Override
+            protected JSONObject doInBackground(String... strings) {
+                try {
+                    JSONObject jsonObject = agentPolicy(agentCode);
+                    return jsonObject;
+
+                } catch (Exception e){
+                    return resultException(e);
+                }
+            }
+
+            @Override
+            protected void onPostExecute(JSONObject jsonObject) {
+                listener.onResult(jsonObject);
+            }
+        }.execute();
+    }
+
+    private static JSONObject agentPolicy(String agentCode) throws IOException, JSONException {
+        String url = HttpUrl.parse(DOMAIN_NAME_CARE + "/policy/get").newBuilder()
+                .addQueryParameter("agent_code", agentCode)
+                .build().toString();
+
+        OkHttpClient client = defaultHttpClient();
+
+        Request request = new Request.Builder()
+                .url(url)
+                .build();
+
+        Response response = client.newCall(request).execute();
+
+        return new JSONObject(response.body().string());
+    }
+
+    //====================================== POLICY: ASSURED / CLIENT ===========================================//
+
+    public static void clientPolicy(final String clientCode, final ResultListener listener){
+        new AsyncTask<String, String, JSONObject>() {
+            @Override
+            protected JSONObject doInBackground(String... strings) {
+                try {
+                    JSONObject jsonObject = clientPolicy(clientCode);
+                    return jsonObject;
+
+                } catch (Exception e){
+                    return resultException(e);
+                }
+            }
+
+            @Override
+            protected void onPostExecute(JSONObject jsonObject) {
+                listener.onResult(jsonObject);
+            }
+        }.execute();
+    }
+
+    private static JSONObject clientPolicy(String clientCode) throws IOException, JSONException {
+        String url = HttpUrl.parse(DOMAIN_NAME_CARE + "/policy/get").newBuilder()
+                .addQueryParameter("client_code", clientCode)
+                .build().toString();
+
+        OkHttpClient client = defaultHttpClient();
+
+        Request request = new Request.Builder()
+                .url(url)
+                .build();
+
+        Response response = client.newCall(request).execute();
+
+        return new JSONObject(response.body().string());
+    }
     //========================================= SETUP =============================================//
 
     public static void getSystemConfig(final ResultListener listener){
@@ -1294,7 +1444,7 @@ public class Cloud {
     }
 
     private static JSONObject getSystemConfig() throws IOException, JSONException {
-        String url = DOMAIN_NAME_CMS + "/system/setup";
+        String url = DOMAIN_NAME + "/system/setup";
 
         OkHttpClient client = defaultHttpClient();
 

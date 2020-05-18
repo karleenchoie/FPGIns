@@ -11,6 +11,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -24,17 +25,19 @@ import android.widget.Toast;
 
 import com.example.fpgins.Network.Cloud;
 import com.example.fpgins.R;
+import com.example.fpgins.Utility.DefaultDialog;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 public class AgentRegistration extends AppCompatActivity {
 
-    private EditText mFirstName;
-    private EditText mEmail;
+    private EditText mAgentCode;
+//    private EditText mEmail;
     private EditText mPassword;
     private EditText mRetypePassword;
-    private EditText mMobileNo;
+//    private EditText mMobileNo;
 
     private ImageView mCheckUpper;
     private ImageView mCheckLower;
@@ -55,18 +58,24 @@ public class AgentRegistration extends AppCompatActivity {
 
     private boolean isPressed = true;
 
+    private String email;
+
+    private String mEmail;
+    private String mGeneratedCode;
+    private String mAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agent_registration);
 
-        mMobileNo = (EditText) findViewById(R.id.etMobileNo);
+//        mMobileNo = (EditText) findViewById(R.id.etMobileNo);
 
-        mFirstName = (EditText) findViewById(R.id.etFirstName);
-        mFirstName.addTextChangedListener(getTextWatcher(mFirstName));
+        mAgentCode = (EditText) findViewById(R.id.etAgentCode);
+        mAgentCode.addTextChangedListener(getTextWatcher(mAgentCode));
 
-        mEmail = (EditText) findViewById(R.id.etEmail);
-        mEmail.addTextChangedListener(getTextWatcher(mEmail));
+//        mEmail = (EditText) findViewById(R.id.etEmail);
+//        mEmail.addTextChangedListener(getTextWatcher(mEmail));
 
         mPassword = (EditText) findViewById(R.id.etPw);
         mPassword.addTextChangedListener(getTextWatcher(mPassword));
@@ -224,73 +233,75 @@ public class AgentRegistration extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                mDialog.show();
-                String mobileNo = mMobileNo.getText().toString();
-                String email = mEmail.getText().toString();
+//                String mobileNo = "+639998877665";
+                String email = mAgentCode.getText().toString().trim();
                 String password = mPassword.getText().toString();
-                String firstName = mFirstName.getText().toString();
+//                String firstName = "AGENT";
+//                String lastName = "SAMPLE";
                 if (!validateInfo()){
                     mDialog.dismiss();
                     return;
                 } else {
                     //postAPI
-//                    String[] info = {"CLT", email, password, firstName, mobileNo};
-                    Toast.makeText(getApplicationContext(), "Agent Registration on going", Toast.LENGTH_LONG).show();
-//                    postRegister(info);
+                    getAgentDetails(email);
                     mDialog.dismiss();
                 }
             }
         });
 
     }
-//    private void postRegister(final String[] information){
-//        Cloud.registerAccount(information, new Cloud.ResultListener() {
-//            @Override
-//            public void onResult(JSONObject result) {
-//                int returnCode;
-//                JSONObject jsonObject = new JSONObject();
-//
-//                try {
-//                    jsonObject = result;
-//                    returnCode = Integer.parseInt(jsonObject.get("code").toString());
-//                } catch (JSONException e){
-//                    returnCode = Cloud.DefaultReturnCode.INTERNAL_SERVER_ERROR;
-//                    e.printStackTrace();
-//                }
-//
-//                if (returnCode != Cloud.DefaultReturnCode.SUCCESS){
-//                    //FAIL
-//                    try {
-//                        String message = jsonObject.getString("message");
-//                        Toast.makeText(AgentRegistration.this, message, Toast.LENGTH_SHORT).show();
-//                    } catch (JSONException e){
-//                        e.printStackTrace();
-//                    }
-//                } else {
-//                    //SUCCESS
-//                    try {
+
+    private void postRegister(final String[] information){
+        Cloud.registerAccount(information, new Cloud.ResultListener() {
+            @Override
+            public void onResult(JSONObject result) {
+                int returnCode;
+                JSONObject jsonObject = new JSONObject();
+
+                try {
+                    jsonObject = result;
+                    returnCode = Integer.parseInt(jsonObject.get("code").toString());
+                } catch (JSONException e){
+                    returnCode = Cloud.DefaultReturnCode.INTERNAL_SERVER_ERROR;
+                    e.printStackTrace();
+                }
+
+                if (returnCode != Cloud.DefaultReturnCode.SUCCESS){
+                    //FAIL
+                    try {
+                        String message = jsonObject.getString("message");
+                        Toast.makeText(AgentRegistration.this, message, Toast.LENGTH_SHORT).show();
+                    } catch (JSONException e){
+                        e.printStackTrace();
+                    }
+                } else {
+                    //SUCCESS
+                    try {
 //                        String email = mEmail.getText().toString();
-//                        String message = jsonObject.getString("message");
-//                        String generatedCode = jsonObject.getString("generate_code");
-//                        String auth = jsonObject.getString("authentication");
-//
-//                        Intent intent = new Intent(AgentRegistration.this, VerificationCodeActivity.class);
-//
-//                        intent.putExtra("email", email);
-//                        intent.putExtra("generatedCode", generatedCode);
-//                        intent.putExtra("auth", auth);
-//                        intent.putExtra("isForgotPassword", false);
-//
-//                        startActivity(intent);
-//                    } catch (Exception e){
-//                        e.getMessage();
-//                    }
-//                }
-//
-//                mDialog.dismiss();
-//            }
-//        });
-//    }
+                        String message = jsonObject.getString("message");
+                        String generatedCode = jsonObject.getString("generate_code");
+                        String auth = jsonObject.getString("authentication");
+
+                        Toast.makeText(getApplicationContext(), auth, Toast.LENGTH_LONG).show();
+
+                        Intent intent = new Intent(AgentRegistration.this, VerificationCodeActivity.class);
+
+                        intent.putExtra("email", email);
+                        intent.putExtra("generatedCode", generatedCode);
+                        intent.putExtra("auth", auth);
+                        intent.putExtra("isForgotPassword", false);
+
+                        startActivity(intent);
+
+                    } catch (Exception e){
+                        e.getMessage();
+                    }
+                }
+
+                mDialog.dismiss();
+            }
+        });
+    }
 
     private Dialog createLoadingDialog() {
         Dialog dialog = new Dialog(AgentRegistration.this, android.R.style.Theme_Black);
@@ -302,19 +313,19 @@ public class AgentRegistration extends AppCompatActivity {
     }
 
     private boolean validateInfo(){
-        String email = mEmail.getText().toString();
+//        String email = mEmail.getText().toString();
         String password = mPassword.getText().toString();
 
         if (allFieldsEmpty()){
             return false;
         }
 
-        if (!isEmailValid(email)){
-            displayError(mEmail, getResources().getString(R.string.email_error));
-            return false;
-        } else {
-            mEmail.setBackground(ContextCompat.getDrawable(this, R.drawable.button_rectangle));
-        }
+//        if (!isEmailValid(email)){
+//            displayError(mEmail, getResources().getString(R.string.email_error));
+//            return false;
+//        } else {
+//            mEmail.setBackground(ContextCompat.getDrawable(this, R.drawable.button_rectangle));
+//        }
 
         if (!isPasswordLongEnough()){
             displayError(mPassword, getResources().getString(R.string.password_length));
@@ -349,7 +360,7 @@ public class AgentRegistration extends AppCompatActivity {
             mRetypePassword.setBackground(ContextCompat.getDrawable(this, R.drawable.button_rectangle));
         }
 
-        mEmail.setBackground(ContextCompat.getDrawable(this, R.drawable.button_rectangle));
+//        mEmail.setBackground(ContextCompat.getDrawable(this, R.drawable.button_rectangle));
         mPassword.setBackground(ContextCompat.getDrawable(this, R.drawable.button_rectangle));
         mRetypePassword.setBackground(ContextCompat.getDrawable(this, R.drawable.button_rectangle));
 
@@ -396,7 +407,7 @@ public class AgentRegistration extends AppCompatActivity {
     }
 
     private boolean allFieldsEmpty() {
-        EditText[] fields = { mFirstName, mEmail, mPassword, mRetypePassword };
+        EditText[] fields = { mAgentCode, mPassword, mRetypePassword };
         for(EditText f : fields) {
             if (f.getText().toString().isEmpty()) {
                 return true;
@@ -432,5 +443,60 @@ public class AgentRegistration extends AppCompatActivity {
 
             }
         };
+    }
+
+    private void getAgentDetails(String code){
+        Cloud.agentDetails(code, new Cloud.ResultListener() {
+            @Override
+            public void onResult(JSONObject result) {
+                int returnCode;
+                JSONObject jsonObject = new JSONObject();
+                try {
+                    jsonObject = result;
+                    returnCode = Integer.parseInt(jsonObject.get("code").toString());
+                }catch (JSONException e){
+                    returnCode = Cloud.DefaultReturnCode.INTERNAL_SERVER_ERROR;
+                    e.printStackTrace();
+                }
+
+                if (returnCode != Cloud.DefaultReturnCode.SUCCESS){
+                    //FAIL
+                    try {
+                        String message = jsonObject.getString("message");
+                        Log.d("Server Error Message: ", message);
+                        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
+                    }catch (JSONException e){
+                        e.printStackTrace();
+                    }
+                }else {
+                    //SUCCESS
+                    try {
+                        JSONArray jsonArray = jsonObject.getJSONArray("record");
+                        generateResult(jsonArray);
+//                        mRecyclerView.setAdapter(mAdapter);
+                    } catch (Exception e) {
+                        e.getMessage();
+                    }
+                }
+            }
+        });
+    }
+
+    private void generateResult(JSONArray jsonArray){
+        try {
+            for (int i = 0; i < jsonArray.length(); i++){
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                String firstName = jsonObject.getString("FirstName");
+                String lastName = jsonObject.getString("LastName");
+                email = jsonObject.getString("Email");
+                String number = jsonObject.getString("Mobile_1");
+                String password = mPassword.getText().toString().trim();
+
+                String[] info = {"AGT", email, password, firstName, lastName, number};
+                postRegister(info);
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }

@@ -60,17 +60,20 @@
     //Settings
     <string name="my_profile">My Profile</string>
     <string name="personal_info">Personal Information</string>
+    <string name="policy_details">Policy Details</string>
     <string name="motor">Motor</string>
     <string name="personal_accident">Personal Accident</string>
     <string name="corporate">Corporate</string>
     <string name="home">Home</string>
     <string name="transaction_history">Transaction History</string>
     <string name="travel">Travel</string>
+    <string name="agent_details">Agent Details</string>
     <string name="app_setting">App Settings</string>
     <string name="touch_id">Touch ID</string>
     <string name="notification">Notification</string>
     <string name="share">Share</string>
     <string name="primary_email">Primary Email</string>
+    <string name="policy_list">Policy List</string>
     <string name="mobile">Mobile</string>
     <string name="home_number">Home Number</string>
     <string name="office">Office Number</string>
@@ -143,6 +146,8 @@
     <string name="fields_error">4 numbers are needed to verifiy the account</string>
 
     //Claims
+    <string name="policy">Policy</string>
+    <string name="vehicle">Vehicle</string>
     <string name="policy_number">Policy Number</string>
     <string name="claim_number">Claim Number</string>
     <string name="plate_number">Plate No</string>
@@ -171,6 +176,7 @@
     <string name="conduction_no">Conduction Number</string>
     <string name="location">Location</string>
     <string name="remarks">Remarks</string>
+    <string name="no_records_found">No Records Found</string>
 
     //Forgot Password
     <string name="detail">Account validated.</string>
@@ -339,4 +345,5 @@
     <string name="tab_text_1">Tab 1</string>
     <string name="tab_text_2">Tab 2</string>
     <string name="title_activity_client_tabular">ClientTabular</string>
+    <string name="title_activity_client_policies_details">ClientPoliciesDetailsActivity</string>
 </resources>

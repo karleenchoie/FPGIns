@@ -6,15 +6,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".BottomNavigation.AgentDashboard.MotorActivity">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingHorizontal="@dimen/horizontal_default_padding"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="?android:attr/actionBarSize"
+            android:paddingHorizontal="@dimen/horizontal_default_padding"
             android:orientation="horizontal">
 
             <ImageView
@@ -37,5 +38,57 @@
 
             </TextView>
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="2"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="@dimen/horizontal_default_padding">
+
+            <EditText
+                android:id="@+id/edittext"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_background"
+                android:layout_weight="1.7"
+                android:drawableLeft="@drawable/ic_action_search"
+                android:drawablePadding="10dp"
+                android:hint="SEARCH PA POLICY"
+                android:textSize="@dimen/setting_title"
+                android:paddingHorizontal="@dimen/horizontal_default_padding"
+                android:paddingVertical="@dimen/vertical_default_padding"/>
+
+            <ImageView
+                android:id="@+id/img_filter"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight=".3"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_vertical"
+                android:paddingVertical="@dimen/vertical_default_padding"
+                android:src="@drawable/icon_filter"/>
+
+        </LinearLayout>
+
+<!--        <com.google.android.material.chip.ChipGroup-->
+<!--            android:id="@+id/entry_chip_group"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginHorizontal="@dimen/horizontal_default_padding"-->
+<!--            android:layout_below="@+id/entry_chip_txt">-->
+
+<!--        </com.google.android.material.chip.ChipGroup>-->
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:paddingHorizontal="@dimen/horizontal_default_padding"
+            android:paddingVertical="@dimen/vertical_default_padding"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitems="@layout/motor_item_list"
+            android:scrollbars="vertical" />
+
     </LinearLayout>
+
 </LinearLayout>

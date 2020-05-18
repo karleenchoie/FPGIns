@@ -165,7 +165,7 @@ public class NotifMessageFragment extends AppCompatActivity {
                 String notificationTypeName = jsonObject.getString("notification_type_name");
                 String notificationRecipientName = jsonObject.getString("notification_recipient_name");
 
-                SimpleDateFormat input = new SimpleDateFormat("yyyy-MM-dd");
+                SimpleDateFormat input = new SimpleDateFormat("yyyy-MM-dd"); //yyyy-MM-dd HH:mm:ss
                 Date datevalue = input.parse(postDate);
                 SimpleDateFormat output = new SimpleDateFormat("MMMM dd, yyyy");
                 String y = output.format(datevalue);

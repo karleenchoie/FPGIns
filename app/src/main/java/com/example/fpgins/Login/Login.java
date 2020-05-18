@@ -333,9 +333,6 @@ public class Login extends AppCompatActivity {
         startService(intent);
     }
 
-
-
-
     private void fingerprint(){
         new DefaultDialog.Builder(this)
                 .message("One-touch Sign In")

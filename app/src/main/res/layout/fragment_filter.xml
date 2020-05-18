@@ -123,7 +123,6 @@
                 android:id="@+id/filter_chip_group_make"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:singleSelection="true"
                 android:paddingHorizontal="@dimen/horizontal_default_padding">
 
                 <com.google.android.material.chip.Chip
@@ -132,7 +131,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="35dp"
                     android:text="Audi"
-                    android:textSize="@dimen/setting_title"/>
+                    android:textSize="@dimen/setting_title" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/filter_BMW"
@@ -140,7 +139,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="35dp"
                     android:text="BMW"
-                    android:textSize="@dimen/setting_title"/>
+                    android:textSize="@dimen/setting_title" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/filter_Chevrolet"
@@ -148,7 +147,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="35dp"
                     android:text="Chevrolet"
-                    android:textSize="@dimen/setting_title"/>
+                    android:textSize="@dimen/setting_title" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/filter_Ferrari"
@@ -156,7 +155,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="35dp"
                     android:text="Ferrari"
-                    android:textSize="@dimen/setting_title"/>
+                    android:textSize="@dimen/setting_title" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/filter_Ford"
@@ -164,7 +163,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="35dp"
                     android:text="Ford"
-                    android:textSize="@dimen/setting_title"/>
+                    android:textSize="@dimen/setting_title" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/filter_Honda"
@@ -172,7 +171,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="35dp"
                     android:text="Honda"
-                    android:textSize="@dimen/setting_title"/>
+                    android:textSize="@dimen/setting_title" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/filter_Hyundai"
@@ -180,7 +179,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="35dp"
                     android:text="Hyundai"
-                    android:textSize="@dimen/setting_title"/>
+                    android:textSize="@dimen/setting_title" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/filter_Isuzu"
@@ -188,7 +187,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="35dp"
                     android:text="Isuzu"
-                    android:textSize="@dimen/setting_title"/>
+                    android:textSize="@dimen/setting_title" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/filter_Jaguar"
@@ -196,7 +195,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="35dp"
                     android:text="Jaguar"
-                    android:textSize="@dimen/setting_title"/>
+                    android:textSize="@dimen/setting_title" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/filter_Mazda"
@@ -204,7 +203,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="35dp"
                     android:text="Mazda"
-                    android:textSize="@dimen/setting_title"/>
+                    android:textSize="@dimen/setting_title" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/filter_Toyota"
@@ -212,7 +211,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="35dp"
                     android:text="Toyota"
-                    android:textSize="@dimen/setting_title"/>
+                    android:textSize="@dimen/setting_title" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/filter_Nissan"
@@ -220,7 +219,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="35dp"
                     android:text="Nissan"
-                    android:textSize="@dimen/setting_title"/>
+                    android:textSize="@dimen/setting_title" />
 
             </com.google.android.material.chip.ChipGroup>
         </LinearLayout>

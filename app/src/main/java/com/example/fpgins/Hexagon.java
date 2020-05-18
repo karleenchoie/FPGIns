@@ -24,7 +24,7 @@ public class Hexagon extends View {
     public Hexagon(Context context) {
         super(context);
         // use your bitmap insted of R.drawable.ic_launcher
-        mBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.hexagon);
+        mBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher_background);
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mOval = new RectF();
         mTextPaint = new Paint(Paint.ANTI_ALIAS_FLAG);

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "300765754335",
+    "firebase_url": "https://fpgins.firebaseio.com",
+    "project_id": "fpgins",
+    "storage_bucket": "fpgins.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:300765754335:android:de18d2bc45d71b0b964a6a",
+        "android_client_info": {
+          "package_name": "com.example.fpgins"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "300765754335-62okkgtjv4gc9fqbq5m0a6n1f9v6fbg6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.fpgins",
+            "certificate_hash": "0361c77e8c3bddbcc1acf38fce203f331bd90f69"
+          }
+        },
+        {
+          "client_id": "300765754335-o6eek16rqrqqtv7q0hv6q6vai8rhu5k1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB64PRLsNCFnYJwgt7KZPwyuhZ9K7Zgj0E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "300765754335-o6eek16rqrqqtv7q0hv6q6vai8rhu5k1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

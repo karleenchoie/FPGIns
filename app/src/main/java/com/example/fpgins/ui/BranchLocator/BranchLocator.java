@@ -5,30 +5,29 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.ExpandableListActivity;
-import android.content.Context;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseExpandableListAdapter;
-import android.widget.TextView;
+import android.widget.ImageView;
+import android.widget.Toast;
+
+import com.example.fpgins.DataModel.BranchData;
+import com.example.fpgins.Network.Cloud;
 import com.example.fpgins.R;
+import com.wang.avi.AVLoadingIndicatorView;
 
-public class BranchLocator extends ExpandableListActivity {
-    private static final String arrGroupElements[] = { "Philippines", "Indonesia", "Thailand"};
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-    private static final String arrChildElements[][] = {
-            { "Philippines A","Philippines B", "Philippines C" },
-            { "Indonesia A","Indonesia B" },
-            { "Thailand A"},
-            { "Details4 A","Details4 B", "Details4 C" },
-            { "Details5 A","Details5 B", "Details5 C" },
-            { "Details6 A","Details6 B", "Details6 C" },
-            { "Details7" },
-            { "Details8" },
-            { "Details9" }
-    };
+import java.util.ArrayList;
+
+public class BranchLocator extends AppCompatActivity {
+
+    private ImageView mBackButton;
+    private ArrayList<BranchData> mData = new ArrayList<>();
+    private BranchAdapter mAdapter;
+    private AVLoadingIndicatorView mProgressBranchLocator;
+//    private RecyclerView mRecyclerView;
 
 
     @Override
@@ -36,73 +35,96 @@ public class BranchLocator extends ExpandableListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_branch_locator);
 
-        setListAdapter(new ExpandableListAdapter(this));
+//        mRecyclerView = findViewById(R.id.mainOffice_recyclerview);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(
+                getApplicationContext(), LinearLayoutManager.VERTICAL, false);
+//        mRecyclerView.setLayoutManager(layoutManager);
+//        mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+
+//        mRecyclerView.setLayoutManager(new LinearLayoutManager(BranchLocator.this));
+//        mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+
+        getBranch();
+
+        mAdapter = new BranchAdapter(mData, BranchLocator.this);
+        mBackButton = findViewById(R.id.img_backbutton);
+        mBackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
     }
-    public class ExpandableListAdapter extends BaseExpandableListAdapter {
-        private Context myContext;
-        public ExpandableListAdapter(Context context) {
-            myContext = context;
-        }
-        @Override
-        public Object getChild(int groupPosition, int childPosition) {
-            return null;
-        }
-        @Override
-        public long getChildId(int groupPosition, int childPosition) {
-            return 0;
-        }
-        @Override
-        public View getChildView(int groupPosition, int childPosition,
-                                 boolean isLastChild, View convertView, ViewGroup parent) {
-            if (convertView == null) {
-                LayoutInflater inflater = (LayoutInflater) myContext
-                        .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                convertView = inflater.inflate(
-                        R.layout.item_branch_file, null);
+
+    public void getBranch(){
+        mData.clear();
+        Cloud.getOfficeAddress(new Cloud.ResultListener() {
+            @Override
+            public void onResult(JSONObject result) {
+                int returnCode;
+                JSONObject jsonObject = new JSONObject();
+
+                try {
+                    jsonObject = result;
+                    returnCode = Integer.parseInt(jsonObject.get("code").toString());
+                } catch (JSONException e){
+                    returnCode = Cloud.DefaultReturnCode.INTERNAL_SERVER_ERROR;
+                    e.printStackTrace();
+                }
+
+                if (returnCode != Cloud.DefaultReturnCode.SUCCESS){
+                    //FAIL
+                    try {
+                        Toast.makeText(getApplicationContext(), "Please check your connection and try again",
+                                Toast.LENGTH_LONG).show();
+                        mProgressBranchLocator.setVisibility(View.GONE);
+                        String message = jsonObject.getString("message");
+                        Toast.makeText(BranchLocator.this, message, Toast.LENGTH_SHORT).show();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    //SUCCESS
+                    try {
+                        mProgressBranchLocator.setVisibility(View.GONE);
+                        JSONArray jsonArray = jsonObject.getJSONArray("record");
+                        generateResult(jsonArray);
+//                        mRecyclerView.setAdapter(mAdapter);
+                    } catch (Exception e) {
+                        e.getMessage();
+                    }
+                }
             }
-            TextView yourSelection = (TextView) convertView
-                    .findViewById(R.id.txt_branchName2);
-            yourSelection
-                    .setText(arrChildElements[groupPosition][childPosition]);
-            return convertView;
-        }
-        @Override
-        public int getChildrenCount(int groupPosition) {
-            return arrChildElements[groupPosition].length;
-        }
-        @Override
-        public Object getGroup(int groupPosition) {
-            return null;
-        }
-        @Override
-        public int getGroupCount() {
-            return arrGroupElements.length;
-        }
-        @Override
-        public long getGroupId(int groupPosition) {
-            return 0;
-        }
-        @Override
-        public View getGroupView(int groupPosition, boolean isExpanded,
-                                 View convertView, ViewGroup parent) {
-            if (convertView == null) {
-                LayoutInflater inflater = (LayoutInflater) myContext
-                        .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                convertView = inflater.inflate(
-                        R.layout.item_mainoffice_file, null);
+        });
+
+    }
+
+    private void generateResult(JSONArray jsonArray){
+        try {
+            for (int i = 0; i < jsonArray.length(); i++){
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                String id = jsonObject.getString("id");
+                String name = jsonObject.getString("name");
+                String address = jsonObject.getString("address");
+                String contact_no = jsonObject.getString("contact_no");
+                String email = jsonObject.getString("email");
+                String fax_no = jsonObject.getString("fax_no");
+                String office_country_name = jsonObject.getString("office_country_name");
+                String office_type_name = jsonObject.getString("office_type_name");
+
+                BranchData data = new BranchData(id, name, address, contact_no, email, fax_no, office_country_name, office_type_name);
+                mData.add(data);
             }
-            TextView groupName = (TextView) convertView
-                    .findViewById(R.id.txt_branchName);
-            groupName.setText(arrGroupElements[groupPosition]);
-            return convertView;
+
+
+        } catch (Exception e){
+            e.printStackTrace();
         }
-        @Override
-        public boolean hasStableIds() {
-            return false;
-        }
-        @Override
-        public boolean isChildSelectable(int groupPosition, int childPosition) {
-            return true;
-        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
     }
 }

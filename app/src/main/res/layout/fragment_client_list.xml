@@ -21,16 +21,6 @@
         android:paddingVertical="@dimen/vertical_default_padding"
         android:layout_marginTop="@dimen/vertical_default_padding"/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TOTAL CLIENTS : 9"
-        android:paddingVertical="5dp"
-        android:textSize="@dimen/setting_title"
-        android:textColor="@color/fpg_gray"
-        android:paddingHorizontal="@dimen/horizontal_default_padding"
-        android:gravity="left"/>
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:paddingVertical="@dimen/vertical_default_padding"

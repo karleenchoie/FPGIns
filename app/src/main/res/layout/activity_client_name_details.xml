@@ -43,27 +43,6 @@
             </TextView>
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="right">
-
-            <TextView
-                android:id="@+id/txt_edit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Done"
-                android:textColor="@color/fpg_gray"
-                android:textStyle="bold"
-                android:padding="@dimen/page_default_margin_horizontal"
-                android:textAllCaps="true"
-                android:textSize="@dimen/setting_title">
-
-            </TextView>
-
-        </LinearLayout>
-
         <ScrollView
             android:layout_below="@id/linear_nav"
             android:layout_width="match_parent"
@@ -72,251 +51,263 @@
             android:fillViewport="true"
             android:scrollbars="vertical"
             android:id="@+id/createPasswordScrollView"
+            android:layout_marginVertical="@dimen/vertical_default_padding"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_height="match_parent">
 
-                <TextView
-                    style="@style/TextAppearance.AppCompat.Caption"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/vertical_default_padding"
-                    android:gravity="center"
-                    android:maxLines="1"
-                    android:text="@string/email"
-                    android:textColor="@color/fpg_orange"
-                    android:textSize="@dimen/setting_title" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/fineGray"
-                    android:layout_marginVertical="@dimen/vertical_default_padding">
-                </View>
-
-                <TextView
-                    style="@style/TextAppearance.AppCompat.Caption"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:maxLines="1"
-                    android:text="@string/primary_email"
-                    android:textColor="?android:textColorHint"
-                    android:textSize="@dimen/textview_error_textsize" />
-
-                <EditText
-                    android:id="@+id/txt_clientEmail"
-                    android:enabled="true"
-                    style="@style/TextAppearance.AppCompat.Caption"
-                    android:layout_width="match_parent"
-                    android:background="@android:color/transparent"
-                    android:layout_height="wrap_content"
-                    android:gravity="left"
-                    android:maxLines="1"
-                    android:focusedByDefault="true"
-                    android:layout_marginTop="@dimen/vertical_default_padding"
-                    android:text="@string/primary_email"
-                    android:textColor="@color/fpg_gray"
-                    android:textSize="@dimen/setting_title" />
-
-                <TextView
-                    style="@style/TextAppearance.AppCompat.Caption"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/setting_head_text_size"
-                    android:gravity="center"
-                    android:maxLines="1"
-                    android:text="@string/full_name"
-                    android:textColor="@color/fpg_orange"
-                    android:textSize="@dimen/setting_title" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/fineGray"
-                    android:layout_marginVertical="10dp">
-                </View>
-
-                <TextView
-                    style="@style/TextAppearance.AppCompat.Caption"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:maxLines="1"
-                    android:text="@string/first_name"
-                    android:textColor="?android:textColorHint"
-                    android:textSize="@dimen/textview_error_textsize" />
-
-                <EditText
-                    android:id="@+id/txt_clientFirstName"
-                    style="@style/TextAppearance.AppCompat.Caption"
-                    android:enabled="true"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="left"
-                    android:background="@android:color/transparent"
-                    android:maxLines="1"
-                    android:layout_marginTop="@dimen/vertical_default_padding"
-                    android:text="Juan Miguel"
-                    android:textColor="@color/fpg_gray"
-                    android:textSize="@dimen/setting_title" />
-
-                <TextView
-                    style="@style/TextAppearance.AppCompat.Caption"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:maxLines="1"
-                    android:text="@string/last_name"
-                    android:textColor="?android:textColorHint"
-                    android:layout_marginTop="@dimen/vertical_default_padding"
-                    android:textSize="@dimen/textview_error_textsize" />
-
-                <EditText
-                    android:id="@+id/txt_clientLastName"
-                    style="@style/TextAppearance.AppCompat.Caption"
-                    android:enabled="true"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/vertical_default_padding"
-                    android:gravity="left"
-                    android:maxLines="1"
-                    android:background="@android:color/transparent"
-                    android:text="Dela Cruz"
-                    android:textColor="@color/fpg_gray"
-                    android:textSize="@dimen/setting_title" />
-
-                <TextView
-                    style="@style/TextAppearance.AppCompat.Caption"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/setting_head_text_size"
-                    android:gravity="center"
-                    android:maxLines="1"
-                    android:text="@string/birthday"
-                    android:textColor="@color/fpg_orange"
-                    android:textSize="@dimen/setting_title" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/fineGray"
-                    android:layout_marginVertical="10dp">
-                </View>
-
-                <TextView
-                    style="@style/TextAppearance.AppCompat.Caption"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:maxLines="1"
-                    android:text="Date of Birth"
-                    android:textColor="?android:textColorHint"
-                    android:textSize="@dimen/textview_error_textsize" />
-
-                <EditText
-                    android:id="@+id/txt_clientBday"
-                    style="@style/TextAppearance.AppCompat.Caption"
-                    android:enabled="true"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="left"
-                    android:background="@android:color/transparent"
-                    android:maxLines="1"
-                    android:layout_marginTop="@dimen/vertical_default_padding"
-                    android:text="April 1, 1990"
-                    android:textColor="@color/fpg_gray"
-                    android:textSize="@dimen/setting_title" />
-
-                <TextView
-                    style="@style/TextAppearance.AppCompat.Caption"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/setting_head_text_size"
-                    android:gravity="center"
-                    android:maxLines="1"
-                    android:text="@string/contact"
-                    android:textColor="@color/fpg_orange"
-                    android:textSize="@dimen/setting_title" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/fineGray"
-                    android:layout_marginVertical="10dp">
-                </View>
-
-                <TextView
-                    style="@style/TextAppearance.AppCompat.Caption"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:maxLines="1"
-                    android:text="@string/mobile"
-                    android:textColor="?android:textColorHint"
-                    android:textSize="@dimen/textview_error_textsize" />
-
-                <EditText
-                    android:id="@+id/txt_clientMobile"
-                    style="@style/TextAppearance.AppCompat.Caption"
-                    android:enabled="true"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="left"
-                    android:maxLines="1"
-                    android:layout_marginTop="@dimen/vertical_default_padding"
-                    android:background="@android:color/transparent"
-                    android:text="09234699235"
-                    android:textColor="@color/fpg_gray"
-                    android:textSize="@dimen/setting_title" />
-
-                <TextView
-                    style="@style/TextAppearance.AppCompat.Caption"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/setting_head_text_size"
-                    android:gravity="center"
-                    android:maxLines="1"
-                    android:text="Policies"
-                    android:textColor="@color/fpg_orange"
-                    android:textSize="@dimen/setting_title" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/fineGray"
-                    android:layout_marginVertical="10dp">
-                </View>
-
-                <TextView
-                    style="@style/TextAppearance.AppCompat.Caption"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:maxLines="1"
-                    android:text="Motor"
-                    android:textColor="?android:textColorHint"
-                    android:textSize="@dimen/textview_error_textsize" />
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recyclerView"
-                    android:paddingVertical="@dimen/vertical_default_padding"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:scrollbars="vertical" />
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Caption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/vertical_default_padding"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:text="@string/email"
+                        android:textColor="@color/fpg_orange"
+                        android:textSize="@dimen/setting_title" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/fineGray"
+                        android:layout_marginVertical="@dimen/vertical_default_padding">
+                    </View>
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Caption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:text="@string/primary_email"
+                        android:textColor="?android:textColorHint"
+                        android:textSize="@dimen/textview_error_textsize" />
+
+                    <EditText
+                        android:id="@+id/txt_clientEmail"
+                        android:enabled="true"
+                        style="@style/TextAppearance.AppCompat.Caption"
+                        android:layout_width="match_parent"
+                        android:background="@android:color/transparent"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:maxLines="1"
+                        android:focusedByDefault="true"
+                        android:layout_marginTop="@dimen/vertical_default_padding"
+                        android:text="@string/primary_email"
+                        android:textColor="@color/fpg_gray"
+                        android:textSize="@dimen/setting_title" />
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Caption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/setting_head_text_size"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:text="@string/full_name"
+                        android:textColor="@color/fpg_orange"
+                        android:textSize="@dimen/setting_title" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/fineGray"
+                        android:layout_marginVertical="10dp">
+                    </View>
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Caption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:text="@string/first_name"
+                        android:textColor="?android:textColorHint"
+                        android:textSize="@dimen/textview_error_textsize" />
+
+                    <EditText
+                        android:id="@+id/txt_clientFirstName"
+                        style="@style/TextAppearance.AppCompat.Caption"
+                        android:enabled="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:background="@android:color/transparent"
+                        android:maxLines="1"
+                        android:layout_marginTop="@dimen/vertical_default_padding"
+                        android:text="Juan Miguel"
+                        android:textColor="@color/fpg_gray"
+                        android:textSize="@dimen/setting_title" />
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Caption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:text="@string/last_name"
+                        android:textColor="?android:textColorHint"
+                        android:layout_marginTop="@dimen/vertical_default_padding"
+                        android:textSize="@dimen/textview_error_textsize" />
+
+                    <EditText
+                        android:id="@+id/txt_clientLastName"
+                        style="@style/TextAppearance.AppCompat.Caption"
+                        android:enabled="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/vertical_default_padding"
+                        android:gravity="left"
+                        android:maxLines="1"
+                        android:background="@android:color/transparent"
+                        android:text="Dela Cruz"
+                        android:textColor="@color/fpg_gray"
+                        android:textSize="@dimen/setting_title" />
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Caption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/setting_head_text_size"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:text="@string/birthday"
+                        android:textColor="@color/fpg_orange"
+                        android:textSize="@dimen/setting_title" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/fineGray"
+                        android:layout_marginVertical="10dp">
+                    </View>
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Caption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:text="Date of Birth"
+                        android:textColor="?android:textColorHint"
+                        android:textSize="@dimen/textview_error_textsize" />
+
+                    <EditText
+                        android:id="@+id/txt_clientBday"
+                        style="@style/TextAppearance.AppCompat.Caption"
+                        android:enabled="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:background="@android:color/transparent"
+                        android:maxLines="1"
+                        android:layout_marginTop="@dimen/vertical_default_padding"
+                        android:text="April 1, 1990"
+                        android:textColor="@color/fpg_gray"
+                        android:textSize="@dimen/setting_title" />
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Caption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/setting_head_text_size"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:text="@string/contact"
+                        android:textColor="@color/fpg_orange"
+                        android:textSize="@dimen/setting_title" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/fineGray"
+                        android:layout_marginVertical="10dp">
+                    </View>
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Caption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:text="@string/mobile"
+                        android:textColor="?android:textColorHint"
+                        android:textSize="@dimen/textview_error_textsize" />
+
+                    <EditText
+                        android:id="@+id/txt_clientMobile"
+                        style="@style/TextAppearance.AppCompat.Caption"
+                        android:enabled="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:maxLines="1"
+                        android:layout_marginTop="@dimen/vertical_default_padding"
+                        android:background="@android:color/transparent"
+                        android:text="09234699235"
+                        android:textColor="@color/fpg_gray"
+                        android:textSize="@dimen/setting_title" />
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Caption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/setting_head_text_size"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:text="Policies"
+                        android:textColor="@color/fpg_orange"
+                        android:textSize="@dimen/setting_title" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/fineGray"
+                        android:layout_marginVertical="10dp">
+                    </View>
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Caption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:text="Motor"
+                        android:textColor="?android:textColorHint"
+                        android:textSize="@dimen/textview_error_textsize" />
+
+<!--`-->
 
 
-            </LinearLayout>
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btn_registerClient"
+                    android:layout_width="@dimen/button_width"
+                    android:layout_height="@dimen/button_height"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginVertical="@dimen/vertical_default_padding"
+                    android:background="@drawable/login_button"
+                    android:text="REGISTER"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/button_textsize" />
+
+            </RelativeLayout>
+
 
         </ScrollView>
 
 
     </LinearLayout>
-
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

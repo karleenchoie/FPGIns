@@ -46,7 +46,6 @@ public class PartnersAdapter extends RecyclerView.Adapter<PartnersAdapter.MyView
         public void onClick(View v) {
 
             PartnersData partnersData = partnersDataList.get(getLayoutPosition());
-
             Intent intent = new Intent(mContext, PartnersPage.class);
             intent.putExtra("url", partnersData.getLink());
             mContext.startActivity(intent);

@@ -11,12 +11,11 @@
         android:paddingVertical="@dimen/vertical_default_padding"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:background="@color/white"
-        android:layout_marginTop="@dimen/vertical_default_padding">
+        android:background="@color/white">
 
         <ImageView
             android:id="@+id/img_hideGraph"
-            android:visibility="visible"
+            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/icon_close"
@@ -42,7 +41,7 @@
             android:layout_centerInParent="true"/>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="140dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_marginRight="@dimen/horizontal_default_padding"
@@ -52,25 +51,25 @@
                 android:id="@+id/txt_total"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TOTAL EARNINGS"
-                android:layout_marginLeft="@dimen/horizontal_default_padding"
+                android:text="TOTAL CLIENTS"
+                android:textAllCaps="true"
+                android:layout_gravity="center"
                 android:textColor="@color/fpg_gray"
                 android:textSize="@dimen/setting_title" />
 
             <TextView
-                android:id="@+id/txt_totalEarning"
+                android:id="@+id/txt_totalClient"
                 android:layout_below="@+id/txt_total"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
-                android:text="₱ 971,000"
-                android:layout_marginLeft="@dimen/horizontal_default_padding"
-                android:paddingLeft="@dimen/horizontal_default_padding"
+                android:text="9"
+                android:layout_gravity="center"
                 android:textColor="@color/fpg_gray"
                 android:textSize="@dimen/setting_title"/>
 
             <View
-                android:layout_below="@id/txt_totalEarning"
+                android:layout_below="@id/txt_totalClient"
                 android:layout_width="100dp"
                 android:layout_height="1dp"
                 android:layout_gravity="center_horizontal"

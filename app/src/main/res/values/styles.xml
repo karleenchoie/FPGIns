@@ -30,7 +30,7 @@
         <item name="android:windowNoTitle">true</item>
     </style>
 
-    <style name="AppSearchView" parent="Widget.AppCompat.SearchView" >
+    <style name="AppSearchView" parent="Widget.AppCompat.SearchView">
         <item name="android:textSize">@dimen/setting_title</item>
     </style>
 
@@ -113,7 +113,7 @@
         <!-- Chip text color selector -->
         <item name="android:textColor">@color/chip_color_effect</item>
         <!-- Chip close icon color selector -->
-<!--        <item name="closeIconTint">@color/mtrl_chip_close_icon_tint</item>-->
+        <!--        <item name="closeIconTint">@color/mtrl_chip_close_icon_tint</item>-->
     </style>
 
 </resources>

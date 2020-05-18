@@ -3,11 +3,13 @@ package com.example.fpgins.Login;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.app.Activity;
-import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.transition.TransitionManager;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
@@ -15,18 +17,32 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.fpgins.BottomNavigation.BottomNavigationActivity;
-import com.example.fpgins.BottomNavigation.ClientDashboard.ClaimsOptionFragment;
 import com.example.fpgins.BottomNavigation.FPGAssist.HelpActivity;
-import com.example.fpgins.BottomSheetDialog.BottomSheetMaterialDialog;
 import com.example.fpgins.BottomSheetDialog.BottomsheetFragment;
 import com.example.fpgins.Login.Session.UserSessionManager;
 import com.example.fpgins.R;
-import com.google.android.material.bottomsheet.BottomSheetBehavior;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
+import com.google.firebase.messaging.FirebaseMessaging;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
 public class SplashScreen extends AppCompatActivity {
 
@@ -63,16 +79,27 @@ public class SplashScreen extends AppCompatActivity {
         }
     };
 
+    private JSONArray jsonArray;
+    private OkHttpClient mClient = new OkHttpClient();
+    private String token;
+
+    private static final String FCM_MESSAGE_URL = "https://fcm.googleapis.com/fcm/send";
+    private static final String FIREBASE_LEGACY_SERVER_KEY = "AAAARgcJM98:APA91bF1HA9vwyqgPQzqbxv9VknlAGq7X6xyL3pnFn5t2FwPtY7q-0dzcaPJ18YiMx63BWX9pTRpsxJeAxxk9LPm2MHDr9b0m-zoR5p1LZXxio5RWJkHIiBEgEHrFar4QltHjk7P5OWf";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
+
+        FirebaseMessaging.getInstance().subscribeToTopic("all");
 
         mSession = UserSessionManager.getInstance(this);
 
         if (mSession.isLoggedIn()){
             goToLandingPage();
         }
+
+        getToken();
 
         tContainer = findViewById(R.id.transition_container);
         tContainer2 = findViewById(R.id.relative_logo);
@@ -181,5 +208,33 @@ public class SplashScreen extends AppCompatActivity {
     public void showBottomSheetDialogFragment() {
         BottomsheetFragment bottomSheetFragment = new BottomsheetFragment();
         bottomSheetFragment.show(getSupportFragmentManager(), bottomSheetFragment.getTag());
+    }
+
+    public void getToken(){
+        // Get token
+        // [START retrieve_current_token]
+        FirebaseInstanceId.getInstance().getInstanceId()
+                .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
+                    @Override
+                    public void onComplete(Task<InstanceIdResult> task) {
+                        if (!task.isSuccessful()) {
+                            Log.w("GET TOKEN", "getInstanceId failed", task.getException());
+                            return;
+                        }
+                        // Get new Instance ID token
+                        token = task.getResult().getToken();
+
+                        SharedPreferences.Editor editor = getSharedPreferences("firebase_token", MODE_PRIVATE).edit();
+                        editor.putString("token", token);
+                        editor.apply();
+
+                        //jsonArray is a String array of registration ids, you want to send this message to.
+                        // Keep in mind that the registration ids must always be in an array, even if you want it to send to a single recipient.
+                        jsonArray = new JSONArray();
+                        jsonArray.put(token);
+                        Log.d("GET TOKEN", token);
+
+                    }
+                });
     }
 }

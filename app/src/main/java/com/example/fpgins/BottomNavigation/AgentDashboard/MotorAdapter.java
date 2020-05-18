@@ -2,12 +2,14 @@ package com.example.fpgins.BottomNavigation.AgentDashboard;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -15,7 +17,14 @@ import com.example.fpgins.BottomNavigation.AgentDashboard.AgentsActivities.Motor
 import com.example.fpgins.DataModel.MotorData;
 import com.example.fpgins.R;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import static android.media.CamcorderProfile.get;
 
 public class MotorAdapter extends RecyclerView.Adapter<MotorAdapter.MotorViewHolder> {
 
@@ -112,14 +121,23 @@ public class MotorAdapter extends RecyclerView.Adapter<MotorAdapter.MotorViewHol
         ArrayList<MotorData> results = new ArrayList<>();
         String[] content = constraint.split(",");
 
+
         String value = content[0];
         String year = content[1];
-        String make = content[2];
+
+        String answer = constraint.substring(constraint.indexOf("["),constraint.indexOf("]"));
+
+        String replace = answer.replaceAll("^\\[|]$", "");
+        String replace1 = replace.replace("]","");
+        List<String> makeList = new ArrayList<String>(Arrays.asList(replace1.split(",")));
 
         for (MotorData item : mCopyList) {
-            if (item.getmPolicyCarYear().contains(year)
-                    && item.getmPolicyCarMake().toLowerCase().contains(make)) {
-                results.add(item);
+            for (int counter = 0; counter < makeList.size(); counter++) {
+                String make = makeList.get(counter);
+                if (item.getmPolicyCarYear().contains(year.trim())
+                        && item.getmPolicyCarMake().toLowerCase().contains(make.trim())) {
+                    results.add(item);
+                }
             }
         }
         return results;

@@ -27,6 +27,7 @@ public class MotorDetailsActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
+
         mPlate = findViewById(R.id.txt_platenum);
         mChassis = findViewById(R.id.txt_chassisnum);
         mMake= findViewById(R.id.txt_carmake);

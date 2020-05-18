@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:id="@+id/relative_clientPolicy"
+    android:layout_marginBottom="@dimen/listing_division">
+
+    <TextView
+        android:id="@+id/txt_clientPolicy"
+        android:enabled="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:maxLines="1"
+        android:hint="No policy number"
+        android:textColor="@color/fpg_gray"
+        android:drawableRight="@drawable/ic_action_right"
+        android:paddingVertical="@dimen/vertical_default_padding"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:paddingHorizontal="@dimen/horizontal_default_padding"
+        android:textSize="@dimen/setting_title" />
+
+</RelativeLayout>

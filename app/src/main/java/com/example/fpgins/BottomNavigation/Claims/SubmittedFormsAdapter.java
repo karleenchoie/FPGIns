@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -16,6 +17,7 @@ import androidx.cardview.widget.CardView;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.fpgins.BottomNavigation.Claims.TabLayout.TabularActivity;
 import com.example.fpgins.DataModel.MotorsDraft;
 import com.example.fpgins.DataModel.SubmittedFormsData;
@@ -37,25 +39,26 @@ public class SubmittedFormsAdapter extends RecyclerView.Adapter<SubmittedFormsAd
 
         public View statusColor;
         public TextView month;
-        public TextView day;
+        public TextView date;
         public TextView year;
         public TextView claimNo;
         public TextView policyNo;
         public ImageButton statusImage;
         public TextView statusText;
-        public RelativeLayout relativeLayout;
+        public LinearLayout linearLayout;
 
         public ViewHolder(View view){
             super(view);
-            statusColor = view.findViewById(R.id.colorStatus);
-            month = view.findViewById(R.id.month);
-            day = view.findViewById(R.id.day);
-            year = view.findViewById(R.id.year);
-            claimNo = view.findViewById(R.id.tvClaimNo);
-            policyNo = view.findViewById(R.id.tvPolicyNo);
-            statusImage = view.findViewById(R.id.iconStatus);
-            relativeLayout = view.findViewById(R.id.relativeParent);
-            relativeLayout.setOnClickListener(this);
+//            statusColor = view.findViewById(R.id.colorStatus);
+//            month = view.findViewById(R.id.month);
+//            day = view.findViewById(R.id.day);
+//            year = view.findViewById(R.id.year);
+            claimNo = view.findViewById(R.id.tvTitle);
+            policyNo = view.findViewById(R.id.tvDesc);
+            date = view.findViewById(R.id.tvDate);
+//            statusImage = view.findViewById(R.id.iconStatus);
+            linearLayout = view.findViewById(R.id.clickLayout);
+            linearLayout.setOnClickListener(this);
         }
 
         @Override
@@ -76,7 +79,7 @@ public class SubmittedFormsAdapter extends RecyclerView.Adapter<SubmittedFormsAd
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_submitted_forms, parent, false);
+                .inflate(R.layout.submitted_forms_list, parent, false);
         return new ViewHolder(itemView);
     }
 
@@ -93,17 +96,20 @@ public class SubmittedFormsAdapter extends RecyclerView.Adapter<SubmittedFormsAd
             e.printStackTrace();
         }
 
-        String day = (String) android.text.format.DateFormat.format("dd", date);
-        String month = (String) android.text.format.DateFormat.format("MMM", date);
-        String year = (String) android.text.format.DateFormat.format("yyyy", date);
+//        String day = (String) android.text.format.DateFormat.format("dd", date);
+//        String month = (String) android.text.format.DateFormat.format("MMM", date);
+//        String year = (String) android.text.format.DateFormat.format("yyyy", date);
+//
+//        holder.month.setText(month);
+//        holder.day.setText(day);
+//        holder.year.setText(year);
 
-        holder.month.setText(month);
-        holder.day.setText(day);
-        holder.year.setText(year);
+        SimpleDateFormat output = new SimpleDateFormat("MMMM dd, yyyy");
+        String y = output.format(date);
 
         holder.claimNo.setText(submittedFormsData.getClaim());
         holder.policyNo.setText(submittedFormsData.getPolicy());
-
+        holder.date.setText(y);
     }
 
 
