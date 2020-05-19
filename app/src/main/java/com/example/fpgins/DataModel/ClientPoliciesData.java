@@ -1,5 +1,6 @@
 package com.example.fpgins.DataModel;
 
+
 import java.util.ArrayList;
 
 public class ClientPoliciesData {
@@ -11,13 +12,11 @@ public class ClientPoliciesData {
     private String mAssuredID;
     private String mAssuredName;
     private String mIntermediaryID;
-    private ArrayList<VehicleDetailsData> mVehicleDetail;
+//    private ArrayList<VehicleDetailsData> mVehicleDetail;
 
-    public ClientPoliciesData(String mPolicyNumber, String mCertificateNo,
-                              String mInceptionDate, String mExpiryDate, String mAssuredID,
-                              String mAssuredName, String mIntermediaryID,
-                              ArrayList<VehicleDetailsData> mVehicleDetail) {
 
+    public ClientPoliciesData(String mPolicyNumber, String mCertificateNo, String mInceptionDate, String mExpiryDate, String mAssuredID,
+                              String mAssuredName, String mIntermediaryID) {
         this.mPolicyNumber = mPolicyNumber;
         this.mCertificateNo = mCertificateNo;
         this.mInceptionDate = mInceptionDate;
@@ -25,7 +24,7 @@ public class ClientPoliciesData {
         this.mAssuredID = mAssuredID;
         this.mAssuredName = mAssuredName;
         this.mIntermediaryID = mIntermediaryID;
-        this.mVehicleDetail = mVehicleDetail;
+//        this.mVehicleDetail = mVehicleDetail;
     }
 
     public String getmPolicyNumber() {
@@ -84,11 +83,11 @@ public class ClientPoliciesData {
         this.mIntermediaryID = mIntermediaryID;
     }
 
-    public ArrayList<VehicleDetailsData> getmVehicleDetail() {
-        return mVehicleDetail;
-    }
-
-    public void setmVehicleDetail(ArrayList<VehicleDetailsData> mVehicleDetail) {
-        this.mVehicleDetail = mVehicleDetail;
-    }
+//    public ArrayList<VehicleDetailsData> getmVehicleDetail() {
+//        return mVehicleDetail;
+//    }
+//
+//    public void setmVehicleDetail(ArrayList<VehicleDetailsData> mVehicleDetail) {
+//        this.mVehicleDetail = mVehicleDetail;
+//    }
 }

@@ -1346,6 +1346,44 @@ public class Cloud {
         return new JSONObject(response.body().string());
     }
 
+    //====================================== GET ALL CLIENTS ===========================================//
+
+    public static void getAllClients(final String agent_code, final ResultListener listener){
+        new AsyncTask<String, String, JSONObject>() {
+            @Override
+            protected JSONObject doInBackground(String... strings) {
+                try {
+                    JSONObject jsonObject = getAllClients(agent_code);
+                    return jsonObject;
+
+                } catch (Exception e){
+                    return resultException(e);
+                }
+            }
+
+            @Override
+            protected void onPostExecute(JSONObject jsonObject) {
+                listener.onResult(jsonObject);
+            }
+        }.execute();
+    }
+
+    private static JSONObject getAllClients(String agent_code) throws IOException, JSONException {
+        String url = HttpUrl.parse(DOMAIN_NAME_CARE + "/policy/get-client").newBuilder()
+                .addQueryParameter("agent_code", agent_code)
+                .build().toString();
+
+        OkHttpClient client = defaultHttpClient();
+
+        Request request = new Request.Builder()
+                .url(url)
+                .build();
+
+        Response response = client.newCall(request).execute();
+
+        return new JSONObject(response.body().string());
+    }
+
     //====================================== POLICY: AGENT ===========================================//
 
     public static void agentPolicy(final String agentCode, final ResultListener listener){

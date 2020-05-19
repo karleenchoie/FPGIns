@@ -73,6 +73,7 @@
     <string name="notification">Notification</string>
     <string name="share">Share</string>
     <string name="primary_email">Primary Email</string>
+    <string name="assured_id">Assured ID</string>
     <string name="policy_list">Policy List</string>
     <string name="mobile">Mobile</string>
     <string name="home_number">Home Number</string>
@@ -113,11 +114,13 @@
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
     <string name="full_name">Full Name</string>
+    <string name="client_name">Client Name</string>
     <string name="birthday">Birthday</string>
     <string name="year">Year</string>
     <string name="month">Month</string>
     <string name="day">Day</string>
     <string name="email">Email</string>
+    <string name="client_id">Client ID</string>
     <string name="contact">Contact Number</string>
     <string name="password_hint">Password</string>
     <string name="retype_password">Re-type Password</string>

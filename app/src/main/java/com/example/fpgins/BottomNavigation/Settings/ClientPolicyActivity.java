@@ -35,7 +35,7 @@ public class ClientPolicyActivity extends AppCompatActivity {
 
     private ImageView mBackButton;
     private ArrayList<ClientPoliciesData> mPolicyList =  new ArrayList<>();
-    private ArrayList<VehicleDetailsData> mVehicleList =  new ArrayList<>();
+    private ArrayList<VehicleDetailsData> mVehicleList;
     private RecyclerView mRecyclerView;
     private ClientPolicyAdapter mAdapter;
     private TextView mAgentFullName, mAgentEmail, mAgentContactNo;
@@ -44,6 +44,10 @@ public class ClientPolicyActivity extends AppCompatActivity {
 
     private UserData mUserData;
     private String accountCode = "";
+
+    public ClientPolicyActivity(){
+        mVehicleList =  new ArrayList<>();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +70,7 @@ public class ClientPolicyActivity extends AppCompatActivity {
         mAgentContactNo = findViewById(R.id.txt_agentNumber);
 
         mRecyclerView = findViewById(R.id.rv_clientPolicyList);
-        mAdapter = new ClientPolicyAdapter(mPolicyList, ClientPolicyActivity.this);
+        mAdapter = new ClientPolicyAdapter(mPolicyList,mVehicleList, ClientPolicyActivity.this);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 //        mRecyclerView.setAdapter(mAdapter);
@@ -224,8 +228,8 @@ public class ClientPolicyActivity extends AppCompatActivity {
         try {
             for (int i = 0; i < jsonArray.length(); i++){
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
+
                 JSONArray policy = jsonObject.getJSONArray("policy");
-                JSONArray vehicle = jsonObject.getJSONArray("vehicle");
 
                 for (int p = 0; p < policy.length(); p++){
                     JSONObject ho = policy.getJSONObject(p);
@@ -245,32 +249,32 @@ public class ClientPolicyActivity extends AppCompatActivity {
                     String newdateInception = output.format(dateInception);
                     String newdateExpiry = output.format(dateExpiry);
 
-                    for (int y = 0; y < vehicle.length(); y++){
-                        JSONObject ve = vehicle.getJSONObject(y);
-                        String make = ve.getString("make");
-                        String model = ve.getString("model");
-                        String variance = ve.getString("variance");
-                        String type_body = ve.getString("type_body");
-                        String year_manufactured = ve.getString("year_manufactured");
-                        String plate_no = ve.getString("plate_no");
-                        String conduction_sticker = ve.getString("conduction_sticker");
-                        String mv_file_no = ve.getString("mv_file_no");
-                        String engine_no = ve.getString("engine_no");
-                        String chassis_no = ve.getString("chassis_no");
-                        String color = ve.getString("color");
-                        String no_passenger = ve.getString("no_passenger");
-                        String accessories = ve.getString("accessories");
-
-                        VehicleDetailsData vehicleDetailsData = new VehicleDetailsData(make, model, variance, type_body,
-                                year_manufactured, plate_no, conduction_sticker, mv_file_no, engine_no, chassis_no, color, no_passenger, accessories);
-                        mVehicleList.add(vehicleDetailsData);
-                    }
-
                     ClientPoliciesData clientPoliciesData = new ClientPoliciesData(policyNo, certificate_no,newdateInception, newdateExpiry,
-                            assured_id, assured_name, intermediary_id, mVehicleList);
-
+                            assured_id, assured_name, intermediary_id);
                     mPolicyList.add(clientPoliciesData);
+                }
 
+                JSONArray vehicle = jsonObject.getJSONArray("vehicle");
+
+                for (int y = 0; y < vehicle.length(); y++){
+                    JSONObject ve = vehicle.getJSONObject(y);
+                    String make = ve.getString("make");
+                    String model = ve.getString("model");
+                    String variance = ve.getString("variance");
+                    String type_body = ve.getString("type_body");
+                    String year_manufactured = ve.getString("year_manufactured");
+                    String plate_no = ve.getString("plate_no");
+                    String conduction_sticker = ve.getString("conduction_sticker");
+                    String mv_file_no = ve.getString("mv_file_no");
+                    String engine_no = ve.getString("engine_no");
+                    String chassis_no = ve.getString("chassis_no");
+                    String color = ve.getString("color");
+                    String no_passenger = ve.getString("no_passenger");
+                    String accessories = ve.getString("accessories");
+
+                    VehicleDetailsData vehicleDetailsData = new VehicleDetailsData(make, model, variance, type_body,
+                            year_manufactured, plate_no, conduction_sticker, mv_file_no, engine_no, chassis_no, color, no_passenger, accessories);
+                    mVehicleList.add(vehicleDetailsData);
                 }
 
             }
@@ -280,7 +284,6 @@ public class ClientPolicyActivity extends AppCompatActivity {
         }
         mDialog.dismiss();
     }
-
     private Dialog createLoadingDialog() {
         Dialog dialog = new Dialog(ClientPolicyActivity.this, android.R.style.Theme_Black);
         View view = LayoutInflater.from(ClientPolicyActivity.this).inflate(R.layout.progress_bar, null);
@@ -288,5 +291,9 @@ public class ClientPolicyActivity extends AppCompatActivity {
         dialog.getWindow().setBackgroundDrawableResource(R.color.transparent);
         dialog.setContentView(view);
         return dialog;
+    }
+
+    public List<VehicleDetailsData> getList() {
+        return mVehicleList;
     }
 }

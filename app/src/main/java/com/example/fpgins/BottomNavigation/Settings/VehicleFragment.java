@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.fpgins.DataModel.VehicleDetailsData;
 import com.example.fpgins.R;
@@ -28,6 +30,8 @@ public class VehicleFragment extends Fragment {
     private ArrayList<VehicleDetailsData> vehicleDetailsData;
     private TextView mMake,mPlateNum,mConductionSticker, mYear, mModel,
             mColor, mVariance, mTypeBody, mMVFileNo, mEngineNo, mChassisNo, mNoPassenger, mAccessories;
+
+    private ClientPolicyActivity clientPolicyActivity;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -48,10 +52,12 @@ public class VehicleFragment extends Fragment {
         mColor = root.findViewById(R.id.txt_detail_color);
         mNoPassenger = root.findViewById(R.id.txt_detail_passenger);
         mAccessories = root.findViewById(R.id.txt_detail_accessories);
-
         mSpinner = root.findViewById(R.id.spinnerCarList);
+
         createExampleList();
         vehicleList();
+
+        test();
 
         return root;
     }
@@ -68,6 +74,7 @@ public class VehicleFragment extends Fragment {
 
         dataAdapter.setDropDownViewResource(R.layout.spinner_dropdown_layout);
         mSpinner.setAdapter(dataAdapter);
+
         mSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -95,4 +102,10 @@ public class VehicleFragment extends Fragment {
         vehicleDetailsData.add(new VehicleDetailsData("MITSUBISHI", "Aluminum Van","", "", "", "d","","","","ML 0209","2017", "Camry", "Brownstone"));
     }
 
+    public void test() {
+        clientPolicyActivity = new ClientPolicyActivity();
+        List<VehicleDetailsData> list = clientPolicyActivity.getList();
+        String size = String.valueOf(list.size());
+        Log.i("SIZZZEEEE", size);
+    }
 }

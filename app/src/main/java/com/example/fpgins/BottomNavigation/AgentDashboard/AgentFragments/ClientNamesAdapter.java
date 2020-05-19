@@ -40,7 +40,11 @@ public class ClientNamesAdapter extends RecyclerView.Adapter<ClientNamesAdapter.
 
         @Override
         public void onClick(View v) {
+            ClientNameData clientNameData = mClientList.get(getLayoutPosition());
             Intent intent = new Intent(mContext, ClientNameDetails.class);
+            intent.putExtra("adclientname", clientNameData.getName());
+            intent.putExtra("adclientid", clientNameData.getId());
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             mContext.startActivity(intent);
 
         }
@@ -63,9 +67,8 @@ public class ClientNamesAdapter extends RecyclerView.Adapter<ClientNamesAdapter.
     public void onBindViewHolder(ClientNameViewHolder holder, int position) {
         ClientNameData currentItem = mClientList.get(position);
 
-        holder.mTextView1.setText(currentItem.getClientName());
-        holder.mTextView2.setText(currentItem.getClientAddress());
-        holder.mTextView4.setText(currentItem.getClientPolicy());
+        holder.mTextView1.setText(currentItem.getName());
+        holder.mTextView2.setText(currentItem.getId());
     }
 
     @Override

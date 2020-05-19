@@ -2,6 +2,7 @@ package com.example.fpgins.BottomNavigation.Settings;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fpgins.DataModel.ClientPoliciesData;
+import com.example.fpgins.DataModel.VehicleDetailsData;
 import com.example.fpgins.R;
 
 import java.text.SimpleDateFormat;
@@ -22,6 +24,10 @@ import java.util.List;
 public class ClientPolicyAdapter extends RecyclerView.Adapter<ClientPolicyAdapter.MyViewHolder> {
 
     private List<ClientPoliciesData> clientPoliciesDataList;
+    private List<VehicleDetailsData> vehicleDetailsDataList;
+
+    private ArrayList<String> make;
+
     private Context mContext;
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -39,6 +45,8 @@ public class ClientPolicyAdapter extends RecyclerView.Adapter<ClientPolicyAdapte
         @Override
         public void onClick(View v) {
             ClientPoliciesData clientPoliciesData = clientPoliciesDataList.get(getLayoutPosition());
+            VehicleDetailsData vehicleDetailsData = vehicleDetailsDataList.get(getLayoutPosition());
+
             Intent intent = new Intent(mContext, ClientPoliciesDetailsActivity.class);
             intent.putExtra("clientpolicynum", clientPoliciesData.getmPolicyNumber());
             intent.putExtra("clientcertificatenum", clientPoliciesData.getmCertificateNo());
@@ -47,14 +55,30 @@ public class ClientPolicyAdapter extends RecyclerView.Adapter<ClientPolicyAdapte
             intent.putExtra("clientassuredid", clientPoliciesData.getmAssuredID());
             intent.putExtra("clientassuredname", clientPoliciesData.getmAssuredName());
             intent.putExtra("clientintermediaryid", clientPoliciesData.getmIntermediaryID());
+
+//            intent.putExtra("clientvehiclemake", vehicleDetailsData.getmMake());
+//            intent.putExtra("clientvehiclemodel", vehicleDetailsData.getmModel());
+//            intent.putExtra("clientvehiclevariance", vehicleDetailsData.getmVariant());
+//            intent.putExtra("clientvehicletype", vehicleDetailsData.getmTypeBody());
+//            intent.putExtra("clientvehicleyear", vehicleDetailsData.getmYearManufactured());
+//            intent.putExtra("clientvehicleplate", vehicleDetailsData.getmPlateNumber());
+//            intent.putExtra("clientvehicleconduction", vehicleDetailsData.getmConductionSticker());
+//            intent.putExtra("clientvehiclemv", vehicleDetailsData.getmMvFileNo());
+//            intent.putExtra("clientvehicleengine", vehicleDetailsData.getmEngineNo());
+//            intent.putExtra("clientvehiclechassis", vehicleDetailsData.getmChassisNo());
+//            intent.putExtra("clientvehiclecolor", vehicleDetailsData.getmColor());
+//            intent.putExtra("clientvehiclepassenger", vehicleDetailsData.getmPassengerNo());
+//            intent.putExtra("clientvehicleaccesories", vehicleDetailsData.getmAccessories());
+
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             mContext.startActivity(intent);
         }
     }
 
 
-    public ClientPolicyAdapter(ArrayList<ClientPoliciesData> clientPoliciesDataList, Context contex) {
+    public ClientPolicyAdapter(ArrayList<ClientPoliciesData> clientPoliciesDataList, ArrayList<VehicleDetailsData> vehicleDetailsDataList, Context contex) {
         this.clientPoliciesDataList = clientPoliciesDataList;
+        this.vehicleDetailsDataList = vehicleDetailsDataList;
         this.mContext = contex;
     }
 

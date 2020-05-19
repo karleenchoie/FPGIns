@@ -9,14 +9,21 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.fpgins.DataModel.ClientNameData;
+import com.example.fpgins.Network.Cloud;
 import com.example.fpgins.R;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -26,7 +33,7 @@ import java.util.ArrayList;
 public class ClientListFragment extends Fragment {
 
     private ImageView mBackButton;
-    private ArrayList<ClientNameData> mClientNameData;
+    private ArrayList<ClientNameData> mClientNameData = new ArrayList<>();
     private RecyclerView mRecyclerView;
     private ClientNamesAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -38,14 +45,17 @@ public class ClientListFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_client_list, container, false);
 
-        createExampleList();
+//        createExampleList();
+
+
         mRecyclerView = view.findViewById(R.id.recyclerView);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(view.getContext());
         mAdapter = new ClientNamesAdapter(mClientNameData,getContext());
 
         mRecyclerView.setLayoutManager(mLayoutManager);
-        mRecyclerView.setAdapter(mAdapter);
+
+        getClientList("D01CT00001");
 
         EditText editText = view.findViewById(R.id.edittext);
         editText.addTextChangedListener(new TextWatcher() {
@@ -74,26 +84,66 @@ public class ClientListFragment extends Fragment {
         ArrayList<ClientNameData> filteredList = new ArrayList<>();
 
         for (ClientNameData item : mClientNameData) {
-            if (item.getClientName().toLowerCase().contains(text.toLowerCase())
-                    ||item.getClientAddress().toLowerCase().contains(text.toLowerCase())
-                    ||item.getClientPolicy().toLowerCase().contains(text.toLowerCase())) {
+            if (item.getId().toLowerCase().contains(text.toLowerCase())
+                    ||item.getName().toLowerCase().contains(text.toLowerCase())) {
                 filteredList.add(item);
             }
         }
         mAdapter.filterList(filteredList);
     }
 
-    private void createExampleList() {
-        mClientNameData = new ArrayList<>();
-        mClientNameData.add(new ClientNameData("Karleen Choie Galicia", "CLT0850007000031", "ACTIVE"));
-        mClientNameData.add(new ClientNameData("Maximo Sevidal", "CLT0940006000022", "ACTIVE"));
-        mClientNameData.add(new ClientNameData("Jeffrey Dimla", "CLT0850007900039",  "PENDING"));
-        mClientNameData.add(new ClientNameData("Hector Thomas Javier", "CLT0130007000075",  "ACTIVE"));
-        mClientNameData.add(new ClientNameData("Matthew Dominic Estive", "CLT0930217000090" , "PENDING"));
-        mClientNameData.add(new ClientNameData("Ivan Eubans", "CLT0930217008990" , "ACTIVE"));
-        mClientNameData.add(new ClientNameData("Christian Grande", "CLT0850007900659", "PENDING"));
-        mClientNameData.add(new ClientNameData("Aldrene Victor Atienza", "CLT0850007907030", "ACTIVE"));
-        mClientNameData.add(new ClientNameData("Gabrielle Mohan", "CLT0850007000041", "ACTIVE"));
+    private void getClientList(String agentCode){
+        Cloud.getAllClients(agentCode, new Cloud.ResultListener() {
+            @Override
+            public void onResult(JSONObject result) {
+                int returnCode;
+                JSONObject jsonObject = new JSONObject();
+                try {
+                    jsonObject = result;
+                    returnCode = Integer.parseInt(jsonObject.get("code").toString());
+                }catch (JSONException e){
+                    returnCode = Cloud.DefaultReturnCode.INTERNAL_SERVER_ERROR;
+                    e.printStackTrace();
+                }
+
+                if (returnCode != Cloud.DefaultReturnCode.SUCCESS){
+                    //FAIL
+                    try {
+//                        mDialog.dismiss();
+                        String message = jsonObject.getString("message");
+                        Log.d("Server Error Message: ", message);
+                        Toast.makeText(getContext(), message, Toast.LENGTH_LONG).show();
+                    }catch (JSONException e){
+                        e.printStackTrace();
+                    }
+                }else {
+                    //SUCCESS
+                    try {
+                        JSONArray jsonArray = jsonObject.getJSONArray("record");
+                        generateResult(jsonArray);
+                        mRecyclerView.setAdapter(mAdapter);
+
+                    } catch (Exception e) {
+                        e.getMessage();
+                    }
+                }
+            }
+        });
+    }
+
+    private void generateResult(JSONArray jsonArray){
+        try {
+            for (int i = 0; i < jsonArray.length(); i++){
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                String id = jsonObject.getString("assured_id");
+                String name = jsonObject.getString("assured_name");
+
+                ClientNameData clientNameData = new ClientNameData(id,name);
+                mClientNameData.add(clientNameData);
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
 }

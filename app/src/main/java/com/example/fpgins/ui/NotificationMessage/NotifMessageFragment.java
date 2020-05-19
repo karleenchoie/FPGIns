@@ -44,7 +44,7 @@ public class NotifMessageFragment extends AppCompatActivity {
     private NotifMessageAdapter mAdapter;
     private ImageView mBackButton;
     private UserData mUserData;
-    ArrayList<String> mPictures = new ArrayList<String>();
+    private ArrayList<String> mPictures = new ArrayList<String>();
     private Dialog mDialog;
 
     @Override

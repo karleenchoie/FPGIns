@@ -44,7 +44,6 @@ public class PolicyFragment extends Fragment {
             mSTNCDate.setText(bundle.getString("clientinceptiondate"));
             mEffectiveDate.setText(bundle.getString("clientinceptiondate"));
         }
-
         return root;
     }
 

@@ -2,35 +2,26 @@ package com.example.fpgins.DataModel;
 
 public class ClientNameData {
 
-    private String clientName, clientAddress, clientPolicy;
+    private String id, name;
 
-    public ClientNameData(String clientName, String clientAddress, String clientPolicy) {
-        this.clientName = clientName;
-        this.clientAddress = clientAddress;
-        this.clientPolicy = clientPolicy;
+    public ClientNameData(String id, String name) {
+        this.id = id;
+        this.name = name;
     }
 
-    public String getClientName() {
-        return clientName;
+    public String getId() {
+        return id;
     }
 
-    public void setClientName(String clientName) {
-        this.clientName = clientName;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public String getClientAddress() {
-        return clientAddress;
+    public String getName() {
+        return name;
     }
 
-    public void setClientAddress(String clientAddress) {
-        this.clientAddress = clientAddress;
-    }
-
-    public String getClientPolicy() {
-        return clientPolicy;
-    }
-
-    public void setClientPolicy(String clientPolicy) {
-        this.clientPolicy = clientPolicy;
+    public void setName(String name) {
+        this.name = name;
     }
 }

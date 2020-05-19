@@ -24,7 +24,7 @@ public class ClientNameDetails extends AppCompatActivity {
 
     private ImageView mBackButton;
     private RecyclerView mRecyclerView;
-    private EditText mPrimaryEmail, mFirstName, mLastName, mBirthday, mContact1;
+    private EditText mID, mFirstName, mLastName, mBirthday, mContact1;
     private Button mRegister;
 
 
@@ -41,12 +41,19 @@ public class ClientNameDetails extends AppCompatActivity {
             }
         });
 
-        mPrimaryEmail = findViewById(R.id.txt_clientEmail);
+        mID = findViewById(R.id.txt_clientId);
         mFirstName = findViewById(R.id.txt_clientFirstName);
-        mLastName = findViewById(R.id.txt_clientLastName);
         mBirthday = findViewById(R.id.txt_clientBday);
         mContact1 = findViewById(R.id.txt_clientMobile);
         mRegister = findViewById(R.id.btn_registerClient);
+
+
+        Bundle bundle = getIntent().getExtras();
+        if (bundle != null){
+            mFirstName.setText(bundle.getString("adclientname"));
+            mID.setText(bundle.getString("adclientid"));
+        }
+
 
         mRegister.setOnClickListener(new View.OnClickListener() {
             @Override

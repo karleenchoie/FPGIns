@@ -70,7 +70,7 @@
                         android:layout_marginTop="@dimen/vertical_default_padding"
                         android:gravity="center"
                         android:maxLines="1"
-                        android:text="@string/email"
+                        android:text="@string/client_id"
                         android:textColor="@color/fpg_orange"
                         android:textSize="@dimen/setting_title" />
 
@@ -87,12 +87,12 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:maxLines="1"
-                        android:text="@string/primary_email"
+                        android:text="@string/assured_id"
                         android:textColor="?android:textColorHint"
                         android:textSize="@dimen/textview_error_textsize" />
 
                     <EditText
-                        android:id="@+id/txt_clientEmail"
+                        android:id="@+id/txt_clientId"
                         android:enabled="true"
                         style="@style/TextAppearance.AppCompat.Caption"
                         android:layout_width="match_parent"
@@ -113,7 +113,7 @@
                         android:layout_marginTop="@dimen/setting_head_text_size"
                         android:gravity="center"
                         android:maxLines="1"
-                        android:text="@string/full_name"
+                        android:text="@string/client_name"
                         android:textColor="@color/fpg_orange"
                         android:textSize="@dimen/setting_title" />
 
@@ -130,7 +130,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:maxLines="1"
-                        android:text="@string/first_name"
+                        android:text="Assured Name"
                         android:textColor="?android:textColorHint"
                         android:textSize="@dimen/textview_error_textsize" />
 
@@ -144,32 +144,7 @@
                         android:background="@android:color/transparent"
                         android:maxLines="1"
                         android:layout_marginTop="@dimen/vertical_default_padding"
-                        android:text="Juan Miguel"
-                        android:textColor="@color/fpg_gray"
-                        android:textSize="@dimen/setting_title" />
-
-                    <TextView
-                        style="@style/TextAppearance.AppCompat.Caption"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:maxLines="1"
-                        android:text="@string/last_name"
-                        android:textColor="?android:textColorHint"
-                        android:layout_marginTop="@dimen/vertical_default_padding"
-                        android:textSize="@dimen/textview_error_textsize" />
-
-                    <EditText
-                        android:id="@+id/txt_clientLastName"
-                        style="@style/TextAppearance.AppCompat.Caption"
-                        android:enabled="true"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/vertical_default_padding"
-                        android:gravity="left"
-                        android:maxLines="1"
-                        android:background="@android:color/transparent"
-                        android:text="Dela Cruz"
+                        android:hint="Juan Miguel"
                         android:textColor="@color/fpg_gray"
                         android:textSize="@dimen/setting_title" />
 
@@ -211,7 +186,6 @@
                         android:background="@android:color/transparent"
                         android:maxLines="1"
                         android:layout_marginTop="@dimen/vertical_default_padding"
-                        android:text="April 1, 1990"
                         android:textColor="@color/fpg_gray"
                         android:textSize="@dimen/setting_title" />
 
@@ -253,7 +227,6 @@
                         android:maxLines="1"
                         android:layout_marginTop="@dimen/vertical_default_padding"
                         android:background="@android:color/transparent"
-                        android:text="09234699235"
                         android:textColor="@color/fpg_gray"
                         android:textSize="@dimen/setting_title" />
 
